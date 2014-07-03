@@ -1,0 +1,754 @@
+
+﻿<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>RAMP Module Overview</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/environment-canada/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                
+<script src="../scripts/toc.js"> </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.toc').toc({
+        title: 'Table of Content',
+        listType: 'ul',
+        selector: 'h2, h3, h4, h5, h6, .include_toc'
+    });
+});
+</script>
+
+<p><a name="top"></a></p>
+
+<h1 id="wb-cont">RAMP Module Overview</h1>
+
+<div class="toc"></div>
+
+<h2 id="basemapselector">ramp/basemapSelector</h2>
+
+<p>Manages the widget that allows the user to change the basemap. Utilizes the <a href="https://developers.arcgis.com/javascript/jsapi/basemap-amd.html">esri.dijit.Basemap</a> dijit.  Populates the widget with basemaps from the config.  All basemaps must be in the same projection.</p>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/select_basemap.svg">
+        <img src="../assets/images/select_basemap.svg" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/BaseMapSelector.html">BaseMapSelector</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#basemaps">basemaps</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template Summary</strong></td>
+      <td><a href="template-summary-en.html#basemap_selector">Basemap Selector</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="bookmarklink">ramp/bookmarkLink</h2>
+
+<p>Manages the widget that allows the maps current state to be displayed as a URL.  Listens for specific site events and updates the link as they occur.  Allows emailing of link, url shortning of link.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/BookmarkLink.html">BookmarkLink</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#lang_field">lang</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="datagrid">ramp/datagrid</h2>
+
+<p>The module handles the construction and population of the data grid.</p>
+
+<p>The table structure is generated from config values.  Autopagination is provided via the <a href="link to extensions page">datatables</a> library.</p>
+
+<p>Population of grid rows consists of determining visible features, generating column data (this includes applying templates), and filling the grid with the result set.</p>
+
+<p>Logic to toggle between grid states – expand when Bill / Jack / Alex are finished</p>
+
+<p>Sorting – expand when Aly has enhanced it</p>
+
+<p>Finding a feature in the grid – expand when Aly has enhanced it</p>
+
+<p>The grid contains buttons to obtain details and zoom to row items.  This is done via the dataGridClickHandler module (see below).  In future releases, we plan to have this extensible to allow easy overriding of the controls.</p>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/filter_data_sequence.svg">
+        <img src="../assets/images/filter_data_sequence.svg" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/Datagrid.html">Datagrid</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#datagrid">datagrid</a> <br /> <a href="json-config-en.html#featurelayers_datagrid">featureLayers[].datagrid</a> <br /> <a href="json-config-en.html#gridstrings">gridstrings</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template Summary</strong></td>
+      <td><a href="template-summary-en.html#datagrid_summary_mode">Datagrid Summary Mode</a> <br /> <a href="template-summary-en.html#datagrid_expanded_mode">Datagrid Expanded Mode</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="datagridclickhandler">ramp/datagridClickHandler</h2>
+
+<p>The module contains the handler functions that react to buttons in the datagrid being clicked.  Primarily this covers implementation of the Details and Zoom To buttons.  In future releases we intend to have these functions easily extendable.</p>
+
+<p>The zoom function consists of the map zooming to the feature in question, where it will be highlighted and an anchor tip will be displayed.</p>
+
+<p>The view detail function involves generating a custom detail report (from a template) and displaying it in a slide-out panel.</p>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/zoom_to_feature.svg">
+        <img src="../assets/images/zoom_to_feature.svg" style="max-width:80%" />
+    </a>
+</section>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/view_feature_details.svg">
+        <img src="../assets/images/view_feature_details.svg" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/DatagridClickHandler.html">DatagridClickHandler</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="eventmanager">ramp/eventManager</h2>
+
+<p>The module defines event names as constants to avoid typing errors.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/EventManager.html">EventManager</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="featureclickhandler">ramp/featureClickHandler</h2>
+
+<p>The module contains the handler functions that react to the mouse interacting with features on the map.</p>
+
+<p>This primarily consists of clicking a feature, and hovering over a feature.  For the most part, this class publishes appropriate events; the event listeners in other classes implement the reaction to the interactions.</p>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/click_a_feature.svg">
+        <img src="../assets/images/click_a_feature.svg" style="max-width:80%" />
+    </a>
+</section>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/hover_over_feature.svg">
+        <img src="../assets/images/hover_over_feature.svg" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/FeatureClickHandler.html">FeatureClickHandler</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="featurehighlighter">ramp/featureHighlighter</h2>
+
+<p>The module implements the highlighting of features on the map during hover and selection actions.</p>
+
+<p>There are three types of highlighting: Click highlighting, Zoom highlighting, and Hover highlighting.  All are acomplished by fading out the map and duplicating the feature in question in a highliting layer, shown at regular brightness above the faded items.</p>
+
+<p>The module also generates the graphic layers used to manage the highlight imagery</p>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/click_a_feature.svg">
+        <img src="../assets/images/click_a_feature.svg" alt="Click a Feature" style="max-width:80%" />
+    </a>
+</section>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/hover_over_feature.svg">
+        <img src="../assets/images/hover_over_feature.svg" alt="Hover Over a Feature" style="max-width:80%" />
+    </a>
+</section>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/zoom_to_feature.svg">
+        <img src="../assets/images/zoom_to_feature.svg" alt="Zoom to a Feature" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/FeatureHighlighter.html">FeatureHighlighter</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="filtermanager">ramp/filterManager</h2>
+
+<p>The module implements the generation of the filter control, and implements the filtering.</p>
+
+<p>There is only layer-level filtering in the Arctic Fox version of RAMP. I.e. a layer can be on or off.  Future versions plan to include more granular filtering, such as by-attribute filters.</p>
+
+<p>The following actions are performed by the module</p>
+
+<ul>
+  <li>Generate the filter interface (including using templates)</li>
+  <li>Handle the toggling of layers</li>
+  <li>Handle the toggling of bounding boxes for layers</li>
+  <li>Changing the draw order of layers on the map</li>
+</ul>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/toggle_bounding_box.svg">
+        <img src="../assets/images/toggle_bounding_box.svg" alt="Toggle A Bounding Box" style="max-width:80%" />
+    </a>
+</section>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/filter_data_sequence.svg">
+        <img src="../assets/images/filter_data_sequence.svg" alt="Filter Data Sequence" style="max-width:80%" />
+    </a>
+</section>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/reorder_a_layer.svg">
+        <img src="../assets/images/reorder_a_layer.svg" alt="Change Map Drawing Order" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/FilterManager.html">FilterManager</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#featurelayers_id">featureLayers[].id</a> <br /> <a href="json-config-en.html#featurelayers_displayname">featureLayers[].displayName</a> <br /> <a href="json-config-en.html#featurelayers_symbology">featureLayers[].symbology</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template Summary</strong></td>
+      <td><a href="template-summary-en.html#filter_global_row">Filter Global Row</a> <br /> <a href="template-summary-en.html#filter_row">Filter Row</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="globalstorage">ramp/globalStorage</h2>
+
+<p>The module defines global items to make things easier to share across modules.  We place location specific string here (e.g. a configuration server URL), so this servers as the spot to tweak when moving the application to a different environment.  Implementers can also add items to this module on the fly.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/GlobalStorage.html">GlobalStorage</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="graphicextension">ramp/graphicExtension</h2>
+
+<p>The module contains helper functions for <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html">graphic</a> objects.  E.g. get objectId, get layer, get detail text</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/GraphicExtension.html">GraphicExtension</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#featurelayers_detailtemplate">featureLayers[].detailTemplate</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="gui">ramp/gui</h2>
+
+<p>Contains the gui related logic for the app.</p>
+
+<p>Has a subpanel prototype.  This defines properties, constructor / destructor, open/close animation methods, content update.</p>
+
+<p>Implements the side panel, help popup, add layer popup and registers those panels.</p>
+
+<p>Contains logic to go to full-screen mode.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/GUI.html">GUI</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#stringresources">stringResources</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template Summary</strong></td>
+      <td><a href="template-summary-en.html#feature_details_panel">Feature Details Panel</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="map">ramp/map</h2>
+
+<p>The map module generates the map control and adds layers to the map, as defined in the configuration.</p>
+
+<p>It also generates and hosts the scale bar.</p>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/filter_data_sequence.svg">
+        <img src="../assets/images/filter_data_sequence.svg" alt="Filter Data Sequence" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/Map.html">Map</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#basemaps_showoninit">basemaps[].showOnInit</a> <br /> <a href="json-config-en.html#basemaps_url">basemaps[].url</a> <br /> <a href="json-config-en.html#extents">extents</a> <br /> <a href="json-config-en.html#featurelayers_url">featureLayers[].url</a> <br /> <a href="json-config-en.html#featurelayers_layerattributes">featureLayers[].layerAttributes</a> <br /> <code>featureLayers[].staticLayers</code> <br /> <a href="json-config-en.html#levelofdetails_minlevel">levelOfDetails.minLevel</a> <br /> <a href="json-config-en.html#levelofdetails_maxlevel">levelOfDetails.maxLevel</a> <br /> <a href="json-config-en.html#spatialreference">spatialReference</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="maptips">ramp/maptips</h2>
+
+<p>The module handles maptip interaction (both hover and anchor). Includes positioning logic for tips.</p>
+
+<p>Fills the tips with contents from the template.</p>
+
+<p><strong>Relevant Sequence Diagrams</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/close_anchor.svg">
+        <img src="../assets/images/close_anchor.svg" alt="Close an Anchor Tip" style="max-width:80%" />
+    </a>
+</section>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/hover_over_feature.svg">
+        <img src="../assets/images/hover_over_feature.svg" alt="Hover Over a Feature" style="max-width:80%" />
+    </a>
+</section>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/Maptips.html">Maptips</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#featurelayers_maptipsettings">featureLayers[].mapTipSettings</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template Summary</strong></td>
+      <td><a href="template-summary-en.html#feature_hover_tip">Feature Hover Tip</a> <br /> Feature Anchor Tip](template-summary-en.html#feature_anchor_tip)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="navigationmodule">ramp/navigation</h2>
+
+<p>The module handles the navigation widget.  It constructs it and applies a CSS skin to it.</p>
+
+<p>Also handles the two-way synchronization between the map extent and the widget state.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/Navigation.html">Navigation</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#navwidget">navWidget</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="quickzoom">ramp/quickzoom</h2>
+
+<p>Quick zoom widget is populated with target items, will zoom the map when an item is selected</p>
+
+<p>THIS ITEM IS UNDER CONSIDERATION FOR COMPLETE OVERHAUL</p>
+
+<p>NOTE: Depends on one of our quickzoom services.  These will be on public production after 10.1 migration.</p>
+
+<p>NOTE: our current config file does not have the appropriate node.  We should add this to the sample</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/QuickZoom.html">QuickZoom</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><code>quickzoom</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="ramp">ramp/ramp</h2>
+
+<p>The map module contains shared functions used by RAMP.  In particular, it houses functions that depend on the configuration object.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/RAMP.html">RAMP</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2014-07-03</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/yuidoc/index.html">
+                API Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+</body>
+</html>

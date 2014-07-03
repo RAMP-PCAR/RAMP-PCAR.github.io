@@ -1,0 +1,388 @@
+
+﻿<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Architecture Overview</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/environment-canada/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                
+<h1 id="wb-cont">Architecture Overview</h1>
+
+<h2 id="scope-and-exclusions">Scope and Exclusions</h2>
+
+<p>The architecture overview covers how various components of RAMP work together and accomplish the functions that are provided out-of-the-box.  In particular, it covers the functions that reside in the RAMP codebase, but not functions that are provided from 3rd party libraries.</p>
+
+<p>For information on how to use and configure RAMP, please see the <a href="started-en.html">Getting Started</a> and <a href="ramp-customization-intro-en.html">User Guide</a> pages.</p>
+
+<p>We do not delve into the inner workings of the DOJO API.  A wealth of information can be found on the <a href="http://dojotoolkit.org/">DOJO</a> site.</p>
+
+<p>The inner workings and usage of the ESRI Javascript API are not covered.  The <a href="https://developers.arcgis.com/javascript/">official site</a> offers articles, samples, and a detailed API reference.</p>
+
+<p>A list of <a href="external-libraries-en.html">extensions</a> is provided, but details of their inner workings and usage will be found on their homepages (links provided).</p>
+
+<p>Details on how to use <a href="http://www.esri.com/software/arcgis/arcgisserver">ArcGIS Server</a> and publish spatial data as services is not covered.</p>
+
+<p>While RAMP meets <a href="http://www.w3.org/WAI/WCAG20/quickref/">WCAG 2.0</a> AA compliance, we do not cover the details in meeting those requirements.</p>
+
+<h2 id="terminology">Terminology</h2>
+
+<dl>
+  <dt>AMD</dt>
+  <dd><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">Asynchronous Module Definition</a>.  The API DOJO implements to help achieve a more “object oriented” framework in javascript.  Detailed documentation with respect to DOJO’s implementation can be found <a href="http://dojotoolkit.org/reference-guide/1.9/loader/amd.html">here</a></dd>
+  <dt>Anchor Tip</dt>
+  <dd>A map tip that remains open until either manually closed by the user, or another anchor tip is opened.  This means you can change the map extent and hover over other features, and the anchor tip will stay active.</dd>
+  <dt>Basemap</dt>
+  <dd>Background imagery on a map that provides context to features.  Is non-interactive.</dd>
+  <dt>Bounding Box</dt>
+  <dd>A box drawn on the map that indicates the area that a feature set covers.</dd>
+  <dt>Extended Grid</dt>
+  <dd>A grid that has a rich collection of columns.  When active, the map is not visible.  This provides access to the underlying feature data in a traditional table format, and allows data to be sorted.  The extended grid shows the contents of one feature set at a time.</dd>
+  <dt>Highlight</dt>
+  <dd>Causes a feature on the map to stand out from other features and background imagery.  Typically accomplished by dulling out non-highlighted imagery.</dd>
+  <dt>Hover Tip</dt>
+  <dd>A map tip that is visible only when the mouse is hovering over a feature.</dd>
+  <dt>RAMP</dt>
+  <dd>Reusable Accessible Mapping Platform.  RAMP is a web application that allows for a webmap to be easily created in the WET Template.  The site will meet WCAG AA accessibility standards, and will have useful features available for use.</dd>
+  <dt>Static Layer</dt>
+  <dd>A map layer that provides additional context, but is not interactive and is not a basemap.  As an example, a static layer with watershed names and boundaries can compliment an active layer showing water monitoring stations.</dd>
+  <dt>Summary Grid</dt>
+  <dd>A grid that has minimal information in it, just enough to identify a point.   The summary grid has entries for all features visible, and combines features across different feature sets.</dd>
+  <dt>Topic</dt>
+  <dd>A publication and subscription framework in <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/topic.html">DOJO</a>.  This is used to pass events in the RAMP source.</dd>
+</dl>
+
+<h2 id="high-level-block-diagram">High Level Block Diagram</h2>
+
+<section class="wb-lbx lbx-gal">
+	<a href="../assets/images/block_diagram.png">
+		<img src="../assets/images/block_diagram.png" style="max-width:80%" />
+	</a>
+</section>
+
+<h2 id="popup-handling">Popup handling</h2>
+
+<p>The utility module PopupManager contains the majority of routines to handle popups.  A popup is something that is hidden until the user performs an action, and then the popup appears on the site with the appropriate content.</p>
+
+<p>The core function in PopupManager is registerPopup, which allows the implementor to specify the triggering effects of a popup.</p>
+
+<p>Often we will have popups that will close other popups when they open.  Examples of this are the Help panel, the Add Layer panel, and the Bookmark Link panel.  This behavior is achieved via topics: a topic is published when a popup is opened.  If a listening popup is open, it will close itself. The topics to achieve this end in “_PANEL_CHANGED”</p>
+
+<h2 id="filtering-cycle">Filtering cycle</h2>
+
+<p>In RAMP Arctic Fox we do not have any attribute based filtering.  Filtering is determined by two factors: the map extent and the visibility of feature layers.  A change in either of these two items (user pans/zooms the map, or toggles a layer on or off) will trigger the filtering cycle, which is as follows:</p>
+
+<ul>
+  <li>Retrieve a list of visible layers</li>
+  <li>For each visible layer, perform a spatial query on the features using the map extent as the filter criteria.  Have the query output objectIds for features that satisfy the filter</li>
+  <li>Create a collection of objectId/layerId pairs, and have this be the source for the data grid</li>
+</ul>
+
+<section class="wb-lbx lbx-gal">
+	<a href="../assets/images/filter_data_sequence.svg">
+		<img src="../assets/images/filter_data_sequence.svg" style="max-width:80%" />
+	</a>
+</section>
+
+<h2 id="map-layer-management">Map layer management</h2>
+
+<p>The layers exist in the following order on the map</p>
+
+<ul>
+  <li>Basemap Layer</li>
+  <li>Static Layers</li>
+  <li>Bounding Box Layers</li>
+  <li>Feature Layers</li>
+  <li>Highlighting Layers
+    <ul>
+      <li>Zoomlight</li>
+      <li>Highlight</li>
+      <li>Hoverlight</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The Feature Layers can be re-ordered via the filter control, but always stay in the same range.</p>
+
+<p>Layers are arranged in this order as it makes sense from a drawing perspective.  Highlights have the most visual precedence, followed by the feature layers.  Basemaps are on the bottom as they are solid tile.  Static layers and bounding boxes have lower priority than the feature layers.</p>
+
+<p>The Zoomlight layer will highlight a feature that has been zoomed to from the datagrid.  The Hoverlight layer will highlight a feature that the mouse is hovering over.  The Highlight layer will highlight a feature that has been clicked on or has it’s details opened.</p>
+
+<h2 id="datagrid-architecture">Datagrid Architecture</h2>
+
+<p>The data grid can exist in two different states.  This allows the map to be accessible (by providing feature data in a screen readable and keyboard navigateable grid), and also allows a more table-centric view of the data.</p>
+
+<p>The default state is the <em>summary grid</em>.  This grid provides basic information about features on the map (name, icon, what layer it belongs to) and provides links to zoom to features and view details about them.  This grid works in concert with what is visible on the map; as the user navigates around the map, the grid will stay snynchronized with the view.</p>
+
+<p>The alternate state is the <em>extended grid</em>.  This grid provides a more traditional multi-column view of the data.  When open, the map is no longer visible, and the extent is fixed until the user reverts back to the summary grid.  The extended grid shows data from one feature set at a time (this is because different features can have different columns).  The active feature can be selected from the dropdown combo box above the grid.  It is possible to have the columns in the extended grid be sortable.</p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2014-07-03</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/yuidoc/index.html">
+                API Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+</body>
+</html>

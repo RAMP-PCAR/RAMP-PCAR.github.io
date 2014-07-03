@@ -1,0 +1,580 @@
+
+﻿<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Template Overview</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/environment-canada/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                
+<script src="../scripts/toc.js"> </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.toc').toc({
+        title: 'Table of Content',
+        listType: 'ul',
+        selector: 'h2, h3, h4, h5, h6, .include_toc'
+    });
+});
+</script>
+
+<p><a name="top"></a></p>
+
+<h1 id="wb-cont">Template Overview</h1>
+
+<p>Below is all the modules that are customizable through templating. This summarizes all the information the developers need in order to customize each module through templating. For details on how templating works, refer to this <a href="template-guide-en.html">guide</a>. For an example of modifying a module through templating, refer to this <a href="template-example-en.html">guide</a>.</p>
+
+<div class="toc"></div>
+
+<h2 id="header_description">Header Description</h2>
+
+<dl>
+  <dt>Description</dt>
+  <dd>A description of what the template modifies</dd>
+  <dt>Template Name</dt>
+  <dd>The path in the JSON configuration file containing the name of the template. Each new line denotes the next child in the path.</dd>
+  <dt>Template File</dt>
+  <dd>The template file containing the template, all files reside in the “RAMP/modules/templates” folder</dd>
+  <dt>Data object</dt>
+  <dd>A description of the data object (o.data) that gets passed into the template</dd>
+</dl>
+
+<h2 id="basemap_selector">Basemap Selector</h2>
+
+<p>Each row in the basemap selector dropdown.</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/basemap_selector_default.png">
+        <img src="../assets/images/basemap_selector_default.png" style="width:517px; height:155px; max-width:80%; float:right; padding-left:20px" />
+    </a>
+</section>
+
+<p>The default basemap row contains the name of the basemap, its type in parentheses, the description and an icon.</p>
+
+<p>The default template uses the URL in <a href="json-config-en.html#basemaps_thumbnail">basemaps[].thumbnail</a> for the image icon, the <a href="json-config-en.html#basemaps_name">basemaps[].name</a> for the basemap name,  <a href="json-config-en.html#basemaps_type">basemaps[].type</a> for the basemap type, and <a href="json-config-en.html#basemaps_description">basemaps[].description</a> for the description. The user can feel free to add more fields to the <a href="json-config-en.html#basemaps">basemaps[]</a> entry if their template requires it.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="&quot;json-config-en.html#sitetemplate_basemaptemplate&quot;">siteTemplate.basemapTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>basemap_selector_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td><a href="json-config-en.html#basemaps">config.basemaps[]</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="datagrid_summary_mode">Datagrid Summary Mode</h2>
+
+<p>Each row in the datagrid when the datagrid is in the summary mode.</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+    <a href="../assets/images/datagrid_summary_default.png">
+        <img src="../assets/images/datagrid_summary_default.png" style="width:407px; height:92px; max-width:80%; float:right; padding-left:20px" />
+    </a>
+</section>
+
+<p>In the default datagrid summary mode, each row contains an image representing the feature on the map, the name of the feature, the layer the feature belongs to, as well as a “details” and “zoom to” button.</p>
+
+<p>The image URL is retrieved using the <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html#method_getGraphicIcon">getGraphicIcon</a> function in <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html">templateUtils</a>, which is available to the template via <a href="template-guide-en.html#o_fn">o.fn</a>. The feature name is retrieved using the <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html#method_getFeatureName">getFeatureName</a> function. The layer name is populated using the <a href="json-config-en.html#featurelayers_displayname">featureLayers[].displayName</a>, which can be accessed via <a href="template-guide-en.html#o_lyr">o.lyr</a>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="json-config-en.html#featurelayers_datagrid_summaryrowtemplate">featureLayers[].datagrid.summaryRowTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>datagrid_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td>The ESRI <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html"> Graphic object</a> associated with that point</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="datagrid_expanded_mode">Datagrid Expanded Mode</h2>
+
+<p>Each row in the datagrid when the datagrid is the expanded mode</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+<a href="../assets/images/extended_grid_screenshot.png">
+<img src="../assets/images/extended_grid_screenshot.png" style="width:387px; height:228px; max-width:80%; float:right; padding-left:20px" />
+</a>
+</section>
+
+<p>The default extended datagrid only allows the user to view one layer’s dataset at a time. The user can change layers using the dataset dropdown menu. The extended grid represent each feature on the map by a row in the datagrid. Each column uses a different template, and therefore can display virtually anything the developer wishes the user to see, for example: a simple data field, an image, or a link. The template that is used is specified by the <a href="json-config-en.html#featurelayers_datagrid_gridcolumns_columntemplate">columnTemplate</a> field in the config. The data object passed into each column template will be the same, except for the “columnIdx” field which will indicate the column index (zero-based).</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="json-config-en.html#featurelayers_datagrid_gridcolumns_columntemplate">config.featureLayers[].datagrid.gridColumns[].columnTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>extended_datagrid_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td>The ESRI <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html"> Graphic object</a> associated with that point, along with an added field “columnIdx” that indicates the column index (zero-based).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="feature_anchor_tip">Feature Anchor Tip</h2>
+
+<p>The popup that appears when a feature on the map is clicked.</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+<a href="../assets/images/feature_anchor_tip_screenshot.png">
+<img src="../assets/images/feature_anchor_tip_screenshot.png" style="width:208px; height:118px; max-width:80%; float:right; padding-left:20px" />
+</a>
+</section>
+
+<p>The anchor tip contains the icon representing the feature, the name of the feature, and a close button. The icon is retrieved using <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html#method_getGraphicIcon">getGraphicIcon</a> function in <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html">templateUtils</a>, which is available to the template via <a href="template-guide-en.html#o_fn">o.fn</a>. The feature name is retrieved using the <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html#method_getFeatureName">getFeatureName</a> function.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="json-config-en.html#featurelayers_maptipsettings_anchortemplate"> featureLayers[].mapTipSettings.anchorTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>feature_anchortip_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td>The ESRI <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html"> Graphic object</a> associated with that point</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="feature_hover_tip">Feature Hover Tip</h2>
+
+<p>The popup that appears when the mouse hovers over a feature on the map.</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+<a href="../assets/images/feature_hover_tip_screenshot.png">
+<img src="../assets/images/feature_hover_tip_screenshot.png" style="width:154px; height:106px; max-width:80%; float:right; padding-left:20px" />
+</a>
+</section>
+
+<p>The hover tip contains the icon representing the feature and the name of the feature. The icon is retrieved using <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html#method_getGraphicIcon">getGraphicIcon</a> function in <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html">templateUtils</a>, which is available to the template via <a href="template-guide-en.html#o_fn">o.fn</a>. The feature name is retrieved using the <a href="http://ramp-racp.github.io/api/yuidoc/classes/TmplUtil.html#method_getFeatureName">getFeatureName</a> function.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="json-config-en.html#featurelayers_maptipsettings_hovertemplate">featureLayers[].mapTipSettings.hoverTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>feature_hovertip_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td>The ESRI <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html"> Graphic object</a> associated with that point</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="feature_details_panel">Feature Details Panel</h2>
+
+<p>The content of the detail panel that slides out whenever a user clicks on a feature on the map or selects a feature from the datagrid.</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+<a href="../assets/images/feature_detail_panel_screenshot.png">
+<img src="../assets/images/feature_detail_panel_screenshot.png" style="width:201px; height:291px; max-width:80%; float:right; padding-left:20px" />
+</a>
+</section>
+
+<p>The default detail panel contains each field of the feature on a separate row with an alternating “zebra-pattern”. The default template iterates through each field in the feature and generates a list item for each field. The “zebra-pattern” is achieved by adding the class “wet-boew-zebra alterwg” to the list. The Wet Template would look for lists labelled with such class and style it accordingly.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="json-config-en.html#featurelayers_detailtemplate">featureLayers[].detailTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>feature_details_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td>The ESRI <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html"> Graphic object</a> associated with that point</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="filter_global_row">Filter Global Row</h2>
+
+<p>The top row that contain the global layer and bounding box toggles</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+<a href="../assets/images/filter_global_screenshot.png">
+<img src="../assets/images/filter_global_screenshot.png" style="width:368px; height:36px; max-width:80%; float:right; padding-left:20px" />
+</a>
+</section>
+
+<p>The default filter global row shows “All Data” and a global “eye” and “box” toggle for turning on/off all the layers or all the bounding boxes. The text displayed can be changed by changing <a href="json-config-en.html#globalfilter_txtalldata">config.globalFilter.txtAllData</a>, the data used to configure the checkboxes is contained in <a href="json-config-en.html#globalfilter_togglelabel">config.globalFilter.toggleLabel[]</a>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="json-config-en.html#sitetemplate_filterglobalrowtemplate"> siteTemplate.filterGlobalRowTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>filter_manager_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td><a href="json-config-en.html#globalfilter">config.globalFilter</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="filter_row">Filter Row</h2>
+
+<p>Each row in the filter manager</p>
+
+<p><strong>Default Behaviour</strong></p>
+
+<section class="wb-lbx lbx-gal">
+<a href="../assets/images/filter_row_screenshot.png">
+<img src="../assets/images/filter_row_screenshot.png" style="width:344px; height:133px; max-width:80%; float:right; padding-left:20px" />
+</a>
+</section>
+
+<p>The default filter row contain a handle that enables the user to rearrange the order of the layers on the map, an icon representing the layer, the name of the layer, a metadata button that allows the user open a subpanel to view the metadata in that layer, and an “eye” and “box” toggle box that enables the user to toggle the layer visibility and layer <a href="architecture-overview-en.html#bounding_box">bounding box</a> visibility respectively.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Template Name</strong></td>
+      <td><a href="json-config-en.html#sitetemplate_filterrowtemplate">siteTemplate.filterRowTemplate</a></td>
+    </tr>
+    <tr>
+      <td><strong>Template File</strong></td>
+      <td>filter_manager_template.json</td>
+    </tr>
+    <tr>
+      <td><strong>Data Object</strong></td>
+      <td>Custom</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2014-07-03</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/yuidoc/index.html">
+                API Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+</body>
+</html>

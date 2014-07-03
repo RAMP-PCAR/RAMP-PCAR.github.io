@@ -1,0 +1,920 @@
+
+﻿<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>JSON Config Definition</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/environment-canada/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                <h1 id="wb-cont">JSON Config Definition</h1>
+
+<p>This page will walk you through the layout of the application configuration object and all of its properties.</p>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+  <li><a href="#object-outline">Object Outline</a></li>
+  <li><a href="#object-property-dictionary">Object Property Dictionary</a></li>
+</ul>
+
+<h2 id="object-outline">Object Outline</h2>
+
+<ul>
+  <li>stringResources</li>
+  <li>gridstrings
+    <ul>
+      <li>oPaginate</li>
+      <li>oAria</li>
+    </ul>
+  </li>
+  <li>lang</li>
+  <li>helpContent</li>
+  <li>geometryService</li>
+  <li>proxyUrl</li>
+  <li>spatialReference</li>
+  <li>extents
+    <ul>
+      <li>defaultExtent</li>
+      <li>fullExtent</li>
+      <li>maximumExtent</li>
+    </ul>
+  </li>
+  <li>navWidget
+    <ul>
+      <li>sliderMinVal</li>
+      <li>sliderMaxVal</li>
+      <li>debug</li>
+      <li>animate</li>
+      <li>locale</li>
+      <li>cssPath</li>
+      <li>skin</li>
+    </ul>
+  </li>
+  <li>levelOfDetails
+    <ul>
+      <li>minLevel</li>
+      <li>maxLevel</li>
+      <li>levels (collection)
+        <ul>
+          <li>level</li>
+          <li>resolution</li>
+          <li>scale</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>basemaps (collection)
+    <ul>
+      <li>id</li>
+      <li>url</li>
+      <li>thumbnail</li>
+      <li>showOnInit</li>
+      <li>scaleCssClass</li>
+      <li>type</li>
+      <li>name</li>
+      <li>altText</li>
+      <li>description</li>
+    </ul>
+  </li>
+  <li>featureLayers (collection)
+    <ul>
+      <li>id</li>
+      <li>displayName</li>
+      <li>url</li>
+      <li>datagrid
+        <ul>
+          <li>rowsPerPage</li>
+          <li>gridColumns (collection)
+            <ul>
+              <li>id</li>
+              <li>fieldName</li>
+              <li>width</li>
+              <li>isSortable</li>
+              <li>sortType</li>
+              <li>alignment</li>
+              <li>title</li>
+              <li>columnTemplate</li>
+            </ul>
+          </li>
+          <li>summaryRowTemplate</li>
+        </ul>
+      </li>
+      <li>layerAttributes</li>
+      <li>filter</li>
+      <li>mapTipSettings
+        <ul>
+          <li>hoverTemplate</li>
+          <li>anchorTemplate</li>
+        </ul>
+      </li>
+      <li>symbology
+        <ul>
+          <li>renderer
+            <ul>
+              <li>type</li>
+              <li>key1</li>
+              <li>key2</li>
+              <li>Key3</li>
+            </ul>
+          </li>
+          <li>icons
+            <ul>
+              <li>default
+                <ul>
+                  <li>imageUrl</li>
+                  <li>legendText</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>uuid</li>
+      <li>detailTemplate</li>
+      <li>nameField</li>
+    </ul>
+  </li>
+  <li>datagrid
+    <ul>
+      <li>globalGridRowsPerPage</li>
+      <li>defaultState</li>
+      <li>summaryEnabled</li>
+      <li>extendedEnabled</li>
+      <li>extendedColumns (collection)
+        <ul>
+          <li>column1</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>siteTemplate
+    <ul>
+      <li>basemapTemplate</li>
+      <li>filterGlobalRowTemplate</li>
+      <li>filterRowTemplate</li>
+    </ul>
+  </li>
+  <li>globalFilter
+    <ul>
+      <li>txtAllData</li>
+      <li>toggleLabels (collection)
+        <ul>
+          <li>id</li>
+          <li>dataAttribute</li>
+          <li>value</li>
+          <li>checked</li>
+          <li>title</li>
+          <li>classAddition</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>divNames
+    <ul>
+      <li>map</li>
+      <li>navigation</li>
+      <li>filter</li>
+      <li>datagrid</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="object-property-dictionary">Object Property Dictionary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>JSON Object Field</th>
+      <th>Data Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="stringresources"></a>stringResources</td>
+      <td>key value dictionary</td>
+      <td>holds all application strings and language specific values for a SINGLE LANGUAGE.  Switching languages will trigger the load of a new config object with separate dictionary</td>
+    </tr>
+    <tr>
+      <td><a name="gridstrings"></a>gridstrings</td>
+      <td>Key value dictionary</td>
+      <td>holds all datagrid strings and language specific value for a SINGLE LANGUAGE. Switching languages will trigger the load of a new config object with separate dictionary</td>
+    </tr>
+    <tr>
+      <td><a name="lang_field"></a> lang</td>
+      <td>string</td>
+      <td>language of current object; en or fr</td>
+    </tr>
+    <tr>
+      <td>helpContent</td>
+      <td>string</td>
+      <td>blob content the of help section for current language</td>
+    </tr>
+    <tr>
+      <td>geometryService</td>
+      <td>string</td>
+      <td>URL to geometry service</td>
+    </tr>
+    <tr>
+      <td>proxyUrl</td>
+      <td>string</td>
+      <td>Path to proxy service (relative path)</td>
+    </tr>
+    <tr>
+      <td><a name="spatialreference"></a>spatialReference</td>
+      <td>numeric</td>
+      <td>the WKID of the spatial reference for the map.  WILL BREAK IF YOU STORE IT AS A STRING!</td>
+    </tr>
+    <tr>
+      <td><a name="extents"></a>extents.defaultExtent</td>
+      <td>envelope</td>
+      <td>extent the app should initialize to</td>
+    </tr>
+    <tr>
+      <td>extents.fullExtent</td>
+      <td>envelope</td>
+      <td>extent the app should go to when full extent button is pushed</td>
+    </tr>
+    <tr>
+      <td>extents.maximumExtent</td>
+      <td>envelope</td>
+      <td>extent the app not allow user to pan past</td>
+    </tr>
+    <tr>
+      <td><a name="navwidget"></a>navWidget</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>navWidget.sliderMinVal</td>
+      <td>numeric</td>
+      <td>Navigation widget slider minimum value</td>
+    </tr>
+    <tr>
+      <td>navWidget.sliderMaxVal</td>
+      <td>numeric</td>
+      <td>Navigation widget slider maximum value</td>
+    </tr>
+    <tr>
+      <td>navWidget.debug</td>
+      <td>numeric</td>
+      <td>Debug flag, generate console log when set</td>
+    </tr>
+    <tr>
+      <td>navWidget.animate</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>navWidget.locale</td>
+      <td>string</td>
+      <td>Navigation widget locale</td>
+    </tr>
+    <tr>
+      <td>navWidget.cssPath</td>
+      <td>string</td>
+      <td>Path to CSS</td>
+    </tr>
+    <tr>
+      <td>navWidget.skin</td>
+      <td>string</td>
+      <td>Skin style</td>
+    </tr>
+    <tr>
+      <td>levelOfDetails</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a name="levelofdetails_minlevel"></a>levelOfDetails.minLevel</td>
+      <td>numeric</td>
+      <td>Minimum level of detail</td>
+    </tr>
+    <tr>
+      <td><a name="levelofdetails_maxlevel"></a>levelOfDetails.maxLevel</td>
+      <td>numeric</td>
+      <td>Maximum level of detail</td>
+    </tr>
+    <tr>
+      <td>levelOfDetails.levels[]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>levelOfDetails.levels[].level</td>
+      <td>numeric</td>
+      <td>ID for each level</td>
+    </tr>
+    <tr>
+      <td>levelOfDetails.levels[].resolution</td>
+      <td>numeric</td>
+      <td>Resolution in map units of each pixel in a tile for each level</td>
+    </tr>
+    <tr>
+      <td>levelOfDetails.levels[].scale</td>
+      <td>numeric</td>
+      <td>Scale for each level</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps"></a> basemaps</td>
+      <td>collection of map items</td>
+      <td>order of collection will determine order they are added to the map.  can be empty.  if more than one entry, basemap selector widget could/(should?) initialize.</td>
+    </tr>
+    <tr>
+      <td>basemaps[].id</td>
+      <td>string</td>
+      <td>to identify layer.  unique across all map items.  no spaces!  use this to derive language based strings from stringResources (e.g. text to go in basemap selector would have a key like “basemapName<id>")</id></td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_url"></a> basemaps[].url</td>
+      <td>string</td>
+      <td>REST url of the basemap</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_thumbnail"></a>basemaps[].thumbnail</td>
+      <td>string</td>
+      <td>path to image file for use in basemap selector (optional)</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_showoninit"></a>basemaps[].showOnInit</td>
+      <td>boolean</td>
+      <td>indicates if map should be active on load.  Only one TRUE per collection</td>
+    </tr>
+    <tr>
+      <td>basemaps[].scaleCssClass</td>
+      <td>string</td>
+      <td>Map scale style</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_type"></a>basemaps[].type</td>
+      <td>string</td>
+      <td>Base map type</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_name"></a>basemaps[].name</td>
+      <td>string</td>
+      <td>Basemap name</td>
+    </tr>
+    <tr>
+      <td>basemaps[].altText</td>
+      <td>string</td>
+      <td>Alt text for the basemap thumbnail image</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_description"></a>basemaps[].description</td>
+      <td>string</td>
+      <td>Description of the basemap</td>
+    </tr>
+    <tr>
+      <td>featureLayers</td>
+      <td>collection of map items</td>
+      <td>order of collection will determine order they are added to the map.  can be empty. if more than one entry, layer selector widget could/(should?) initialize.</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_id"></a>featureLayers[].id</td>
+      <td>string</td>
+      <td>to identify layer.  unique across all map items.  no spaces!</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_displayname"></a>featureLayers[].displayName</td>
+      <td> </td>
+      <td>Display name of the feature layer</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_url"></a> featureLayers[].url</td>
+      <td>string</td>
+      <td>REST URL of the layer</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_datagrid"></a>featureLayers[].datagrid</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.rowsPerPage</td>
+      <td>numeric</td>
+      <td>number of rows to show in the grid (i.e. one page of results)</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.gridColumns [].id</td>
+      <td>string</td>
+      <td>to identify column.  unique across all columns for all layers in the app.  no spaces!</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.gridColumns [].fieldName</td>
+      <td>string</td>
+      <td>attribute field that populates this column.  really just used as a reference now.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.gridColumns [].width</td>
+      <td>numeric</td>
+      <td>width of the field (pixels?  em’s?)</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.gridColumns [].isSortable</td>
+      <td>boolean</td>
+      <td>tells if we can sort on this column</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.gridColumns [].sortType</td>
+      <td>string</td>
+      <td>not sure what goes here.  text/number/date sort?</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.gridColumns [].alignment</td>
+      <td>string</td>
+      <td>alignment type.  use values from current services</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].datagrid.gridColumns [].title</td>
+      <td>Int</td>
+      <td>Title of the grid column.  This will show in the grid header</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_datagrid_gridcolumns_columntemplate"></a>featureLayers[].datagrid.gridColumns [].columnTemplate</td>
+      <td> </td>
+      <td>Template name to be used to generate the content of the given column</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_datagrid_summaryrowtemplate"></a>featureLayers[].datagrid.summaryRowTemplate</td>
+      <td> </td>
+      <td>Summary row template name to be used to generate content</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_layerattributes"></a>featureLayers[].layerAttributes</td>
+      <td>string</td>
+      <td>An array of strings which correspond to fields to include in the FeatureLayer. If not specified, the feature layer will return the OBJECTID field and if applicable the start time field, end time field and type id field. You can specify [“*”] to fetch the values for all fields in the layer, this is useful when editing features. Associated with outfield options in ESRI FeatureLayer.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].filter</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_maptipsettings"></a> featureLayers[].mapTipSettings</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_maptipsettings_hovertemplate"></a> featureLayers[].mapTipSettings.hoverTemplating</td>
+      <td>string</td>
+      <td>has template of what to show in hover tip.  if blank, hover tips are not initialized.  template processor should be able to generate text, as well as derive image names from feature attributes</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_maptipsettings_anchortemplate"></a>featureLayers[].mapTipSettings.anchorTemplate</td>
+      <td>string</td>
+      <td>Template name used to generate anchored map tip</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_symbology"></a>featureLayers[].symbology</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.renderer</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.renderer.type</td>
+      <td>string</td>
+      <td>The type of renderer being used on the layer.  Current supported values are “simple” and “unique”</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.renderer.key1</td>
+      <td>string</td>
+      <td>First attribute used in unique value renderer</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.renderer.key2</td>
+      <td>string</td>
+      <td>Second attribute used in unique value renderer</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.renderer.key3</td>
+      <td>string</td>
+      <td>Third attribute used in unique value renderer</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.icons[]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.icons[].default.imageUrl</td>
+      <td>string</td>
+      <td>Url to symbology image</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].symbology.icons[].default.legendText</td>
+      <td>string</td>
+      <td>Legend text for the given symbology</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].uuid</td>
+      <td>string</td>
+      <td>Feature layer UUID</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_detailtemplate"></a> featureLayers[].detailTemplate</td>
+      <td>string</td>
+      <td>Template used to generate detail content of a selected feature</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].nameField</td>
+      <td>string</td>
+      <td>Field to be used to describe a feature.  Utilized in summary grid, detail content, map tip, and anchored maptip</td>
+    </tr>
+    <tr>
+      <td><a name="datagrid"></a>datagrid</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>datagrid.globalGridRowsPerPage</td>
+      <td>numeric</td>
+      <td>Number of rows per page to be displayed in datagrid in summary view</td>
+    </tr>
+    <tr>
+      <td>datagrid.defaultState</td>
+      <td>string</td>
+      <td>Default state of the datagrid: summary or entexted</td>
+    </tr>
+    <tr>
+      <td>datagrid.summaryEnabled</td>
+      <td>boolean</td>
+      <td>Flag indicate summary grid is enabled</td>
+    </tr>
+    <tr>
+      <td>datagrid.extendedEnabled</td>
+      <td>boolean</td>
+      <td>Flag indicate extended grid is enabled</td>
+    </tr>
+    <tr>
+      <td>datagrid.extendedColumns[]</td>
+      <td>collections</td>
+      <td>Column definition for extended datagrid</td>
+    </tr>
+    <tr>
+      <td>siteTemplate</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a name="sitetemplate_basemaptemplate"></a> siteTemplate.basemapTemplate</td>
+      <td>string</td>
+      <td>The JSON template for each entry in the basemap selector (defaults to name of map and a thumbnail)</td>
+    </tr>
+    <tr>
+      <td><a name="sitetemplate_filterglobalrowtemplate"></a>siteTemplate.filterGlobalRowTemplate</td>
+      <td>string</td>
+      <td>Template for</td>
+    </tr>
+    <tr>
+      <td><a name="sitetemplate_filterrowtemplate"></a>siteTemplate.filterRowTemplate</td>
+      <td>string</td>
+      <td>Filter template used to generate filter content for map layers.</td>
+    </tr>
+    <tr>
+      <td><a name="globalfilter"></a> globalFilter</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a name="globalfilter_txtalldata"></a>globalFilter.txtAllData</td>
+      <td>string</td>
+      <td>Global filter text for All Data</td>
+    </tr>
+    <tr>
+      <td><a name="globalfilter_togglelabel"></a>globalFilter.toggleLabel</td>
+      <td><collection></collection></td>
+      <td>Attributes and settings for individual toggle in the global section of filter manager</td>
+    </tr>
+    <tr>
+      <td>globalFilter.toggleLabel[].id</td>
+      <td>string</td>
+      <td>Id of the toggle label</td>
+    </tr>
+    <tr>
+      <td>globalFilter.toggleLabel[].dataAttribute</td>
+      <td>string</td>
+      <td>Data attribute</td>
+    </tr>
+    <tr>
+      <td>globalFilter.toggleLabel[].value</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>globalFilter.toggleLabel[].checked</td>
+      <td>string</td>
+      <td>Value of the checked attribute</td>
+    </tr>
+    <tr>
+      <td>globalFilter.toggleLabel[].title</td>
+      <td>string</td>
+      <td>Value for the title attribute</td>
+    </tr>
+    <tr>
+      <td>globalFilter.toggleLabel[].classAddition</td>
+      <td>string</td>
+      <td>Additional CSS to be added to toggle label style</td>
+    </tr>
+    <tr>
+      <td>divNames</td>
+      <td> </td>
+      <td>RAMP div container names in code and in html</td>
+    </tr>
+    <tr>
+      <td>divNames.map</td>
+      <td>string</td>
+      <td>Map container name; default is mainMap</td>
+    </tr>
+    <tr>
+      <td>divNames.navigation</td>
+      <td>string</td>
+      <td>Navigation container name; default is map-navigation</td>
+    </tr>
+    <tr>
+      <td>divNames.filter</td>
+      <td>string</td>
+      <td>Filter container name; default is searchMapSectionBody</td>
+    </tr>
+    <tr>
+      <td>divNames.datagrid</td>
+      <td>string</td>
+      <td>Datagrid container name; default is searchMapSectionBody</td>
+    </tr>
+  </tbody>
+</table>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2014-07-03</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/yuidoc/index.html">
+                API Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+</body>
+</html>

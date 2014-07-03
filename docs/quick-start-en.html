@@ -1,0 +1,435 @@
+
+﻿<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>RAMP Quick Start Guide</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/environment-canada/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                <h1 id="wb-cont">RAMP Quick Start Guide</h1>
+
+<p>Welcome to RAMP Quick Start Guide. In this guide, we will be showing you how to setup your own web map using RAMP.
+<a href="/demos/NRSTC/ramp-gcwu-fecg-map.html">View live sample</a></p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>This guide assumes you have downloaded the RAMP source from Github, and have run the Grunt build script. If not, please visit the <a href="/docs/started-en.html">Getting Started</a> page to get your environment setup.</p>
+
+<h3 id="map-resources">Map resources</h3>
+
+<p>We will be using the Natural Resources Canada’s basemap in our example. As for the map layers, we will be using a snapshot of the dataset from Science.gc.ca’s Research Centres map layer.</p>
+
+<p>URL to Natural Resources Canada basemap</p>
+
+<p><a href="http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT3978/MapServer?f=jsapi">http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT3978/MapServer</a></p>
+
+<p>URL to sample research centre map layers</p>
+
+<p><a href="http://maps-cartes.ec.gc.ca/ArcGIS/rest/services/RAMP_NRSTC/MapServer/">http://maps-cartes.ec.gc.ca/ArcGIS/rest/services/RAMP_NRSTC/MapServer/</a></p>
+
+<p>Layer 0 - Environment Canada Research Centres</p>
+
+<p>Layer 1 - Agriculture and Agri-Food Canada Research Centres</p>
+
+<p>Layer 2 - Fisheries and Oceans Canada Research Centres</p>
+
+<p>Layer 3 - Natural Resources Canada</p>
+
+<p>Layer 4 - National Research Council</p>
+
+<p>Layer 5 - Other Centres</p>
+
+<h2 id="setting-up-your-map-layers">Setting up your map layers</h2>
+
+<h3 id="add-a-basemap-layer">Add a basemap layer</h3>
+
+<p>To configure a basemap for your RAMP based web mapping application, open the config.json file via any text editor or <a href="http://www.jsoneditoronline.org">json editor</a>. Search for "basemaps" to locate
+the basemaps configuration section. By default, RAMP has 5 basemap layers configured. You can delete all and add your own, or use any existing one. For our example, we will keep
+basemap baseNrCan and delete the remaining basemap configurations.</p>
+
+<p><img src="../assets/images/qs_basemap_config.png" alt="Partial configuration file" /></p>
+
+<p>Basemap configuration</p>
+
+<ul>
+  <li>id:</li>
+  <li>url: http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT3978/MapServer</li>
+  <li>thumbnail</li>
+  <li>showOnInit: true</li>
+  <li>scaleCssClass</li>
+  <li>type: "Topographic"</li>
+  <li>name: "Canada Atlas”</li>
+  <li>altText: "Topotraphic Map"</li>
+  <li>description: "NRCan CBMT3978"</li>
+</ul>
+
+<p>This will setup your RAMP basemap. When you start your web map application, the NRCan basemap will be displayed.</p>
+
+<h3 id="add-map-layer">Add map layer</h3>
+
+<p>In the Research Centre map layers, we have six layers available. We will be populating featureLayers section with those six layers.
+With the config.json opened, Look for “featureLayers” section.  This section is where we will be adding Research Centre layers.</p>
+
+<p>The main attributes to be modified will be the following:</p>
+
+<ul>
+  <li>id: “layer_ec”</li>
+  <li>displayName: “Environment Canada”</li>
+  <li>url: http://maps-cartes.ec.gc.ca/ArcGIS/rest/services/RAMP_NRSTC/MapServer/0/</li>
+  <li>These attribute will be used in the filter manager (Datasets Tab) to display information for each layer.</li>
+</ul>
+
+<p>To display the legend image properly in the filter manager (Datasets Tab), you will need to provide the feature image url and
+alt text for the image in the following fields.</p>
+
+<p>symbology-&gt;icon-&gt;default-&gt;
+	* imageUrl:
+	* legendText:</p>
+
+<p><img src="../assets/images/qs_filter.png" alt="Image of datasets section of the web map application" /></p>
+
+<p>To display the individual feature data (in our case, the Research Centre name) in the Data tab; you will need to populate
+the nameField with the field name you wish to display. In our case it will be the “Research_Centre_en” field that will contain the research centre name.</p>
+
+<p>nameField: “Research_Centre_en”</p>
+
+<p><img src="../assets/images/qs_data_tab.png" alt="Image of Data tab section of the web map application" /></p>
+
+<h2 id="map-tip-configuration">Map Tip Configuration</h2>
+<p>By default, hover map tip and anchor map tip use generic RAMP templates called <strong>feature_hover_maptip_template.json</strong> and <strong>anchored_map_tip.json</strong> template.
+These templates are located in <strong>src\js\RAMP\Modules\templates</strong> folder.</p>
+
+<p>If you open the template file, you will see it’s using the nameField attribute of a featureLayer config object. Therefore, by default, if you have
+configure the nameField attribute, the hover maptip and anchor map tip will use the same field vale to be displayed in the map tip. In our Research
+Centres Map, we set the nameField attribute to “Research_Centre_en”; which is the name of the research centre. So when we move our cursor close to a
+feature, the hover map tip displays the name of the research centre.</p>
+
+<p><img src="../assets/images/qs_hover_map_tip.png" alt="Hover maptip on a map feature" /></p>
+
+<p>To customize the content of map tips, please refer to the <a href="template-guide-en.html">template guide</a> on how to customize the template.</p>
+
+<h2 id="setting-up-the-datagrid">Setting up the Datagrid</h2>
+
+<p>In RAMP, datagrid comes in two states: extended datagrid and summary datagrid. By default, summary datagrid is displayed.</p>
+
+<p><img src="../assets/images/qs_summary_datagrid.png" alt="Summary datagrid in data tab section of the web map application" /></p>
+
+<p>When you click on the “Full data” link button, extended datagrid is displayed.</p>
+
+<p><img src="../assets/images/qs_full_gridview.png" alt="Sample extended datagrid view" /></p>
+
+<p>In this section, we will show you how to configure the exteneded datagrid.</p>
+
+<h3 id="summary-datagrid">Summary Datagrid</h3>
+
+<p>Summary datagrid uses templates in datagrid_template.json file to generate the content. If you open the template file and associated helper function in tmplUtil.js, you will see the familiar fields being used to generate the individual rows:
+displayName, imageUrl, and nameField.
+Therefore, by default, summary datagrid is configured if you have the above mentioned featureLayer configuration object setup.</p>
+
+<h3 id="extended-datagrid">Extended Datagrid</h3>
+
+<p>In RAMP, multiple layers can be configured to be displayed on the map; therefore, data available to each layer can be different from each other.
+ A drop down is provided in the extended datagrid to separate the data from the layer source. The configuration associated with each map layer is located
+in the gridColumns collection of the datagrid object, found in the featureLayers section of the configuration file.</p>
+
+<p><img src="../assets/images/qs_config_featureLayers_datagrid.png" alt="sample featureLayers configuration section of config.json file" /></p>
+
+<p>You can display any number of columns in the extended datagrid by adding grid column configuration to the gridColumns array.</p>
+
+<p>The following attributes are available for each grid column:</p>
+
+<ul>
+  <li>id: unique id to identify the column</li>
+  <li>fieldName: field name to access the data value. If using a default grid cell template, this field name will be used to supply data</li>
+  <li>width: column width (e.g. 50px)</li>
+  <li>isSortable: a flag to determine if the given column can be sortable</li>
+  <li>sortType: type of sorting algorithm for the given column</li>
+  <li>alignment: column alignment (e.g. 1)</li>
+  <li>title: column heading</li>
+  <li>columnTemplate: The template used to generate content for the given column.</li>
+</ul>
+
+<p>For detailed information on the column configuration, please refer to <a href="http://www.datatables.net/">DataTables</a> documentation.</p>
+
+<h4 id="column-template">Column Template</h4>
+<p>Column Template is used in RAMP to generate the content for each column. There are four default templates available with RAMP these are:</p>
+
+<ul>
+  <li>unformatted_grid_value: generate content based on the column index and field name</li>
+  <li>title_span: tooltiped grid value</li>
+  <li>graphic_icon: icon template that generate icon from current layer image</li>
+  <li>details_button: generate a button that will open the detail panel for a given feature.</li>
+</ul>
+
+<p>You can add and customize templates by adding or modifying the templates in this file. For more information on customizing template, please refer to the <a href="template-guide-en.html">Template Guide</a></p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2014-07-03</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/yuidoc/index.html">
+                API Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/docs/known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Environment-Canada/RAMP-AF/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+</body>
+</html>
