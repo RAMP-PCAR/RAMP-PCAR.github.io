@@ -1,2 +1,5 @@
-/*! ramp-gis-viewer 24-06-2014 */
+/*! ramp-gis-viewer 03-07-2014 : v. 1.0.42-7 
+
+ * RAMP GIS viewer - ArcticFox; Sample of an implementation of RAMP 
+ **/
 define([],function(){"use strict";return{getGraphicIcon:function(a,b){var c=b.symbology;switch(c.renderer.type){case"unique":var d=a.attributes[c.renderer.key1];return c.icons[d].imageUrl;case"simple":return c.icons["default"].imageUrl;default:return c.icons["default"].imageUrl}},getFeatureName:function(a,b){return a.attributes[b.nameField]},getObjectId:function(a){return a.attributes[a.getLayer().objectIdField]},getAttributeValueByName:function(a,b){return a.attributes[b]},generateVisibilityLegend:function(a){var b="",c={"for":"filterGroup_"+a.data[a.idx].id,attr:b,value:a.data[a.idx].id,checked:"checked",label:a.data[a.idx].layerConfig.displayName,"class":"eye checked",featureId:a.data[a.idx].layerConfig.id};return c},generateBoundingBoxLegend:function(a){var b="",c={"for":"filterGroup_"+a.data[a.idx].id+"1",attr:b+"1",value:a.data[a.idx].id,checked:"checked",label:a.data[a.idx].layerConfig.displayName,"class":"box checked",featureId:a.data[a.idx].layerConfig.id};return c},getDataLayerUUID:function(a){return a.replace("layer_","")}}});
