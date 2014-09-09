@@ -29,11 +29,11 @@
 									<div class='record-controls wb-invisible'>
 										<ul class='button-group margin-top-none'>
 											<li>
-												<button class='button button-none button-small font-xsmall details' data-feature-url={%=o.lyr.url%} data-feature-oid={%=o.fn.getObjectId(o.data)%}>{%=o.str.txtGrid_details%}</button>
+												<button class='button button-none button-small font-xsmall details' data-feature-url={%=o.lyr.url%} data-feature-oid={%=o.fn.getObjectId(o.data)%}>{%=i18n.t('datagrid.details')%}</button>
 												<span class='separator' role='presentation'></span>
 											</li>
 											<li>
-												<button class='button button-none button-small font-xsmall zoomto' data-feature-url={%=o.lyr.url%} data-feature-oid={%=o.fn.getObjectId(o.data)%}>{%=o.str.txtGrid_zoomTo%}</button>
+												<button class='button button-none button-small font-xsmall zoomto' data-feature-url={%=o.lyr.url%} data-feature-oid={%=o.fn.getObjectId(o.data)%}>{%=i18n.t('datagrid.zoomTo')%}</button>
 											</li>
 										</ul>
 									</div>
@@ -72,20 +72,24 @@
 											<div class='global-controls'>
 												<ul class='button-grou margin-top-none'>
 													<li class='form-inline'>
-															
-															<label for='datasetSelector' class='margin-left-medium'>{%=o.txtDataset%}:</label>
+																														
 														{% if (o.datasets.length > 1) { %}
+															<label for='datasetSelector' class='margin-left-medium'>{%=o.txtDataset%}:</label>
 															<select name='select' id='datasetSelector' class='span-2 margin-bottom-none' data-role='none'>
 															
-																{% for (var i = 0; i < o.datasets.length; i++) { %}
+																{% for (var i = 0; i < o.datasets.length; i++) {  %}
+
+                                                                   
 																		<option value='{%=o.datasets[i].url%}'>{%=o.datasets[i].displayName%}</option>
-																		
+														
 																{% } %}
 															
 															</select>
 														    <button id='datasetSelectorSubmitButton' class='button button-default button-info'></button>
+														{% } else if (o.datasets.length === 0) { %}
 
-														{% } else { %}																
+														{% } else { %}		
+															<label for='datasetSelector' class='margin-left-medium'>{%=o.txtDataset%}:</label>														
 															<input readonly='true' id='datasetSelector' class='span-2 margin-bottom-none' data-role='none' value='{%=o.datasets[0].displayName%}'/>
 														{% } %}
 														
