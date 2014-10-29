@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>Build Tool</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -43,7 +40,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -53,7 +50,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -70,8 +67,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -125,324 +122,130 @@
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
                 
+<p><a name="top"></a></p>
+
 <h1 id="wb-cont">Build Tool Setup</h1>
 
-<h2 id="dependencies">Dependencies</h2>
-<p>The build tool uses <a href="http://gruntjs.com/">Grunt</a> for automation of linting, minifying, concatenating and other magical things we do with our JS and CSS files.</p>
+<div class="toc"></div>
 
-<p>To install Grunt on Windows, you first need to install <a href="http://nodejs.org/">Node.js</a> and <a href="http://msysgit.github.io/">Git</a> binary, and then you can use the command prompt or PowerShell to run Grunt tasks.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>If you haven’t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins.</p>
+
+<p>To install Grunt on Windows, you first need to install <a href="http://nodejs.org/">Node.js</a> and <a href="http://msysgit.github.io/">Git</a> binary, and then you can use the command prompt or PowerShell to run Grunt tasks. You also need to have Java installed.</p>
 
 <ul>
   <li>Node.js <a href="http://nodejs.org/#download">installer</a></li>
   <li>msysGit <a href="http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git">installer</a></li>
   <li>msysGit <a href="https://github.com/msysgit/msysgit/releases">mirror</a></li>
+  <li>Java SDK <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">installer</a></li>
 </ul>
 
 <p>After installing the dependencies, run the following in your command shell as Administrator</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>npm install -g grunt-cli</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>npm install -g grunt-cli
+<span class="nv">$ </span>npm install -g bower</code></pre></div>
 
-<p>This will add the grunt command in your system path, allowing it to be run from any directory. You might want to restart your machine, just in case.</p>
+<p>This will add the grunt and bower commands to your system path, allowing it to be run from any directory. You might want to restart your machine, just in case.</p>
 
-<h2 id="build-tool">Build Tool</h2>
-<p>The build tool is just a Grunt project set up to automate the processing of the template, JS and CSS files before deployment. It also outputs the English and French versions of the main page template for both WET <a href="http://wet-boew.github.io/themes-dist/theme-gc-intranet/index-en.html">Government of Canada Intranet</a> and <a href="http://wet-boew.github.io/themes-dist/theme-gcwu-fegc/index-en.html">Government of Canada Web Usability</a> themes using supplies locale strings and templates.</p>
-
-<p>The Build tool can also</p>
-
-<ul>
-  <li>monitor <strong>*.less</strong> files in <strong>RAMP/src/css/</strong> for changes and autoconvert them to css – very handy since you don’t have to run the build tool manually to see changes; see <em>wcss</em> task;</li>
-  <li>monitor <strong>*.js</strong> files in <strong>RAMP/src/js/RAMP/</strong> for changes and run <a href="http://www.jshint.com/">JSHint</a> on the modified file and, if no errors detected, reminifty JS files – very handy since you can avoid silly JavaScript errors; see <em>wjs</em> task;</li>
-  <li>monitor <strong>src/ramp-src.html</strong> main template file and all the theme-specific template files in <strong>src/pages/**/*.html</strong> for changes and output localized version for both templates; see <em>wpage</em> task;</li>
-  <li>monitor <strong>*.json</strong> files in <strong>RAMP/src/js/RAMP/Modules/templates/</strong> for changes and automatically copy them to the build folder; see <em>wtemplate</em> task;</li>
-  <li>do all of the above at teh same time; see <em>watch</em> task;</li>
-</ul>
-
-<h3 id="structure">Structure</h3>
-<p>There are two files required to configure and run the build tool: <strong>package.json</strong> and <strong>Gruntfile</strong>. They resided in <strong>RAMP</strong> at the root level.</p>
-
-<p><strong>package.json</strong>: stores metadata for the project; defines the list of Grunt plugins needed;</p>
-
-<p><strong>Gruntfile</strong>: configures and defines tasks;</p>
-
-<p>Apart from these two files, there is also the <strong>node_modules</strong> folder in the root of <strong>RAMP</strong> containing Grunt modules which will be pulled from GitHub when you run <strong>npm install</strong> in the next section.</p>
-
-<p>You can read more about Grunt projects <a href="http://gruntjs.com/getting-started">here</a></p>
-
-<h3 id="running-the-build-tool">Running the Build Tool</h3>
+<h3 id="getting-started">Getting Started</h3>
 <p>To run the build tool do the following:</p>
 
 <ol>
   <li>Open Command Prompt or PowerShell</li>
   <li>Change to the project’s root directory</li>
   <li>Use <strong>npm install</strong> to install project dependencies (need to run only once or when adding new modules)</li>
-  <li>Use the following to run the build tool:</li>
+  <li>Use the following to run the default build task:</li>
 </ol>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt</code></pre></div>
 
 <p>if you get an error that something is not found, try running <strong>npm install</strong> again.</p>
 
 <h3 id="default-task">Default Task</h3>
-<p>Unless you specify a task to run, <strong>grunt</strong> command runs <em>cleanAll</em>, <em>css</em>, <em>js</em>, <em>page</em> and <em>assets</em> tasks and they will</p>
-
-<ol>
-  <li>increment the project’s version build number;</li>
-  <li>convert LESS files from <strong>RAMP\src\css</strong> to CSS, add browser-specific prefixes to CSS files in <strong>RAMP\src\css</strong>, minimize CSS, and copy them to <strong>RAMP\buildcss__; concatenate CSS libraries located in __RAMP\src\css\lib</strong>, and copy the resulting <strong>lib.min.css</strong> to <strong>RAMP\build\css\lib</strong>;</li>
-  <li>run JSHint on all JS source files – the default build task <em>will</em> fail if there are any errors present; <a href="http://lisperator.net/uglifyjs/compress">uglify</a> JS files from <strong>RAMP\src\js\RAMP</strong> and move them to <strong>RAMP\build\js\RAMP</strong>; uglifiy modified/pretty JS libraries from <strong>RAMP\src\js\lib</strong>, concatenate them with other, already uglified JS libraries and copy the resulting <strong>lib.min.js</strong> file to <strong>RAMP\build\js\lib</strong>; copy templates from <strong>RAMP\src\js\RAMP\Modules\templates</strong> to <strong>RAMP\build\js\RAMP\Modules\templates</strong>;</li>
-  <li>output English and French versions of the content template file (<strong>src/ramp-src.html</strong>) by replacing placeholders with provided locale strings and applying templates from theme foldes in <strong>src\pages\ramp-gcwu-intranet</strong> and <strong>src\pages\ramp-gcwu-fegc</strong>; save them as in the <strong>build</strong> folder;</li>
-  <li>generate API documentation using <a href="http://yui.github.io/yuidoc/">YUIDoc</a> and annotated source code documents using <a href="http://jashkenas.github.io/docco/">Docco</a> and save them in “<strong>docs/docco</strong>” and “<strong>docs/yuidoc</strong>” folder</li>
-</ol>
-
-<h4 id="source">–source</h4>
-<p>To generate source mappings for the core JS files, use source option as follows:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt --source</code></pre></div>
+<p>Unless you specify a task to run, <strong>grunt</strong> command creates an unminified development, minified and tarballed distribution packages. They are located in <strong>build</strong>, <strong>dist</strong>, and <strong>tarball</strong> folders respectivelly.</p>
 
 <h3 id="other-tasks">Other Tasks</h3>
-<p>The default task calls the three main build tasks and if you don’t want to build everything at once all the time, you can call any of the of build tasks individually. You can also call any of the utility tasks defined in the <strong>Gruntfile</strong>. You can do that by using</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt &lt;task-name&gt;</code></pre></div>
 
 <h4 id="api">api</h4>
 <p>Generate API documentation using YUIDoc and annotated source code documents using Docco and save them in “<strong>docs/docco</strong>” and “<strong>docs/yuidoc</strong>” folder. Use the following to run this task:</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt api</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt api</code></pre></div>
 
-<h4 id="bump">bump</h4>
-<p>Increments the project’s version number in files <strong>package.json</strong> and <strong>yuidoc.json</strong>. Use the following to run this task:</p>
+<h4 id="build">build</h4>
+<p>Creates an unminified development package. Use the following to run this task:</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt bump
-&gt;&gt; Version bumped to 0.0.2
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt build</code></pre></div>
 
-<span class="nv">$ </span>grunt bump:patch
-&gt;&gt; Version bumped to 0.0.3
-
-<span class="nv">$ </span>grunt bump:minor
-&gt;&gt; Version bumped to 0.1.0
-
-<span class="nv">$ </span>grunt bump:major
-&gt;&gt; Version bumped to 1.0.0
-
-<span class="nv">$ </span>grunt bump:build
-&gt;&gt; Version bumped to 1.0.0-1</code></pre></div>
-
-<p>Everytime the default or <em>css</em>, <em>js</em>, <em>page</em> tasks are run, <em>bump-only:build</em> is also ran as well.</p>
-
-<h4 id="cleanall">cleanAll</h4>
+<h4 id="clean">clean</h4>
 <p>Removes all temporary and build folders:</p>
 
 <ul>
-  <li>RAMP/build/</li>
-  <li>RAMP/docs/</li>
+  <li>./build/</li>
+  <li>./dist/</li>
+  <li>./tarball</li>
 </ul>
 
 <p>Use the following to run this task:</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt cleanAll</code></pre></div>
-
-<h4 id="css">css</h4>
-<p>Converts LESS, prefixes CSS, minifies and copies the resulting CSS files to the <strong>build/css</strong> folder. Use the following to run this task:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt css</code></pre></div>
-
-<p>Note: You need to run this task every time you modify any *.less files since the browser cannot interpret them directly and no changes will be reflected in rendering of the page. It’s best to use <em>wcss</em> or <em>watch</em> task to auto-convert LESS to CSS on every change.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt cleanAll</code></pre></div>
 
 <h4 id="deploy">deploy</h4>
-<p>Runs the <em>build</em> and then copies only the necessary files to a specified location leaving out source folders. This task <em>will</em> fail if there are any JS errors present. Use the following to run this task:</p>
+<p>Creates a minified distribution package and copies it into to a specified location. This task <em>will</em> fail if there are any JS errors present. Use the following to run this task:</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt deploy</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt deploy</code></pre></div>
 
 <p>Note: The target folder is cleaned prior to copying files.</p>
 
-<h4 id="hint">hint</h4>
-<p>Runs JSHint on all JS files in <strong>RAMP/src/js/RAMP/</strong>. Use the following to run this task:</p>
+<h4 id="dist">dist</h4>
+<p>Identical to the default task. Use the following to run this task:</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt hint</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt dist</code></pre></div>
 
-<h5 id="target---tr">–target / -tr</h5>
-<p>To lint a specific JS file, use the <strong>–target</strong> or its shortcut <strong>-tr</strong> options and specify the path to the file relative to <strong>RAMP/src/js/RAMP/</strong>:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt hint --target<span class="o">=</span>Modules/datagrid.js
-<span class="nv">$ </span>grunt hint -tr Modules/datagrid.js</code></pre></div>
-
-<h5 id="output---o">–output / -o</h5>
-<p>To lint a specific JS file, use the <strong>–target</strong> or its shortcut <strong>-tr</strong> options and specify the path to the file relative to <strong>RAMP/src/js/RAMP/</strong>:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt hint --output<span class="o">=</span>jsHintErrors.my
-<span class="nv">$ </span>grunt hint -o jsHintErrors.my</code></pre></div>
-
-<h4 id="js">js</h4>
-<p>JShints, uglifies, concatenates, and copies the resulting JS files and templates to the <strong>build/js</strong> folder. This task <em>will</em> fail if there are any errors present. Use the following to run this task</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt js</code></pre></div>
-
-<h5 id="source-1">–source</h5>
-<p>To generate source mappings for the core JS files, use <strong>source</strong> option as follows:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt js --source</code></pre></div>
-
-<h4 id="page">page</h4>
-<p>Outputs English and French versions of the content template file (<strong>ramp-src.html</strong>) for both themes  by replacing placeholders with provided locale strings; saves them into the <strong>build</strong> folder. Certain sections in the tempate file will be replaced:</p>
-
-<h5 id="headwetcss">head.wetCss</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:section head.wetCss --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the content of the theme-specific file <strong>src/pages/[theme]/head.wetCss.html</strong>.</p>
-
-<h5 id="headwetcss-1">head.wetCss</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:style head.rampCssLib --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the CSS reference to <strong>build/css/lib/lib.min.css</strong>.</p>
-
-<h5 id="headrampcsscore">head.rampCssCore</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:style head.rampCssCore --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the CSS reference to <strong>build/css/[theme]/theme.less.min.css</strong>.</p>
-
-<h5 id="bodywetheader">body.wetHeader</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:section body.wetHeader --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the content of the theme-specific file <strong>src/pages/[theme]/body.wetHeader.html</strong>.</p>
-
-<h5 id="bodywetfooter">body.wetFooter</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:section body.wetFooter --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the content of the theme-specific file <strong>src/pages/[theme]/body.wetFooter.html</strong>.</p>
-
-<h5 id="bodywetjs">body.wetJs</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:section body.wetJs --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the content of the theme-specific file <strong>src/pages/[theme]/body.wetJs.html</strong>.</p>
-
-<h5 id="bodyrampjslib">body.rampJsLib</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:script body.rampJsLib --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the JS reference to <strong>build/js/lib/lib.min.js</strong>.</p>
-
-<h5 id="bodyrampjscore">body.rampJsCore</h5>
-
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- build:script body.rampJsCore --&gt;</span>
-    ...
-<span class="c">&lt;!-- /build --&gt;</span></code></pre></div>
-
-<p>is replaced by the JS reference to <strong>build/js/RAMP/RAMP-starter.js</strong>.</p>
-
-<p>It reads two csv files containing English and French strings respectively from <strong>RAMP/src/assets/strings_en.csv</strong> and <strong>RAMP/src/assets/strings_fr.csv</strong>. The files are a simple set of key-values with the header of <strong>key,value</strong>. The build tool also loads the config file located at <em>configFileLocation</em> and mixes found <strong>stringResources</strong> with strings from the csv files. After that, it runs a replacement task on the content template, generating a language specific html files.</p>
-
-<p>Saves the newly created files into the <strong>build</strong> folder.</p>
+<h4 id="servebuild">serve:build</h4>
+<p>Creates an unminified development package, starts a node server on port 3002, watches for modified JS, CSS and other files, and reloads HTML page on change.</p>
 
 <p>Use the following to run this task:</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt page</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt serve:build</code></pre></div>
 
-<h4 id="watch">watch</h4>
-<p><em>watch</em> is a shortcut to run <em>wcss</em>, <em>wjs</em>, <em>wpage</em>, and <em>wtempate</em> tasks. Use the following to run this task:</p>
+<p>Access RAMP pages:
+http://localhost:3002/ramp-en.html
+http://localhost:3002/ramp-fr.html</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt watch</code></pre></div>
+<h4 id="servedist">serve:dist</h4>
+<p>Creates a minified distribution package and starts a node server on port 3002.</p>
 
-<h4 id="wcss">wcss</h4>
-<p>Watches all <a href="http://lesscss.org">LESS</a> files in <strong>RAMP/src/css/</strong> and runs the <em>css</em> task on change. Use the following to run this task:</p>
+<p>Use the following to run this task:</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt wcss</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt serve:dist</code></pre></div>
 
-<h4 id="wjs">wjs</h4>
-<p>Watches all JS files in <strong>RAMP/src/js/RAMP/</strong> and runs the <em>hint</em> task on the changed file and then runs <em>js</em> task. Use the following to run this task:</p>
+<p>Access RAMP pages:
+http://localhost:3002/ramp-en.html
+http://localhost:3002/ramp-fr.html</p>
 
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt wjs</code></pre></div>
-
-<h5 id="target---tr-1">–target / -tr</h5>
-<p>To watch for a specific JS file, use the <strong>–target</strong> or its shortcut <strong>-tr</strong> options and specify the path to the file relative to <strong>RAMP/javascript/src/RAMP/</strong>:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt wjs --target<span class="o">=</span>Modules/datagrid.js
-<span class="nv">$ </span>grunt wjs -tr Modules/datagrid.js</code></pre></div>
-
-<h4 id="wpage">wpage</h4>
-<p>Watches main HTML template file <strong>RAMP/src/ramp-src.html</strong> and all the theme-specific templates in <strong>src/pages</strong> folder; runs <em>page</em> task when changes are detected:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt wpage</code></pre></div>
-
-<h4 id="wtempate">wtempate</h4>
-<p>Watches all JSON files in <strong>RAMP/src/js/RAMP/Modules/Templates</strong> and copies them to the <strong>build</strong> folder when changes are detected. Use the following to run this task:</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>grunt wtempaltes</code></pre></div>
+<p>Note: This task does not monitor files and will not rebuild the package or reload the pages.</p>
 
 <h3 id="config-file---packagejson">Config File - package.json</h3>
 
 <p>package.json contains the metadata about the build tool project, grunt dependencies to be installed and some of the variables used by the build tool such as various paths, folders, and file names. package.json is a pure JSON file (no comments, no unquoted strings, no multiline values allowed). All the variables related to the build tool stored in <strong>ramp</strong> object.</p>
 
-<h4 id="jslibtouglify">jsLibToUglify</h4>
-<p>A list of JS libraries’ files to be uglified, their paths relative to the <strong>lib</strong> folder in <strong>RAMP/src/js/</strong>. Since some of the libraries come in a non-uglified state and some of the libraries’ source code was modified by us, we need to uglify them before concatenating with other, already uglified JS libraries.</p>
+<h4 id="rampconcatjslib">ramp.concat.jsLib</h4>
+<p>A list of JS libraries’ files to be concatenated together for use in RAMP.</p>
 
-<p><strong>console.log, warn, etc.</strong> statements are removed during uglification.</p>
+<h4 id="rampconcatcsslib">ramp.concat.cssLib</h4>
+<p>A list of CSS libraries’ files to be concatenated together for use in RAMP.</p>
 
-<h4 id="jslibtoconcat">jsLibToConcat</h4>
-<p>A list of JS libraries’ files to be concatenated together. Make sure you only include the uglified version of the files. This list must include all the files from the <em>jsLibToUglify</em> list with <strong>.min.js</strong> extensions instead of just <strong>.js</strong>.</p>
-
-<h4 id="jslibresourcestocopy-not-used-right-now">jsLibResourcesToCopy (not used right now)</h4>
-<p>A list of JS libraries’ resources that need to be in the same folder as the main library file. They will be copied over to the <strong>RAMP/javascript/lib</strong> folder. Right now this list is empty.</p>
-
-<h4 id="jsextratocopy">jsExtraToCopy</h4>
-<p>A list of other JS libraries, or just files to be copied to the <strong>build</strong> folder without modifications.</p>
-
-<h4 id="csslibtominify">cssLibToMinify</h4>
-<p>A list of CSS libraries’ to be minified, their paths relative to the <strong>lib</strong> folder in <strong>RAMP/src/css/</strong>. As with JS libraries, we modify some of the libraries’ CSS and they need to be modified before concatenation.</p>
-
-<h4 id="csslibtoconcat">cssLibToConcat</h4>
-<p>A list of CSS libraries’ files to e concatenated together. Make sure you only include the minified version of the files. The list must include all the files from the cssLibToConcat list with <strong>.min.css</strong> extensions instead of just <strong>.css</strong>.</p>
-
-<h4 id="csslibresourcestocopy">cssLibResourcesToCopy</h4>
-<p>A list of CSS libraries’ resources/assets like images, fonts, etc. that will be copied to the <strong>build/css/lib</strong> folder.</p>
-
-<h4 id="themes">themes</h4>
-<p>A list of theme names corresponding to the folder names in the <strong>src/pages</strong> folder. Right now two themes are used: <em>ramp-gcwu-fegc</em> and <em>ramp-gcwu-intranet</em>.</p>
-
-<h4 id="pagetobuilden">pageToBuildEn</h4>
-<p>The suffix to be appended to the English version of the built page.</p>
-
-<h4 id="pagetobuildfr">pageToBuildFr</h4>
-<p>The suffix to be appended to the French version of the built page.</p>
-
-<h4 id="assetstocopy">assetsToCopy</h4>
-<p>A list of folders and files to be copied as part of the deploy task.</p>
-
-<h4 id="deploytofolder">deployToFolder</h4>
+<h4 id="rampdeploytofolder">ramp.deployToFolder</h4>
 <p>A path to the deploy folder.</p>
 
-<h4 id="configfilelocation--not-used-right-now">configFileLocation  (not used right now)</h4>
-<p>Points to the config file to be harvested for locale strings. Can be either a local file (<strong>config.{lang}.json</strong>) or a remote url (<strong>http://sncr01wbingsdv1.ncr.int.ec.gc.ca/RAMP_Service/getConfig/{lang}/?keys=</strong>_). Make sure to leave {<strong>lang</strong>} in the file path instead of specifying a language. If it’s a remote url, make sure it returns pure JSON, not <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a> .</p>
-
-<h4 id="doccopath">docco.path</h4>
+<h4 id="rampdoccopath">ramp.docco.path</h4>
 <p>A path to the JavaScript folder to be parsed.</p>
 
-<h4 id="doccooutdir">docco.outdir</h4>
+<h4 id="rampdoccooutdir">ramp.docco.outdir</h4>
 <p>A path where to put generated documents.</p>
 
 <h4 id="yuidocconfig">yuidocconfig</h4>
 <p>The Config object for YUIDoc is located in yuidoc.json file. You can read about its structure here: <a href="http://yui.github.io/yuidoc/args/index.html">http://yui.github.io/yuidoc/args/index.html</a></p>
-
-<h4 id="hintcolors">hintColors</h4>
-<p>Specifies the colors to be used by JSHint when outputting to the console; this property is in the root of package.json.</p>
 
 <h3 id="grunt-modules">Grunt Modules</h3>
 <p>The build tool uses a number of Grunt-specific and general <a href="https://www.npmjs.org/">NPM</a> modules. They are:</p>
@@ -470,6 +273,8 @@
   <li><a href="https://github.com/gustavohenke/grunt-jscs-checker">grunt-jscs-checker</a></li>
   <li><a href="https://github.com/spatools/grunt-html-build">grunt-html-build</a></li>
   <li><a href="https://github.com/JamesMGreene/grunt-chmod">grunt-chmod</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-compress">grunt-contrib-compress</a></li>
+  <li><a href="https://www.npmjs.org/package/grunt-json-minify">grunt-json-minify</a></li>
 </ul>
 
 <h3 id="other">Other</h3>
@@ -501,17 +306,6 @@
   <li>run the tool;</li>
 </ol>
 
-<h4 id="making-cake">Making Cake</h4>
-<p>To have the build tool make you a cake, do the following:</p>
-
-<ol>
-  <li>save a picture of the cake you want in <strong>RAMP/assets/images/cake.png</strong>;</li>
-  <li>save the cake’s recipe in <strong>RAMP/assets/recipe.txt</strong>;</li>
-  <li>spin three times on your chair clapping your hands and shouting “Cake”;</li>
-  <li>use the command <strong>grunt cake</strong></li>
-  <li>enjoy your cake;</li>
-</ol>
-
 <h3 id="troubleshooting">Troubleshooting</h3>
 
 <h4 id="task-not-found">Task Not Found</h4>
@@ -526,7 +320,7 @@ Aborted due to warnings.
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-07-07</time>
+                        <time>2014-10-29</time>
                     </dd>
                 </dl>
             </main>
@@ -588,6 +382,16 @@ Aborted due to warnings.
                         Template Summary
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -628,11 +432,26 @@ Aborted due to warnings.
                         Basemap Support
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/yuidoc/index.html">
+            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
                 API Reference
             </a>
         </li>
@@ -690,5 +509,18 @@ Aborted due to warnings.
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
 
     <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>areaTool.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>areaTool.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, i18n */</span>
+
+<span class="hljs-comment">/**
+* MeasureTool submodule.
+*
+* Computes the area and perimeter length of a selected area. When the user draws a polygon, the area
+* and length will be displayed in the bottom right corner.
+*
+* @module RAMP
+* @submodule MeasureTool
+* @main MeasureTool
+*/</span>
+
+<span class="hljs-comment">/**
+* MeasureTool class.
+*
+* @class MeasureTool
+* @static
+* @uses dojo/dom
+* @uses dojo/_base/lang
+* @uses esri/config
+* @uses esri/graphic
+* @uses esri/tasks/GeometryService
+* @uses esri/tasks/AreasAndLengthsParameters
+* @uses esri/toolbars/draw
+* @uses esri/symbols/SimpleFillSymbol
+* @uses Map
+* @uses GlobalStorage
+*/</span>
+
+define([</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-string">"dojo/dom"</span>, <span class="hljs-string">"dojo/string"</span>, <span class="hljs-string">"dojo/_base/lang"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Esri</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-string">"esri/config"</span>, <span class="hljs-string">"esri/graphic"</span>, <span class="hljs-string">"esri/tasks/GeometryService"</span>,
+      <span class="hljs-string">"esri/tasks/AreasAndLengthsParameters"</span>, <span class="hljs-string">"esri/toolbars/draw"</span>, <span class="hljs-string">"esri/symbols/SimpleFillSymbol"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-string">"ramp/map"</span>, <span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"tools/baseTool"</span>
+],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      dom, string, dojoLang,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Esri</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      esriConfig, Graphic, GeometryService, AreasAndLengthsParameters, Draw, SimpleFillSymbol,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      RampMap, GlobalStorage, BaseTool) {
+        <span class="hljs-string">"use strict"</span>;
+
+        <span class="hljs-keyword">var</span> ui,
+            geometryService,
+            measureApp,
+            that;
+
+        <span class="hljs-comment">/**
+        * Compute the area and length of a specified polygon.
+        *
+        * @method computeAreaAndLength
+        * @private
+        * @param {Object} evtObj an object representing the event.
+        *
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">computeAreaAndLength</span><span class="hljs-params">(evtObj)</span> </span>{
+            that.working(<span class="hljs-literal">true</span>);
+
+            geometryService = <span class="hljs-keyword">new</span> GeometryService(GlobalStorage.config.geometryService);
+            geometryService.on(<span class="hljs-string">"areas-and-lengths-complete"</span>, outputAreaAndLength);
+
+            <span class="hljs-keyword">var</span> geometry = evtObj.geometry;
+            measureApp.map.graphics.clear();
+
+            measureApp.map.graphics.add(<span class="hljs-keyword">new</span> Graphic(geometry, <span class="hljs-keyword">new</span> SimpleFillSymbol()));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>setup the parameters for the areas and lengths operation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> areasAndLengthParams = <span class="hljs-keyword">new</span> AreasAndLengthsParameters();
+            areasAndLengthParams.lengthUnit = GeometryService.UNIT_KILOMETER;
+            areasAndLengthParams.areaUnit = GeometryService.UNIT_SQUARE_KILOMETERS;
+            areasAndLengthParams.calculationType = <span class="hljs-string">"geodesic"</span>;
+            geometryService.simplify([geometry], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(simplifiedGeometries)</span> </span>{
+                areasAndLengthParams.polygons = simplifiedGeometries;
+                geometryService.areasAndLengths(areasAndLengthParams);
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Display the calculated area and length on the map.
+        *
+        * @method outputAreaAndLength
+        * @private
+        * @param {Object} evtObj an object representing the event.
+        *
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outputAreaAndLength</span><span class="hljs-params">(evtObj)</span> </span>{
+            <span class="hljs-keyword">var</span> result = evtObj.result,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Convert acres to km2.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                area = result.areas[<span class="hljs-number">0</span>].toFixed(<span class="hljs-number">3</span>),<span class="hljs-comment">// (result.areas[0] / 247.11).toFixed(3),</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Convert feet to km.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                length = result.lengths[<span class="hljs-number">0</span>].toFixed(<span class="hljs-number">3</span>);<span class="hljs-comment">// (result.lengths[0] / 3280.8).toFixed(3);</span>
+
+            that.working(<span class="hljs-literal">false</span>);
+
+            length = string.substitute(<span class="hljs-string">"${number:dojo.number.format}"</span>, { number: length });
+            area = string.substitute(<span class="hljs-string">"${number:dojo.number.format}"</span>, { number: area });
+            displayOutput(length, area, <span class="hljs-string">"km"</span>, <span class="hljs-string">"km"</span>);
+        }
+
+        ui = {
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> map = RampMap.getMap(),
+                    toolbar = <span class="hljs-keyword">new</span> Draw(map);
+
+                toolbar.on(<span class="hljs-string">"draw-end"</span>, computeAreaAndLength);
+
+                measureApp = {
+                    map: map,
+                    toolbar: toolbar
+                };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>identify proxy page to use if the toJson payload to the geometry service is greater than 2000 characters.
+If this null or not available the project and lengths operation will not work.  Otherwise it will do a http post to the proxy.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                esriConfig.defaults.io.proxyUrl = GlobalStorage.config.proxyUrl;
+                esriConfig.defaults.io.alwaysUseProxy = <span class="hljs-literal">false</span>;
+            }
+        };
+
+        <span class="hljs-comment">/**
+        * Activates the Tool. This method is passed to the `initToggle` method and is triggered by the BaseTool logic.
+        *
+        * @method activate
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">activate</span><span class="hljs-params">()</span> </span>{
+            measureApp.toolbar.activate(Draw.FREEHAND_POLYGON);
+
+            displayOutput(i18n.t(that.ns + <span class="hljs-string">":na"</span>), i18n.t(that.ns + <span class="hljs-string">":na"</span>));
+        }
+
+        <span class="hljs-comment">/**
+        * Deactivates the Tool. This method is passed to the `initToggle` method and is triggered by the BaseTool logic.
+        *
+        * @method deactivate
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deactivate</span><span class="hljs-params">()</span> </span>{
+            measureApp.toolbar.deactivate();
+            clearMap();
+        }
+
+        <span class="hljs-comment">/**
+        * Clears the map. This method is passed to the `initToggle` method as the `defaultAction`
+        * to be triggered by the BaseTool logic when the `float-default-button` is clicked.
+        *
+        * @method clearMap
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clearMap</span><span class="hljs-params">()</span> </span>{
+            measureApp.map.graphics.clear();
+
+            displayOutput(i18n.t(that.ns + <span class="hljs-string">":na"</span>), i18n.t(that.ns + <span class="hljs-string">":na"</span>));
+        }
+
+        <span class="hljs-comment">/**
+        * Displays the tool's output by calling BaseTool's `displayOutput` function.
+        *
+        * @method displayOutput
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayOutput</span><span class="hljs-params">(length, area, lengthUnits, areaUnits)</span> </span>{
+            that.displayTemplateOutput(
+                {
+                    lengthLabel: i18n.t(that.ns + <span class="hljs-string">":length"</span>),
+                    areaLabel: i18n.t(that.ns + <span class="hljs-string">":area"</span>),
+                    lengthOutput: length,
+                    areaOutput: area,
+                    lengthUnits: lengthUnits,
+                    areaUnits: areaUnits
+                }
+            );
+        }
+
+        <span class="hljs-keyword">return</span> dojoLang.mixin({}, BaseTool, {
+            <span class="hljs-comment">/**
+            * Initialize the population tool
+            *
+            * @method init
+            * @constructor
+            *
+            */</span>
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, d)</span> </span>{
+                that = <span class="hljs-keyword">this</span>;
+                <span class="hljs-keyword">this</span>.initToggle(selector, d,
+                    {
+                        activate: activate,
+                        deactivate: deactivate,
+                        defaultAction: clearMap
+                    }
+                );
+
+                ui.init();
+
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+            },
+
+            name: <span class="hljs-string">"areaTool"</span>
+        });
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>basemapSelector.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>basemapSelector.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*global define, $, esri, tmpl */</span>
+<span class="hljs-comment">/*jslint white: true */</span>
+
+<span class="hljs-comment">/**
+*
+* @module RAMP
+*/</span>
+
+<span class="hljs-comment">/**
+* Populates the BasemapGallery widget located in the maps toolbar with items found in the application configuration.
+* This module also handles all the event  needed to change the map basemap and update the UI
+*
+*
+* @class BaseMapSelector
+* @static
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+* @uses dojo/dom-attr
+* @uses dojo/query
+* @uses dojo/topic
+* @uses templates/basemap_selector_template.json
+* @uses GlobalStorage
+* @uses Map
+* @uses EventManager
+* @uses esri/dijit/BasemapGallery
+* @uses utils/popupManager
+* @uses utils/thmplHelper
+*/</span>
+
+define([</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"dojo/_base/array"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/dom-attr"</span>, <span class="hljs-string">"dojo/query"</span>, <span class="hljs-string">"dojo/topic"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Templates</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"dojo/text!./templates/basemap_selector_template.json"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"ramp/map"</span>, <span class="hljs-string">"ramp/eventManager"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Esri</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"esri/dijit/BasemapGallery"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Util</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"utils/popupManager"</span>, <span class="hljs-string">"utils/tmplHelper"</span>, <span class="hljs-string">"utils/array"</span>],
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        dojoArray, dojoLang, domAttr, query, topic,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Templates</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        basemapselectorTemplate,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        GlobalStorage, RampMap, EventManager,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Esri</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        BasemapGallery,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Util</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        PopupManager, TmplHelper, UtilArray) {
+    <span class="hljs-string">"use strict"</span>;
+
+    <span class="hljs-keyword">var</span> basemapGallery,
+        basemaps = [],
+        config,
+
+        placementAnchorId = <span class="hljs-string">"basemapGallery"</span>,
+
+        baseMapControls,
+        baseMapToggle,
+        basemapGalleryNode,
+
+        cssButtonPressedClass = <span class="hljs-string">"button-pressed"</span>,
+
+        ui = {
+            <span class="hljs-comment">/**
+            * Initiates additional UI components of the widget, setting listeners and registering the popup functionality
+            *
+            * @method init
+            * @private
+            * @return {object} itself
+            *
+            */</span>
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                baseMapControls = $(<span class="hljs-string">"#basemapControls"</span>);
+                baseMapToggle = $(<span class="hljs-string">"#baseMapToggle"</span>);
+                basemapGalleryNode = $(<span class="hljs-string">"#basemapGallery"</span>).attr(<span class="hljs-string">"role"</span>, <span class="hljs-string">"listbox"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Set alt text for selector thumbnails</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                dojoArray.forEach(config.basemaps, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(basemap)</span> </span>{
+                    domAttr.set(query(<span class="hljs-built_in">String</span>.format(<span class="hljs-string">"#galleryNode_{0} img"</span>, basemap.id))[<span class="hljs-number">0</span>], <span class="hljs-string">"alt"</span>, basemap.altText);
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>load JSON templates for basemap and skin every node under the basemap selector</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                tmpl.templates = <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(basemapselectorTemplate));
+                dojoArray.forEach($(<span class="hljs-string">".esriBasemapGalleryNode"</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(node, i)</span> </span>{
+                    $(node).html(tmpl(config.siteTemplate.basemapTemplate, TmplHelper.dataBuilder(config.basemaps[i])));
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>turn on the opening and closing of the basemap selector section</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                PopupManager.registerPopup(baseMapControls, <span class="hljs-string">"hoverIntent"</span>,
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                        basemapGalleryNode.slideDown(<span class="hljs-string">"fast"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ d.resolve(); });
+                    },
+                    {
+                        activeClass: cssButtonPressedClass,
+                        target: basemapGalleryNode,
+                        closeHandler: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                            basemapGalleryNode.slideUp(<span class="hljs-string">"fast"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ d.resolve(); });
+                        },
+                        timeout: <span class="hljs-number">500</span>
+                    }
+                );
+
+                topic.publish(EventManager.BasemapSelector.UI_COMPLETE, { title: basemaps[<span class="hljs-number">0</span>].title });
+
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+            },
+            <span class="hljs-comment">/*
+             * Changes the text shown on the toolbar to match the currently selected basemap's title
+             * @method updateToggleLabel
+             * @private
+             *
+             */</span>
+            updateToggleLabel: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                baseMapToggle.find(<span class="hljs-string">"span:first"</span>).text(basemapGallery.getSelected().title);
+            }
+        };
+
+    <span class="hljs-comment">/**
+    * Initializes functions that publish events.
+    *
+    * @method initTopics
+    * @private
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initTopics</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">/* PUBLISH */</span>
+        basemapGallery.on(<span class="hljs-string">"selection-change"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">var</span> basemap = basemapGallery.getSelected();
+
+            ui.updateToggleLabel();
+            topic.publish(EventManager.BasemapSelector.BASEMAP_CHANGED, {
+                id: basemap.id,
+                title: basemap.title,
+                cssStyle: basemap.scaleCssClass
+            });
+        });
+    }
+
+    <span class="hljs-comment">/**
+    * Initializes class listeners.
+    *
+    * @method initListeners
+    * @private
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initListeners</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">/* SUBSCRIBE */</span>
+        topic.subscribe(EventManager.BasemapSelector.TOGGLE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(eventArg)</span> </span>{
+            basemapGallery.select(eventArg.id);
+        });
+    }
+
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-comment">/*
+         * Adds all of the basemaps specified in the application configuration to the basemap selector widget and then calls function to initializes event handling
+         * @method init
+         * @constructor
+         *
+         */</span>
+        init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            config = GlobalStorage.config;
+
+            dojoArray.forEach(config.basemaps, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(basemap)</span> </span>{
+                <span class="hljs-keyword">var</span> layerDijit, basemapDijit;
+
+                layerDijit = <span class="hljs-keyword">new</span> esri.dijit.BasemapLayer({ url: basemap.url });
+                basemapDijit = <span class="hljs-keyword">new</span> esri.dijit.Basemap({
+                    id: basemap.id,
+                    layers: [layerDijit],
+                    title: <span class="hljs-built_in">String</span>.format(<span class="hljs-string">"{0} ({1})"</span>, basemap.name, basemap.type),
+                    thumbnailUrl: basemap.thumbnail
+                });
+                basemapDijit.scaleCssClass = basemap.scaleCssClass;
+
+                basemaps.push(basemapDijit);
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Create and start the selector</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            basemapGallery = <span class="hljs-keyword">new</span> BasemapGallery({
+                showArcGISBasemaps: <span class="hljs-literal">false</span>,
+                basemaps: basemaps,
+                map: RampMap.getMap()
+            }, placementAnchorId);
+
+            basemapGallery.startup();
+
+            <span class="hljs-keyword">var</span> startId = UtilArray.find(GlobalStorage.config.basemaps, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(basemap)</span> </span>{
+                <span class="hljs-keyword">return</span> basemap.showOnInit;
+            }).id;
+
+            basemapGallery.select(startId);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>take over the click</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            $(<span class="hljs-string">".esriBasemapGalleryNode"</span>).on(<span class="hljs-string">"mousedown keyup"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                <span class="hljs-keyword">if</span> (evt.which === <span class="hljs-number">1</span> || evt.which === <span class="hljs-number">13</span> || evt.which === <span class="hljs-number">32</span>) {
+                    <span class="hljs-keyword">var</span> curr_id = basemapGallery.getSelected().id,
+                        selected_node = evt.currentTarget.id,
+                        selected_id = selected_node.slice(selected_node.indexOf(<span class="hljs-string">"_"</span>) + <span class="hljs-number">1</span>);
+
+                    <span class="hljs-keyword">if</span> (curr_id === selected_id) {
+                        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">//prevent the basemap from changing</span>
+                    } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//didn't select the same basemap</span>
+                        basemapGallery.select(selected_id);
+                    }
+                }
+            });
+
+            initTopics();
+            initListeners();
+
+            ui
+                .init()
+                .updateToggleLabel();
+        }
+    };
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

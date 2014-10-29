@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>External Library Implementations</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -43,7 +40,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -53,7 +50,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -70,8 +67,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -125,16 +122,77 @@
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
                 
+<p><a name="top"></a></p>
+
 <h1 id="wb-cont">External Library Implementations</h1>
 
+<div class="toc"></div>
+
+<p><a name="datatables"></a></p>
+
 <h2 id="datatables">Datatables</h2>
-<p>v 1.9.4</p>
+<p>v 1.10.1</p>
 
 <p><a href="http://www.datatables.net">http://www.datatables.net</a></p>
 
 <p>A grid control that allows for rich formatting but keeps the grid in an accessible form.  Features pagination, sorting. Unlike most grids, does not use DIVs for formatting / structure.</p>
 
 <p>Used for the main grid control in the app.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="dojo-toolkit">Dojo Toolkit</h2>
+<p>v 1.9.1</p>
+
+<p><a href="http://dojotoolkit.org/">http://dojotoolkit.org/</a></p>
+
+<p>Main framework used in RAMP.  Provides a module-based structure that helps javascript behave in a manner similar to object oriented languages.  This framework is also used by the ESRI javascript API, and is imported via that API.</p>
+
+<p>Used throughout the application.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="esri-javascript-api">ESRI Javascript API</h2>
+<p>v 3.8</p>
+
+<p><a href="https://developers.arcgis.com/javascript/">https://developers.arcgis.com/javascript/</a></p>
+
+<p>Main mapping API used in RAMP.  Handles all of the mapping and GIS related functions (e.g. drawing, querying spatial data).</p>
+
+<p>Used throughout the application.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="gsap---greensock-animation-platform">GSAP - GreenSock Animation Platform</h2>
+<p>v 1.13.2</p>
+
+<p><a href="http://www.greensock.com/gsap-js/">http://www.greensock.com/gsap-js/</a></p>
+
+<p>GSAP is a suite of tools for scripted, high-performance HTML5 animations that work in all major browsers.  Specific tools include TweenLite, TimelineLite, EasePack, and CSSPlugin.</p>
+
+<p>Used for the power transitional animation of the layout.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="i18next---i18n-for-javascript">i18next - i18n for JavaScript</h2>
+<p>v 1.7.4</p>
+
+<p><a href="http://i18next.com/">http://i18next.com/</a></p>
+
+<p>i18next is a full-featured i18n javascript library for translating your webapplication.</p>
+
+<p>Used for translation of the webmap.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="jquery">jQuery</h2>
+<p>v 2.1.1</p>
+
+<p><a href="http://jquery.com">http://jquery.com</a></p>
+
+<p>jQuery makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="jquery-ui">jQuery UI</h2>
 <p>v 1.10.4</p>
@@ -143,16 +201,20 @@
 
 <p>A jQuery library with effects, widgets, themes, and other UI-type items in it.</p>
 
-<p>It is used to generate the navigation widget.  The widget is found in file jquery.ui.navigation.js</p>
+<p>It is used to generate the navigation widget. The widget is found in file jquery.ui.navigation.js</p>
 
-<h2 id="modernizr">Modernizr</h2>
-<p>v 2.7.1</p>
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
-<p><a href="http://modernizr.com /">http://modernizr.com /</a></p>
+<h2 id="nestoria-sliders-jquery-plugin">Nestoria Sliders jQuery Plugin</h2>
+<p>v 1.0.5</p>
 
-<p>A library that detects if browsers have HTML5 or CSS3 capabilities</p>
+<p><a href="https://github.com/lokku/jquery-nstslider">https://github.com/lokku/jquery-nstslider</a></p>
 
-<p>Used to allow the tooltipster library to work in browsers that do not support CSS animation.</p>
+<p>Fully customizable with CSS, Single/Double handles, Touch-enabled, IE 7+ Compatibility, Custom Digit Rounding, Non linear step increments!</p>
+
+<p>Power the opacity slider control for the Filter Manager module.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="scrollto">ScrollTo</h2>
 <p>v 1.4.3.1</p>
@@ -163,6 +225,8 @@
 
 <p>Used to scroll the datagrid to the selected row (if row is not on the page).</p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="shorten">Shorten</h2>
 <p>v 1.0.0</p>
 
@@ -171,6 +235,8 @@
 <p>A library that allows long text to be truncated, and provides a “show more” option to expand it.</p>
 
 <p>Used in the detail panel to trim long text items</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="snap">Snap</h2>
 <p>v 0.1.0</p>
@@ -181,8 +247,10 @@
 
 <p>Used for managing graphics layers and repositioning anchor maptips in the featureHighlighter module.</p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="tmplex">tmplEx</h2>
-<p>v 2.4.1</p>
+<p>v 2.5.5</p>
 
 <p><a href="https://github.com/blueimp/JavaScript-Templates">https://github.com/blueimp/JavaScript-Templates</a></p>
 
@@ -190,14 +258,18 @@
 
 <p>Used throughout the application to generate content.  E.g. maptip content, detail pane content, grid cell content, filter row content.</p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="tooltipster">Tooltipster</h2>
-<p>v 3.0.1</p>
+<p>v 3.0.1-r</p>
 
 <p><a href="http://iamceege.github.io/tooltipster /">http://iamceege.github.io/tooltipster /</a></p>
 
 <p>A library that provides tooltips with CSS enhancements.</p>
 
 <p>Used for maptips, and also tooltips on the datagrid and filter manager rows</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="urlshortener">Urlshortener</h2>
 <p>v 1.0.1</p>
@@ -208,10 +280,12 @@
 
 <p>Used in the Get Link widget to allow user to have a shortened link.</p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-07-07</time>
+                        <time>2014-10-29</time>
                     </dd>
                 </dl>
             </main>
@@ -273,6 +347,16 @@
                         Template Summary
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -313,11 +397,26 @@
                         Basemap Support
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/yuidoc/index.html">
+            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
                 API Reference
             </a>
         </li>
@@ -375,5 +474,18 @@
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
 
     <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

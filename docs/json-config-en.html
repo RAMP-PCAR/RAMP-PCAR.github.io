@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>JSON Config Definition</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -43,7 +40,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -53,7 +50,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -70,8 +67,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -124,16 +121,13 @@
         <div class="row">
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
-                <h1 id="wb-cont">JSON Config Definition</h1>
+                <p><a name="top"></a></p>
+
+<h1 id="wb-cont">JSON Config Definition</h1>
 
 <p>This page will walk you through the layout of the application configuration object and all of its properties.</p>
 
-<h2 id="contents">Contents</h2>
-
-<ul>
-  <li><a href="#object-outline">Object Outline</a></li>
-  <li><a href="#object-property-dictionary">Object Property Dictionary</a></li>
-</ul>
+<div class="toc"></div>
 
 <h2 id="object-outline">Object Outline</h2>
 
@@ -166,6 +160,22 @@
       <li>locale</li>
       <li>cssPath</li>
       <li>skin</li>
+    </ul>
+  </li>
+  <li>advancedToolbar
+    <ul>
+      <li>enabled</li>
+      <li>tools
+        <ul>
+          <li>toolname (1 per tool)
+            <ul>
+              <li>name</li>
+              <li>selector</li>
+              <li>enabled</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>levelOfDetails
@@ -250,6 +260,78 @@
       <li>uuid</li>
       <li>detailTemplate</li>
       <li>nameField</li>
+      <li>settings
+        <ul>
+          <li>enabled</li>
+          <li>opacity
+            <ul>
+              <li>enabled</li>
+              <li>default</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>isStatic (static layer only)</li>
+      <li>layerType (static layer only)</li>
+    </ul>
+  </li>
+  <li>wmsLayers (collection)
+    <ul>
+      <li>id</li>
+      <li>displayName</li>
+      <li>url</li>
+      <li>uuid</li>
+      <li>extent</li>
+      <li>format</li>
+      <li>settings
+        <ul>
+          <li>enabled</li>
+          <li>opacity</li>
+        </ul>
+      </li>
+      <li>layerInfo
+        <ul>
+          <li>name</li>
+          <li>title</li>
+          <li>allExtents (collection)</li>
+          <li>spatialReferences (collection)</li>
+          <li>subLayers (collection)</li>
+        </ul>
+      </li>
+      <li>legend
+        <ul>
+          <li>enable</li>
+          <li>legendURL</li>
+        </ul>
+      </li>
+      <li>symbology
+        <ul>
+          <li>renderer
+            <ul>
+              <li>type</li>
+              <li>key1</li>
+              <li>key2</li>
+              <li>Key3</li>
+            </ul>
+          </li>
+          <li>icons
+            <ul>
+              <li>default
+                <ul>
+                  <li>imageUrl</li>
+                  <li>legendText</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>featureInfo (optional)
+        <ul>
+          <li>mimeType</li>
+          <li>parser</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>datagrid
@@ -295,7 +377,10 @@
       <li>datagrid</li>
     </ul>
   </li>
+  <li>plugins (collection of strings)</li>
 </ul>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="object-property-dictionary">Object Property Dictionary</h2>
 
@@ -397,6 +482,41 @@
       <td>navWidget.skin</td>
       <td>string</td>
       <td>Skin style</td>
+    </tr>
+    <tr>
+      <td><a name="advancedToolbar"></a>advancedToolbar</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>advancedToolbar.enabled</td>
+      <td>boolean</td>
+      <td>determines if the advanced toolbar is available in the app</td>
+    </tr>
+    <tr>
+      <td>advancedToolbar.tools</td>
+      <td>object</td>
+      <td>holds a child object for each available tool</td>
+    </tr>
+    <tr>
+      <td>advancedToolbar.tools.toolname</td>
+      <td>object</td>
+      <td>object defining an individual tool.  object name will be specific to the tool (i.e. it is not called “toolname”)</td>
+    </tr>
+    <tr>
+      <td>advancedToolbar.tools.toolname.name</td>
+      <td>string</td>
+      <td>name of the tool.  should match the name property of the tool’s javascript module</td>
+    </tr>
+    <tr>
+      <td>advancedToolbar.tools.toolname.selector</td>
+      <td>string</td>
+      <td>name of the selector tag to use in the html layout.  should be unique amongst tools</td>
+    </tr>
+    <tr>
+      <td>advancedToolbar.tools.toolname.enabled</td>
+      <td>boolean</td>
+      <td>determines if the tool should be made available in the toolbar</td>
     </tr>
     <tr>
       <td>levelOfDetails</td>
@@ -644,6 +764,166 @@
       <td>Field to be used to describe a feature.  Utilized in summary grid, detail content, map tip, and anchored maptip</td>
     </tr>
     <tr>
+      <td><a name="featurelayers_settings"></a>featureLayers[].settings</td>
+      <td>object</td>
+      <td>Object to store layer settings and their presets.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].settings.enabled</td>
+      <td>boolean</td>
+      <td>Indicates whether the settings panel should be accessible to the user.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].settings.opacity</td>
+      <td>object</td>
+      <td>Object to store opacity information.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].settings.opacity.enabled</td>
+      <td>boolean</td>
+      <td>Indicates whether opacity of the layer can be changed by the user. If settings are disabled, the opacity preset value will still be applied to the opacity level.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].settings.opacity.default</td>
+      <td>numeric</td>
+      <td>Specifies the preset opacity level to be applied to the layer on load.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].isStatic</td>
+      <td>boolean</td>
+      <td>Specifies the current layer as static layer.</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].layerType</td>
+      <td>string</td>
+      <td>Specifies the map service layer type (feature, tile, or dynamic.)</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].layerVisible</td>
+      <td>boolean</td>
+      <td>The initial visibility of the layer</td>
+    </tr>
+    <tr>
+      <td>featureLayers[].boundingBoxVisible</td>
+      <td>boolean</td>
+      <td>The initial visibility of the bounding box for this layer (optional for static layers)</td>
+    </tr>
+    <tr>
+      <td><a name="wmsLayers"></a> wmsLayers</td>
+      <td>collection</td>
+      <td>WMS layers to be added to the map.  Order dictates initial order on the map.</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].id</td>
+      <td>string</td>
+      <td>to identify a layer.  unique across all WMS layers</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].url</td>
+      <td>string</td>
+      <td>the url of the WMS service.  does not specify name of individual layer to show</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].uuid</td>
+      <td>string</td>
+      <td>UUID of the layer</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].format</td>
+      <td>string</td>
+      <td>format of the return image (e.g. png)</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].settings</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].settings.enabled</td>
+      <td>boolean</td>
+      <td>determines if a layer can be interacted with in the layer selector</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].settings.opacity</td>
+      <td>numeric</td>
+      <td>opacity of layer (decimal). 1 being fully opaque, 0 being fully transparent</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].extent</td>
+      <td><a href="https://developers.arcgis.com/javascript/jsapi/extent-amd.html">ESRI Extent</a></td>
+      <td>A valid extent object, including spatial reference.  Extent should define a valid extent for the WMS</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].layerInfo</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].layerInfo.name</td>
+      <td>string</td>
+      <td>name of the layer in the WMS we want to display.  must match exactly from the WMS definition</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].layerInfo.title</td>
+      <td>string</td>
+      <td>title of the layer in the WMS we want to display.  must match exactly from the WMS definition</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].layerInfo.allExtents</td>
+      <td>collection</td>
+      <td>empty for now.  possible to utilize this in later versions</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].layerInfo.spatialReferences</td>
+      <td>collection</td>
+      <td>empty for now.  possible to utilize this in later versions</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].layerInfo.subLayers</td>
+      <td>collection</td>
+      <td>empty for now.  possible to utilize this in later versions</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].legend</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].legend.enable</td>
+      <td>boolean</td>
+      <td>true to enable WMS legends, false to disable it</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].legend.legendURL</td>
+      <td>string</td>
+      <td>url to legend image for the layer.  optional</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].symbology</td>
+      <td>object</td>
+      <td>identical structure to the featureLayers[].symbology node</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].layerVisible</td>
+      <td>boolean</td>
+      <td>The initial visibility of the WMS layer</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].featureInfo</td>
+      <td>object</td>
+      <td>an optional object section, if defined implies that getFeatureInfo should be enabled for this layer</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].featureInfo.mimeType</td>
+      <td>string</td>
+      <td>the mime type to be requested from the server (used in the FORMAT argument of the request)</td>
+    </tr>
+    <tr>
+      <td>wmsLayers[].featureInfo.parser</td>
+      <td>string</td>
+      <td>the name of the plugin used to parse the response</td>
+    </tr>
+    <tr>
       <td><a name="datagrid"></a>datagrid</td>
       <td> </td>
       <td> </td>
@@ -656,7 +936,7 @@
     <tr>
       <td>datagrid.defaultState</td>
       <td>string</td>
-      <td>Default state of the datagrid: summary or entexted</td>
+      <td>Default state of the datagrid: summary or extended</td>
     </tr>
     <tr>
       <td>datagrid.summaryEnabled</td>
@@ -672,6 +952,11 @@
       <td>datagrid.extendedColumns[]</td>
       <td>collections</td>
       <td>Column definition for extended datagrid</td>
+    </tr>
+    <tr>
+      <td><a name="datagrid_extendedextentfilterenabled"></a> datagrid.extendedExtentFilterEnabled</td>
+      <td>boolean</td>
+      <td>Flag to toggle the extent filter on or off for the extended grid</td>
     </tr>
     <tr>
       <td>siteTemplate</td>
@@ -705,7 +990,7 @@
     </tr>
     <tr>
       <td><a name="globalfilter_togglelabel"></a>globalFilter.toggleLabel</td>
-      <td><collection></collection></td>
+      <td>collection</td>
       <td>Attributes and settings for individual toggle in the global section of filter manager</td>
     </tr>
     <tr>
@@ -741,7 +1026,7 @@
     <tr>
       <td>divNames</td>
       <td> </td>
-      <td>RAMP div container names in code and in html</td>
+      <td>RAMP div container names in code and in HTML</td>
     </tr>
     <tr>
       <td>divNames.map</td>
@@ -763,13 +1048,35 @@
       <td>string</td>
       <td>Datagrid container name; default is searchMapSectionBody</td>
     </tr>
+    <tr>
+      <td>ui</td>
+      <td> </td>
+      <td>Stores initial state of the user interface</td>
+    </tr>
+    <tr>
+      <td>ui.fullscreen</td>
+      <td>boolean</td>
+      <td>true if the interface should start in fullscreen mode. False otherwise.</td>
+    </tr>
+    <tr>
+      <td>ui.sidePanelOpened</td>
+      <td>boolean</td>
+      <td>true if the interface should start with the side panel opened. False otherwise.</td>
+    </tr>
+    <tr>
+      <td>plugins</td>
+      <td>collection of strings</td>
+      <td>a set of plugins to be loaded with RAMP</td>
+    </tr>
   </tbody>
 </table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-07-07</time>
+                        <time>2014-10-29</time>
                     </dd>
                 </dl>
             </main>
@@ -831,6 +1138,16 @@
                         Template Summary
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -871,11 +1188,26 @@
                         Basemap Support
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/yuidoc/index.html">
+            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
                 API Reference
             </a>
         </li>
@@ -933,5 +1265,18 @@
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
 
     <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

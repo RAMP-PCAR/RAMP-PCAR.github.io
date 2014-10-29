@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Utils\prototype.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\src\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 2.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FEGC-Theme.html">FEGC-Theme</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Intranet-Theme.html">Intranet-Theme</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Utils\prototype.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/* global define */
+/* jshint bitwise:false  */
+
+/**
+* @module Utils
+*/
+
+/**
+* Adds method prototypes to predefined classes to enhance their functionality.
+*
+* @class Prototype
+* @static
+* @uses esri/geometry/Extent
+*/
+define([
+/* ESRI */
+        &quot;esri/geometry/Extent&quot;
+],
+
+    function (
+    /* ESRI */
+        EsriExtent) {
+        &quot;use strict&quot;;
+
+        /**
+        * Attempt to add the given fcn as a prototype to the given obj under
+        * the given name. Outputs a warning message to the console if
+        * a prototype of the same name already exists.
+        *
+        * @method addProtytype
+        * @param {Object} obj
+        * @param {String} name
+        * @param {Function} fcn
+        * @private
+        */
+        function addPrototype(obj, name, fcn) {
+            if (typeof obj.prototype[name] !== &#x27;function&#x27;) {
+                obj.prototype[name] = fcn;
+            } else {
+                console.log(String.format(&quot;WARNING: unable to add prototype {0} to {1}. One already exists!&quot;, name, obj.toString()));
+            }
+        }
+
+        /**
+        * Attempt to add the given fcn as a static function to the given class under
+        * the given name. Outputs a warning message to the console if
+        * a function of the same name already exists.
+        *
+        * @method AddStaticFcn
+        * @param {Object} obj
+        * @param {String} name
+        * @param {Function} fcn
+        * @private
+        */
+        function addStaticFcn(obj, name, fcn) {
+            if (typeof obj[name] !== &#x27;function&#x27;) {
+                obj[name] = fcn;
+            } else {
+                console.log(String.format(&quot;WARNING: unable to add static function {0} to {1}. One already exists!&quot;, name, obj.toString()));
+            }
+        }
+
+        /**
+        * Add extra functions to the Array object. Adds the following:
+        * - &#x60;Array.remove()&#x60; - prototype for removing items from array
+        * - &#x60;Array.append(arr)&#x60; - Add all the elements of the given array to this array.
+        * - &#x60;Array.isEmpty()&#x60; - Returns true if the length of the array is 0.
+        * - &#x60;Array.last()&#x60; - Returns true if the length of the array is 0.
+        * - &#x60;Array.contains(obj)&#x60; - Returns true if this Array contains the given object
+        * - &#x60;Array.flatter(arr)&#x60; - Array Flatten object extention: http://tech.karbassi.com/2009/12/17/pure-javascript-flatten-array/
+        * - &#x60;Array.max()&#x60; - Returns the max value in the array
+        * - &#x60;Array.min()&#x60; - Returns the min value in the array
+        *
+        *
+        * @method _initArrayPrototype
+        * @return {Array} The array
+        * @private
+        */
+        function _initArrayPrototype() {
+            // prototype for removing items from array
+            addPrototype(Array, &quot;remove&quot;, function () {
+                var what, a = arguments,
+                    L = a.length,
+                    ax;
+                while (L &amp;&amp; this.length) {
+                    what = a[--L];
+                    while ((ax = this.indexOf(what)) !== -1) {
+                        this.splice(ax, 1);
+                    }
+                }
+                return this;
+            });
+
+            // Add all the elements of the given array to this array.
+            addPrototype(Array, &quot;append&quot;, function (arr) {
+                this.push.apply(this, arr);
+            });
+
+            // Sum all the elements in the array, no checking for non-numeric types
+            addPrototype(Array, &quot;sum&quot;, function () {
+                var i, res;
+                for (i = 0, res = 0; i &lt; this.length; ++i) {
+                    res += this[i];
+                }
+                return res;
+            });
+
+            // Returns true if the length of the array is 0.
+            addPrototype(Array, &quot;isEmpty&quot;, function () {
+                return this.length === 0;
+            });
+
+            // Returns the last element of the array
+            addPrototype(Array, &quot;last&quot;, function () {
+                return this[this.length - 1];
+            });
+
+            // Returns true if this Array contains the given object
+            addPrototype(Array, &quot;contains&quot;, function (obj) {
+                return this.indexOf(obj) &gt; -1;
+            });
+
+            // Array Flatten object extention: http://tech.karbassi.com/2009/12/17/pure-javascript-flatten-array/
+            addStaticFcn(Array, &quot;flatten&quot;, function flatten(arr) {
+                var flat = [],
+                    i, l, type;
+
+                for (i = 0, l = arr.length; i &lt; l; i++) {
+                    type = Object.prototype.toString.call(arr[i]).split(&#x27; &#x27;).pop().split(&#x27;]&#x27;).shift().toLowerCase();
+                    if (type) {
+                        flat = flat.concat(/^(array|collection|arguments|object)$/.test(type) ? flatten.call(arr[i]) : arr[i]);
+                    }
+                }
+                return flat;
+            });
+
+            // Returns the max value in the array
+            addStaticFcn(Array, &quot;max&quot;, function (arr) {
+                return Math.max.apply(Math, arr);
+            });
+
+            // Returns the min value in the array
+            addStaticFcn(Array, &quot;min&quot;, function (arr) {
+                return Math.min.apply(Math, arr);
+            });
+        }
+
+        /**
+        * Add extra functions to the Object object. Adds the following:
+        * - &#x60;Object.create(o)&#x60; - Takes an old object as a parameter and returns an empty new object that inherits from the old one
+        *
+        * @method _initObjectPrototype
+        * @return {Array} The array
+        * @private
+        */
+        function _initObjectPrototype() {
+            // Takes an old object as a parameter and returns an empty new object that inherits from the old one
+            addStaticFcn(Object, &quot;create&quot;, function (o) {
+                function F() { }
+                F.prototype = o;
+                return new F();
+            });
+        }
+
+        /**
+        * Add extra functions to the String object. Adds the following:
+        * - &#x60;String.format()&#x60; - format the string replacing the placeholders with provided values
+        * - &#x60;String.replaceAll(search, replace)&#x60; - replaces all instances
+        *
+        * @method _initStringPrototype
+        * @return {Array} The array
+        * @private
+        */
+        function _initStringPrototype() {
+            addStaticFcn(String, &quot;format&quot;, function () {
+                var s = arguments[0],
+                    i,
+                    reg;
+
+                for (i = 0; i &lt; arguments.length - 1; i++) {
+                    reg = new RegExp(&quot;\\{&quot; + i + &quot;\\}&quot;, &quot;gm&quot;);
+                    s = s.replace(reg, arguments[i + 1]);
+                }
+
+                return s;
+            });
+
+            addPrototype(String, &quot;replaceAll&quot;, function (search, replace) {
+                return this.toString().split(search).join(replace);
+            });
+        }
+
+        /**
+        * Add extra functions to the EsriExtent object. Adds the following:
+        * - &#x60;EsriExtent.clone()&#x60; -
+        * - &#x60;EsriExtent.widht()&#x60; -
+        * - &#x60;EsriExtent.height()&#x60; -
+        * - &#x60;EsriExtent.xyAspectFactor()&#x60; - Returns the ratio of this Extent&#x27;s width to this Extent&#x27;s height
+        * - &#x60;EsriExtent.centerX()&#x60; -
+        * - &#x60;EsriExtent.centerY()&#x60; -
+        * - &#x60;EsriExtent.center()&#x60; -
+        * - &#x60;EsriExtent.pan()&#x60; -
+        *
+        * @method _initEsriPrototype
+        * @return {Array} The array
+        * @private
+        */
+        function _initEsriPrototype() {
+            addPrototype(EsriExtent, &quot;clone&quot;, function () {
+                return new EsriExtent(this.xmin, this.ymin, this.xmax, this.ymax, this.spatialReference);
+            });
+
+            addPrototype(EsriExtent, &quot;width&quot;, function () {
+                return Math.abs(this.xmin - this.xmax);
+            });
+
+            addPrototype(EsriExtent, &quot;height&quot;, function () {
+                return Math.abs(this.ymin - this.ymax);
+            });
+
+            // Returns the ratio of this Extent&#x27;s width to this Extent&#x27;s height
+            addPrototype(EsriExtent, &quot;xyAspectFactor&quot;, function () {
+                return this.width() / this.height();
+            });
+
+            addPrototype(EsriExtent, &quot;centerX&quot;, function () {
+                return (this.xmin + this.xmax) / 2;
+            });
+
+            addPrototype(EsriExtent, &quot;centerY&quot;, function () {
+                return (this.ymin + this.ymax) / 2;
+            });
+
+            addPrototype(EsriExtent, &quot;center&quot;, function () {
+                return {
+                    X: this.centerX,
+                    Y: this.centerY
+                };
+            });
+
+            addPrototype(EsriExtent, &quot;pan&quot;, function (x, y) {
+                var dx = this.centerX() - x,
+                    dy = this.centerY() - y;
+                return new EsriExtent(this.xmin - dx, this.ymin - dy, this.xmax - dx, this.ymax - dy, this.spatialReference);
+            });
+        }
+
+        /**
+        * Add extra jQuery functions. Adds the following:
+        * - &#x60;$.findInputLabel()&#x60; - Returns labels corresponding to the set of input controls.
+        * - &#x60;$.isOverflowed()&#x60; - Detects if the given span is overflowing with text
+        *
+        * @method _initJQueryprototype
+        * @return {Array} The array
+        * @private
+        */
+        function _initJQueryprototype() {
+            // Returns labels corresponding to the set of input controls.
+            $.fn.findInputLabel = function () {
+                return this.map(function () {
+                    return $(this).parent().find(&quot;label[for=&#x27;&quot; + this.id + &quot;&#x27;]&quot;)[0];
+                });
+            };
+
+            // Detects if the given span is overflowing with text
+            $.fn.isOverflowed = function () {
+                var result,
+                    span = $(this),
+                    element = span
+                        .clone()
+                        .css({
+                            display: &#x27;inline&#x27;,
+                            width: &#x27;auto&#x27;,
+                            visibility: &#x27;hidden&#x27;
+                        })
+                        .appendTo(&#x27;body&#x27;);
+
+                // also check the size of the parent&#x27;s container
+                result = element.width() &gt; span.width() || span.width() &gt; span.parent().width();
+
+                element.remove();
+
+                return result;
+            };
+
+            $.fn.forceStyle = function (obj) {
+                var element = $(this);
+
+                for (var prop in obj) {
+                    if (obj.hasOwnProperty(prop)) {
+                        element[0].style.cssText += &#x27;;&#x27; + prop + &#x27;:&#x27; + obj[prop] + &#x27; !important&#x27;;
+                    }
+                }
+
+                return element;
+            };
+        }
+
+        _initStringPrototype();
+        _initObjectPrototype();
+        _initArrayPrototype();
+        _initEsriPrototype();
+        _initJQueryprototype();
+
+        return {
+            /**
+            * Defines useful prototypes for basic types in javascript (e.g. String, Array)
+            *
+            * @param {Number} id
+            * @param {String} require
+            * @param {Function} load
+            * @method load
+            */
+            load: function (id, require, load) {
+                load();
+            }
+        };
+    }
+);
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

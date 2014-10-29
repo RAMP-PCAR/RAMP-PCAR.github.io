@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>RAMP Customization Introduction</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -43,7 +40,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -53,7 +50,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -70,8 +67,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -125,22 +122,30 @@
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
                 
+<p><a name="top"></a></p>
+
 <h1 id="wb-cont">RAMP Customization Introduction</h1>
 
 <p>Each visible module in RAMP can be customized either through the JSON configuration file or through templating.</p>
 
+<div class="toc"></div>
+
 <h2 id="json-configuration-file">JSON Configuration File</h2>
 
-<p>RAMP loads its customizable settings from a JSON configuration file, located at the RAMP root directory: config.en.json (config.fr.json for the French version). The JSON configuration file contain all visible text, parameters to adjust the look and display of various modules, as well as the name of templates to use for a particular module. For more information, refer to this <a href="json-config-en.html">document</a>.</p>
+<p>RAMP loads its customizable settings from a JSON configuration file, located at the RAMP root directory (src or build): config.en.json (config.fr.json for the French version). The JSON configuration file contain all visible text, parameters to adjust the look and display of various modules, as well as the name of templates to use for a particular module. For more information, refer to this <a href="json-config-en.html">document</a>.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="templating">Templating</h2>
 
-<p>RAMP allows the user to customize the look-n-feel of all the modules that are visible to the user through templating. The templating engine allows the user to write using HTML and Javascript how certain part of a module gets rendered. For instance, the datagrid uses a template that defines how each row in the datagrid is displayed. For detail information on how templating works and how to write templates, refer to this <a href="template-guide-en.html">document</a>.</p>
+<p>RAMP allows the user to customize the look and feel of some modules that are visible to the user through templating. The templating engine allows the user to write using HTML and Javascript how certain part of a module gets rendered. For instance, the datagrid uses a template that defines how each row in the datagrid is displayed. For detail information on how templating works and how to write templates, refer to this <a href="template-guide-en.html">document</a>.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-07-07</time>
+                        <time>2014-10-29</time>
                     </dd>
                 </dl>
             </main>
@@ -202,6 +207,16 @@
                         Template Summary
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -242,11 +257,26 @@
                         Basemap Support
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/yuidoc/index.html">
+            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
                 API Reference
             </a>
         </li>
@@ -304,5 +334,18 @@
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
 
     <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

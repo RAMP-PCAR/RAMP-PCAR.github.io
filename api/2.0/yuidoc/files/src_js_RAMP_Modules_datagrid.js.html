@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Modules\datagrid.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\src\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 2.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FEGC-Theme.html">FEGC-Theme</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Intranet-Theme.html">Intranet-Theme</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Modules\datagrid.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/*global define, tmpl, TimelineLite, TweenLite, window, i18n */
+/*jslint white: true */
+
+/**
+* Datagrid submodule.
+*
+* @module RAMP
+* @submodule Datagrid
+* @main Datagrid
+*/
+
+/**
+* The Datagrid class represents the side bar table shown next to the map. The data grid displays all map objects in a text format and allows the user to see more
+* details (same as clicking the map object) and navigate to the object. This class create the UI panel, events, and event-handles for the data grid container.
+*
+* @class Datagrid
+* @static
+* @uses dojo/_base/declare
+* @uses dojo/_base/lang
+* @uses dojo/query
+* @uses dojo/_base/array
+* @uses dojo/dom-class
+* @uses dojo/dom-attr
+* @uses dojo/dom-construct
+* @uses dojo/topic
+* @uses dojo/on
+* @uses esri/layers/FeatureLayer
+* @uses esri/tasks/query
+* @uses Ramp
+* @uses GraphicExtension
+* @uses GlobalStorage
+* @uses Gui
+* @uses DatagridClickHandler
+* @uses Map
+* @uses EventManager
+* @uses Theme
+* @uses Util
+* @uses Array
+* @uses Dictionary
+* @uses PopupManager
+* @uses TmplHelper
+*/
+
+define([
+/* Dojo */
+    &quot;dojo/_base/declare&quot;, &quot;dojo/_base/lang&quot;, &quot;dojo/query&quot;, &quot;dojo/_base/array&quot;, &quot;dojo/dom-class&quot;,
+    &quot;dojo/dom-attr&quot;, &quot;dojo/dom-construct&quot;, &quot;dojo/topic&quot;, &quot;dojo/on&quot;, &quot;dojo/Deferred&quot;,
+
+/* Text */
+     &quot;dojo/text!./templates/datagrid_template.json&quot;,
+     &quot;dojo/text!./templates/extended_datagrid_template.json&quot;,
+
+// Esri
+        &quot;esri/layers/FeatureLayer&quot;, &quot;esri/tasks/query&quot;,
+
+// Ramp
+        &quot;ramp/ramp&quot;, &quot;ramp/graphicExtension&quot;, &quot;ramp/globalStorage&quot;, &quot;ramp/datagridClickHandler&quot;, &quot;ramp/map&quot;,
+        &quot;ramp/eventManager&quot;, &quot;themes/theme&quot;,
+
+// Util
+         &quot;utils/util&quot;, &quot;utils/array&quot;, &quot;utils/dictionary&quot;, &quot;utils/popupManager&quot;, &quot;utils/tmplHelper&quot;],
+
+    function (
+    // Dojo
+        declare, lang, dojoQuery, dojoArray, domClass, domAttr,
+        domConstruct, topic, dojoOn, Deferred,
+
+    //Text
+        data_grid_template,
+        extended_datagrid_template,
+
+    // Esri
+        FeatureLayer, EsriQuery,
+
+    // Ramp
+        Ramp, GraphicExtension, GlobalStorage, DatagridClickHandler, RampMap, EventManager, Theme,
+
+    // Util
+        utilMisc, UtilArray, utilDict, popupManager, tmplHelper) {
+        &quot;use strict&quot;;
+
+        var GRID_MODE_SUMMARY = &quot;summary&quot;,
+            GRID_MODE_FULL = &quot;full&quot;,
+
+            /**
+            * Name of the attribute used to store the oid
+            * in the details and zoomTo buttons
+            *
+            * @private
+            * @property featureOidField
+            */
+            featureOidField = &quot;feature-oid&quot;,
+
+            /**
+            * Name of the attribute used to store the feature url
+            * in the details and zoomTo buttons
+            *
+            * @private
+            * @property featureUrlField
+            */
+            featureUrlField = &quot;feature-url&quot;,
+
+            data_grid_template_json = JSON.parse(tmplHelper.stringifyTemplate(data_grid_template)),
+            extended_datagrid_template_json = JSON.parse(tmplHelper.stringifyTemplate(extended_datagrid_template)),
+            config,
+            //layerConfig,
+            gridConfig,
+
+            /**
+            * The jquery table
+            *
+            * @private
+            * @property oTable
+            */
+            oTable,
+
+        // The JQuery Object representing the grid
+            jqgrid,
+            featureToPage = {},
+
+            currentSortingMode = &quot;asc&quot;,
+
+        // A boolean used to keep track of whether or not the grid should apply an
+        // extent filter when the datagrid gets selected
+            extentFilterExpired = true,
+
+            zoomToGraphic,
+
+            lastExtent,
+
+            /**
+            * Total number of features in all the visible layers on the map
+            *
+            * @private
+            * @property totalRecords
+            */
+            totalRecords = 0,
+
+            ui = (function () {
+                /**
+                * creates a datagrid row that has the following features:
+                * highlight for a give graphic
+                * un-highlight
+                * scroll to for a give graphic
+                *
+                * @method createRowPrototype
+                * @private
+                * @param {String} cssClass the style that highlights the row.
+                * @return {Object} an object containing features of a datagrid row
+                */
+                function createRowPrototype(cssClass) {
+                    var index = -1,
+                        graphic = null;
+
+                    return {
+                        focusedButton: null,
+
+                        isActive: function () {
+                            return graphic !== null;
+                        },
+
+                        isEqual: function (url, oid) {
+                            var thisUrl = graphic.getLayer().url,
+                                thisOid = GraphicExtension.getOid(graphic);
+
+                            return (thisUrl === url) &amp;&amp; (thisOid === oid);
+                        },
+
+                        /**
+                        * Navigate to the page the row is in and scroll to it. Returns true
+                        * if the row exists in the datagrid, false otherwise.
+                        *
+                        * @method navigateToRow
+                        * @return {Boolean} A value indicating is the navigation is successful
+                        * @private
+                        * @method navigateToRow
+                        */
+                        navigateToRow: function () {
+                            if (index !== -1) {
+                                // Figure out which page the entry is in and navigate to that page
+                                var page = Math.floor(index / gridConfig.rowsPerPage);
+                                if (oTable.page() !== page) {
+                                    // False tells draw not to navigate to the first page
+                                    jqgrid.DataTable().page(page).draw(false);
+                                }
+
+                                jqgridTableWrapper.scrollTo(this.getNode(), 300, {
+                                    axis: &quot;y&quot;,
+                                    offset: {
+                                        left: 0,
+                                        top: -this.getNode().height() * 1.5
+                                    }
+                                });
+
+                                return true;
+                            }
+                            return false;
+                        },
+
+                        setGraphic: function (newGraphic) {
+                            graphic = newGraphic;
+
+                            this.refresh();
+                        },
+
+                        /**
+                        * Finds a row node corresponding to the given graphic object.
+                        *
+                        * @method refresh
+                        * @private
+                        * @return {{node: jObject, page: number}} A row node that displays graphic information. If none found, returns an object with empty jNode.
+                        */
+                        refresh: function () {
+                            if (graphic) {
+                                var url = graphic.getLayer().url,
+                                    id = GraphicExtension.getOid(graphic);
+                                if ((url in featureToPage) &amp;&amp; (id in featureToPage[url])) {
+                                    index = featureToPage[url][id];
+                                } else {
+                                    index = -1;
+                                }
+                            } else {
+                                index = -1;
+                            }
+                        },
+
+                        /**
+                        * Finds a row node corresponding to the given graphic object.
+                        *
+                        * @method getNode
+                        * @private
+                        * @return {{node: jObject, page: number}} A row node that displays graphic information. If none found, returns an object with empty jNode.
+                        */
+                        getNode: function () {
+                            return $(String.format(&quot;#jqgrid tbody tr:nth-child({0})&quot;, index % gridConfig.rowsPerPage + 1));
+                        },
+
+                        /**
+                        * Highlights the given graphic object using the specified cssClass.
+                        *
+                        * @method activate
+                        * @private
+                        */
+                        activate: function () {
+                            if (graphic) {
+                                this.getNode().addClass(cssClass);
+
+                                if (this.focusedButton) {
+                                    this.getNode().find(this.focusedButton).focus();
+                                    this.focusedButton = null;
+                                }
+                            }
+                        },
+
+                        /**
+                        * Removes a specified cssClass from a given graphic object in the data grid
+                        *
+                        * @method deactivate
+                        * @private
+                        */
+                        deactivate: function () {
+                            if (graphic) {
+                                this.getNode().removeClass(cssClass);
+                                graphic = null;
+                            }
+                        }
+                    };
+                }
+
+                var highlightRow = createRowPrototype(&quot;selected-row&quot;),
+                    zoomlightRow = createRowPrototype(&quot;highlighted-row&quot;),
+
+                    extendedTabTitle,
+
+                    sectionNode,
+
+                    selectedDatasetUrl,
+
+                    datagridStatusLine,
+                    datagridGlobalToggles,
+                    jqgridWrapper,
+                    jqgridTableWrapper,
+                    dataTablesScroll,
+                    dataTablesScrollBody,
+                    dataTablesScrollHead,
+                    datasetSelector,
+                    datasetSelectorSubmitButton,
+
+                    datagridMode = GRID_MODE_SUMMARY, // GRID_MODE_FULL
+
+                    _isReady = false; // indicates if the ui has fully rendered
+
+                /**
+                * Generates a data grid row data with a checkbox to be used in template
+                *
+                * @method generateToggleButtonDataForTemplate
+                * @private
+                * @return {String} the generated row data object.
+                */
+                function generateToggleButtonDataForTemplate() {
+                    // TODO: if no more modification is needed, this can be omitted and merged in the higher level.
+                    // create object for template
+                    // TODO: JKW
+                    // Note, the following object is for passing to the template, properties
+                    // were guessed. Need to add more detail later on. Empty values were provided,
+                    // for example, there were value of &quot;&quot; assigned to the toggle button template, in the code
+                    // provided. A temporary property name &quot;attribute&quot; is used. Not sure if this will be
+                    // used by ECDMP, therefore, leave the empty value in the template
+                    var toggleButtonData = {
+                        buttonLabel: i18n.t(&quot;datagrid.sort&quot;),
+                        classAddition: &quot;font-medium global-button&quot;,
+                        someAttribute: &quot;&quot;
+                    };
+
+                    return toggleButtonData;
+                }
+
+                function rowRenderer(data, type, row, meta) {
+                    //attribute = feature.attributes;
+                    //Remember, case sensitivity MATTERS in the attribute name.
+
+                    var obj = row.last(),
+                        datagridMode = ui.getDatagridMode(),
+                        tmplData;
+
+                    if (datagridMode === GRID_MODE_SUMMARY) {
+                        if (utilMisc.isUndefined(obj[datagridMode])) {
+                            var sumTemplate = getGridConfig(obj.featureUrl).summaryRowTemplate;
+
+                            tmpl.cache = {
+                            };
+
+                            tmpl.templates = data_grid_template_json;
+
+                            //bundle feature into the template data object
+                            tmplData = tmplHelper.dataBuilder(obj.feature, obj.featureUrl);
+
+                            obj[datagridMode] = tmpl(sumTemplate, tmplData);
+                        }
+
+                        return obj[datagridMode];
+                    } else {
+                        if (utilMisc.isUndefined(obj[datagridMode])) {
+                            obj[datagridMode] = [];
+
+                            //make array containing values for each column in the full grid
+                            // retrieve extendedGrid config object
+                            var extendedGrid = getGridConfig(obj.featureUrl).gridColumns;
+
+                            tmpl.cache = {};
+                            tmpl.templates = extended_datagrid_template_json;
+
+                            //bundle feature into the template data object
+                            tmplData = tmplHelper.dataBuilder(obj.feature, obj.featureUrl);
+
+                            dojoArray.forEach(extendedGrid, function (col, i) {
+                                // add columnIdx property, and set initial value
+                                tmplData.columnIdx = i;
+                                var result = tmpl(col.columnTemplate, tmplData);
+                                // Need to check if it&#x27;s a number, since the template converts
+                                // everything into strings
+                                if (col.sortType === &quot;numeric&quot;) {
+                                    result = Number(result);
+                                }
+                                obj[datagridMode].push(result);
+                            });
+                        }
+
+                        return obj[datagridMode][meta.col];
+                    }
+                }
+
+                /**
+                * Creates a Data table based on the grid configuration specified in the application config object. See http://www.datatables.net/usage/columns  for addition information on config parameters.
+                *
+                * @method createDatatable
+                * @private
+                */
+                function createDatatable() {
+                    var forcedWidth,
+                        tableOptions = {
+                            info: false,
+                            columnDefs: [],
+                            autoWidth: false,
+                            deferRender: true,
+                            paging: true,
+                            pagingType: &quot;ramp&quot;, //&quot;full_numbers&quot;,
+                            scrollX: true,
+                            destroy: true,
+                            pageLength: gridConfig.rowsPerPage,
+                            language: i18n.t(&quot;datagrid.gridstrings&quot;, { returnObjectTrees: true }),
+                            getTotalRecords: function () {
+                                return totalRecords;
+                            }
+                        };
+
+                    if (datagridMode === GRID_MODE_SUMMARY) {
+                        tableOptions = lang.mixin(tableOptions,
+                            {
+                                columns: [{
+                                    title: &quot;Name&quot;,
+                                    width: &quot;300px&quot;,
+                                    type: &quot;string&quot;,
+                                    className: &quot;&quot;,
+                                    render: rowRenderer,
+                                    orderable: true
+                                }],
+                                dom: &#x27;&lt;&quot;jqgrid_table_wrapper summary-table&quot;t&gt;&lt;&quot;status-line&quot;p&gt;&#x27;,
+                                searching: true
+                            }
+                        );
+                    } else {
+                        //layout for variable column (extended grid)
+                        tableOptions = lang.mixin(tableOptions,
+                            {
+                                columns: ui.getSelectedDatasetUrl() === null ? [{ title: &quot;&quot; }] : dojoArray.map(getGridConfig(ui.getSelectedDatasetUrl()).gridColumns, function (column) {
+                                    return {
+                                        title: column.title,
+                                        width: column.width ? column.width : &quot;100px&quot;,
+                                        type: column.sortType,
+                                        className: column.alignment ? &quot;&quot; : &quot;center&quot;,
+                                        render: rowRenderer
+                                    };
+                                }),
+                                dom: &#x27;&lt;&quot;jqgrid_table_wrapper full-table&quot;t&gt;&lt;&quot;status-line&quot;p&gt;&#x27;,
+                                scrollY: &quot;500px&quot;, // just a placeholder; it will be dynamically updated later
+                                searching: config.datagrid.extendedExtentFilterEnabled
+                            }
+                        );
+                    }
+
+                    jqgrid = sectionNode.find(&quot;table&quot;);
+
+                    // True if a page change just occurred
+                    // False otherwise
+                    var pageChange = false;
+
+                    oTable = jqgrid.DataTable(tableOptions)
+                        .on(&quot;page.dt&quot;, function () {
+                            topic.publish(EventManager.GUI.SUBPANEL_DOCK, { origin: &quot;datagrid,ex-datagrid&quot; });
+
+                            console.log(&quot;subPanleDock&quot;);
+
+                            pageChange = true;
+                        })
+                        .on(&quot;order.dt&quot;, function () {
+                            topic.publish(EventManager.GUI.SUBPANEL_DOCK, { origin: &quot;datagrid,ex-datagrid&quot; });
+
+                            console.log(&quot;subPanleDock&quot;);
+                        })
+                        .on(&quot;draw.dt&quot;, function () {
+                            cacheSortedData();
+
+                            // Do not activateRows if we&#x27;re doing a page change
+                            if (pageChange) {
+                                pageChange = false;
+                            } else {
+                                ui.activateRows();
+                            }
+
+                            ui.adjustPanelWidth();
+
+                            topic.publish(EventManager.Datagrid.DRAW_COMPLETE);
+                        });
+
+                    jqgridWrapper = sectionNode.find(&quot;#jqgrid_wrapper&quot;);
+                    jqgridTableWrapper = sectionNode.find(&quot;.jqgrid_table_wrapper&quot;);
+                    dataTablesScroll = sectionNode.find(&quot;.dataTables_scroll&quot;);
+                    dataTablesScrollBody = dataTablesScroll.find(&quot;.dataTables_scrollBody&quot;);
+                    dataTablesScrollHead = dataTablesScroll.find(&quot;.dataTables_scrollHead&quot;);
+
+                    Theme.tooltipster(jqgridWrapper);
+
+                    // DO:Clean;
+                    if (datagridMode !== GRID_MODE_SUMMARY) {
+                        // explicitly set height of the scrollbody so the horizontal scrollbar is visible
+                        dataTablesScrollBody.height(jqgridTableWrapper.height() - dataTablesScrollHead.height());
+
+                        // explicitly force-set width of the jqgrid so it wouldn&#x27;t compress when a sub-panel is opened
+                        // also check if the width is no greater than that of the container, hide the horizontal scrollbar
+                        forcedWidth = jqgrid.outerWidth();
+
+                        ui.adjustPanelWidth();
+
+                        /*if (forcedWidth === jqgridWrapper.outerWidth()) {
+                            dataTablesScrollBody.addClass(&quot;overflow-x-hidden&quot;);
+                        } else {
+                            dataTablesScrollBody.removeClass(&quot;overflow-x-hidden&quot;);
+                        }*/
+
+                        jqgrid.forceStyle({ width: forcedWidth + &quot;px&quot; });
+                    }
+                }
+                /**
+                * Initialize tooltips for the data grid
+                *
+                * @method initTooltips
+                * @private
+                */
+                function initTooltips() {
+                    /// &lt;summary&gt;
+                    /// initialize tooltips for the datagrid
+                    /// &lt;/summary&gt;
+                    popupManager.registerPopup(sectionNode, &quot;hoverIntent&quot;,
+                        function () {
+                            if (this.target.attr(&quot;title&quot;)) {
+                                if (this.target.isOverflowed()) {
+                                    this.target.tooltipster({ theme: &#x27;.tooltipster-dark&#x27; }).tooltipster(&quot;show&quot;);
+                                } else {
+                                    this.target.removeAttr(&quot;title&quot;);
+                                }
+                            }
+                        },
+                        {
+                            handleSelector: &quot;.point-name, .category-name, .title-span&quot;,
+                            useAria: false,
+                            timeout: 500
+                        }
+                    );
+                }
+
+                /**
+                * Adds event-handling for buttons inside the data grid&#x27;s row elements (i.e &#x27;Details&#x27;, &#x27;Zoom To&#x27; buttons)
+                *
+                * @method setButtonEvents
+                * @private
+                */
+                function setButtonEvents() {
+                    sectionNode.on(&quot;click&quot;, &quot;button.details&quot;, function () {
+                        var buttonNode = $(this),
+                            url = buttonNode.data(featureUrlField),
+                            oid = buttonNode.data(featureOidField);  //TODO: replace with better selector
+
+                        highlightRow.focusedButton = &quot;button.details&quot;;
+
+                        if (highlightRow.isActive() &amp;&amp; highlightRow.isEqual(url, oid)) {
+                            DatagridClickHandler.onDetailDeselect(datagridMode);
+                        } else {
+                            var graphic = getGraphicFromButton(buttonNode);
+
+                            DatagridClickHandler.onDetailSelect(buttonNode, graphic, datagridMode);
+                        }
+                    });
+
+                    // Event handling for &quot;Zoom To&quot; button
+                    sectionNode.on(&quot;click&quot;, &quot;button.zoomto&quot;, function (evt) {
+                        var zoomNode = $(this);
+
+                        zoomlightRow.focusedButton = &quot;button.zoomto&quot;;
+
+                        // Zoom To
+                        if (zoomNode.text() === i18n.t(&quot;datagrid.zoomTo&quot;)) {
+                            handleGridEvent(evt, function () {
+                                zoomToGraphic = getGraphicFromButton(zoomNode);
+
+                                //store the current extent, then zoom to point.
+                                lastExtent = RampMap.getMap().extent.clone();
+
+                                DatagridClickHandler.onZoomTo(RampMap.getMap().extent.clone(), zoomToGraphic);
+
+                                // Update &quot;zoom back&quot; text after the extent change, if we update it
+                                // before the extent change, it won&#x27;t work since the datagrid gets
+                                // repopulated after an extent change
+                                utilMisc.subscribeOnce(EventManager.Datagrid.EXTENT_FILTER_END, function () {
+                                    // Find the first node with the same oid, featureUrl
+                                    var newNode = $(String.format(&quot;button.zoomto[data-{0}=&#x27;{1}&#x27;][data-{2}=&#x27;{3}&#x27;]:eq(0)&quot;,
+                                                    featureOidField, GraphicExtension.getOid(zoomToGraphic),
+                                                    featureUrlField, zoomToGraphic.getLayer().url));
+                                    newNode.text(i18n.t(&quot;datagrid.zoomBack&quot;));
+                                });
+                            });
+                        } else { // Zoom back
+                            DatagridClickHandler.onZoomBack(zoomToGraphic);
+                            zoomNode.text(i18n.t(&quot;datagrid.zoomTo&quot;));
+
+                            // Reset focus back to &quot;Zoom To&quot; link after map extent change
+                            utilMisc.subscribeOnce(EventManager.Datagrid.EXTENT_FILTER_END, function () {
+                                var newNode = $(String.format(&quot;button.zoomto[data-{0}=&#x27;{1}&#x27;][data-{2}=&#x27;{3}&#x27;]:eq(0)&quot;,
+                                        featureOidField, GraphicExtension.getOid(zoomToGraphic),
+                                        featureUrlField, zoomToGraphic.getLayer().url));
+                                newNode.focus();
+                            });
+                        }
+                    });
+
+                    sectionNode.on(&quot;click&quot;, &quot;button.global-button&quot;, function () {
+                        var buttonNode = $(this);
+
+                        if (currentSortingMode === &quot;asc&quot;) {
+                            buttonNode.addClass(&quot;state-expanded&quot;);
+                            currentSortingMode = &quot;desc&quot;;
+                        } else {
+                            buttonNode.removeClass(&quot;state-expanded&quot;);
+                            currentSortingMode = &quot;asc&quot;;
+                        }
+
+                        jqgrid.DataTable().order([0, currentSortingMode]).draw();
+                    });
+
+                    //Adds an event trigger for the expansion of the datagrid control
+                    sectionNode.on(&quot;click&quot;, &quot;button.expand&quot;, function () {
+                        var d = new Deferred();
+                        console.log(&quot;grid expanded!&quot;);
+
+                        datagridMode = datagridMode === GRID_MODE_SUMMARY ? GRID_MODE_FULL : GRID_MODE_SUMMARY;
+
+                        d.then(function () {
+                            initScrollListeners();
+                        });
+
+                        refreshPanel(d);
+
+                        topic.publish(EventManager.GUI.DATAGRID_EXPAND);
+                    });
+
+                    sectionNode.on(&quot;change&quot;, &quot;#datasetSelector&quot;, function () {
+                        var controlNode = $(this),
+                            optionSelected = controlNode.find(&quot;option:selected&quot;),
+                            state = (optionSelected[0].value === selectedDatasetUrl);
+
+                        updateDatasetSelectorState(state);
+                    });
+
+                    sectionNode.on(&quot;click&quot;, &quot;#datasetSelectorSubmitButton&quot;, function () {
+                        var optionSelected = datasetSelector.find(&quot;option:selected&quot;);
+
+                        if (optionSelected.length &gt; 0) {
+                            selectedDatasetUrl = optionSelected[0].value;
+                        } else {
+                            selectedDatasetUrl = &quot;&quot;;
+                        }
+
+                        refreshTable();
+                    });
+
+                    popupManager.registerPopup(sectionNode, &quot;hover, focus&quot;,
+                        function (d) {
+                            this.target.removeClass(&quot;wb-invisible&quot;);
+                            d.resolve();
+                        },
+                        {
+                            handleSelector: &quot;tr&quot;,
+
+                            targetSelector: &quot;.record-controls&quot;,
+
+                            closeHandler: function (d) {
+                                this.target.addClass(&quot;wb-invisible&quot;);
+
+                                d.resolve();
+                            },
+
+                            activeClass: &quot;background-light&quot;,
+                            useAria: false
+                        }
+                    );
+
+                    popupManager.registerPopup(sectionNode, &quot;hover, focus&quot;,
+                        function (d) {
+                            d.resolve();
+                        },
+                        {
+                            handleSelector: &quot;.full-table tr&quot;,
+                            activeClass: &quot;background-light&quot;,
+                            useAria: false
+                        }
+                    );
+
+                    popupManager.registerPopup(sectionNode, &quot;dblclick&quot;,
+                        function (d) {
+                            var //oldHandles = jqgrid.find(&quot;.expand-cell&quot;),
+                                extraPadding = (this.handle.outerHeight() - this.target.height()) / 2;
+
+                            TweenLite.set(&quot;.expand-cell&quot;, { clearProps: &quot;padding&quot;, className: &quot;-=expand-cell&quot; });
+                            //TweenLite.set(&quot;.expand-cell&quot;, { className: &quot;-=expand-cell&quot; });
+                            TweenLite.set(this.handle, { padding: extraPadding });
+
+                            window.getSelection().removeAllRanges();
+
+                            d.resolve();
+                        },
+                        {
+                            handleSelector: &quot;td&quot;,
+
+                            targetSelector: &quot;.title-span&quot;,
+
+                            closeHandler: function (d) {
+                                TweenLite.set(this.handle, { clearProps: &quot;padding&quot; });
+                                TweenLite.set(this.handle, { className: &quot;-=expand-cell&quot; });
+
+                                d.resolve();
+                            },
+
+                            activeClass: &quot;expand-cell&quot;,
+                            useAria: false
+                        }
+                    );
+                }
+
+                /**
+                * Apply&#x27;s or removes the scrollbar from the data grid based on the height of its container.
+                *
+                * @method initScrollListeners
+                * @private
+                */
+                function initScrollListeners() {
+                    var currentTopScroll,
+                        currentBottomScroll;
+
+                    if (datagridMode === GRID_MODE_SUMMARY) {
+                        jqgridTableWrapper.scroll(function () {
+                            currentTopScroll = jqgridTableWrapper.scrollTop();
+                            currentBottomScroll = dataTablesScroll.height() - jqgridTableWrapper.scrollTop() - jqgridTableWrapper.height();
+
+                            if (currentTopScroll === 0) {
+                                datagridGlobalToggles.removeClass(&quot;scroll&quot;);
+                            } else {
+                                datagridGlobalToggles.addClass(&quot;scroll&quot;);
+                            }
+
+                            if (currentBottomScroll === 0) {
+                                datagridStatusLine.removeClass(&quot;scroll&quot;);
+                            } else {
+                                datagridStatusLine.addClass(&quot;scroll&quot;);
+                            }
+                        });
+                    } else {
+                        dataTablesScrollBody.scroll(function () {
+                            currentTopScroll = dataTablesScrollBody.scrollTop();
+
+                            if (currentTopScroll === 0) {
+                                dataTablesScrollHead.removeClass(&quot;scroll&quot;);
+                            } else {
+                                dataTablesScrollHead.addClass(&quot;scroll&quot;);
+                            }
+                        });
+                    }
+                }
+
+                /**
+                * Highlights the row according to the graphic stored in the event. Sets the hightlightRow variable to the graphic object inside the sent event
+                *
+                * @method highlightrowShow
+                * @private
+                * @param {Object} event A thrown event that contains a graphic object inside the grid
+                */
+                function highlightrowShow(event) {
+                    highlightrowHide();
+
+                    highlightRow.setGraphic(event.graphic);
+
+                    if (event.scroll) {
+                        ui.activateRows();
+                        //applyExtentFilter();
+                    }
+                }
+
+                /**
+                * Un-highlights the row that is currently highlighted
+                *
+                * @method highlightrowHide
+                * @private
+                */
+                function highlightrowHide() {
+                    highlightRow.deactivate();
+
+                    DatagridClickHandler.onZoomCancel();
+                }
+
+                /**
+                * Stores the graphic in the given event in the variable zoomlightRow
+                *
+                * @method zoomlightrowShow
+                * @private
+                * @param {Object} event A thrown event that contains a graphic object inside the grid
+                */
+                function zoomlightrowShow(event) {
+                    zoomlightRow.setGraphic(event.graphic);
+                }
+
+                /**
+                * De-activates the row stored in zoomlightRow
+                *
+                * @method zoomlightrowHide
+                * @private
+                */
+                function zoomlightrowHide() {
+                    zoomlightRow.deactivate();
+                }
+
+                /**
+                * Registers event handlers for following events:
+                * datagrid/highlightrow-show
+                * datagrid/zoomlightrow-show
+                * datagrid/zoomlightrow-hide
+                * @method initUIListeners
+                * @private
+                */
+                function initUIListeners() {
+                    topic.subscribe(EventManager.Datagrid.HIGHLIGHTROW_SHOW, highlightrowShow);
+
+                    topic.subscribe(EventManager.Datagrid.HIGHLIGHTROW_HIDE, highlightrowHide);
+
+                    topic.subscribe(EventManager.Datagrid.ZOOMLIGHTROW_SHOW, zoomlightrowShow);
+
+                    topic.subscribe(EventManager.Datagrid.ZOOMLIGHTROW_HIDE, zoomlightrowHide);
+                }
+
+                function updateDatasetSelectorState(state) {
+                    var layer;
+
+                    datasetSelectorSubmitButton
+                        .attr(&quot;disabled&quot;, state)
+                        .text(state ?
+                            i18n.t(&quot;datagrid.ex.datasetSelectorButtonLoaded&quot;)
+                            : i18n.t(&quot;datagrid.ex.datasetSelectorButtonLoad&quot;));
+
+                    layer = dojoArray.filter(GlobalStorage.config.featureLayers,
+                        function (layer) {
+                            return layer.url === selectedDatasetUrl;
+                        });
+
+                    if (extendedTabTitle &amp;&amp; layer.length &gt; 0) {
+                        extendedTabTitle.text(&quot;: &quot; + layer[0].displayName);
+                    }
+                }
+
+                function refreshTable() {
+                    var duration = 0.2,
+                        tl = new TimelineLite({ paused: true }),
+                        newWrapper,
+                        deffered = new Deferred();
+
+                    tmpl.cache = {};
+                    tmpl.templates = data_grid_template_json;
+                    newWrapper = tmpl(
+                        &quot;datagrid_manager_table_Template&quot;,
+                        {
+                            tableId: &quot;jqgrid&quot;,
+                            tableCss: &quot;display table-condensed table-simplify animated fadeIn&quot;
+                        }
+                    );
+
+                    if (highlightRow.isActive()) {
+                        duration = 0.6;
+                        DatagridClickHandler.onDetailDeselect(datagridMode);
+                    }
+
+                    tl.set(jqgridWrapper, { className: &quot;+=animated fadeOut&quot; });
+
+                    /*jshint validthis: true */
+                    tl.call(function () {
+                        tl.pause();
+
+                        jqgridWrapper.replaceWith(newWrapper);
+                        createDatatable();
+
+                        updateDatasetSelectorState(true);
+
+                        // continue with transition when apply filter finished
+                        deffered.then(function () {
+                            tl.set(jqgrid, { className: &quot;-=animated fadeIn&quot; }, &quot;+=&quot; + duration);
+                            tl.resume();
+                        });
+                        applyExtentFilter(deffered);
+                    }, null, this, duration + 0.05);
+
+                    tl.set(jqgridWrapper, { className: &quot;-=fadeOut&quot; });
+                    tl.set(jqgridWrapper, { className: &quot;+=fadeIn&quot; });
+                    tl.set(jqgridWrapper, { className: &quot;-=animated fadeIn&quot; }, &quot;+=&quot; + duration);
+
+                    tl.play();
+                }
+
+                function refreshPanel(d) {
+                    // using template to generate global checkboxes
+                    var globalCheckBoxesData = generateToggleButtonDataForTemplate(),
+                        templateData = {
+                            buttons: globalCheckBoxesData,
+                            tableId: &quot;jqgrid&quot;,
+                            tableCss: &quot;display table-condensed table-simplify&quot;
+                        },
+                        section,
+                        templateKey,
+                        duration = 0.5,
+                        tl = new TimelineLite({ paused: true }),
+                        deffered = new Deferred();
+
+                    tmpl.cache = {};
+                    tmpl.templates = data_grid_template_json;
+
+                    if (datagridMode === GRID_MODE_SUMMARY) {
+                        templateKey = &quot;datagrid_manager_Template&quot;;
+                        templateData.buttons.toggleTitle = i18n.t(&quot;datagrid.fullData&quot;);
+
+                        if (extendedTabTitle) {
+                            extendedTabTitle.remove();
+                        }
+                    } else {
+                        templateKey = &quot;datagrid_full_manager_Template&quot;;
+
+                        // filter out static layers
+                        var nonStaticFeatureLayers = dojoArray.filter(GlobalStorage.config.featureLayers, function (layerConfig) {
+                            var layer = GlobalStorage.map.getLayer(layerConfig.id);
+                            return layer.ramp.type !== GlobalStorage.layerType.Static &amp;&amp; layer.visible;
+                        });
+
+                        templateData.buttons = lang.mixin(templateData.buttons,
+                            {
+                                datasets: nonStaticFeatureLayers,
+                                toggleTitle: i18n.t(&quot;datagrid.ex.dataSummary&quot;),
+                                txtDataset: i18n.t(&quot;datagrid.ex.dataset&quot;)
+                            }
+                        );
+
+                        extendedTabTitle = $(&quot;#tabs1_2-link&quot;).append(&quot;&lt;span&gt;&quot;).find(&quot;span&quot;);
+                    }
+
+                    // generate the content using rowData and given template
+                    section = tmpl(templateKey, templateData);
+
+                    DatagridClickHandler.onDetailDeselect(datagridMode);
+
+                    tl.set(sectionNode, { className: &quot;+=animated fadeOut&quot; });
+                    if (jqgrid) {
+                        tl.set(jqgrid, { clearProps: &quot;width&quot; });
+                    }
+
+                    /*jshint validthis: true */
+                    tl.call(function () {
+                        tl.pause();
+
+                        sectionNode.empty().append(section);
+                        createDatatable();
+
+                        datagridGlobalToggles = sectionNode.find(&#x27;#datagridGlobalToggles&#x27;);
+                        datagridStatusLine = sectionNode.find(&#x27;.status-line&#x27;);
+                        datasetSelector = $(&quot;#datasetSelector&quot;);
+                        datasetSelectorSubmitButton = $(&quot;#datasetSelectorSubmitButton&quot;);
+                        updateDatasetSelectorState(true);
+
+                        d.resolve();
+
+                        // continue with transition when apply filter finished
+                        deffered.then(function () {
+                            //tl.call(function () { oTable.columns.adjust().draw(); console.log(&quot;!!!&quot;); }, null, this, &quot;+=2&quot;);
+
+                            tl.resume();
+                        });
+
+                        applyExtentFilter(deffered);
+                    }, null, this, duration + 0.1);
+
+                    tl.set(sectionNode, { className: &quot;-=fadeOut&quot; });
+                    tl.set(sectionNode, { className: &quot;+=fadeIn&quot; });
+                    tl.set(sectionNode, { className: &quot;-=animated fadeIn&quot; }, &quot;+=&quot; + duration);
+
+                    tl.play();
+                }
+
+                function activateRows() {
+                    // If there was previously a selected point,
+                    // navigate to the correct page and highlight it in the datagrid
+                    highlightRow.refresh();
+                    zoomlightRow.refresh();
+
+                    // Scroll to the highlighted row first, if it fails,
+                    // scroll to the zoomed row
+                    if (!highlightRow.navigateToRow()) {
+                        zoomlightRow.navigateToRow();
+                    }
+
+                    // set the focus on the first button in the datagrid
+                    // is not a really good idea to just move focus around
+                    //jqgrid.dataTable().find(&quot;button:first&quot;).focus();
+
+                    zoomlightRow.activate();
+                    highlightRow.activate();
+
+                    capturePanel();
+                }
+
+                function capturePanel() {
+                    var origin = &quot;datagrid&quot;,
+                        target = highlightRow.getNode().find(&quot;.record-controls&quot;);
+
+                    if (datagridMode === GRID_MODE_FULL) {
+                        origin = &quot;ex-datagrid&quot;;
+                        target = highlightRow.getNode().find(&quot;.button.details&quot;);
+                    }
+
+                    if (highlightRow.isActive()) {
+                        topic.publish(EventManager.GUI.SUBPANEL_CAPTURE, {
+                            target: target,
+                            consumeOrigin: origin,
+                            origin: origin
+                        });
+                    }
+                }
+
+                function adjustPanelWidth() {
+                    if (datagridMode === GRID_MODE_SUMMARY) {
+                        utilMisc.adjustWidthForSrollbar(jqgridTableWrapper, [datagridGlobalToggles, datagridStatusLine]);
+                    } else {
+                        if (jqgrid.outerWidth() === jqgridWrapper.outerWidth()) {
+                            dataTablesScrollBody.addClass(&quot;overflow-x-hidden&quot;);
+                        } else {
+                            dataTablesScrollBody.removeClass(&quot;overflow-x-hidden&quot;);
+                        }
+                    }
+                }
+
+                return {
+                    /**
+                    * The constructor method for the data grid. Adds the grid&#x27;s panel to the UI, adds the data rows, and creates all event triggers
+                    *
+                    * @method init
+                    * @constructor
+                    *
+                    */
+                    init: utilMisc.once(
+                        function () {
+                            var d = new Deferred();
+                            d.then(
+                                function () {
+                                    _isReady = true;
+
+                                    initTooltips();
+                                    setButtonEvents();
+                                    initScrollListeners();
+                                    initUIListeners();
+                                }
+                                );
+
+                            sectionNode = $(&quot;#&quot; + GlobalStorage.config.divNames.datagrid);
+                            refreshPanel(d);
+                        }
+                ),
+
+                    getDatagridMode: function () {
+                        return datagridMode;
+                    },
+
+                    getSelectedDatasetUrl: function () {
+                        if (!selectedDatasetUrl) {
+                            if (datasetSelector.find(&quot;option:selected&quot;).length &gt; 0) {
+                                selectedDatasetUrl = datasetSelector.find(&quot;option:selected&quot;)[0].value;
+                            } else {
+                                var firstVisibleLayer = UtilArray.find(GlobalStorage.config.featureLayers, function (layerConfig) {
+                                    var layer = GlobalStorage.map.getLayer(layerConfig.id);
+                                    return layer.visible &amp;&amp; layer.ramp.type !== GlobalStorage.layerType.Static;
+                                });
+                                selectedDatasetUrl = firstVisibleLayer === null ? null : firstVisibleLayer.url;
+                            }
+                        } else {
+                            datasetSelector.find(&quot;option[value=&#x27;&quot; + selectedDatasetUrl + &quot;&#x27;]&quot;).prop(&#x27;selected&#x27;, true);
+                        }
+
+                        return selectedDatasetUrl;
+                    },
+
+                    /**
+                    * Indicates that the Data grid is fully rendered
+                    * @method isReady
+                    * @returns {Boolean} _isReady flag indicating the render status of the data grid
+                    */
+                    isReady: function () {
+                        return _isReady;
+                    },
+
+                    /**
+                    * Adjusts the width of the datagrid panel to accommodate the scrollbar.
+                    *
+                    * @method adjustPanelWidth
+                    */
+                    adjustPanelWidth: adjustPanelWidth,
+
+                    activateRows: activateRows,
+
+                    /**
+                    * publishes the subPanel_Capture event to the GUI class
+                    * @method capturePanel
+                    */
+                    capturePanel: capturePanel
+                };
+            }());
+
+        /**
+        * Caches the sorted data from datatables for feature click events to consume.  Builds featureToPage as a
+        * mapping of (layerName,featureId) =&gt; page where layerName and featureId are strings and page is a zero based int.
+        *
+        * @method cacheSortedData
+        * @private
+        */
+        function cacheSortedData() {
+            var elements = oTable.rows().data();
+            featureToPage = {
+            };
+            $.each(elements, function (idx, val) {
+                var layer = val.last().featureUrl,
+                    fid = GraphicExtension.getOid(val.last().feature);
+
+                if (!(layer in featureToPage)) {
+                    featureToPage[layer] = {
+                    };
+                }
+                featureToPage[layer][fid] = idx;
+            });
+        }
+
+        /**
+        * Returns the config Object for the given featureLayerUrl
+        *
+        * @method getGridConfig
+        * @param {String} url
+        * @return {Object} grid config
+        */
+        function getGridConfig(url) {
+            return Ramp.getLayerConfig(url).datagrid;
+        }
+
+        /**
+        * A handler that handlers the Enter key press and Click mouse event of the data grid.
+        * It is actually a binder that binds the key / mouse event to a handler specified.
+        * This is wired up to grid cells in the bootstrapper to achieve click/keypress functions
+        *
+        * @method handleGridEvent
+        * @private
+        * @param {Event} e the event object
+        * @param {Function} callback the callback function
+        */
+        function handleGridEvent(e, callback) {
+            if ((e.type === &quot;keypress&quot; &amp;&amp; e.keyCode === 13) || e.type === &quot;click&quot;) {
+                callback();
+                //Ramp.setHTML(oid); // just update info hit
+            }
+        }
+        /**
+        * Gets all layer data in the current map extent that are visible, and put the data into the data grid.
+        *
+        * @method applyExtentFilter
+        * @param {A Deferred object} d
+        *
+        */
+        function applyExtentFilter(d) {
+            var visibleFeatures = {},
+                visibleGridLayers = RampMap.getVisibleFeatureLayers(),
+                dataGridMode = ui.getDatagridMode(),
+                q = new EsriQuery();
+
+            // filter out static layers
+            visibleGridLayers = dojoArray.filter(visibleGridLayers, function (layer) {
+                return layer.ramp.type !== GlobalStorage.layerType.Static;
+            });
+
+            if (dataGridMode === GRID_MODE_FULL) {
+                visibleGridLayers = dojoArray.filter(visibleGridLayers, function (layer) {
+                    return layer.url === ui.getSelectedDatasetUrl();
+                });
+
+                if (config.datagrid.extendedExtentFilterEnabled) {
+                    q.geometry = RampMap.getMap().extent;
+                } else {
+                    // Grab everything!
+                    q.where = &quot;1 = 1&quot;;
+                }
+            } else { // Summary Mode
+                q.geometry = RampMap.getMap().extent;
+            }
+
+            q.outFields = [&quot;*&quot;];
+
+            // Update total records
+            totalRecords = 0;
+            dojoArray.forEach(visibleGridLayers, function (layer) {
+                totalRecords += layer.graphics.length;
+            });
+
+            var deferredList = dojoArray.map(visibleGridLayers, function (gridLayer) {
+                return gridLayer.queryFeatures(q).then(function (features) {
+                    if (features.features.length &gt; 0) {
+                        var layer = features.features[0].getLayer();
+                        visibleFeatures[layer.url] = features.features;
+                    }
+                });
+            });
+
+            // Execute this only after all the deferred objects has resolved
+            utilMisc.afterAll(deferredList, function () {
+                fetchRecords(visibleFeatures);
+
+                if (d) {
+                    d.resolve();
+                }
+            });
+        }
+
+        /**
+        * Given a map feature, return a data object used to represent the feature in the datagrid.
+        *
+        * @method getDataObject
+        * @private
+        * @param {Object} feature the feature needs to be represented in the datagrid
+        * return {Array} an array representing the data the given feature contains.
+        */
+        function getDataObject(feature) {
+            var url = feature.getLayer().url,
+                innerArray;
+            //attribute = feature.attributes;
+
+            //Remember, case sensitivity MATTERS in the attribute name.
+
+            if (ui.getDatagridMode() === GRID_MODE_SUMMARY) {
+                innerArray = [feature.attributes[Ramp.getLayerConfig(url).nameField]];
+            } else {
+                //make array containing values for each column in the full grid
+                innerArray = [];
+
+                // retrieve extendedGrid config object
+                var extendedGrid = getGridConfig(url).gridColumns;
+
+                // process each column and add to row
+                dojoArray.forEach(extendedGrid, function (column) {
+                    innerArray.push(feature.attributes[column.fieldName] || &quot;&quot;);
+                });
+            }
+
+            //TODO may want to move the generation of this custom object to a separate area, as this data will be useful in
+            //     both the summary and full grid state.  Will need some thinking.
+
+            // Includes fields that are useful which are not derived from the config.featureSources
+            // this should not draw, as there will be no column defined for it
+            innerArray.push({
+                featureUrl: url,
+                layerName: Ramp.getLayerConfig(url).displayName,
+                feature: feature
+            });
+
+            return innerArray;
+        }
+
+        function updateRecordsCount(visibleRecords) {
+            $(&quot;.pagination-record-number&quot;).text(String.format(&quot;{0}/{1} {2}&quot;, visibleRecords, totalRecords, i18n.t(&quot;datagrid.gridstrings.oPaginate.sRecords&quot;)));
+        }
+
+        /**
+        * Populate the datagrid with data in visibleFeatures
+        *
+        * @method fetchRecords
+        * @param {Array} visibleFeatures a dictionary mapping
+        * service url to an array of feature objects
+        * @private
+        */
+        function fetchRecords(visibleFeatures) {
+            if (jqgrid === undefined) {
+                // fetchRecords call made prior ty jqgrid creation
+                // TODO: consider adding a log.warning(&#x27;fetchRecords called prior to grid initialization&#x27;)
+                return;
+            }
+            jqgrid.DataTable().clear(); // Do NOT redraw the datatable at this point
+
+            if (Object.keys(visibleFeatures).isEmpty()) {
+                updateRecordsCount(0);
+                jqgrid.DataTable().draw();
+                return;
+            }
+
+            var data = [];
+
+            //for each feature layer
+            utilDict.forEachEntry(visibleFeatures, function (key, features) {
+                //for each feature in a specific layer
+                data = data.concat(dojoArray.map(features, function (feature) {
+                    //return the appropriate data object for the feature (.map puts them in array form)
+
+                    // &quot;cache&quot; the data object so we don&#x27;t have to generate it again
+                    return feature[ui.getDatagridMode()] ? feature[ui.getDatagridMode()] : feature[ui.getDatagridMode()] = getDataObject(feature);
+                }));
+            });
+
+            updateRecordsCount(data.length);
+
+            oTable.one(&quot;draw.dt&quot;, function () {
+                topic.publish(EventManager.Datagrid.EXTENT_FILTER_END);
+            });
+
+            //add the data to the grid
+            jqgrid.dataTable().fnAddData(data);
+
+            // NOTE: fnAddData should be the last thing that happens in this function
+            // if you want to add something after this point, use the fnDrawCallback
+            // function in the jqgrid initialization
+        }
+
+        /**
+        * Returns the graphic object of a feature layer which is contained in the given buttonNode.
+        *
+        * @method getGraphicFromButton
+        * @private
+        * @param {JObject} buttonNode   the node containing the feature layer
+        * @return {Object}   the graphic object of the feature layer.
+        */
+        function getGraphicFromButton(buttonNode) {
+            var featureUrl = buttonNode.data(featureUrlField),
+            // Need to parse the index into an integer since it
+            // comes as a String
+                oid = parseInt(buttonNode.data(featureOidField)),
+                featureLayer = RampMap.getFeatureLayer(featureUrl),
+
+                graphic = UtilArray.binaryFind(featureLayer.graphics,
+                    function (a_graphic) {
+                        return GraphicExtension.getOid(a_graphic) - oid;
+                    });
+
+            return graphic;
+        }
+
+        /**
+        * Binding event handling for events:
+        * filterManager/layer-visibility-toggled
+        * datagrid/applyExtentFilter
+        *
+        * @method initListeners
+        * @private
+        */
+        function initListeners() {
+            topic.subscribe(EventManager.FilterManager.LAYER_VISIBILITY_TOGGLED, function () {
+                extentFilterExpired = true;
+            });
+
+            /* UI EVENTS */
+            topic.subscribe(EventManager.GUI.TAB_SELECTED, function (arg) {
+                if (arg.tabName === &quot;datagrid&quot;) {
+                    if (extentFilterExpired) {
+                        extentFilterExpired = false;
+                        applyExtentFilter();
+                    } else {
+                        ui.capturePanel();
+                    }
+
+                    ui.adjustPanelWidth();
+                }
+            });
+
+            topic.subscribe(EventManager.GUI.TAB_DESELECTED, function (arg) {
+                if (arg.tabName === &quot;datagrid&quot;) {
+                    topic.publish(EventManager.GUI.SUBPANEL_DOCK, {
+                        origin: &quot;datagrid&quot;
+                    });
+                    console.log(&quot;subPanleDock&quot;);
+                }
+            });
+
+            topic.subscribe(EventManager.Datagrid.APPLY_EXTENT_FILTER, function () {
+                if (ui.getDatagridMode() !== GRID_MODE_FULL) {
+                    applyExtentFilter();
+                }
+            });            
+
+            topic.subscribe(EventManager.GUI.SUBPANEL_CHANGE, function (evt) {
+                if (evt.origin === &quot;ex-datagrid&quot; &amp;&amp;
+                    evt.isComplete) {
+                    ui.adjustPanelWidth();
+                }
+            });            
+        }
+
+        return {
+            /**
+            * Initialize the datagrid. must be called before any properties can be accessed.
+            *
+            * @method init
+            */
+            init: function () {
+                config = GlobalStorage.config;
+
+                // Added to make sure the layer is not static
+                var layerConfigs = dojoArray.filter(config.featureLayers, function (layerConfig) {
+                    return !layerConfig.isStatic;
+                });
+
+                // layerConfig = config.featureLayers;
+                gridConfig = layerConfigs[0].datagrid;  //this is just to configure the structure of the grid.  since all layers have same structure, just pick first one
+
+                /*
+                $.fn.dataTable.ext.search.push(
+                    function (settings, data, dataIndex) {
+                        return data[0].indexOf(&quot;Water Regions&quot;) &gt; -1;
+                    }
+                );*/
+
+                initListeners();
+
+                ui.init();
+            } //InitDataGrid
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

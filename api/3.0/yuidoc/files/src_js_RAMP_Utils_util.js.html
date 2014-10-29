@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Utils\util.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 3.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Utils\util.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/* global define, window, XMLHttpRequest, ActiveXObject, XSLTProcessor, console, $, document, jQuery */
+/* jshint bitwise:false  */
+
+/**
+* Utility module containing useful static classes.
+*
+* @module Utils
+* @main Utils
+*/
+
+/**
+* A set of functions used by at least one module in this project. The functions
+* are generic enough that they may become useful for other modules later or functions
+* that are shared amongst multiple modules should be added here.
+*
+* *__NOTE__: None of these functions require the global configuration object. (i.e. they
+* are not exclusive to RAMP). For functions that depend on the global configuration
+* object, place them in ramp.js.*
+*
+* @class Util
+* @static
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+* @uses dojo/topic
+* @uses dojo/Deferred
+*/
+define([&quot;dojo/_base/array&quot;, &quot;dojo/_base/lang&quot;, &quot;dojo/topic&quot;, &quot;dojo/Deferred&quot;, &quot;esri/geometry/Extent&quot;],
+    function (dojoArray, dojoLang, topic, Deferred, Extent) {
+        &quot;use strict&quot;;
+
+        return {
+            /**
+            * Checks if the console exists, if not, redefine the console and all console methods to
+            * a function that does nothing. Useful for IE which does not have the console until the
+            * debugger is opened.
+            *
+            * @method checkConsole
+            * @static
+            */
+            checkConsole: function () {
+                var noop = function () { },
+                    methods = [
+                        &#x27;assert&#x27;, &#x27;clear&#x27;, &#x27;count&#x27;, &#x27;debug&#x27;, &#x27;dir&#x27;, &#x27;dirxml&#x27;, &#x27;error&#x27;,
+                        &#x27;exception&#x27;, &#x27;group&#x27;, &#x27;groupCollapsed&#x27;, &#x27;groupEnd&#x27;, &#x27;info&#x27;, &#x27;log&#x27;,
+                        &#x27;markTimeline&#x27;, &#x27;profile&#x27;, &#x27;profileEnd&#x27;, &#x27;table&#x27;, &#x27;time&#x27;, &#x27;timeEnd&#x27;,
+                        &#x27;timeStamp&#x27;, &#x27;trace&#x27;, &#x27;warn&#x27;
+                    ],
+                    length = methods.length,
+                    console = (window.console = window.console || {}),
+                    method;
+
+                while (length--) {
+                    method = methods[length];
+
+                    // Only stub undefined methods.
+                    if (!console[method]) {
+                        console[method] = noop;
+                    }
+                }
+            },
+
+            // String Functions
+
+            /**
+            * Returns an String that has it&#x27;s angle brackets (&#x27;&lt;&#x27; and &#x27;&gt;&#x27;) escaped (replaced by &#x27;&amp;lt;&#x27; and &#x27;&amp;gt;&#x27;).
+            * This will effectively cause the String to be displayed in plain text when embedded in an HTML page.
+            *
+            * @method escapeHtml
+            * @static
+            * @param {String} html String to escape
+            * @return {String} escapeHtml Escaped string
+            */
+            escapeHtml: function (html) {
+                return html.replaceAll(&quot;&lt;&quot;, &quot;&amp;lt;&quot;).replaceAll(&quot;&gt;&quot;, &quot;&amp;gt;&quot;);
+            },
+
+            /**
+            * Returns true if the given String is a number
+            *
+            * @method isNumber
+            * @static
+            * @param {String} input The string to check
+            * @return {boolean} True if number
+            */
+            isNumber: function (input) {
+                return isFinite(String(input).trim() || NaN);
+            },
+
+            /**
+            * Parse the given String into a boolean. Returns true if the String
+            * is the word &quot;true&quot; (case insensitive). False otherwise.
+            *
+            * @method parseBool
+            * @static
+            * @param {String} str The string to check
+            * @return {boolean} True if &#x60;true&#x60;
+            */
+            parseBool: function (str) {
+                return (str.toLowerCase() === &#x27;true&#x27;);
+            },
+
+            // Deferred
+
+            /**
+            * Executes the callback function only after all the deferred Objects in the
+            * given deferredList has resolved.
+            *
+            * @method afterAll
+            * @static
+            * @param {array} deferredList A list of Deferred objects
+            * @param {function} callback The callback to be executed
+            */
+            afterAll: function (deferredList, callback, context) {
+                if (deferredList.length === 0) {
+                    callback();
+                    return;
+                }
+
+                var completed = 0; // Keeps track of the number of deferred that has resolved
+                dojoArray.forEach(deferredList, function (deferred) {
+                    deferred.then(function () {
+                        completed++;
+                        if (completed === deferredList.length) {
+                            callback.call(context);
+                        }
+                    });
+                });
+            },
+
+            // Serialization
+
+            /**
+            * Converts an array into a &#x27;+&#x27; separated String that can be used as
+            * the query parameter of a URL.
+            *
+            *      arrayToQuery([&quot;abc&quot;, 123, &quot;efg&quot;]) -&gt; &quot;abc+123+efg&quot;
+            *
+            * *__NOTE:__ the array should only contain primitives, objects will not be serialized
+            * properly.*
+            *
+            * @method arrayToQuery
+            * @static
+            * @param {array} array An array of primitives to be serialized
+            * @return {String} A serialized representation of the given array
+            */
+            arrayToQuery: function (array) {
+                return array.join(&quot;+&quot;);
+            },
+
+            /**
+            * Converts a query String generated by arrayToQuery into an array object.
+            * The array object will only contain Strings.
+            *
+            *      queryToArray(&quot;abc+123+efg&quot;) -&gt; [&quot;abc&quot;, &quot;123&quot;, &quot;efg&quot;]
+            *
+            * @method queryToArray
+            * @static
+            * @param {String} query A query string to be converted
+            * @return {String} A resulting array of strings
+            */
+            queryToArray: function (query) {
+                return query.split(&quot;+&quot;);
+            },
+
+            // Event handling
+
+            /**
+            * A convenience method that wraps around Dojo&#x27;s subscribe method to allow
+            * a scope to hitched to the given callback function.
+            *
+            * @method subscribe
+            * @static
+            * @param {String} name Event name
+            * @param {function} callback The callback to be executed
+            * @param {object} scope Scope of the callback
+            */
+            subscribe: function (name, callback, scope) {
+                if (this.isUndefined(scope)) {
+                    topic.subscribe(name, callback);
+                } else {
+                    topic.subscribe(name, dojoLang.hitch(scope, callback));
+                }
+            },
+
+            /**
+            * Subscribes to an event, after the event has occurred, the handle is
+            * removed.
+            *
+            * @method subscribeOnce
+            * @static
+            * @param {String} name Event name
+            * @param {function} callback The callback to be executed
+            */
+            subscribeOnce: function (name, callback) {
+                var handle = null,
+                    wrapper = function (evt) {
+                        handle.remove();
+                        callback(evt);
+                    };
+
+                return (handle = topic.subscribe(name, wrapper));
+            },
+
+            /**
+            * Subscribes to a set of events, executes the callback when any of the events fire, then removes the handle.
+            *
+            * @method subscribeOnceAny
+            * @static
+            * @param  {String} names An array of event names
+            * @param  {Function} callback The callback to be executed
+            */
+            subscribeOnceAny: function (names, callback) {
+                var handles = [];
+
+                function wrapper(evt) {
+                    dojoArray.forEach(handles, function (handle) {
+                        handle.remove();
+                    });
+
+                    callback(evt);
+                }
+
+                dojoArray.forEach(names, dojoLang.hitch(this,
+                    function (name) {
+                        handles.push(this.subscribeOnce(name, wrapper));
+                    }));
+            },
+
+            /**
+            * Given an array of event names published by topic.publish, call the given
+            * callback function after ALL of the given events have occurred. An array of
+            * arguments is passed to the callback function, the arguments are those returned
+            * by the events (in the order that the events appear in the array).
+            *
+            * #####Example
+            *
+            * Assume somewhere a module publishes a &quot;click&quot; event:
+            *
+            *      topic.publish(&quot;click&quot;, { mouseX: 10, mouseY: 50 });
+            *
+            * and somewhere else another module publishes a &quot;finishLoading&quot; event:
+            *
+            *      topic.publish(&quot;finishLoading&quot;, { loadedPictures: [pic1, pic2] });
+            *
+            * Then if one wants to do something (e.g. display pictures) only after the pictures
+            * have been loaded AND the user clicked somewhere, then:
+            *
+            * - args[0] will be the object returned by the &quot;click&quot; event
+            * - which in this case will be: { mouseX: 10, mouseY: 50 }
+            * - args[1] will be the object returned by the &quot;finishLoading&quot; event
+            * - which in this case will be: { loadedPictures: [pic1, pic2] }
+            *
+            *
+            *      subscribe([&quot;click&quot;, &quot;finishLoading&quot;], function(args) {
+            *          doSomething();
+            *      });
+            *
+            * *__NOTE:__
+            * If one of the events fires multiple times before the other event, the object
+            * passed by this function to the callback will be the object returned when the
+            * event FIRST fired (subsequent firings of the same event are ignored). Also, if
+            * some event do not return an object, it will also be excluded in the arguments to
+            * the callback function. So be careful! For example, say you subscribed to the events:
+            * &quot;evt1&quot;, &quot;evt2&quot;, &quot;evt3&quot;. &quot;evt1&quot; returns an object (call it &quot;evt1Obj&quot;), &quot;evt2&quot; does not,
+            * &quot;evt3&quot; returns two objects (call it &quot;evt3Obj-1&quot; and &quot;evt3Obj-2&quot; respectively).
+            * Then the array passed to the callback will be: [&quot;evt1Obj&quot;, &quot;evt3Obj-1&quot;, &quot;evt3Obj-2&quot;].*
+            *
+            * @method subscribeAll
+            * @static
+            * @param {array} nameArray An array of Strings containing the names of events to subscribe to
+            * @param {function} callback The callback to be executed
+            */
+            subscribeAll: function (nameArray, callback) {
+                // Keeps track of the status of all the events being subscribed to
+                var events = [];
+
+                dojoArray.forEach(nameArray, function (eventName, i) {
+                    events.push({
+                        fired: false,
+                        args: null
+                    });
+
+                    topic.subscribe(eventName, function () {
+                        // If this is the fire time the event fired
+                        if (!events[i].fired) {
+                            // Mark the event has fired and capture it&#x27;s arguments (if any)
+                            events[i].fired = true;
+                            events[i].args = Array.prototype.slice.call(arguments);
+
+                            // Check if all events have fired
+                            if (dojoArray.every(events, function (event) {
+                                return event.fired;
+                            })) {
+                                // If so construct an array with arguments from the events
+                                var eventArgs = [];
+                                dojoArray.forEach(events, function (event) {
+                                    eventArgs.append(event.args);
+                                });
+                                callback(eventArgs);
+                            }
+                        }
+                    });
+                });
+            },
+
+            // Specialized Variables *
+
+            /**
+            * Creates an object that acts like a lazy variable (i.e. a variable whose value is only
+            * resolved the first time it is retrieved, not when it is assigned). The value given to
+            * the lazy variable should be the return value of the given initFunc. The returned object
+            * has two methods:
+            *
+            * - get - returns the value of the variable, if it is the first time get is called, the
+            * the initFunc will be called to resolve the value of the variable.
+            * - reset - forces the variable to call the initFunc again the next time get is called
+            *
+            * @method createLazyVariable
+            * @static
+            * @param {function} initFunc A function to call to resolve the variable value
+            * @return {Object} The lazy varialbe
+            */
+            createLazyVariable: function (initFunc) {
+                var value = null;
+                return {
+                    reset: function () {
+                        value = null;
+                    },
+
+                    get: function () {
+                        if (value == null) {
+                            value = initFunc();
+                        }
+                        return value;
+                    }
+                };
+            },
+
+            // FUNCTION DECORATORS
+
+            /**
+            * Returns a function that has the same functionality as the given function, but
+            * can only be executed once (subsequent execution does nothing).
+            *
+            * @method once
+            * @static
+            * @param {function} func Function to be decorated
+            * @return {function} Decorated function that can be executed once
+            */
+            once: function (func) {
+                var ran = false;
+                return function () {
+                    if (!ran) {
+                        func();
+                        ran = true;
+                    }
+                };
+            },
+
+            // MISCELLANEOUS
+
+            /**
+            * Returns true if the given obj is undefined, false otherwise.
+            *
+            * @method isUndefined
+            * @static
+            * @param {object} obj Object to be checked
+            * @return {boolean} True if the given object is undefined, false otherwise
+            */
+            isUndefined: function (obj) {
+                return (typeof obj === &#x27;undefined&#x27;);
+            },
+
+            /**
+            * Compares two graphic objects.
+            *
+            * @method compareGraphics
+            * @static
+            * @param  {Object} one Graphic object
+            * @param  {Object} two Graphic object
+            * @return {boolean} True if the objects represent the same feature
+            */
+            compareGraphics: function (one, two) {
+                var oneKey = &quot;0&quot;,
+                    twoKey = &quot;1&quot;,
+                    objectIdField,
+                    oneLayer,
+                    twoLayer;
+
+                if (one &amp;&amp; two &amp;&amp;
+                    $.isFunction(one.getLayer) &amp;&amp; $.isFunction(two.getLayer)) {
+                    oneLayer = one.getLayer();
+                    twoLayer = two.getLayer();
+                    objectIdField = oneLayer.objectIdField;
+                    oneKey = oneLayer.url + one.attributes[objectIdField];
+                    twoKey = twoLayer.url + two.attributes[objectIdField];
+                }
+
+                return oneKey === twoKey;
+            },
+
+            /**
+            * Returns the width of the scrollbar in pixels. Since different browsers render scrollbars differently, the width may vary.
+            *
+            * @method scrollbarWidth
+            * @static
+            * @return {int} The width of the scrollbar in pixels
+            * @for Util
+            */
+            scrollbarWidth: function () {
+                var $inner = jQuery(&#x27;&lt;div style=&quot;width: 100%; height:200px;&quot;&gt;test&lt;/div&gt;&#x27;),
+                    $outer = jQuery(&#x27;&lt;div style=&quot;width:200px;height:150px; position: absolute; top: 0; left: 0; visibility: hidden; overflow:hidden;&quot;&gt;&lt;/div&gt;&#x27;).append($inner),
+                    inner = $inner[0],
+                    outer = $outer[0],
+                    width1, width2;
+
+                jQuery(&#x27;body&#x27;).append(outer);
+                width1 = inner.offsetWidth;
+                $outer.css(&#x27;overflow&#x27;, &#x27;scroll&#x27;);
+                width2 = outer.clientWidth;
+                $outer.remove();
+
+                return (width1 - width2);
+            },
+
+            /**
+            * Checks if the height of the scrollable content of the body is taller than its height;
+            * if so, offset the content horizontally to accomodate for the scrollbar assuming target&#x27;s width is
+            * set to &quot;100%&quot;.
+            *
+            * @method adjustWidthForSrollbar
+            * @static
+            * @param {jObject} body A DOM node with a scrollbar (or not)
+            * @param {jObject} targets An array of jObjects to add the offset to
+            */
+            adjustWidthForSrollbar: function (body, targets) {
+                var offset = body.innerHeight() &lt; body[0].scrollHeight ? this.scrollbarWidth() : 0;
+
+                dojoArray.map(targets, function (target) {
+                    target.css({
+                        right: offset
+                    });
+                });
+            },
+
+            /**
+            * Waits until a given function is available and executes a callback function.
+            *
+            * @method executeOnLoad
+            * @static
+            * @param {Object} target an object on which to wait for function to appear
+            * @param {function} func A function whose availability in question
+            * @param {function} callback The callback function to be executed after func is available
+            */
+            executeOnLoad: function (target, func, callback) {
+                var deferred = new Deferred(),
+                    handle;
+
+                deferred.then(function () {
+                    window.clearInterval(handle);
+                    //console.log(&quot;deffered resolved&quot;);
+
+                    callback();
+                });
+
+                handle = window.setInterval(function () {
+                    if ($.isFunction(target[func])) {
+                        deferred.resolve(true);
+                    }
+                }, 500);
+            },
+
+            /**
+            * Loops through all object properties and applies a given function to each. Resolves the given deferred when done.
+            *
+            * @method executeOnDone
+            * @static
+            * @param {object} o Object to look through
+            * @param {function} func A function to be executed with each object propety. Accepts two parameters: property and deferred to be resolved when it&#x27;s done.
+            * @param {object} d A deferred to be resolved when all properties have been processed.
+            */
+            executeOnDone: function (o, func, d) {
+                var counter = 0,
+                    arr = [],
+                    deferred;
+
+                function fnOnDeferredCancel() {
+                    d.cancel();
+                }
+
+                function fnOnDeferredThen() {
+                    counter--;
+                    if (counter === 0) {
+                        d.resolve(true);
+                    }
+                }
+
+                d = d || new Deferred();
+
+                for (var q in o) {
+                    if (o.hasOwnProperty(q)) {
+                        arr.push(o[q]);
+                    }
+                }
+
+                counter = arr.length;
+
+                arr.forEach(function (p) {
+                    deferred = new Deferred(fnOnDeferredCancel);
+
+                    deferred.then(fnOnDeferredThen);
+
+                    func(p, deferred);
+                });
+
+                if (counter === 0) {
+                    d.resolve(true);
+                }
+            },
+
+            /**
+            * Generates an rfc4122 version 4 compliant guid.
+            * Taken from here: http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+            *
+            * @method guid
+            * @static
+            * @return {String} The generated guid string
+            */
+            guid: function () {
+                return &#x27;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#x27;.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0,
+                        v = c === &#x27;x&#x27; ? r : (r &amp; 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            },
+
+            /**
+            * Returns an appropriate where clause depending on whether the query
+            * is a String (returns a where clause with CASE INSENSITIVE comparison)
+            * or an integer.
+            *
+            * @method getWhereClause
+            * @static
+            * @param {String} varName ???
+            * @param {String | Number} query A query string
+            * @return {String} The generated &quot;where&quot; clause
+            */
+            getWhereClause: function (varName, query) {
+                if (this.isNumber(query)) {
+                    return String.format(&quot;{0}={1}&quot;, varName, query);
+                }
+                return String.format(&quot;Upper({0})=Upper(\&#x27;{1}\&#x27;)&quot;, varName, query);
+            },
+
+            /**
+            * Converts html into text by replacing
+            * all html tags with their appropriate special characters
+            *
+            * @method stripHtml
+            * @static
+            * @param {String} html HTML to be converted to text
+            * @return {String} The HTML in text form
+            */
+            stripHtml: function (html) {
+                var tmp = document.createElement(&quot;DIV&quot;);
+                // jquery .text function converts html into text by replacing
+                // all html tags with their appropriate special characters
+                $(tmp).text(html);
+                return tmp.textContent || tmp.innerText || &quot;&quot;;
+            },
+
+            // Query geometry
+            /*
+            * Create a new extent based on the current map size, a point (X/Y coordinates), and a pixel tolerance value.
+            * @method pointToExtent
+            * @param {Object} map The map control
+            * @param {Object} point The location on screen (X/Y coordinates)
+            * @param {Number} toleranceInPixel A value indicating how many screen pixels the extent should be from the point
+            * @returns {Object} a new extent calculated from the given parameters
+            *
+            */
+            pointToExtent: function (map, point, toleranceInPixel) {
+                var pixelWidth = map.extent.getWidth() / map.width,
+                    toleraceInMapCoords = toleranceInPixel * pixelWidth;
+
+                return new Extent(point.x - toleraceInMapCoords,
+                              point.y - toleraceInMapCoords,
+                              point.x + toleraceInMapCoords,
+                              point.y + toleraceInMapCoords,
+                              map.spatialReference);
+            },
+            /**
+            * Checks if the string ends with the supplied suffix.
+            *
+            * @method endsWith
+            * @static
+            * @param {String} str String to be evaluated
+            * @param {String} suffix Ending string to be matched
+            * @return {boolean} True if suffix matches
+            */
+            endsWith: function (str, suffix) {
+                return str.indexOf(suffix, str.length - suffix.length) !== -1;
+            },
+
+            /**
+            * Applies supplied xslt to supplied xml. IE always returns a String; others may return a documentFragment or a jObject.
+            *
+            * @method transformXML
+            * @static
+            * @param {String} xmlurl Location of the xml file
+            * @param {String} xslurl Location of the xslt file
+            * @param {Function} callback The callback to be executed
+            * @param {Boolean} returnFragment True if you want a document fragment returned (doesn&#x27;t work in IE)}
+            */
+            transformXML: function (xmlurl, xslurl, callback, returnFragment) {
+                var xmld = new Deferred(),
+                    xsld = new Deferred(),
+                    xml, xsl,
+                    dlist = [xmld, xsld],  
+                    result,
+                    error,
+                    that = this;
+
+                that.afterAll(dlist, function () {
+                    if (!error) {
+                        result = applyXSLT(xml, xsl);
+                    }
+                    callback(error, result);
+                });
+
+                // Transform XML using XSLT
+                function applyXSLT(xmlString, xslString) {
+                    var output;
+                    if (window.ActiveXObject || window.hasOwnProperty(&quot;ActiveXObject&quot;)) { // IE
+                        var xslt = new ActiveXObject(&quot;Msxml2.XSLTemplate&quot;),
+                            xmlDoc = new ActiveXObject(&quot;Msxml2.DOMDocument&quot;),
+                            xslDoc = new ActiveXObject(&quot;Msxml2.FreeThreadedDOMDocument&quot;),
+                            xslProc;
+
+                        xmlDoc.loadXML(xmlString);
+                        xslDoc.loadXML(xslString);
+                        xslt.stylesheet = xslDoc;
+                        xslProc = xslt.createProcessor();
+                        xslProc.input = xmlDoc;
+                        xslProc.transform();
+                        output = xslProc.output;
+                    } else { // Chrome/FF/Others
+                        var xsltProcessor = new XSLTProcessor();
+                        xsltProcessor.importStylesheet(xslString);
+                        output = xsltProcessor.transformToFragment(xmlString, document);
+
+                        // turn a document fragment into a proper jQuery object
+                        if (!returnFragment) {
+                            output = ($(&#x27;body&#x27;)
+                                .append(output)
+                                .children().last())
+                                .detach();
+                        }
+                    }
+                    return output;
+                }
+
+                // Distinguish between XML/XSL deferred objects to resolve and set response
+                function resolveDeferred(filename, responseObj) {
+                    if (filename.endsWith(&quot;.xsl&quot;)) {
+                        xsl = responseObj.responseText;
+                        xsld.resolve();
+                    } else {
+                        xml = responseObj.responseText;
+                        xmld.resolve();
+                    }
+                }
+                /*
+               function loadXMLFileIE9(filename) {
+                   var xdr = new XDomainRequest();
+                    xdr.contentType = &quot;text/plain&quot;;
+                    xdr.open(&quot;GET&quot;, filename);
+                    xdr.onload = function () {
+                        resolveDeferred(filename, xdr);
+                    };
+                    xdr.onprogress = function () { };
+                    xdr.ontimeout = function () { };
+                    xdr.onerror = function () {
+                        error = true;
+                        resolveDeferred(filename, xdr);
+                    };
+                    window.setTimeout(function () {
+                        xdr.send();
+                    }, 0); 
+
+                   
+               }
+               */
+                // IE10+
+                function loadXMLFileIE(filename) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.open(&quot;GET&quot;, filename);
+                    try {
+                        xhttp.responseType = &quot;msxml-document&quot;;
+                    } catch (err) { } // Helping IE11
+                    xhttp.onreadystatechange = function () {
+                        if (xhttp.readyState === 4) {
+                            if (xhttp.status !== 200) {
+                                error = true;
+                            }
+                            resolveDeferred(filename, xhttp);
+                        }
+                    };
+                    xhttp.send(&quot;&quot;);
+                }
+
+                
+
+                if (&#x27;withCredentials&#x27; in new XMLHttpRequest() &amp;&amp; &quot;ActiveXObject&quot; in window) { // IE10 and above
+                    loadXMLFileIE(xmlurl);
+                    loadXMLFileIE(xslurl);
+                } else if (window.XDomainRequest) { // IE9 and below
+                   /*
+                    loadXMLFileIE9(xmlurl);
+                    loadXMLFileIE9(xslurl);
+                   */
+                   // dataType need to be set to &quot;text&quot; for xml doc requests.                   
+                   $.ajax({
+                        type: &quot;GET&quot;,
+                        url: xmlurl,
+                        dataType:  &quot;text&quot;,
+                        cache: false,
+                        success: function (data) {
+                            xml = data;
+                            xmld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xmld.resolve();
+                        }
+                    });
+
+                    $.ajax({
+                        type: &quot;GET&quot;,
+                        url: xslurl,
+                        dataType: &quot;text&quot;,
+                        cache: false,
+                        success: function (data) {
+                            xsl = data;
+                            xsld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xsld.resolve();
+                        }
+                    });
+                    
+                } else { // Good browsers (Chrome/FF)
+
+                   $.ajax({
+                        type: &quot;GET&quot;,
+                        url: xmlurl,
+                        dataType: &quot;xml&quot;,
+                        cache: false,
+                        success: function (data) {
+                            xml = data;
+                            xmld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xmld.resolve();
+                        }
+                    });
+
+                    $.ajax({
+                        type: &quot;GET&quot;,
+                        url: xslurl,
+                        dataType: &quot;xml&quot;,
+                        cache: false,
+                        success: function (data) {
+                            xsl = data;
+                            xsld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xsld.resolve();
+                        }
+                    });
+                }
+            },
+
+            /**
+            * [settings.linkLists]: false
+            */
+            keyboardSortable: function (ulNodes, settings) {
+                settings = dojoLang.mixin({
+                    linkLists: false,
+
+                    onStart: function () { },
+                    onUpdate: function () { },
+                    onStop: function () { }
+                }, settings);
+
+                ulNodes.each(function (index, _ulNode) {
+                    var ulNode = $(_ulNode),
+                        liNodes = ulNode.find(&quot;&gt; li&quot;),
+                        sortHandleNodes = liNodes.find(&quot;.sort-handle&quot;),
+                        isReordering = false,
+                        grabbed;
+
+                    // Reset focus, set aria attributes, and styling
+                    function reorderReset(handle, liNodes, liNode) {
+                        handle.focus();
+                        liNodes.attr(&quot;aria-dropeffect&quot;, &quot;move&quot;);
+                        liNode.attr(&quot;aria-grabbed&quot;, &quot;true&quot;).removeAttr(&quot;aria-dropeffect&quot;);
+                    }
+
+                    sortHandleNodes
+                        .focusout(function (event) {
+                            var node = $(this).closest(&quot;li&quot;);
+
+                            // if the list is not being reordered right now, release list item
+                            if (node.hasClass(&quot;list-item-grabbed&quot;) &amp;&amp; !isReordering) {
+                                liNodes.removeAttr(&quot;aria-dropeffect&quot;);
+                                node
+                                    .removeClass(&quot;list-item-grabbed&quot;)
+                                    .attr({ &quot;aria-selected&quot;: false, &quot;aria-grabbed&quot;: false });
+
+                                grabbed = false;
+
+                                console.log(&quot;Keyboard Sortable: OnStop -&gt; &quot;, event);
+                                settings.onStop.call(null, event, { item: null });
+                            }
+                        })
+                        .on(&quot;keyup&quot;, function (event) {
+                            var liNode = $(this).closest(&quot;li&quot;),
+                                liId = liNode[0].id,
+                                liIdArray = ulNode.sortable(&quot;toArray&quot;),
+                                liIndex = dojoArray.indexOf(liIdArray, liId);
+
+                            // Toggle grabbed state and aria attributes (13 = enter, 32 = space bar)
+                            if (event.which === 13 || event.which === 32) {
+                                if (grabbed) {
+                                    liNodes.removeAttr(&quot;aria-dropeffect&quot;);
+                                    liNode
+                                        .attr(&quot;aria-grabbed&quot;, &quot;false&quot;)
+                                        .removeClass(&quot;list-item-grabbed&quot;);
+
+                                    console.log(&quot;Keyboard Sortable: OnStop -&gt; &quot;, liNode);
+                                    settings.onStop.call(null, event, { item: liNode });
+
+                                    grabbed = false;
+                                } else {
+                                    liNodes.attr(&quot;aria-dropeffect&quot;, &quot;move&quot;);
+                                    liNode
+                                        .attr(&quot;aria-grabbed&quot;, &quot;true&quot;)
+                                        .removeAttr(&quot;aria-dropeffect&quot;)
+                                        .addClass(&quot;list-item-grabbed&quot;);
+
+                                    console.log(&quot;Keyboard Sortable: OnStart -&gt; &quot;, liNode);
+                                    settings.onStart.call(null, event, { item: liNode });
+
+                                    grabbed = true;
+                                }
+                                // Keyboard up (38) and down (40)
+                            } else if (event.which === 38) {
+                                if (grabbed) {
+                                    // Don&#x27;t move up if first layer in list
+                                    if (liIndex &gt; 0) {
+                                        isReordering = true;
+
+                                        liNode.prev().before(liNode);
+
+                                        reorderReset($(this), liNodes, liNode);
+
+                                        grabbed = true;
+                                        liIndex -= 1;
+
+                                        console.log(&quot;Keyboard Sortable: OnUpdate -&gt; &quot;, liNode);
+                                        settings.onUpdate.call(null, event, { item: liNode });
+
+                                        isReordering = false;
+                                    }
+                                } else {
+                                    // if lists are linked, jump to the last item of the previous list, if any
+                                    if (settings.linkLists &amp;&amp;
+                                        liIndex === 0 &amp;&amp;
+                                        index !== 0) {
+                                        liNode = $(ulNodes[index - 1]).find(&quot;&gt; li:last&quot;);
+                                    } else {
+                                        liNode = liNode.prev();
+                                    }
+
+                                    liNode.find(&quot;:tabbable:first&quot;).focus();
+                                }
+                            } else if (event.which === 40) {
+                                if (grabbed) {
+                                    // Don&#x27;t move down if last layer in list
+                                    if (liIndex &lt; liNodes.length - 1) {
+                                        isReordering = true;
+
+                                        liNode.next().after(liNode);
+
+                                        reorderReset($(this), liNodes, liNode);
+
+                                        grabbed = true;
+                                        liIndex += 1;
+
+                                        console.log(&quot;Keyboard Sortable: OnUpdate -&gt; &quot;, liNode);
+                                        settings.onUpdate.call(null, event, { item: liNode });
+
+                                        isReordering = false;
+                                    }
+                                } else {
+                                    // if lists are linked, jump to the first item of the next list, if any
+                                    if (settings.linkLists &amp;&amp;
+                                        liIndex === liNodes.length - 1 &amp;&amp;
+                                        index &lt; ulNodes.length - 1) {
+                                        liNode = $(ulNodes[index + 1]).find(&quot;&gt; li:first&quot;);
+                                    } else {
+                                        liNode = liNode.next();
+                                    }
+
+                                    liNode.find(&quot;:tabbable:first&quot;).focus();
+                                }
+                            }
+                        });
+                });
+            }
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

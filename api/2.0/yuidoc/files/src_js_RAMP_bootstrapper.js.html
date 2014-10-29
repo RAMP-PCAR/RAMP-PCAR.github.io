@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\bootstrapper.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\src\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 2.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FEGC-Theme.html">FEGC-Theme</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Intranet-Theme.html">Intranet-Theme</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\bootstrapper.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/*global require, window, esri, dojoConfig, i18n */
+
+/**
+* Ramp module
+*
+* @module RAMP
+* @main RAMP
+*/
+
+/**
+* Bootstrapper class.
+* Starting point of RAMP, RAMP modules are loaded here and mapped to a function parameter
+* Phase X?: For mobile support, there can be a different mobileBootstrapper with only the mobile modules loaded
+*
+* @class Bootstrapper
+* @static
+*
+* @uses dojo/parser
+* @uses dojo/on
+* @uses dojo/topic
+* @uses dojo/request/script
+* @uses dojo/request/xhr
+*
+* @uses Map
+* @uses Basemapselector
+* @uses Maptips
+* @uses Datagrid
+* @uses Navigation
+* @uses FilterManager
+* @uses BookmarkLink
+* @uses Url
+* @uses FeatureHighlighter
+* @uses Ramp
+* @uses GlobalStorage
+* @uses GUI
+* @uses EventManager
+* @uses AdvancedToolbar
+* @uses PopulationTool
+* @uses MeasureTool
+* @uses BufferTool
+*
+
+* @uses Util
+* @uses Prototype
+* @uses FunctionMangler
+*/
+
+require([
+/* Dojo */
+    &quot;dojo/parser&quot;, &quot;dojo/on&quot;, &quot;dojo/topic&quot;,
+    &quot;dojo/request/script&quot;,
+    &quot;dojo/request/xhr&quot;, &quot;dojo/_base/array&quot;,
+
+/* RAMP */
+    &quot;ramp/map&quot;, &quot;ramp/basemapSelector&quot;, &quot;ramp/maptips&quot;, &quot;ramp/datagrid&quot;,
+    &quot;ramp/navigation&quot;, &quot;ramp/filterManager&quot;, &quot;ramp/bookmarkLink&quot;,
+    &quot;utils/url&quot;, &quot;ramp/featureHighlighter&quot;,
+    &quot;ramp/ramp&quot;, &quot;ramp/globalStorage&quot;, &quot;ramp/gui&quot;, &quot;ramp/eventManager&quot;,
+    &quot;ramp/advancedToolbar&quot;,
+    &quot;themes/theme&quot;,
+
+/* Utils */
+    &quot;utils/util&quot;,
+
+/* Tools */
+    //&quot;tools/populationTool&quot;, &quot;tools/measureTool&quot;, &quot;tools/bufferTool&quot;,
+
+/* Plugins */
+    &quot;utils/prototype!&quot;, &quot;utils/functionMangler!&quot;],
+
+    function (
+    /* Dojo */
+    parser, dojoOn, topic, requestScript, xhr, dojoArray,
+
+    /* RAMP */
+    RampMap, BasemapSelector, Maptips, Datagrid, NavWidget, FilterManager,
+    BookmarkLink, Url, FeatureHighlighter,
+    Ramp, globalStorage, gui, EventManager, AdvancedToolbar, theme,
+
+    /* Utils */
+    UtilMisc//,
+
+        /* Tools */
+        //PopulationTool, MeasureTool, BufferTool
+    ) {
+        &quot;use strict&quot;;
+
+        /**
+        * loadPlugin takes a plugin file and loads it into the DOM.
+        * Creates a dynamic script tag to load the script at runtime.
+        *
+        * @method loadPlugin
+        * @private
+        * @param {String} pluginName, the file name of the plugin to be loaded (should be in the plugins folder)
+        */
+        function loadPlugin(pluginName) {
+            var head = document.getElementsByTagName(&#x27;head&#x27;)[0],
+                script = document.createElement(&#x27;script&#x27;);
+            script.type = &#x27;text/javascript&#x27;;
+            script.src = dojoConfig.fullPluginPath + pluginName;
+            console.log(&#x27;loading plugin: &#x27; + script.src);
+            head.appendChild(script);
+        }
+
+        function initializeMap() {
+            /* Start - RAMP Events, after map is loaded */
+
+            topic.subscribe(EventManager.Map.ALL_LAYERS_LOADED, function () {
+                console.log(&quot;map - &gt;&gt; first update-end; init the rest&quot;);
+
+                // Only initialize the bookmark link after all the UI events of all other modules have
+                // finished loading
+                // IMPORTANT: for now, only basemapselector and filtermanager have a UI complete event
+                // but in the future, if other modules start publishing their own UI complete events, it needs
+                // to be subscribe to here so BookmarkLink will not attempt to call the module before its GUI
+                // has finished rendering
+                UtilMisc.subscribeAll(
+                    [
+                        EventManager.BasemapSelector.UI_COMPLETE,
+                        EventManager.FilterManager.UI_COMPLETE
+                    ], function () {
+                        BookmarkLink.subscribeAndUpdate();
+                    });
+                // Added current level so slider will know how to adjust the position
+                var currentLevel = (RampMap.getMap().__LOD.level) ? RampMap.getMap().__LOD.level : 0;
+
+                NavWidget.init(currentLevel);
+                FeatureHighlighter.init();
+
+                Maptips.init();
+
+                //Apply listeners for basemap gallery
+                BasemapSelector.init();
+
+                //initialize the filter
+                FilterManager.init();
+
+                // Initialize the advanced toolbar and tools.
+                //TODO idea: have the tools init only if they are included in the config?
+                if (globalStorage.config.advancedToolbar.enabled) {
+                    AdvancedToolbar.init();
+                } else {
+                    $(&quot;li.map-toolbar-item #advanced-toggle&quot;).remove();
+                }
+
+                Datagrid.init();
+
+                theme.tooltipster();
+            });
+            RampMap.init();
+
+            // a workaround for bug#3460; ideally each module&#x27;s ui component would call tooltipster on its own; probably a good idea would to implement this when working on mobile view
+            theme.tooltipster();            
+
+            /* End - RAMP Events */
+        }
+        /* End - Bootstrapper functions */
+
+        // Check to make sure the console exists, redefines it to the no-op function
+        // if it does not (e.g. in IE when the debugger is not on)
+        UtilMisc.checkConsole();
+
+        // Once all of our modules are loaded and the DOM is ready:
+
+        // call the parser to create the dijit layout dijits
+        parser.parse();
+
+        //turn off cors detection to stop cross domain error from happening.
+        esri.config.defaults.io.corsDetection = false;
+
+        //To hold values from RAMP service
+
+        var   //siteURL = new Url(require.toUrl(document.location)),
+            lang = $(&quot;html&quot;).attr(&quot;lang&quot;), // window.location.href.split(&quot;/&quot;).last().substring(5, 7); // siteURL.queryObject.lang || window.navigator.userLanguage || window.navigator.language || &quot;en&quot;;
+            configFile,
+            defJson;
+
+        if (lang !== &quot;en&quot; &amp;&amp; lang !== &quot;fr&quot;) {
+            lang = &quot;en&quot;;
+        }
+
+        i18n.init(
+        {
+            lng: lang + &quot;-CA&quot;,
+            load: &quot;current&quot;,
+            fallbackLng: false
+        }/*,
+        function (t) {
+            // tests
+            // translate nav
+            $(&quot;.mb-menu&quot;).i18n();
+
+            var bname = &quot;baseNrCan&quot;;
+
+            console.log(t(&quot;basemaps.&quot; + bname, { context: &quot;name&quot; }));
+            console.log(t(&quot;basemaps.&quot; + bname, { context: &quot;description&quot; }));
+
+            console.log(t(&quot;basemaps&quot; + &quot;.&quot; + bname + &quot;.&quot; + &quot;name&quot;));
+            console.log(t(&quot;basemaps&quot; + &quot;.&quot; + bname + &quot;.&quot; + &quot;description&quot;));
+
+            console.log(&quot;-&gt;&quot;, t(&quot;translation2.measure&quot;));
+
+            i18n.loadNamespace(&#x27;tools/translation2&#x27;, function () {
+                console.log(&quot;---&gt;&quot;, i18n.t(&quot;tools/translation2.measure&quot;));
+                console.log(&quot;--&gt;&quot;, i18n.t(&quot;tools/translation2:measure&quot;, { defaultValue: &quot;my text&quot; }));
+            });
+
+            window.setTimeout(function () {
+                console.log(&quot;----&gt;&quot;, i18n.t(&quot;tools/translation2:measure&quot;, { defaultValue: &quot;my text&quot; }));
+            }, 1000);
+            
+        }*/
+        );
+
+        //loading config object from JSON file
+        configFile = (lang === &quot;fr&quot;) ? &quot;config.fr.json&quot; : &quot;config.en.json&quot;;
+
+        // Request the JSON config file
+        defJson = xhr(configFile, {
+            handleAs: &quot;json&quot;
+        });
+
+        defJson.then(
+            function (fileContent) {
+                var pluginConfig;
+                //there is no need to convert the result to an object.  it comes through pre-parsed
+
+                globalStorage.config = fileContent;
+
+                pluginConfig = globalStorage.config.plugins;
+                if (pluginConfig) {
+                    dojoArray.map(pluginConfig, function (pName) {
+                        loadPlugin(pName);
+                    });
+                }
+                // Modify the config based on the url
+                // needs to do this before the gui loads because the gui module
+                // also reads from the config
+                BookmarkLink.updateConfig(window.location.pathname.split(&quot;/&quot;).last());
+
+                // Initialize the map only after the gui loads
+                // if we do it beforehand, the map extent may get messed up since
+                // the available screen size may still be changing (e.g. due to fullscreen
+                // or subpanel closing)
+                topic.subscribe(EventManager.GUI.UPDATE_COMPLETE, function () {
+                    initializeMap();
+                });
+
+                gui.load(null, null, function () { });
+
+                // Create the panel that the bookmark link sits in
+                // can only do this after the gui loads
+                BookmarkLink.createUI();
+
+                Ramp.loadStrings();
+            },
+            function (error) {
+                console.log(&quot;An error occurred when retrieving the JSON Config: &quot; + error);
+            }
+        );
+
+        //------------------------------
+
+        //loading config object from web service
+
+        /*
+        var serviceUrl = globalStorage.getConfigUrl() + &quot;getConfig/&quot; + $(&quot;html&quot;).attr(&quot;lang&quot;) + &quot;/?keys=&quot; + smallkeys;
+
+        // Request the JSON config file
+        //NOTE: XHR cannot be used here for cross domain purposes (primarily when running thru visual studio).
+        //      we use request/script instead to get the config as jsonp
+
+        var defJson = requestScript.get(serviceUrl, { jsonp: &quot;callback&quot; });
+
+        defJson.then(
+        function (fileContent) {
+        //there is no need to convert the result to an object.  it comes through pre-parsed
+        // Global config object
+
+        gui.load(null, null, function () { });
+
+        //NOTE: ECDMP service has the json config file stored in an object property called &quot;json&quot; in string format.
+        //      This is to avoid strongly typing the JSON config in the VB.Net Service.
+
+        globalStorage.config = json.fromJson(fileContent.json);
+        initializeMap();
+        Ramp.loadStrings();
+
+        var handle = window.setTimeout(function () {
+        }, 2000);
+        },
+        function (error) {
+        //console.log(&quot;An error occurred: &quot; + error);
+        }
+        );
+
+        */
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>map.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>map.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, esri, dojoConfig, i18n */</span>
+
+<span class="hljs-comment">/**
+*
+* A RAMP Map module with ESRI and Dojo AMD Modules
+* This module provides function to create an ESRI web map control. A global config object is
+* required to initialize the map.
+*
+* @module RAMP
+* @submodule Map
+* @main Map
+*/</span>
+
+<span class="hljs-comment">/**
+* Map class represents the ESRI map object. The map is generated based on the application configuration and templates.
+*
+* @class Map
+* @uses dojo/_base/declare
+* @uses dojo/_base/array
+* @uses dojo/dom
+* @uses dojo/dom-class
+* @uses dojo/dom-construct
+* @uses dojo/number
+* @uses dojo/query
+* @uses dojo/_base/lang
+* @uses dojo/topic
+* @uses dojo/on
+* @uses esri/map
+* @uses esri/layers/FeatureLayer
+* @uses esri/layers/ArcGISTiledMapServiceLayer
+* @uses esri/layers/ArcGISDynamicMapServiceLayer
+* @uses esri/layers/WMSLayer
+* @uses esri/layers/WMSLayerInfo
+* @uses esri/tasks/GeometryService
+* @uses esri/tasks/ProjectParameters
+* @uses esri/geometry/Polygon
+* @uses esri/SpatialReference
+* @uses esri/dijit/Scalebar
+* @uses esri/geometry/Extent
+* @uses esri/graphicsUtils
+* @uses GlobalStorage
+* @uses RAMP
+* @uses FeatureClickHandler
+* @uses Navigation
+* @uses EventManager
+* @uses Util
+* @uses Array
+*/</span>
+
+define([
+<span class="hljs-comment">/* Dojo */</span>
+<span class="hljs-string">"dojo/_base/declare"</span>, <span class="hljs-string">"dojo/_base/array"</span>, <span class="hljs-string">"dojo/dom"</span>, <span class="hljs-string">"dojo/dom-class"</span>,
+        <span class="hljs-string">"dojo/dom-construct"</span>, <span class="hljs-string">"dojo/number"</span>, <span class="hljs-string">"dojo/query"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/topic"</span>, <span class="hljs-string">"dojo/on"</span>,
+
+<span class="hljs-comment">/* Esri */</span>
+<span class="hljs-string">"esri/map"</span>, <span class="hljs-string">"esri/layers/FeatureLayer"</span>, <span class="hljs-string">"esri/layers/GraphicsLayer"</span>, <span class="hljs-string">"esri/layers/ArcGISTiledMapServiceLayer"</span>, <span class="hljs-string">"esri/layers/ArcGISDynamicMapServiceLayer"</span>,
+<span class="hljs-string">"esri/tasks/GeometryService"</span>, <span class="hljs-string">"esri/tasks/ProjectParameters"</span>, <span class="hljs-string">"esri/geometry/Polygon"</span>, <span class="hljs-string">"esri/SpatialReference"</span>, <span class="hljs-string">"esri/config"</span>,
+<span class="hljs-string">"esri/dijit/Scalebar"</span>, <span class="hljs-string">"esri/geometry/Extent"</span>, <span class="hljs-string">"esri/graphicsUtils"</span>, <span class="hljs-string">"esri/layers/WMSLayer"</span>, <span class="hljs-string">"esri/layers/WMSLayerInfo"</span>, <span class="hljs-string">"esri/request"</span>,
+
+<span class="hljs-comment">/* Ramp */</span>
+<span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"ramp/ramp"</span>, <span class="hljs-string">"ramp/featureClickHandler"</span>, <span class="hljs-string">"ramp/mapClickHandler"</span>, <span class="hljs-string">"ramp/navigation"</span>, <span class="hljs-string">"ramp/eventManager"</span>,
+
+<span class="hljs-comment">/* Util */</span>
+<span class="hljs-string">"utils/util"</span>, <span class="hljs-string">"utils/array"</span>, <span class="hljs-string">"utils/dictionary"</span>],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* Dojo */</span>
+    declare, dojoArray, dom, domClass, domConstruct, number, query, dojoLang, topic, dojoOn,
+
+    <span class="hljs-comment">/* Esri */</span>
+    EsriMap, FeatureLayer, GraphicsLayer, ArcGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer,
+    GeometryService, ProjectParameters, Polygon, SpatialReference, esriConfig,
+    EsriScalebar, EsriExtent, esriGraphicUtils, WMSLayer, WMSLayerInfo, EsriRequest,
+
+    <span class="hljs-comment">/* Ramp */</span>
+    GlobalStorage, Ramp, FeatureClickHandler, MapClickHandler, Navigation, EventManager,
+
+    <span class="hljs-comment">/* Util */</span>
+    UtilMisc, UtilArray, UtilDict)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-comment">/**
+        * An Array of {{#crossLink "Esri/layer/FeatureLayer"}}{{/crossLink}} objects.
+        *
+        * @private
+        * @property featureLayers {Array}
+        */</span>
+        <span class="hljs-keyword">var</span> featureLayers,
+
+        <span class="hljs-comment">/**
+        * An Array of {{#crossLink "Esri/layer/WMSLayer"}}{{/crossLink}} objects.
+        *
+        * @private
+        * @property wmsLayers {Array}
+        */</span>
+            wmsLayers = [],
+
+        <span class="hljs-comment">/**
+        * Maps the id of a graphic layer to the GraphicsLayer Object that represents its extent bounding box.
+        * A dictionary of String, {{#crossLink "Esri/layer/GraphicsLayer"}}{{/crossLink}} pairs.
+        *
+        * @private
+        * @property boundingBoxMapping {Object}
+        */</span>
+            boundingBoxMapping,
+
+        <span class="hljs-comment">/**
+        * The map not only contains feature layers, but also other layers such as the
+        * basemap layer, highlight layer, bounding box layer, etc. This variable is
+        * used to store the starting index of the feature layers in the map.
+        *
+        * @private
+        * @property featureLayerStartIndex {Integer}
+        */</span>
+            featureLayerStartIndex,
+
+            map,
+
+            fullExtent,
+            maxExtent,
+            initExtent;
+
+        <span class="hljs-comment">/**
+        * Shows the loading image.
+        *
+        * @private
+        * @method _showLoadingImg
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_showLoadingImg</span><span class="hljs-params">()</span> </span>{
+            $(<span class="hljs-string">"#map-load-indicator"</span>).removeClass(<span class="hljs-string">"hidden"</span>);
+        }
+
+        <span class="hljs-comment">/**
+        * Hides the loading image.
+        *
+        * @private
+        * @method _hideLoadingImg
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_hideLoadingImg</span><span class="hljs-params">()</span> </span>{
+            $(<span class="hljs-string">"#map-load-indicator"</span>).addClass(<span class="hljs-string">"hidden"</span>);
+        }
+
+        <span class="hljs-comment">/**
+        * Update Map Scale when zoom level changes
+        *
+        * @private
+        * @method _updateScale
+        * @param {Object} event
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_updateScale</span><span class="hljs-params">(event)</span> </span>{
+            <span class="hljs-keyword">if</span> (event.levelChange) {
+                <span class="hljs-keyword">var</span> currentScale = number.format(event.lod.scale),
+                    scaleLabelText = <span class="hljs-string">"1 : "</span> + currentScale;
+
+                domConstruct.empty(<span class="hljs-string">'scaleLabel'</span>);
+                $(<span class="hljs-string">"#scaleLabel"</span>).text(scaleLabelText);
+            }
+        }
+
+        <span class="hljs-comment">/**
+        * Initialize Map Scale
+        *
+        * @private
+        * @method _initScale
+        * @param {Object} event
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initScale</span><span class="hljs-params">(event)</span> </span>{
+            <span class="hljs-keyword">var</span> map = event.map,
+                scaleDiv = domConstruct.create(<span class="hljs-string">"div"</span>, {
+                    id: <span class="hljs-string">"scaleDiv"</span>,
+                    <span class="hljs-keyword">class</span>: <span class="hljs-string">"esriScalebarLabel"</span>
+                }),
+                currentScale,
+                scaleLabelText;
+            $(scaleDiv).html(<span class="hljs-string">"&lt;span&gt;"</span> + i18n.t(<span class="hljs-string">'map.scale'</span>) + <span class="hljs-string">"&lt;/span&gt;&lt;br&gt;&lt;span id='scaleLabel'&gt;&lt;span/&gt;"</span>);
+            currentScale = number.format(map.getScale());
+            scaleLabelText = <span class="hljs-string">"1 : "</span> + currentScale;
+
+            domConstruct.place(scaleDiv, query(<span class="hljs-string">".esriScalebarRuler"</span>)[<span class="hljs-number">0</span>], <span class="hljs-string">"before"</span>);
+            domConstruct.empty(<span class="hljs-string">'scaleLabel'</span>);
+            $(<span class="hljs-string">"#scaleLabel"</span>).text(scaleLabelText);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Change the css class of the scale bar so it shows up against
+the map</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            topic.subscribe(EventManager.BasemapSelector.BASEMAP_CHANGED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(attr)</span> </span>{
+                $(<span class="hljs-string">".esriScalebar &gt; div"</span>).removeClass().addClass(attr.cssStyle);
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Republishes map events to the outside using topic.publish
+        *
+        * @method _initRepublishers
+        * @param {Object} map object
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initRepublishers</span><span class="hljs-params">(map)</span> </span>{
+            <span class="hljs-keyword">var</span> prefix = <span class="hljs-string">"map"</span>;
+
+            <span class="hljs-comment">/**
+            * Republish map events using topic.publish
+            *
+            * @method republish
+            * @param {String} name
+            * @private
+            */</span>
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">republish</span><span class="hljs-params">(name)</span> </span>{
+                map.on(name, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                    topic.publish(prefix + <span class="hljs-string">"/"</span> + name, event);
+                });
+            }
+
+            republish(<span class="hljs-string">"update-end"</span>);
+            republish(<span class="hljs-string">"extent-change"</span>);
+            republish(<span class="hljs-string">"zoom-start"</span>);
+            republish(<span class="hljs-string">"zoom-end"</span>);
+            republish(<span class="hljs-string">"pan-start"</span>);
+            republish(<span class="hljs-string">"pan-end"</span>);
+        }
+
+        <span class="hljs-comment">/**
+        * Subscribe to external events (published using topic.publish)
+        * and react accordingly
+        *
+        * @method _initListeners
+        * @param {Object} map map object
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initListeners</span><span class="hljs-params">(map)</span> </span>{
+            <span class="hljs-comment">/* SUBSCRIBED EVENTS */</span>
+            topic.subscribe(EventManager.Map.CENTER_AT, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                map.centerAt(event.point);
+            });
+
+            topic.subscribe(EventManager.Map.CENTER_AND_ZOOM, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                <span class="hljs-keyword">var</span> point = <span class="hljs-keyword">new</span> esri.geometry.Point(event.graphic.geometry.x, event.graphic.geometry.y, map.spatialReference),
+                    d = map.centerAndZoom(point, event.level); <span class="hljs-comment">// Last parameter is the level</span>
+
+                <span class="hljs-keyword">if</span> (event.callback) {
+                    d.then(event.callback);
+                }
+            });
+
+            topic.subscribe(EventManager.Map.SET_EXTENT, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                event.extent.spatialReference = map.spatialReference;
+                <span class="hljs-keyword">var</span> d = map.setExtent(event.extent);
+
+                <span class="hljs-keyword">if</span> (event.callback) {
+                    d.then(event.callback);
+                }
+            });
+
+            <span class="hljs-comment">/* NAVIGATION EVENTS */</span>
+            topic.subscribe(EventManager.Navigation.PAN, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>event.direction panUp, panDown, panLeft, panRight
+this same as calling map.panUp(), map.panDown(), map.panLeft(), map.panRight()</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                map[event.direction]();
+            });
+
+            topic.subscribe(EventManager.Navigation.ZOOM_STEP, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                map.setLevel(map.getLevel() + event.level);
+            });
+
+            topic.subscribe(EventManager.Navigation.ZOOM, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                map.setLevel(event.level);
+            });
+
+            topic.subscribe(EventManager.Navigation.FULL_EXTENT, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                map.setExtent(fullExtent);
+            });
+
+            <span class="hljs-comment">/* GUI EVENTS */</span>
+            topic.subscribe(EventManager.GUI.LAYOUT_CHANGE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                map.resize(<span class="hljs-literal">true</span>);
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Unhighlight the point when the subpanel is collapsed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            topic.subscribe(EventManager.GUI.SUBPANEL_CHANGE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(eventArg)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>unhighlight only if the panel closing is the details panel</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (!eventArg.visible &amp;&amp;
+                    eventArg.isComplete &amp;&amp;
+                    (eventArg.origin === (<span class="hljs-string">"rampPopup"</span> || <span class="hljs-string">"datagrid"</span>))) {
+                    topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_HIDE, {});
+                }
+            });
+
+            <span class="hljs-comment">/* START BOUNDING BOX TOGGLE */</span>
+
+            topic.subscribe(EventManager.FilterManager.LAYER_VISIBILITY_TOGGLED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                <span class="hljs-keyword">var</span> setTo = evt.state,
+                    layerId = evt.id,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>either take url (would need mapping to layer on map),
+map id in config, graphic layer id</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    layer = map.getLayer(layerId);
+
+                layer.setVisibility(setTo);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>loops through any static layers that are mapped to the feature layer being toggled</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">try</span> {
+                    dojoArray.forEach(GlobalStorage.LayerMap[layerId], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(staticLayer)</span> </span>{
+                        <span class="hljs-keyword">var</span> layer = map.getLayer(staticLayer);
+                        layer.setVisibility(setTo);
+                    });
+                }
+                <span class="hljs-keyword">catch</span> (err) {
+                }
+            });
+
+            topic.subscribe(EventManager.FilterManager.LAYER_TRANSPARENCY_CHANGED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                <span class="hljs-keyword">var</span> layer = map.getLayer(evt.layerId);
+
+                layer.setOpacity(evt.value);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>loops through any static layers that are mapped to the feature layer being toggled</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">try</span> {
+                    dojoArray.forEach(GlobalStorage.LayerMap[evt.layerId], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(staticLayer)</span> </span>{
+                        <span class="hljs-keyword">var</span> layer = map.getLayer(staticLayer);
+                        layer.setOpacity(evt.value);
+                    });
+                }
+                <span class="hljs-keyword">catch</span> (err) {
+                }
+            });
+
+            topic.subscribe(EventManager.FilterManager.BOX_VISIBILITY_TOGGLED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                setBoundingBoxVisibility(evt.id, evt.state);
+            });
+            <span class="hljs-comment">/* END BOUNDING BOX TOGGLE */</span>
+
+            topic.subscribe(EventManager.FilterManager.SELECTION_CHANGED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>this is handling the user trying to re-order the layers
+graphical and feature layers must be handled separately from
+all other layers as ESRI separates the two internally</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                <span class="hljs-keyword">var</span> newIndex = evt.index,
+                    featureLayers;
+
+                <span class="hljs-keyword">if</span> (map.layerIds.contains(evt.id)) {
+                    featureLayers = dojoArray.map(map.graphicsLayerIds, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+                        <span class="hljs-keyword">return</span> map.getLayer(x).type === <span class="hljs-string">'Feature Layer'</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+                    }).sum();
+                    newIndex += <span class="hljs-number">1</span> - featureLayers; <span class="hljs-comment">// offset by 1 basemap not accounted for</span>
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'newIndex '</span> + newIndex);
+                    <span class="hljs-built_in">console</span>.log(map.layerIds);
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">if</span> (!featureLayerStartIndex) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Find the index of the first feature layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        featureLayerStartIndex = UtilArray.indexOf(map.graphicsLayerIds, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerId)</span> </span>{
+                            <span class="hljs-keyword">var</span> layer = map.getLayer(layerId);
+                            <span class="hljs-keyword">return</span> layer.type &amp;&amp; layer.type === <span class="hljs-string">"Feature Layer"</span>;
+                        });
+                    }
+                    newIndex += featureLayerStartIndex;
+                }
+                map.reorderLayer(map.getLayer(evt.id), newIndex);
+                topic.publish(EventManager.Map.REORDER_END);
+            });
+
+            <span class="hljs-comment">/* Add Layer subscription*/</span>
+            topic.subscribe(EventManager.Map.ADD_LAYER, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> type = dom.byId(<span class="hljs-string">"addLayer-select-type"</span>).value,
+                    URL = dom.byId(<span class="hljs-string">"addLayer-URL-input"</span>).value,
+                    opacity = dom.byId(<span class="hljs-string">"addLayer-Opacity"</span>).value;
+
+                <span class="hljs-built_in">console</span>.log(type + <span class="hljs-string">" | "</span> + URL + <span class="hljs-string">" | "</span> + opacity);
+                addStaticLayer(type, URL, opacity);
+            });
+
+            topic.subscribe(EventManager.Map.ADD_LAYER_READY, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(temp_layer)</span> </span>{
+                map.addLayer(temp_layer);
+            });
+        }
+        <span class="hljs-comment">/**
+        * Creates event handlers for the map control: click, mouse-over, load, extent change, and update events.
+        *
+        * @private
+        * @method _initEventHandlers
+        * @param {Object} map A ESRI map object
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initEventHandlers</span><span class="hljs-params">(map)</span> </span>{
+            <span class="hljs-keyword">var</span> handle,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>filter out non static layers for any feature interaction: maptip</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                nonStaticLayers = dojoArray.filter(featureLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                    <span class="hljs-keyword">return</span> layer.ramp.type !== GlobalStorage.layerType.Static;
+                }
+            );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>original value : featureLayers
+updated with nonStaticLayer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            dojoArray.forEach(nonStaticLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fl)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>TODO: set timer for maptips onMouseOver event</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                fl.on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                    evt.stopImmediatePropagation();
+                    FeatureClickHandler.onFeatureSelect(evt);
+                });
+
+                fl.on(<span class="hljs-string">"mouse-over"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                    FeatureClickHandler.onFeatureMouseOver(evt);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>console.log(“hover on point”, evt);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                });
+
+                fl.on(<span class="hljs-string">"mouse-out"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                    FeatureClickHandler.onFeatureMouseOut(evt);
+                });
+            });
+
+            map.on(<span class="hljs-string">"load"</span>, _initScale);
+            map.on(<span class="hljs-string">"extent-change"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                _updateScale(event);
+
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"map - &gt;&gt; extent-change"</span>, event);
+                dojoOn.once(map, <span class="hljs-string">"update-end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"map - &gt;&gt; update-end - &gt;&gt; Apply extent Filter"</span>);
+                    topic.publish(EventManager.Datagrid.APPLY_EXTENT_FILTER);
+                });
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Deselect all highlighted points if the map is clicked</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            map.on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                FeatureClickHandler.onFeatureDeselect(evt);
+                topic.publish(EventManager.Map.CLICK, evt);
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Hide all the maptips if the map finishes updating</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            map.on(<span class="hljs-string">"update-end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>topic.publish(EventManager.Maptips.HIDE, {});</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>Show/Hide spinner for map loading</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            map.on(<span class="hljs-string">"update-start"</span>, _showLoadingImg);
+            map.on(<span class="hljs-string">"update-end"</span>, _hideLoadingImg);
+
+            handle = map.on(<span class="hljs-string">"update-end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> isAllLoaded = dojoArray.every(
+                        map.graphicsLayerIds.concat(map.layerIds),
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerId)</span> </span>{
+                            <span class="hljs-keyword">var</span> layer = map.getLayer(layerId);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>console.log(layer.loaded, layerId, layer);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            <span class="hljs-keyword">return</span> layer.loaded;
+                        }
+                    );
+
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"map -&gt; is all layers loaded: "</span>, isAllLoaded);
+
+                <span class="hljs-keyword">if</span> (isAllLoaded) {
+                    handle.remove();
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"map -&gt;"</span>, EventManager.Map.ALL_LAYERS_LOADED);
+                    topic.publish(EventManager.Map.ALL_LAYERS_LOADED);
+                }
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Instantiates an extent from a JSON config object and spatial reference
+        *
+        * @private
+        * @method createExtent
+        * @param {Object} extentConfig the JSON config object
+        * @param {Esri/SpatialReference} sr the {{#crossLink "Esri/SpatialReference"}}{{/crossLink}}
+        * @return {esri/geometry/Extent} An ESRI extent object based on the config data
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createExtent</span><span class="hljs-params">(extentConfig, sr)</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EsriExtent(
+                extentConfig.xmin, extentConfig.ymin, extentConfig.xmax, extentConfig.ymax, sr);
+        }
+
+        <span class="hljs-comment">/**
+        * Add a static, non-interactive Layer to the map
+        *
+        * @private
+        * @method AddStaticLayer
+        * @param {String} layer_type A value which controls how the layer is going to be added to the map
+        * @param {String} layer_url A URL pointing to a valid map service endpoint
+        * @param {Number} layer_op A value between 0.0 and 1.0 which determines the transparency of the layer
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addStaticLayer</span><span class="hljs-params">(layer_type, layer_url, layer_op)</span> </span>{
+            layer_op = layer_op / <span class="hljs-number">100</span>; <span class="hljs-comment">// change percentage to decimal</span>
+            <span class="hljs-keyword">var</span> tempLayer;
+            <span class="hljs-keyword">switch</span> (layer_type) {
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"feature"</span>:
+                    tempLayer = <span class="hljs-keyword">new</span> FeatureLayer(layer_url, {
+                        opacity: layer_op,
+                        mode: FeatureLayer.MODE_SNAPSHOT
+                    });
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"tile"</span>:
+                    tempLayer = <span class="hljs-keyword">new</span> ArcGISTiledMapServiceLayer(layer_url, {
+                        opacity: layer_op
+                    });
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"dynamic"</span>:
+                    tempLayer = <span class="hljs-keyword">new</span> ArcGISDynamicMapServiceLayer(layer_url, {
+                        opacity: layer_op
+                    });
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">default</span>:
+
+                    <span class="hljs-keyword">break</span>;
+            }
+
+            topic.publish(EventManager.Map.ADD_LAYER_READY, tempLayer);
+            topic.publish(EventManager.GUI.ADD_LAYER_PANEL_CHANGE, {
+                visible: <span class="hljs-literal">false</span>
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Sets the visibility of the bounding box that belongs to the layer with the given layerId.
+        * Note: the layerId needs to be the ID of the featurelayer, not the ID of the actual bounding
+        * box layer.
+        *
+        * @private
+        * @method setBoundingBoxVisibility
+        * @param {String} layerId the id of the layer whose bounding box visibility should be set
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setBoundingBoxVisibility</span><span class="hljs-params">(layerId, visibility)</span> </span>{
+            <span class="hljs-keyword">var</span> boxLayer = boundingBoxMapping[layerId];
+
+            <span class="hljs-keyword">if</span> (boxLayer.graphics.isEmpty() &amp;&amp; visibility) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Generate the bounding box if this is the first time we’re viewing it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">var</span> featureLayer = map.getLayer(layerId),
+                boundingBoxExtent = esriGraphicUtils.graphicsExtent(featureLayer.graphics);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Make sure the boundingBoxExtent is within the max extent
+you want max for xmin, ymin and min for xmax, ymax because
+you want to make sure the extent is smaller than the maximum extent</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                boundingBoxExtent.xmin = <span class="hljs-built_in">Math</span>.max(boundingBoxExtent.xmin, maxExtent.xmin);
+                boundingBoxExtent.ymin = <span class="hljs-built_in">Math</span>.max(boundingBoxExtent.ymin, maxExtent.ymin);
+                boundingBoxExtent.xmax = <span class="hljs-built_in">Math</span>.min(boundingBoxExtent.xmax, maxExtent.xmax);
+                boundingBoxExtent.ymax = <span class="hljs-built_in">Math</span>.min(boundingBoxExtent.ymax, maxExtent.ymax);
+
+                <span class="hljs-keyword">var</span> extentGraphic = <span class="hljs-keyword">new</span> esri.Graphic({
+                    geometry: boundingBoxExtent,
+                    symbol: {
+                        color: [<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">64</span>],
+                        outline: {
+                            color: [<span class="hljs-number">240</span>, <span class="hljs-number">128</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>],
+                            width: <span class="hljs-number">1</span>,
+                            type: <span class="hljs-string">"esriSLS"</span>,
+                            style: <span class="hljs-string">"esriSLSSolid"</span>
+                        },
+                        type: <span class="hljs-string">"esriSFS"</span>,
+                        style: <span class="hljs-string">"esriSFSSolid"</span>
+                    }
+                });
+                boxLayer.add(extentGraphic);
+            }
+
+            boxLayer.setVisibility(visibility);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resolveLayerOpacity</span><span class="hljs-params">(layerOpacity)</span> </span>{
+            <span class="hljs-keyword">return</span> layerOpacity.default || <span class="hljs-number">1</span>;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateStaticLayer</span><span class="hljs-params">(staticLayer)</span> </span>{
+            <span class="hljs-keyword">var</span> tempLayer;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>determine layer type and process</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">switch</span> (staticLayer.layerType) {
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"feature"</span>:
+                    tempLayer = <span class="hljs-keyword">new</span> FeatureLayer(staticLayer.url, {
+                        opacity: resolveLayerOpacity(staticLayer.settings.opacity),
+                        mode: FeatureLayer.MODE_SNAPSHOT,
+                        id: staticLayer.id
+                    });
+                    tempLayer.ramp = {
+                        type: GlobalStorage.layerType.Static
+                    };
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"tile"</span>:
+                    tempLayer = <span class="hljs-keyword">new</span> ArcGISTiledMapServiceLayer(staticLayer.url, {
+                        opacity: resolveLayerOpacity(staticLayer.settings.opacity),
+                        id: staticLayer.id
+                    });
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"tile layer added. "</span> + staticLayer.id);
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"dynamic"</span>:
+                    tempLayer = <span class="hljs-keyword">new</span> ArcGISDynamicMapServiceLayer(staticLayer.url, {
+                        opacity: resolveLayerOpacity(staticLayer.settings.opacity),
+                        id: staticLayer.id
+                    });
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"dynamic layer added. "</span> + staticLayer.id);
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">default</span>:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>TODO add in other types of maps… wms?  non-esri tile?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">return</span> tempLayer;
+        }
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * The maximum extent of the map control is allowed to go to
+            * @property getMaxExtent
+            * @type {Object}
+            *
+            */</span>
+            getMaxExtent: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> maxExtent;
+            },
+            <span class="hljs-comment">/**
+            * Return the map control object
+            * @property getMap
+            * @type {Object}
+            *
+            */</span>
+            getMap: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">if</span> (UtilMisc.isUndefined(map)) {
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"trying to get map before it is available!"</span>);
+                }
+                <span class="hljs-keyword">return</span> map;
+            },
+
+            <span class="hljs-comment">/**
+            * Returns a list of feature layers that are currently visible on the map.
+            * @method getVisibleFeatureLayers
+            * @return {Array} an array of {{#crossLink "Esri/layer/FeatureLayer"}}{{/crossLink}} objects
+            *
+            */</span>
+            getVisibleFeatureLayers: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Return only the feature layers
+TODO do we need to consider static layers here?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">return</span> dojoArray.filter(map.getLayersVisibleAtScale(), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                    <span class="hljs-keyword">return</span> layer.type &amp;&amp; (layer.type === <span class="hljs-string">"Feature Layer"</span>) &amp;&amp; layer.visible;
+                });
+            },
+
+            <span class="hljs-comment">/**
+            * Return the feature layer corresponding to the given url.
+            *
+            * @method getFeatureLayer
+            * @private
+            * @param {String} featureUrl the url of the feature layer
+            * @return {Esri/layer/FeatureLayer} feature layer
+            */</span>
+            getFeatureLayer: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(featureUrl)</span> </span>{
+                <span class="hljs-keyword">return</span> UtilArray.find(featureLayers,
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(featureLayer)</span> </span>{
+                        <span class="hljs-keyword">return</span> featureLayer.url === featureUrl;
+                    });
+            },
+
+            <span class="hljs-comment">/**
+            * Given an ESRI Extent Object, returns a new ESRI Extent Object that
+            * contains the extent adjusted according to this map's maximum extent
+            *
+            * NOTE: this method is currently unused!
+            *
+            * @param {esri/geometry/Extent} e the extent Object
+            * @param {esri/geometry/Extent} maxExtent the maximum extent
+            * @return {esri/geometry/Extent} An adjusted extent, if the target extent is outside the boundary
+            * @method checkBoundary
+            */</span>
+            checkBoundary: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e, maxExtent)</span> </span>{
+                <span class="hljs-keyword">var</span> extent = e,
+                width = extent.width(),
+                height = extent.height(),
+                centerX = extent.centerX(),
+                centerY = extent.centerY(),
+                flag, adjustedEx;
+
+                adjustedEx = extent.clone();
+
+                <span class="hljs-keyword">var</span> maxHeight = maxExtent.height();
+                <span class="hljs-keyword">if</span> (height &gt; maxHeight) {
+                    height = maxHeight;
+                }
+
+                <span class="hljs-keyword">if</span> (centerY &gt; maxExtent.ymax) {
+                    adjustedEx.ymax = maxExtent.ymax;
+                    adjustedEx.ymin = maxExtent.ymax - height;
+                    flag = <span class="hljs-literal">true</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>} else if (extent.ymin &lt; maxExtent.ymin) {</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (centerY &lt; maxExtent.ymin) {
+                    adjustedEx.ymin = maxExtent.ymin;
+                    adjustedEx.ymax = maxExtent.ymin + height;
+                    flag = <span class="hljs-literal">true</span>;
+                }
+
+                <span class="hljs-keyword">var</span> maxWidth = maxExtent.width();
+                <span class="hljs-keyword">if</span> (width &gt; maxWidth) {
+                    width = maxWidth;
+                }
+
+                <span class="hljs-keyword">if</span> (centerX &gt; maxExtent.xmax) {
+                    adjustedEx.xmax = maxExtent.xmax;
+                    adjustedEx.xmin = maxExtent.xmax - width;
+                    flag = <span class="hljs-literal">true</span>;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (centerX &lt; maxExtent.xmin) {
+                    adjustedEx.xmin = maxExtent.xmin;
+                    adjustedEx.xmax = maxExtent.xmin + width;
+                    flag = <span class="hljs-literal">true</span>;
+                }
+
+                <span class="hljs-keyword">if</span> (flag) {
+                    <span class="hljs-keyword">return</span> adjustedEx;
+                }
+            },
+            <span class="hljs-comment">/*
+            * Initialize map control with configuration objects provided in the bootstrapper.js file.
+            *
+            * Initialize extent
+            * Add base map from the config.basemaps array that has the showOnInit()
+            * Add Static layer from config.featureLayers.staticLayers
+            * Add feature layers from config.featureLayers
+            * Create bounding layers and add to map control
+            * Add map tip events to each feature layer (click/hover/out)
+            * Show scalebar
+            * Publish events to outside for other modules to use
+            * Subscribe events to update map control
+            *
+            * Note: Not sure if we want to include all the config requirements here.
+            * Map control is initialized with div id provided. The following config file entries are used:
+            * config.spatialReference
+            * config.extents.defaultExtent xmin, ymin, xmax, ymax
+            * config.levelOfDetails.minLevel
+            * config.levelOfDetails.maxLevel
+            * config.extents.maximumExtent
+            * config.extents.fullExtent
+            * config.basemaps  arrays of basemap, only one or first one with showOnInit set to true
+            * config.featureLayers
+            *
+            * @method init
+            * @param {Object} mapDiv the HTML div that will store the map control
+            * @constructor
+            *
+            */</span>
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>config object is loaded in bootstrapper.js</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">var</span> config = GlobalStorage.config,
+
+                <span class="hljs-comment">/**
+                * The spatial reference of the map
+                *
+                * @property spatialReference
+                * @private
+                * @type {esri/SpatialReference}
+                */</span>
+                    spatialReference = <span class="hljs-keyword">new</span> esri.SpatialReference(config.spatialReference),
+
+                <span class="hljs-comment">/**
+                * The URL of the basemap that is on by default
+                *
+                * @property url
+                * @private
+                * @type {String}
+                */</span>
+                    url = UtilArray.find(config.basemaps, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(basemap)</span> </span>{
+                        <span class="hljs-keyword">return</span> basemap.showOnInit;
+                    }).url,
+
+                <span class="hljs-comment">/**
+                * The basemap layer
+                *
+                * @property baseLayer
+                * @private
+                * @type {Esri/layers/ArcGISTiledMapServiceLayer}
+                */</span>
+                    baseLayer = <span class="hljs-keyword">new</span> ArcGISTiledMapServiceLayer(url, {
+                        id: <span class="hljs-string">"basemapLayer"</span>
+                    });
+
+                <span class="hljs-comment">/**
+                * The maximum extent of the map
+                *
+                * @property maxExtent
+                * @private
+                * @type {esri/geometry/Extent}
+                */</span>
+                maxExtent = createExtent(config.extents.maximumExtent, spatialReference);
+
+                <span class="hljs-comment">/**
+                * The initial extent of the map
+                *
+                * @property InitExtent
+                * @private
+                * @type {esri/geometry/Extent}
+                */</span>
+                initExtent = createExtent(config.extents.defaultExtent, spatialReference);
+
+                <span class="hljs-comment">/**
+                * Used for full extent in nav widget
+                *
+                * @property fullExtent
+                * @private
+                * @type {esri/geometry/Extent}
+                */</span>
+                fullExtent = createExtent(config.extents.fullExtent, spatialReference);
+
+                esriConfig.defaults.io.proxyUrl = GlobalStorage.config.proxyUrl;<span class="hljs-comment">// "/proxy/proxy.ashx";</span>
+                dojoConfig.ecfg = esriConfig;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>generate WMS layers array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                wmsLayers = dojoArray.map(config.wmsLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                    <span class="hljs-keyword">var</span> wmsl = <span class="hljs-keyword">new</span> WMSLayer(layer.url, {
+                        id: layer.id,
+                        format: layer.format,
+                        opacity: resolveLayerOpacity(layer.settings.opacity),
+                        resourceInfo: {
+                            extent: <span class="hljs-keyword">new</span> EsriExtent(layer.extent),
+                            layerInfos: [<span class="hljs-keyword">new</span> WMSLayerInfo(layer.layerInfo)]
+                        }
+                    });
+                    wmsl.ramp = {
+                        type: GlobalStorage.layerType.WMS
+                    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>WMS binding for getFeatureInfo calls</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                    <span class="hljs-keyword">if</span> (layer.featureInfo !== <span class="hljs-literal">undefined</span>) {
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'registering '</span> + layer.displayName + <span class="hljs-string">' for WMS getFeatureInfo'</span>);
+                        MapClickHandler.registerWMSClick({wmsLayer: wmsl, layerConfig: layer});
+                    }
+
+                    wmsl.setVisibleLayers(layer.layerInfo.name);
+                    wmsl.setVisibility(layer.layerVisible);
+
+                    <span class="hljs-keyword">return</span> wmsl;
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>generate feature layers array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                featureLayers = dojoArray.map(config.featureLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerConfig)</span> </span>{
+                    <span class="hljs-keyword">var</span> fl;
+
+                    <span class="hljs-keyword">if</span> (layerConfig.isStatic) {
+                        fl = generateStaticLayer(layerConfig);
+                    } <span class="hljs-keyword">else</span> {
+                        fl = <span class="hljs-keyword">new</span> FeatureLayer(layerConfig.url, {
+                            id: layerConfig.id,
+                            mode: FeatureLayer.MODE_SNAPSHOT,
+                            outFields: [layerConfig.layerAttributes],
+                            visible: layerConfig.layerVisible,
+                            opacity: resolveLayerOpacity(layerConfig.settings.opacity)
+                        });
+                        fl.ramp = {
+                            type: GlobalStorage.layerType.Feature
+                        };
+                        <span class="hljs-keyword">if</span> (layerConfig.boundingBoxVisible === <span class="hljs-literal">true</span>) {
+                            dojoOn.once(fl, <span class="hljs-string">"update-end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                setBoundingBoxVisibility(layerConfig.id, <span class="hljs-literal">true</span>);
+                            });
+                        }
+                    }
+                    <span class="hljs-keyword">if</span> (layerConfig.layerVisible === <span class="hljs-literal">false</span>) {
+                        dojoOn.once(fl, <span class="hljs-string">"update-end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            fl.setVisibility(<span class="hljs-literal">false</span>);
+                        });
+                    }
+                    <span class="hljs-keyword">return</span> fl;
+                });
+
+                <span class="hljs-comment">/**
+                * A list GraphicsLayer that represent the extent bounding box of the feature layers.
+                * {[esr/layer/featurelayers]} featureLayers A list of feature layers found in the application config
+                * {[esri/layer/graphiclayer]}  An array of graphic layers to add to the map
+                *
+                * @property boundingBoxLayers
+                * @type {array of esri/layer/GraphicsLayer}
+                */</span>
+
+                <span class="hljs-keyword">var</span> boundingBoxLayers = dojoArray.map(config.featureLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>Map a list of featurelayers into a list of GraphicsLayer representing
+the extent bounding box of the feature layer. Note each bounding box layer
+at this point are empty, the actual graphic that represent the bounding box
+will be generated the first time the user toggles it on.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">var</span> boundingBox = <span class="hljs-keyword">new</span> GraphicsLayer({
+                        id: <span class="hljs-built_in">String</span>.format(<span class="hljs-string">"boundingBoxLayer_{0}"</span>, layer.id),
+                        visible: layer.boundingBoxVisible
+                    });
+                    boundingBox.ramp = {
+                        type: GlobalStorage.layerType.BoundingBox
+                    };
+                    <span class="hljs-keyword">return</span> boundingBox;
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>Maps layerId to a GraphicsLayer Object that represents the extent bounding box
+for that layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                boundingBoxMapping = UtilDict.zip(dojoArray.map(config.featureLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                    <span class="hljs-keyword">return</span> layer.id;
+                }), boundingBoxLayers);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>the map!</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                map = <span class="hljs-keyword">new</span> EsriMap(config.divNames.map, {
+                    extent: initExtent,
+                    logo: <span class="hljs-literal">false</span>,
+                    minZoom: config.levelOfDetails.minLevel,
+                    maxZoom: config.levelOfDetails.maxLevel,
+                    slider: <span class="hljs-literal">false</span>
+                });
+
+                GlobalStorage.map = map;
+                MapClickHandler.init(map);
+
+                <span class="hljs-comment">/*  START - Add static layers   */</span>
+
+                <span class="hljs-keyword">var</span> staticLayers = [],
+                    perLayerStaticMaps = [],
+                    staticLayerMap = [];
+
+                dojoArray.forEach(config.featureLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                    perLayerStaticMaps = [];
+                    dojoArray.forEach(layer.staticLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(staticLayer, i)</span> </span>{
+                        <span class="hljs-keyword">var</span> tempLayer = map.generateStaticLayer(staticLayer);
+
+                        staticLayers.push(tempLayer);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>creates an array of all static layers defined for the current, single feature layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        perLayerStaticMaps[i] = staticLayer.id;
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>adds the static layer id array as a value to an array indexed by feature layer id</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    staticLayerMap[layer.id] = perLayerStaticMaps;
+                });
+
+                GlobalStorage.LayerMap = staticLayerMap;
+                <span class="hljs-comment">/*  End - Add static layers   */</span>
+
+                baseLayer.ramp = {
+                    type: GlobalStorage.layerType.Basemap
+                };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>Combine all layer arrays then add them all at once (for efficiency)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                map.addLayers([baseLayer].concat(wmsLayers, staticLayers, boundingBoxLayers, featureLayers));
+
+                <span class="hljs-comment">/* Start - Show scalebar */</span>
+                <span class="hljs-keyword">var</span> scalebar = <span class="hljs-keyword">new</span> EsriScalebar({
+                    map: map,
+                    attachTo: <span class="hljs-string">"bottom-left"</span>,
+                    scalebarUnit: <span class="hljs-string">"metric"</span>
+                });
+
+                scalebar.show();
+
+                <span class="hljs-comment">/* End - Show scalebar */</span>
+
+                _initRepublishers(map);
+                _initListeners(map);
+                _initEventHandlers(map, featureLayers);
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

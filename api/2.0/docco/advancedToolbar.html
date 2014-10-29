@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>advancedToolbar.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>advancedToolbar.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, $, TimelineLite, TweenLite, require, tmpl */</span>
+
+<span class="hljs-comment">/**
+* Tools module. Contains tools accessible through Advanced Toolbar.
+*
+* Contains the advanced tools as a popup.
+*
+* @module Tools
+* @main Tools
+*/</span>
+
+<span class="hljs-comment">/**
+* AdvancedToolbar class.
+*
+* @class AdvancedToolbar
+* @static
+* @uses dojo/_base/lang
+* @uses dojo/_base/array
+* @uses dojo/topic
+* @uses dojo/Deferred
+* @uses ramp/eventManager
+* @uses ramp/map
+* @uses ramp/globalStorage
+* @uses PopupManager
+*/</span>
+
+define([</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/_base/array"</span>, <span class="hljs-string">"dojo/topic"</span>, <span class="hljs-string">"dojo/Deferred"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"ramp/eventManager"</span>, <span class="hljs-string">"ramp/map"</span>, <span class="hljs-string">"ramp/globalStorage"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Util</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"utils/util"</span>, <span class="hljs-string">"utils/dictionary"</span>, <span class="hljs-string">"utils/popupManager"</span>,
+        <span class="hljs-string">"utils/tmplHelper"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Text</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"dojo/text!./templates/advanced_toolbar_template.json"</span>
+],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        dojoLang, dojoArray, topic, Deferred,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        EventManager, RampMap, globalStorage,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Util</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        UtilMisc, UtilDict, PopupManager, TmplHelper,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Text</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        advanced_toolbar_template_json) {
+        <span class="hljs-string">"use strict"</span>;
+
+        <span class="hljs-keyword">var</span> advancedToggle,
+            advancedSectionContainer,
+            advancedToolbarList,
+
+            cssButtonPressedClass = <span class="hljs-string">"button-pressed"</span>,
+
+            transitionDuration = <span class="hljs-number">0.4</span>,
+
+            map,
+
+            tools = [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>name,
+selector,
+enabled,
+module</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            ],
+
+            ui = {
+                <span class="hljs-comment">/**
+                * Initiates additional UI components of the widget, setting listeners and other stuff.
+                *
+                * @method ui.init
+                * @private
+                */</span>
+                init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> viewport = $(<span class="hljs-string">".viewport"</span>),
+                        subPanelContainer,
+                        panelToggle = viewport.find(<span class="hljs-string">"#panel-toggle"</span>),
+
+                        advancedToolbarTimeLine = <span class="hljs-keyword">new</span> TimelineLite({
+                            paused: <span class="hljs-literal">true</span>,
+                            onComplete: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ },
+                            onReverseComplete: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ }
+                        });
+
+                    advancedToggle = viewport.find(<span class="hljs-string">"#advanced-toggle"</span>);
+                    advancedSectionContainer = viewport.find(<span class="hljs-string">"#advanced-toolbar"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>create html code for advancedToolbar</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    tmpl.cache = {};
+                    tmpl.templates = <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(advanced_toolbar_template_json));
+                    advancedSectionContainer.append(tmpl(<span class="hljs-string">"at_main"</span>));
+                    advancedToolbarList = advancedSectionContainer.find(<span class="hljs-string">"#advanced-toolbar-list"</span>);
+
+                    advancedToolbarTimeLine
+                        .set(advancedSectionContainer, { display: <span class="hljs-string">"block"</span> }, <span class="hljs-number">0</span>)
+                        .set(viewport, { className: <span class="hljs-string">"+=advanced-toolbar-mode"</span> }, <span class="hljs-number">0</span>)
+                        .fromTo(advancedToolbarList, transitionDuration, { top: -<span class="hljs-number">32</span> }, { top: <span class="hljs-number">0</span>, ease: <span class="hljs-string">"easeOutCirc"</span> }, <span class="hljs-number">0</span>)
+                        .to(panelToggle, transitionDuration, { top: <span class="hljs-string">"+=32"</span>, ease: <span class="hljs-string">"easeOutCirc"</span> }, <span class="hljs-number">0</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>register the popup for the advanced toolbar</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    PopupManager.registerPopup(advancedToggle, <span class="hljs-string">"click"</span>,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                            topic.publish(EventManager.GUI.TOOLBAR_SECTION_OPEN, { id: <span class="hljs-string">"advanced-toolbar"</span> });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>close this panel if any other panel is opened</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            UtilMisc.subscribeOnce(EventManager.GUI.TOOLBAR_SECTION_OPEN, dojoLang.hitch(<span class="hljs-keyword">this</span>,
+                                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                                    <span class="hljs-keyword">if</span> (evt.id !== <span class="hljs-string">"advanced-toolbar"</span> &amp;&amp; <span class="hljs-keyword">this</span>.isOpen()) {
+                                        <span class="hljs-keyword">this</span>.close();
+                                    }
+                                })
+                            );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>perform transitions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            subPanelContainer = viewport.find(<span class="hljs-string">".sub-panel-container"</span>);
+                            TweenLite.fromTo(subPanelContainer, transitionDuration,
+                                    { <span class="hljs-string">"margin-top"</span>: <span class="hljs-number">0</span> },
+                                    { <span class="hljs-string">"margin-top"</span>: <span class="hljs-number">32</span>, ease: <span class="hljs-string">"easeOutCirc"</span> });
+
+                            advancedToolbarTimeLine.eventCallback(<span class="hljs-string">"onComplete"</span>, d.resolve, [], <span class="hljs-keyword">this</span>);
+                            advancedToolbarTimeLine.play();
+                        },
+                        {
+                            activeClass: cssButtonPressedClass,
+                            setClassBefore: <span class="hljs-literal">true</span>,
+                            target: advancedSectionContainer,
+                            closeHandler: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                                topic.publish(EventManager.GUI.TOOLBAR_SECTION_CLOSE, { id: <span class="hljs-string">"advanced-toolbar"</span> });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>deactivate all the tools</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                deactivateAll();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>perform transitions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                subPanelContainer = viewport.find(<span class="hljs-string">".sub-panel-container"</span>);
+                                TweenLite.fromTo(subPanelContainer, transitionDuration,
+                                    { <span class="hljs-string">"margin-top"</span>: <span class="hljs-number">32</span> },
+                                    { <span class="hljs-string">"margin-top"</span>: <span class="hljs-number">0</span>, ease: <span class="hljs-string">"easeInCirc"</span> });
+
+                                advancedToolbarTimeLine.eventCallback(<span class="hljs-string">"onReverseComplete"</span>, d.resolve, [], <span class="hljs-keyword">this</span>);
+                                advancedToolbarTimeLine.reverse();
+                            }
+                        }
+                    );
+
+                    map = RampMap.getMap();
+                },
+
+                addTool: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(tool)</span> </span>{
+                    advancedToolbarList.append(tool.module.node);
+                }
+            };
+
+        <span class="hljs-comment">/**
+        * Deactivates all the tools. Used when closing the Advanced toolbar or when another tool is being activated.
+        *
+        * @method deactivateAll
+        * @param {Tool} except A tool module that should not be deactivated.
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deactivateAll</span><span class="hljs-params">(except)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>deactivate all the tools except “except” tool</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            tools.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(tool)</span> </span>{
+                <span class="hljs-keyword">if</span> ((!except || except.name !== tool.name) &amp;&amp; tool.module) {
+                    tool.module.deactivate();
+                }
+            });
+        }
+
+        <span class="hljs-keyword">return</span> {
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> toolsRequire;
+
+                ui.init();
+
+                tools = globalStorage.config.advancedToolbar.tools;
+                toolsRequire = tools
+                    .filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(tool)</span> </span>{ <span class="hljs-keyword">return</span> tool.enabled; })
+                    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(tool)</span> </span>{
+                        <span class="hljs-keyword">return</span> <span class="hljs-string">"tools/"</span> + tool.name;
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>load all the tools in one go</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"toolbar : loading tools"</span>, toolsRequire);
+                <span class="hljs-built_in">require</span>(toolsRequire, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> deferredList = [],
+                        deferred,
+                        args = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>);
+
+                    args.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        deferredList.push(<span class="hljs-keyword">new</span> Deferred());
+                    });
+
+                    UtilMisc.afterAll(deferredList, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>insert tool buttons into the toolbar</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        tools.forEach(ui.addTool);
+                    });
+
+                    args.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arg, index)</span> </span>{
+                        deferred = <span class="hljs-keyword">new</span> Deferred();
+
+                        deferred.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(module)</span> </span>{
+                            tools[index].module = <span class="hljs-built_in">module</span>;
+                            deferredList[index].resolve();
+                        });
+
+                        arg
+                            .init(tools[index].selector, deferred)
+                            .on(arg.event.ACTIVATE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-built_in">console</span>.log(arg.name, <span class="hljs-string">": is activated"</span>);
+                                deactivateAll(arg);
+                            });
+                    });
+
+                    <span class="hljs-built_in">console</span>.log(args);
+                });
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

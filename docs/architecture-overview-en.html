@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>Architecture Overview</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -43,7 +40,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -53,7 +50,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -70,8 +67,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -125,7 +122,11 @@
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
                 
+<p><a name="top"></a></p>
+
 <h1 id="wb-cont">Architecture Overview</h1>
+
+<div class="toc"></div>
 
 <h2 id="scope-and-exclusions">Scope and Exclusions</h2>
 
@@ -142,6 +143,8 @@
 <p>Details on how to use <a href="http://www.esri.com/software/arcgis/arcgisserver">ArcGIS Server</a> and publish spatial data as services is not covered.</p>
 
 <p>While RAMP meets <a href="http://www.w3.org/WAI/WCAG20/quickref/">WCAG 2.0</a> AA compliance, we do not cover the details in meeting those requirements.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="terminology">Terminology</h2>
 
@@ -168,7 +171,11 @@
   <dd>A grid that has minimal information in it, just enough to identify a point.   The summary grid has entries for all features visible, and combines features across different feature sets.</dd>
   <dt>Topic</dt>
   <dd>A publication and subscription framework in <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/topic.html">DOJO</a>.  This is used to pass events in the RAMP source.</dd>
+  <dt>WMS</dt>
+  <dd><a href="http://www.opengeospatial.org/standards/wms">Web Map Service</a>.  An open-source online service that provides mapping information, often in the form of an image of spatial data.</dd>
 </dl>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="high-level-block-diagram">High Level Block Diagram</h2>
 
@@ -178,6 +185,8 @@
 	</a>
 </section>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="popup-handling">Popup handling</h2>
 
 <p>The utility module PopupManager contains the majority of routines to handle popups.  A popup is something that is hidden until the user performs an action, and then the popup appears on the site with the appropriate content.</p>
@@ -185,6 +194,8 @@
 <p>The core function in PopupManager is registerPopup, which allows the implementor to specify the triggering effects of a popup.</p>
 
 <p>Often we will have popups that will close other popups when they open.  Examples of this are the Help panel, the Add Layer panel, and the Bookmark Link panel.  This behavior is achieved via topics: a topic is published when a popup is opened.  If a listening popup is open, it will close itself. The topics to achieve this end in “_PANEL_CHANGED”</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="filtering-cycle">Filtering cycle</h2>
 
@@ -202,12 +213,15 @@
 	</a>
 </section>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="map-layer-management">Map layer management</h2>
 
 <p>The layers exist in the following order on the map</p>
 
 <ul>
   <li>Basemap Layer</li>
+  <li>WMS Layers</li>
   <li>Static Layers</li>
   <li>Bounding Box Layers</li>
   <li>Feature Layers</li>
@@ -220,24 +234,26 @@
   </li>
 </ul>
 
-<p>The Feature Layers can be re-ordered via the filter control, but always stay in the same range.</p>
-
-<p>Layers are arranged in this order as it makes sense from a drawing perspective.  Highlights have the most visual precedence, followed by the feature layers.  Basemaps are on the bottom as they are solid tile.  Static layers and bounding boxes have lower priority than the feature layers.</p>
+<p>The Feature Layers can be re-ordered via the filter control, but always stay in the same range.  WMS Layers can also be re-ordered; however a WMS Layer must always be beneath the Feature Layers (this includes Static Layers and Bounding Boxes).  The Basemap is always on the bottom of the layer pile.</p>
 
 <p>The Zoomlight layer will highlight a feature that has been zoomed to from the datagrid.  The Hoverlight layer will highlight a feature that the mouse is hovering over.  The Highlight layer will highlight a feature that has been clicked on or has it’s details opened.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="datagrid-architecture">Datagrid Architecture</h2>
 
 <p>The data grid can exist in two different states.  This allows the map to be accessible (by providing feature data in a screen readable and keyboard navigateable grid), and also allows a more table-centric view of the data.</p>
 
-<p>The default state is the <em>summary grid</em>.  This grid provides basic information about features on the map (name, icon, what layer it belongs to) and provides links to zoom to features and view details about them.  This grid works in concert with what is visible on the map; as the user navigates around the map, the grid will stay snynchronized with the view.</p>
+<p>The default state is the <em>summary grid</em>.  This grid provides basic information about features on the map (name, icon, what layer it belongs to) and provides links to zoom to features and view details about them.  This grid works in concert with what is visible on the map; as the user navigates around the map, the grid will stay synchronized with the view.</p>
 
 <p>The alternate state is the <em>extended grid</em>.  This grid provides a more traditional multi-column view of the data.  When open, the map is no longer visible, and the extent is fixed until the user reverts back to the summary grid.  The extended grid shows data from one feature set at a time (this is because different features can have different columns).  The active feature can be selected from the dropdown combo box above the grid.  It is possible to have the columns in the extended grid be sortable.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-07-07</time>
+                        <time>2014-10-29</time>
                     </dd>
                 </dl>
             </main>
@@ -299,6 +315,16 @@
                         Template Summary
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -339,11 +365,26 @@
                         Basemap Support
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/yuidoc/index.html">
+            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
                 API Reference
             </a>
         </li>
@@ -401,5 +442,18 @@
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
 
     <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

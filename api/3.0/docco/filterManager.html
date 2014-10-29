@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>filterManager.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>filterManager.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, window, tmpl, i18n, console, $ */</span>
+
+<span class="hljs-comment">/**
+* FilterManager submodule
+*
+* @module RAMP
+* @submodule FilterManager
+* @main FilterManager
+*/</span>
+
+<span class="hljs-comment">/**
+* FilterManager class. Represents the legend next to the map and the controls to toggle each map layer's visibility and boundary box.
+* The FilterManager also includes a attribute filter that allows the user to hide map features based on a attribute values
+*
+* For a doc with diagrams on how this class works, please see
+* http://ecollab.ncr.int.ec.gc.ca/projects/science-apps/priv/RAMP/RAMP%20AMD%20Filter%20Module.docx
+*
+* @class FilterManager
+* @static
+* @uses dojo/_base/declare
+* @uses dojo/_base/lang
+* @uses dojo/query
+* @uses dojo/_base/array
+* @uses dojo/dom
+* @uses dojo/on
+* @uses dojo/dom-class
+* @uses dojo/dom-style
+* @uses dojo/dom-construct
+* @uses dojo/_base/connect
+* @uses dojo/Deferred
+* @uses dojo/topic
+* @uses dojo/aspect
+* @uses dojo/promise/all
+* @uses templates/filter_manager_template.json
+* @uses esri/tasks/query
+* @uses esri/layers/FeatureLayer
+* @uses RAMP
+* @uses GlobalStorage
+* @uses Map
+* @uses EventManager
+* @uese Theme
+* @uese TmplHelper
+* @uses Util
+* @uses Array
+* @uses Dictionary
+* @uses PopupManager
+* @uses Checkbox
+* @uses CheckboxGroup
+*/</span>
+
+define([
+<span class="hljs-comment">/* Dojo */</span>
+        <span class="hljs-string">"dojo/_base/declare"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/query"</span>, <span class="hljs-string">"dojo/_base/array"</span>, <span class="hljs-string">"dojo/on"</span>, <span class="hljs-string">"dojo/dom"</span>, <span class="hljs-string">"dojo/dom-class"</span>,
+        <span class="hljs-string">"dojo/dom-style"</span>, <span class="hljs-string">"dojo/dom-construct"</span>, <span class="hljs-string">"dojo/_base/connect"</span>, <span class="hljs-string">"dojo/Deferred"</span>, <span class="hljs-string">"dojo/topic"</span>,
+        <span class="hljs-string">"dojo/aspect"</span>, <span class="hljs-string">"dojo/promise/all"</span>,
+<span class="hljs-comment">/* Text */</span>
+        <span class="hljs-string">"dojo/text!./templates/filter_manager_template.json"</span>,
+        <span class="hljs-string">"dojo/text!./templates/filter_wms_meta_Template.json"</span>,
+
+<span class="hljs-comment">/* Esri */</span>
+        <span class="hljs-string">"esri/tasks/query"</span>, <span class="hljs-string">"esri/layers/FeatureLayer"</span>, <span class="hljs-string">"esri/layers/WMSLayer"</span>,
+
+<span class="hljs-comment">/* Ramp */</span>
+        <span class="hljs-string">"ramp/ramp"</span>, <span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"ramp/map"</span>, <span class="hljs-string">"ramp/eventManager"</span>, <span class="hljs-string">"ramp/theme"</span>,
+
+<span class="hljs-comment">/* Util */</span>
+        <span class="hljs-string">"utils/tmplHelper"</span>, <span class="hljs-string">"utils/util"</span>, <span class="hljs-string">"utils/array"</span>, <span class="hljs-string">"utils/dictionary"</span>, <span class="hljs-string">"utils/popupManager"</span>, <span class="hljs-string">"utils/checkbox"</span>, <span class="hljs-string">"utils/checkboxGroup"</span>],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* Dojo */</span>
+        declare, lang, query, dojoArray, on, dom, domClass, domStyle, domConstruct,
+        connect, Deferred, topic, aspect, all,
+    <span class="hljs-comment">/* Text */</span>
+        filter_manager_template_json,
+        filter_wms_meta_Template,
+
+    <span class="hljs-comment">/* Esri */</span>
+        EsriQuery, FeatureLayer, WMSLayer,
+
+    <span class="hljs-comment">/* Ramp */</span>
+        Ramp, GlobalStorage, RampMap, EventManager, Theme,
+
+    <span class="hljs-comment">/* Util */</span>
+        TmplHelper, UtilMisc, UtilArray, UtilDict, PopupManager, Checkbox, CheckboxGroup)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">var</span> config,
+            layerIdField = <span class="hljs-string">"layer-id"</span>,
+
+            ui = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> sectionNode,
+                    layerList,
+                    filterGlobalToggles,
+                    layerSettings;
+
+                layerSettings = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initTransparencySliders</span><span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">var</span> transparencySliders;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>initializes all sliders in the layer list</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        transparencySliders = layerList.find(<span class="hljs-string">".nstSlider"</span>)
+                            .nstSlider({
+                                left_grip_selector: <span class="hljs-string">".leftGrip"</span>,
+                                rounding: <span class="hljs-number">0.01</span>,
+                                highlight: {
+                                    grip_class: <span class="hljs-string">"gripHighlighted"</span>,
+                                    panel_selector: <span class="hljs-string">".highlightPanel"</span>
+                                },
+                                value_changed_callback: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(cause, leftValue)</span> </span>{ <span class="hljs-comment">//, rightValue, prevMin, prevMax) {</span>
+                                    <span class="hljs-keyword">var</span> slider = $(<span class="hljs-keyword">this</span>),
+                                        sliderId = slider.data(layerIdField),
+                                        leftValueFormatted = <span class="hljs-built_in">Math</span>.round(leftValue * <span class="hljs-number">100</span>) + <span class="hljs-string">"%"</span>,
+                                        newState;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>update the slider label and highlight range</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                    slider
+                                        .parent().find(<span class="hljs-string">'.leftLabel'</span>).text(leftValueFormatted).end().end()
+                                        .nstSlider(<span class="hljs-string">'highlight_range'</span>, <span class="hljs-number">0</span>, leftValue);
+
+                                    topic.publish(EventManager.FilterManager.LAYER_TRANSPARENCY_CHANGED, {
+                                        layerId: sliderId,
+                                        value: leftValue
+                                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Setting Opacity to 0.0, sets layer to invisible
+Setting Opacity to &gt;0.0, sets layer to visible</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                    newState = leftValue === <span class="hljs-number">0</span> ? <span class="hljs-literal">false</span> : slider.hasClass(<span class="hljs-string">"disabled"</span>) ? <span class="hljs-literal">true</span> : newState;
+
+                                    <span class="hljs-keyword">if</span> (!UtilMisc.isUndefined(newState)) {
+                                        topic.publish(EventManager.FilterManager.TOGGLE_LAYER_VISIBILITY, {
+                                            state: newState,
+                                            layerId: sliderId
+                                        });
+                                    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>console.log(cause, leftValue, rightValue, prevMin, prevMax);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                }
+                            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>.nstSlider(“set_step_histogram”, [4, 6, 10, 107]);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                        topic.subscribe(EventManager.FilterManager.LAYER_VISIBILITY_TOGGLED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                            <span class="hljs-keyword">var</span> slider = transparencySliders.filter(<span class="hljs-string">"[data-layer-id='"</span> + evt.id + <span class="hljs-string">"']"</span>),
+                                value;
+
+                            <span class="hljs-keyword">if</span> (slider.length &gt; <span class="hljs-number">0</span>) {
+                                slider.toggleClass(<span class="hljs-string">"disabled"</span>, !evt.state);
+                                value = slider.nstSlider(<span class="hljs-string">"get_current_min_value"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Toggling layer to Visible when Opacity is 0.0, sets Opacity to 1.0</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                <span class="hljs-keyword">if</span> (value === <span class="hljs-number">0</span> &amp;&amp; evt.state) {
+                                    slider.nstSlider(<span class="hljs-string">"set_position"</span>, <span class="hljs-number">1</span>);
+                                }
+                            }
+                        });
+                    }
+
+                    <span class="hljs-keyword">return</span> {
+                        init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            initTransparencySliders();
+                        }
+                    };
+                }());
+
+                <span class="hljs-comment">/**
+                * Sets UI status of a layer presentation (checkbox and eye) according to the user action: select / de-select a layer.
+                * publishes event "filterManager/box-visibility-toggled" every time a layer status changed.
+                * There should only be one eye and one global checkbox, but
+                * we say checkbox"es" because jquery returns a list and it's
+                * easier to write a function that takes a list of checkboxes
+                * than to write two functions, one to take a list and one to
+                * take an individual checkbox
+                * @method setCheckboxEvents
+                * @private
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCheckboxEvents</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> boxCheckboxGroup,
+                        eyeCheckboxGroup;
+
+                    boxCheckboxGroup = <span class="hljs-keyword">new</span> CheckboxGroup(
+                        layerList.find(<span class="hljs-string">".checkbox-custom .box + input"</span>),
+                        {
+                            nodeIdAttr: layerIdField,
+
+                            cssClass: {
+                                active: <span class="hljs-string">"active"</span>,
+                                focus: <span class="hljs-string">"focused"</span>,
+                                check: <span class="hljs-string">"checked"</span>
+                            },
+
+                            label: {
+                                check: i18n.t(<span class="hljs-string">'filterManager.hideBounds'</span>),
+                                uncheck: i18n.t(<span class="hljs-string">'filterManager.showBounds'</span>)
+                            },
+
+                            onChange: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                Theme.tooltipster(<span class="hljs-keyword">this</span>.labelNode.parent(), <span class="hljs-literal">null</span>, <span class="hljs-string">"update"</span>);
+                            },
+
+                            master: {
+                                node: filterGlobalToggles.find(<span class="hljs-string">".checkbox-custom .box + input"</span>),
+
+                                nodeIdAttr: <span class="hljs-string">"id"</span>,<span class="hljs-comment">/*
+
+                                cssClass: {
+                                    active: "active",
+                                    focus: "focused",
+                                    check: "checked"
+                                },*/</span>
+
+                                label: {
+                                    check: i18n.t(<span class="hljs-string">'filterManager.hideAllBounds'</span>),
+                                    uncheck: i18n.t(<span class="hljs-string">'filterManager.showAllBounds'</span>)
+                                }<span class="hljs-comment">/*,
+
+                                onChange: Theme.tooltipster*/</span>
+                            }
+                        });
+                    boxCheckboxGroup.setEachState(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(checkbox)</span> </span>{
+                        <span class="hljs-keyword">var</span> layerConfig = Ramp.getLayerConfigWithId(checkbox.node.data(layerIdField));
+                        <span class="hljs-keyword">return</span> layerConfig.boundingBoxVisible;
+                    });
+
+                    boxCheckboxGroup.on(boxCheckboxGroup.event.MEMBER_TOGGLE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Filter Manager -&gt; Checkbox"</span>, evt.checkbox.id, <span class="hljs-string">"set by"</span>, evt.agency, <span class="hljs-string">"to"</span>, evt.checkbox.state);
+
+                        topic.publish(EventManager.FilterManager.BOX_VISIBILITY_TOGGLED, {
+                            id: evt.checkbox.id,
+                            state: evt.checkbox.state
+                        });
+                    });
+
+                    boxCheckboxGroup.on(boxCheckboxGroup.event.MASTER_TOGGLE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Filter Manager -&gt; Master Checkbox"</span>, evt.checkbox.id, <span class="hljs-string">"set by"</span>, evt.agency, <span class="hljs-string">"to"</span>, evt.checkbox.state);
+                    });
+
+                    topic.subscribe(EventManager.FilterManager.TOGGLE_BOX_VISIBILITY, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        boxCheckboxGroup.setState(evt.state, evt.layerId);
+                    });
+
+                    eyeCheckboxGroup = <span class="hljs-keyword">new</span> CheckboxGroup(
+                        layerList.find(<span class="hljs-string">".checkbox-custom .eye + input"</span>),
+                        {
+                            nodeIdAttr: layerIdField,
+
+                            cssClass: {
+                                active: <span class="hljs-string">"active"</span>,
+                                focus: <span class="hljs-string">"focused"</span>,
+                                check: <span class="hljs-string">"checked"</span>
+                            },
+
+                            label: {
+                                check: i18n.t(<span class="hljs-string">'filterManager.hideFeatures'</span>),
+                                uncheck: i18n.t(<span class="hljs-string">'filterManager.showFeatures'</span>)
+                            },
+
+                            onChange: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                Theme.tooltipster(<span class="hljs-keyword">this</span>.labelNode.parent(), <span class="hljs-literal">null</span>, <span class="hljs-string">"update"</span>);
+                            },
+
+                            master: {
+                                node: filterGlobalToggles.find(<span class="hljs-string">".checkbox-custom .eye + input"</span>),
+
+                                nodeIdAttr: <span class="hljs-string">"id"</span>,<span class="hljs-comment">/*
+
+                                cssClass: {
+                                    active: "active",
+                                    focus: "focused",
+                                    check: "checked"
+                                }*/</span>
+
+                                label: {
+                                    check: i18n.t(<span class="hljs-string">'filterManager.hideAllFeatures'</span>),
+                                    uncheck: i18n.t(<span class="hljs-string">'filterManager.showAllFeatures'</span>)
+                                }<span class="hljs-comment">/*,
+
+                                onChange: Theme.tooltipster*/</span>
+                            }
+                        });
+
+                    eyeCheckboxGroup.setEachState(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(checkbox)</span> </span>{
+                        <span class="hljs-keyword">var</span> layerConfig = Ramp.getLayerConfigWithId(checkbox.node.data(layerIdField));
+                        <span class="hljs-keyword">return</span> layerConfig.layerVisible;
+                    });
+
+                    eyeCheckboxGroup.on(eyeCheckboxGroup.event.MEMBER_TOGGLE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Filter Manager -&gt; Checkbox"</span>, evt.checkbox.id, <span class="hljs-string">"set by"</span>, evt.agency, <span class="hljs-string">"to"</span>, evt.checkbox.state);
+
+                        topic.publish(EventManager.FilterManager.LAYER_VISIBILITY_TOGGLED, {
+                            id: evt.checkbox.id,
+                            state: evt.checkbox.state
+                        });
+                    });
+
+                    eyeCheckboxGroup.on(eyeCheckboxGroup.event.MASTER_TOGGLE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Filter Manager -&gt; Master Checkbox"</span>, evt.checkbox.id, <span class="hljs-string">"set by"</span>, evt.agency, <span class="hljs-string">"to"</span>, evt.checkbox.state);
+                    });
+
+                    topic.subscribe(EventManager.FilterManager.TOGGLE_LAYER_VISIBILITY, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        eyeCheckboxGroup.setState(evt.state, evt.layerId);
+                    });
+                }
+                <span class="hljs-comment">/**
+                * initialize a tooltip for each layer, using the layer name.
+                * @method initTooltips
+                * @private
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initTooltips</span><span class="hljs-params">()</span> </span>{
+                    Theme.tooltipster(filterGlobalToggles);
+                    Theme.tooltipster(layerList);
+
+                    PopupManager.registerPopup(layerList, <span class="hljs-string">"hoverIntent"</span>,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.target.attr(<span class="hljs-string">"title"</span>)) {
+                                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.target.isOverflowed()) {
+                                    <span class="hljs-keyword">this</span>.target.tooltipster({ theme: <span class="hljs-string">'.tooltipster-dark'</span> }).tooltipster(<span class="hljs-string">"show"</span>);
+                                } <span class="hljs-keyword">else</span> {
+                                    <span class="hljs-keyword">this</span>.target.removeAttr(<span class="hljs-string">"title"</span>);
+                                }
+                            }
+                        },
+                        {
+                            handleSelector: <span class="hljs-string">".layer-name span"</span>,
+                            useAria: <span class="hljs-literal">false</span>,
+                            timeout: <span class="hljs-number">500</span>
+                        }
+                    );
+                }
+                <span class="hljs-comment">/**
+                * Adjusts UI layout according to a layer event.
+                * @method setButtonEvents
+                * @private
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setButtonEvents</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> expandAllButton = filterGlobalToggles.find(<span class="hljs-string">".global-button"</span>),
+                        expandAllPopupHandle,
+                        expandNodes = layerList.find(<span class="hljs-string">".layerList-container:hidden"</span>),
+                        expandButtons = layerList.find(<span class="hljs-string">"button.legend-button"</span>);
+                    <span class="hljs-comment">/**
+                    * Changes the width of the layers pane to accommodate for the scrollbar if it's needed.
+                    * @method adjustPaneWidth
+                    * @private
+                    */</span>
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">adjustPaneWidth</span><span class="hljs-params">()</span> </span>{
+                        UtilMisc.adjustWidthForSrollbar(layerList, [filterGlobalToggles]);
+                    }
+                    <span class="hljs-comment">/**
+                    *  Changes the state of the expand all control if all the nodes are expanded.
+                    * @method adjustExpandAllButtonState
+                    * @private
+                    */</span>
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">adjustExpandAllButtonState</span><span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">var</span> count = expandNodes.length,
+                            hiddenCount = expandNodes.filter(<span class="hljs-string">":hidden"</span>).length;
+
+                        <span class="hljs-keyword">if</span> (hiddenCount === <span class="hljs-number">0</span>) {
+                            expandAllPopupHandle.open();
+                        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (hiddenCount === count) {
+                            expandAllPopupHandle.close();
+                        }
+                    }
+
+                    expandButtons.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">var</span> handle = $(<span class="hljs-keyword">this</span>),
+                            target = handle.parents(<span class="hljs-string">"fieldset"</span>).find(<span class="hljs-string">"&gt; .layerList-container"</span>);
+
+                        PopupManager.registerPopup(handle, <span class="hljs-string">"state-expanded"</span>, target, <span class="hljs-string">"click"</span>,
+                            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                                target.slideToggle(<span class="hljs-number">400</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                    adjustPaneWidth();
+                                    adjustExpandAllButtonState();
+                                    d.resolve();
+                                });
+                            },
+                            <span class="hljs-string">"same"</span>
+                        );
+                    });
+
+                    expandAllPopupHandle = PopupManager.registerPopup(expandAllButton, <span class="hljs-string">"state-expanded"</span>, expandNodes, <span class="hljs-string">"click"</span>,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                            expandNodes.slideDown(<span class="hljs-number">400</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                expandButtons.addClass(<span class="hljs-string">"state-expanded"</span>);
+
+                                adjustPaneWidth();
+                                d.resolve();
+                            });
+                        },
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                            expandNodes.slideUp(<span class="hljs-number">400</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                expandButtons.removeClass(<span class="hljs-string">"state-expanded"</span>);
+                                $(<span class="hljs-string">"#tabs1_1-parent"</span>).scrollTop(<span class="hljs-number">0</span>);
+
+                                adjustPaneWidth();
+                                d.resolve();
+                            });
+                        });
+
+                    PopupManager.registerPopup(layerList, <span class="hljs-string">"hover, focus"</span>,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                            d.resolve();
+                        },
+                        {
+                            handleSelector: <span class="hljs-string">"li.layerList1:not(.list-item-grabbed):not(.ui-sortable-helper)"</span>,
+                            targetSelector: <span class="hljs-string">":tabbable"</span>,
+                            activeClass: <span class="hljs-string">"bg-very-light"</span>,
+                            useAria: <span class="hljs-literal">false</span>
+                        }
+                    );
+
+                    PopupManager.registerPopup(layerList, <span class="hljs-string">"click"</span>,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                            <span class="hljs-keyword">this</span>.target.slideToggle(<span class="hljs-string">"fast"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                d.resolve();
+                            });
+                            <span class="hljs-keyword">this</span>.target.find(<span class="hljs-string">".nstSlider"</span>).nstSlider(<span class="hljs-string">"refresh"</span>);
+                        },
+                        {
+                            handleSelector: <span class="hljs-string">".settings-button"</span>,
+                            targetContainerSelector: <span class="hljs-string">"li.layerList1"</span>,
+                            targetSelector: <span class="hljs-string">".filter-row-settings"</span>,
+                            activeClass: <span class="hljs-string">"button-pressed"</span>
+                        }
+                    );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>metadata buttons
+to be changed…</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    layerList.find(<span class="hljs-string">"legend button.metadata-button"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">var</span> button = $(<span class="hljs-keyword">this</span>),
+                            node = button.parents(<span class="hljs-string">"legend"</span>);
+
+                        <span class="hljs-keyword">if</span> (!node.hasClass(<span class="hljs-string">"selected-row"</span>)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>var guid = $(this).data(“guid”) || $(this).data(“guid”, UtilMisc.guid()).data(“guid”);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            <span class="hljs-keyword">var</span> guid = button.data(<span class="hljs-string">"layer-uuid"</span>),
+                                layerConfig = Ramp.getLayerConfigwithGuid(guid),
+                                metadataUrl;
+
+                            topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                                panelName: i18n.t(<span class="hljs-string">'filterManager.metadata'</span>),
+                                title: node.find(<span class="hljs-string">".layer-name span"</span>).text(), <span class="hljs-comment">// + " " + guid,</span>
+                                content: <span class="hljs-literal">null</span>,
+                                target: node.find(<span class="hljs-string">".layer-details"</span>),
+                                origin: <span class="hljs-string">"filterManager"</span>,
+                                guid: guid,
+                                doOnOpen: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ node.addClass(<span class="hljs-string">"selected-row"</span>); },
+                                doOnHide: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ layerList.find(<span class="hljs-string">".selected-row"</span>).removeClass(<span class="hljs-string">"selected-row"</span>); }
+                            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>only wms layers have this value</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            <span class="hljs-keyword">if</span> (layerConfig.layerInfo) {
+                                <span class="hljs-keyword">if</span> (layerConfig.legend.enable) {
+                                    <span class="hljs-keyword">var</span> legendUrl = layerConfig.legend.legendURL,
+                                        wmsmeta;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>wmsmeta = String.format(filter_wms_meta_Template,
+       i18n.t(‘filterManager.legend’),
+   legendUrl,
+       i18n.t(‘filterManager.linkToCap’),
+   layerConfig.url + “&amp;request=GetCapabilities”);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                    tmpl.cache = {};
+                                    tmpl.templates = <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(filter_wms_meta_Template));
+
+                                    wmsmeta = tmpl(<span class="hljs-string">"wms_meta_main"</span>,
+                                        {
+                                            legendUrl: legendUrl,
+                                            getCapabilitiesUrl: layerConfig.url + <span class="hljs-string">"&amp;request=GetCapabilities"</span>
+                                        }
+                                    );
+
+                                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                                        content: $(wmsmeta),
+                                        origin: <span class="hljs-string">"filterManager"</span>,
+                                        update: <span class="hljs-literal">true</span>,
+                                        guid: guid
+                                    });
+                                } <span class="hljs-keyword">else</span> {
+                                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                                        content: <span class="hljs-string">"&lt;p&gt;"</span> + i18n.t(<span class="hljs-string">'filterManager.metadataNotFound'</span>) + <span class="hljs-string">"&lt;/p&gt;"</span>,
+                                        origin: <span class="hljs-string">"filterManager"</span>,
+                                        update: <span class="hljs-literal">true</span>,
+                                        guid: guid
+                                    });
+                                }
+                            } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>for feature layer
+metadataUrl =String.format(“<a href="http://intranet.ecdmp-dev.cmc.ec.gc.ca/geonetwork/srv/eng/csw?service=CSW&amp;version=2.0.2&amp;request=GetRecordById&amp;outputSchema=csw:IsoRecord&amp;id={0}">http://intranet.ecdmp-dev.cmc.ec.gc.ca/geonetwork/srv/eng/csw?service=CSW&amp;version=2.0.2&amp;request=GetRecordById&amp;outputSchema=csw:IsoRecord&amp;id={0}</a>“, guid);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                metadataUrl = <span class="hljs-string">"assets/metadata/"</span> + guid + <span class="hljs-string">".xml"</span>;
+
+                                UtilMisc.transformXML(metadataUrl, <span class="hljs-string">"assets/metadata/xstyle_default_"</span> + config.lang + <span class="hljs-string">".xsl"</span>,
+                                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error, data)</span> </span>{
+                                        <span class="hljs-keyword">if</span> (error) {
+                                            topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                                                content: <span class="hljs-string">"&lt;p&gt;"</span> + i18n.t(<span class="hljs-string">'filterManager.metadataNotFound'</span>) + <span class="hljs-string">"&lt;/p&gt;"</span>,
+                                                origin: <span class="hljs-string">"filterManager"</span>,
+                                                update: <span class="hljs-literal">true</span>,
+                                                guid: guid
+                                            });
+                                        } <span class="hljs-keyword">else</span> {
+                                            topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                                                content: $(data),
+                                                origin: <span class="hljs-string">"filterManager"</span>,
+                                                update: <span class="hljs-literal">true</span>,
+                                                guid: guid
+                                            });
+                                        }
+                                    });
+                            }
+                        } <span class="hljs-keyword">else</span> {
+                            topic.publish(EventManager.GUI.SUBPANEL_CLOSE, { origin: <span class="hljs-string">"filterManager"</span> });
+                        }
+                    });
+                }
+                <span class="hljs-comment">/**
+                * Adjusts filter style according to the scroll action on the layers.
+                * @method initScrollListeners
+                * @private
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initScrollListeners</span><span class="hljs-params">()</span> </span>{
+                    layerList.scroll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">var</span> currentScroll = layerList.scrollTop();
+                        <span class="hljs-keyword">if</span> (currentScroll === <span class="hljs-number">0</span>) {
+                            filterGlobalToggles.removeClass(<span class="hljs-string">"scroll"</span>);
+                        } <span class="hljs-keyword">else</span> {
+                            filterGlobalToggles.addClass(<span class="hljs-string">"scroll"</span>);
+                        }
+                    });
+                }
+
+                <span class="hljs-comment">/**
+                * Sets all the events to handle layer reordering with both mouse and keyboard.
+                * @method setLayerReorderingEvents
+                * @private
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setLayerReorderingEvents</span><span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Drag and drop layer reordering using jQuery UI Sortable widget</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    layerList = $(<span class="hljs-string">"#layerList &gt; ul"</span>);
+
+                    <span class="hljs-keyword">var</span> layerGroupSeparator = layerList.parent().find(<span class="hljs-string">".layer-group-separator"</span>),
+                        reorderLists = layerList.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, elm)</span> </span>{ <span class="hljs-keyword">return</span> $(elm).find(<span class="hljs-string">"&gt; li"</span>).length &gt; <span class="hljs-number">1</span>; }),
+
+                        onUpdate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event, ui)</span> </span>{
+                            <span class="hljs-keyword">var</span> layerId = ui.item[<span class="hljs-number">0</span>].id,
+                                idArray = layerList
+                                    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, elm)</span> </span>{ <span class="hljs-keyword">return</span> $(elm).find(<span class="hljs-string">"&gt; li"</span>).toArray().reverse(); }) <span class="hljs-comment">// for each layer list, find its items and reverse their order</span>
+                                    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, elm)</span> </span>{ <span class="hljs-keyword">return</span> elm.id; }), <span class="hljs-comment">// get ids</span>
+                                index = dojoArray.indexOf(idArray, layerId);
+
+                            topic.publish(EventManager.GUI.SUBPANEL_CLOSE, {
+                                origin: <span class="hljs-string">"rampPopup,datagrid"</span>
+                            });
+
+                            topic.publish(EventManager.FilterManager.SELECTION_CHANGED, {
+                                id: layerId,
+                                index: index
+                            });
+
+                            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Layer"</span>, layerId, <span class="hljs-string">"moved -&gt;"</span>, index);
+                        },
+
+                        onStop = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            layerList
+                                .removeClass(<span class="hljs-string">"sort-active"</span>)
+                                .removeClass(<span class="hljs-string">"sort-disabled"</span>);
+
+                            layerGroupSeparator.removeClass(<span class="hljs-string">"active"</span>);
+
+                            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Layer Reordering complete."</span>);
+                        },
+
+                        onStart = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event, ui)</span> </span>{
+                            layerList
+                                .has(ui.item).addClass(<span class="hljs-string">"sort-active"</span>)
+                                .end().filter(<span class="hljs-string">":not(.sort-active)"</span>).addClass(<span class="hljs-string">"sort-disabled"</span>);
+                            ui.item.removeClass(<span class="hljs-string">"bg-very-light"</span>);
+
+                            layerGroupSeparator.addClass(<span class="hljs-string">"active"</span>);
+
+                            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Layer Reordering starts."</span>);
+                        };
+
+                    reorderLists.sortable({
+                        axis: <span class="hljs-string">"y"</span>,
+                        handle: <span class="hljs-string">".sort-handle"</span>,
+                        placeholder: <span class="hljs-string">"sortable-placeholder"</span>,
+                        update: onUpdate,
+                        stop: onStop,
+                        start: onStart
+                    });
+
+                    UtilMisc.keyboardSortable(reorderLists, {
+                        linkLists: <span class="hljs-literal">true</span>,
+                        onUpdate: onUpdate,
+                        onStart: onStart,
+                        onStop: onStop
+                    });
+                }
+
+                <span class="hljs-keyword">return</span> {
+                    init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>reset and load global template
+move the following out from generateGlobalCheckboxes() and merge filter_global_row_template_json into filter_row_template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        tmpl.cache = {};
+                        tmpl.templates = <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(filter_manager_template_json));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>get visible layers reversing their order; that’s important</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">var</span> layers = RampMap.getMap().getLayersVisibleAtScale().reverse(),
+                            layerGroups = {
+                                feature: [
+
+                                ],
+
+                                wms: [
+
+                                ]
+                            },
+                            data,
+                            section;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>limit only to visible layer that is not basemap</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        dojoArray.forEach(layers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                            <span class="hljs-keyword">var</span> wmsLayerName = <span class="hljs-literal">null</span>;
+                            <span class="hljs-keyword">if</span> (layer.ramp.type === GlobalStorage.layerType.WMS) {
+                                wmsLayerName = layer.layerInfos[<span class="hljs-number">0</span>].name;
+
+                                layer.layerConfig = Ramp.getLayerConfig(layer.url, wmsLayerName);
+                                layerGroups.wms.push(layer);
+                            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (layer.ramp.type === GlobalStorage.layerType.Feature || layer.ramp.type === GlobalStorage.layerType.Static) {
+                                layer.layerConfig = Ramp.getLayerConfig(layer.url, wmsLayerName);
+
+                                layerGroups.feature.push(layer);
+                            }
+                        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>put layer in datawrapper to be used in template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        data = {
+                            config: GlobalStorage.config,
+                            layerGroups: {
+                                feature: TmplHelper.dataBuilder(layerGroups.feature),
+                                wms: TmplHelper.dataBuilder(layerGroups.wms)
+                            }
+                        };
+
+                        sectionNode = $(<span class="hljs-string">"#"</span> + GlobalStorage.config.divNames.filter);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>TODO: generate section using one template, need to refactoring the following fixed string</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        section = tmpl(<span class="hljs-string">'filter_manager_template'</span>, data);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>fade out the loading animation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        sectionNode.addClass(<span class="hljs-string">'animated fadeOut'</span>);
+                        <span class="hljs-built_in">window</span>.setTimeout(
+                            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                sectionNode
+                                    .empty().append(section)
+                                    .removeClass(<span class="hljs-string">"fadeOut"</span>)
+                                    .addClass(<span class="hljs-string">'animated fadeIn'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>remove the animating css class</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                <span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ sectionNode.removeClass(<span class="hljs-string">'animated fadeIn'</span>); }, <span class="hljs-number">300</span>);
+
+                                filterGlobalToggles = $(<span class="hljs-string">'#filterGlobalToggles'</span>);
+
+                                setLayerReorderingEvents();
+
+                                setCheckboxEvents();
+
+                                initTooltips();
+
+                                setButtonEvents();
+
+                                initScrollListeners();
+
+                                layerSettings.init();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>ui initialization completes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                <span class="hljs-built_in">console</span>.log(EventManager.FilterManager.UI_COMPLETE);
+                                topic.publish(EventManager.FilterManager.UI_COMPLETE);
+                            },
+                            <span class="hljs-number">300</span>
+                        );
+                    }
+                };
+            }());
+
+        <span class="hljs-comment">/**
+        * Initiates a listener to handle tab deselected event
+        *
+        * @method initListeners
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initListeners</span><span class="hljs-params">()</span> </span>{
+            topic.subscribe(EventManager.GUI.TAB_DESELECTED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arg)</span> </span>{
+                <span class="hljs-keyword">if</span> (arg.tabName === <span class="hljs-string">"filterManager"</span>) {
+                    topic.publish(EventManager.GUI.SUBPANEL_CLOSE, { origin: <span class="hljs-string">"filterManager"</span> });
+                }
+            });
+        }
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * Reads the application configuration and creates the legend and filter management widget
+            * @method init
+            * @constructor
+            */</span>
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>Convenience config objects</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                config = GlobalStorage.config;
+
+                initListeners();
+
+                ui.init();
+            },
+            <span class="hljs-comment">/**
+            * Queries all map points on a given feature layer and returns their attributes
+            * @method _getFeatures
+            * @param {Object} fl A feature layer to query
+            * @return {Object} An array of attributes from the designated feature layer
+            */</span>
+            _getFeatures: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fl)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>do a query on ALL the map points.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">var</span> queryTask = <span class="hljs-keyword">new</span> EsriQuery();
+                queryTask.returnGeometry = <span class="hljs-literal">false</span>; <span class="hljs-comment">//only return attributes</span>
+                queryTask.maxAllowableOffset = <span class="hljs-number">1000</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>query.outFields = outFieldsList;  //note: this list is overridden by fields in featurelayer constructor</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                queryTask.where = fl.objectIdField + <span class="hljs-string">"&gt;0"</span>;
+
+                <span class="hljs-keyword">return</span> fl.queryFeatures(queryTask);
+            },
+            <span class="hljs-comment">/**
+            * Grabs all distinct values of the given field from a featureLayer.
+            * @method _getField
+            * @param {Object} fl A feature layer to query
+            * @param {String} field The field (or column) to query in the feature layer
+            * @return {Object} deferred A deferred object which will resolve to an array of unique values
+            */</span>
+            _getField: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fl, field)</span> </span>{
+                <span class="hljs-keyword">var</span> deferred = <span class="hljs-keyword">new</span> Deferred();
+
+                <span class="hljs-keyword">this</span>._getFeatures(fl).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(featureSet)</span> </span>{
+                    deferred.resolve(dojoArray.map(featureSet.features, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(feature)</span> </span>{
+                        <span class="hljs-keyword">return</span> feature.attributes[field];
+                    }));
+                });
+
+                <span class="hljs-keyword">return</span> deferred.promise;
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

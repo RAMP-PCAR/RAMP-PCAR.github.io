@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Utils\popupManager.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\src\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 2.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FEGC-Theme.html">FEGC-Theme</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Intranet-Theme.html">Intranet-Theme</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Utils\popupManager.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/*global define, window */
+
+/**
+* Utility module containint useful static classes.
+*
+* @module Utils
+*/
+
+/**
+* A static class to simplify the creation of UI popups, where a popup is a section of the page hidden and shown in
+* response to some user or system action. This class takes care of assigning aria-* attributes and keeping them updated.
+*
+* @class PopupManager
+* @static
+* @uses dojo/Deferred
+* @uses dojo/_base/lang
+* @uses Util
+*/
+define([&quot;dojo/Deferred&quot;, &quot;dojo/_base/lang&quot;, &quot;utils/util&quot;],
+    function (Deferred, lang, UtilMisc) {
+        &quot;use strict&quot;;
+
+        /**
+        * A class holding properties of the popup.
+        *
+        * @class PopupBaseSettings
+        * @for PopupBase
+        */
+        var popupBaseAttrTemplate = {
+            /**
+             * The name of the event or events separated by a comma to trigger the closing of the popup.
+             *
+             * @property reverseEvent
+             * @type {String}
+             * @default null
+             * @for PopupBaseSettings
+             */
+            reverseEvent: null,
+
+            /**
+            * The initially supplied handle to the PopupManager; a {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} to listen to events on.
+            *
+            * @property handle
+            * @type {JQuery}
+            * @default null
+            * @for PopupBaseSettings
+            */
+            handle: null,
+
+            /**
+            * The initially supplied handle selector to be used in conjunction with handle when listening to events. Useful if the real handle doesn&#x27;t exist yet.
+            *
+            * @property handleSelector
+            * @type {String}
+            * @default null
+            */
+            handleSelector: null,
+
+            /**
+            * The initially supplied target node of the popup.
+            *
+            * @property target
+            * @type {JQuery}
+            * @default null
+            */
+            target: null,
+
+            /**
+            * The initially supplied target selector to be used in conjunction with target. Useful when the target of the popup doesn&#x27;t exist yet.
+            *
+            * @property targetSelector
+            * @type {String}
+            * @default null
+            */
+            targetSelector: null,
+
+            targetContainerSelector: null,
+
+            /**
+            * The function to execute when the popup opens.
+            *
+            * @property openHandler
+            * @type {Function}
+            * @default null
+            */
+            openHandler: null,
+
+            /**
+            * The function to execute when the popup closes. If the function is not supplied, &#x60;openHandler&#x60; is used instead.
+            *
+            * @property closeHandler
+            * @type {Function}
+            * @default null
+            */
+            closeHandler: null,
+
+            /**
+            * The delay before closing the popup; used with &quot;hoverIntent&quot; event type.
+            *
+            * @property timeout
+            * @type {Number}
+            * @default 0
+            */
+            timeout: 0,
+
+            /**
+            * The CSS class to be applied to the handle of the popup when the popup opens.
+            *
+            * @property activeClass
+            * @type {String}
+            * @default random guid
+            */
+            activeClass: null,
+
+            /**
+            * Indicates whether activeClass should be applied before openHandler function completes or after.
+            *
+            * @property setClassBefore
+            * @type {String}
+            * @default null
+            */
+            setClassBefore: false,
+
+            /**
+            * Indicates whether to apply aria-* attributes to DOM nodes.
+            *
+            * @property useAria
+            * @type {Boolean}
+            * @default true
+            */
+            useAria: true,
+
+            /**
+            * Indicates whether focus should be reset to the handle of the popup when the popup is closed by the internal close button if present.
+            *
+            * @property resetFocusOnClose
+            * @type {Boolean}
+            * @default false
+            */
+            resetFocusOnClose: false
+        },
+
+        /**
+        * An abstract representation of the popup definition that potentially references many Popup instances. Handle and target properties might use selectors.
+        *
+        * @class PopupBase
+        * @for PopupManager
+        */
+            popupBaseTemplate = {
+                /**
+                * Properties object of the PopupBase.
+                *
+                * @property  _attr
+                * @private
+                * @type {PopupBaseSettings}
+                * @for PopupBase
+                */
+                _attr: null,
+
+                /**
+                * Finds and returns actual DOM nodes of popup handles, one or more. Used selector
+                *
+                * @method _getActualHandle
+                * @private
+                * @param {JQuery} [selector] A {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the actual handle.
+                * @return result An array of one or more jQuery objects that works as popup handles
+                */
+                _getActualHandle: function (selector) {
+                    var result;
+
+                    if (selector) {
+                        result = $(selector);
+                    } else if (this._attr.handle) {
+                        result = this._attr.handleSelector ? this._attr.handle.find(this._attr.handleSelector) : this._attr.handle;
+                    }
+
+                    return result;
+                },
+
+                /**
+                * Finds and returns an array of {{#crossLink &quot;Popup&quot;}}{{/crossLink}} objects, one or more, identified in the PopupBase.
+                *
+                * @method _spawnPopups
+                * @private
+                * @param {JQuery} [selector] A {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the actual handle.
+                * @return popups An array of one or more {{#crossLink &quot;Popup&quot;}}{{/crossLink}} objects
+                */
+                _spawnPopups: function (selector) {
+                    var popups = [],
+                        actualHandle = this._getActualHandle(selector),
+                        actualTarget;
+
+                    actualHandle.each(lang.hitch(this,
+                        function (i, ah) {
+                            ah = $(ah);
+
+                            if (this._attr.target) {
+                                actualTarget = this._attr.targetSelector ? this._attr.target.find(this._attr.targetSelector) : this._attr.target;
+                            } else if (this._attr.targetContainerSelector &amp;&amp; this._attr.targetSelector) {
+                                actualTarget = ah.parents(this._attr.targetContainerSelector).find(this._attr.targetSelector);
+                            } else {
+                                // if the target cannot be found, a handle its returned
+                                actualTarget = this._attr.targetSelector ? ah.find(this._attr.targetSelector) : ah;
+                            }
+
+                            if (actualTarget.length &gt; 0) {
+                                popups.push(
+                                    lang.mixin(Object.create(popupTempate), {
+                                        openHandler: this._attr.openHandler,
+                                        closeHandler: this._attr.closeHandler || this._attr.openHandler,
+
+                                        activeClass: this._attr.activeClass,
+                                        setClassBefore: this._attr.setClassBefore,
+                                        useAria: this._attr.useAria,
+                                        resetFocusOnClose: this._attr.resetFocusOnClose,
+
+                                        handle: actualHandle,
+                                        target: actualTarget
+                                    })
+                                );
+                            }
+                        }));
+
+                    return popups;
+                },
+
+                /**
+                * Checks if any of the popups described by this PopupBase is closed.
+                *
+                * @method isOpen
+                * @param {JQuery} [selector] A {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the actual handle.
+                * @return result True if any of the described popup are open; false otherwise
+                */
+                isOpen: function (selector) {
+                    var result = true;
+
+                    this._spawnPopups(selector).forEach(function (p) {
+                        if (!p.isOpen()) {
+                            result = false;
+                        }
+                    });
+
+                    return result;
+                },
+
+                /**
+                * Opens all the popups described by this PopupBase instance.
+                *
+                * @method open
+                * @param {JQuery} [selector] A {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the actual handle.
+                */
+                open: function (selector) {
+                    this._spawnPopups(selector).forEach(function (p) {
+                        p.open();
+                    });
+                },
+
+                /**
+                * Closes all the popups described by this PopupBase instance.
+                *
+                * @method close
+                * @param {JQuery} [selector] A {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the actual handle.
+                */
+                close: function (selector) {
+                    this._spawnPopups(selector).forEach(function (p) {
+                        p.close();
+                    });
+                },
+
+                /**
+                * Toggles all the popups described by this PopupBase instance.
+                *
+                * @method toggle
+                * @param {JQuery} [selector] A {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the actual handle. Generally, selector is not needed if popup manages only one handle/target pair.
+                * @param {Boolean} [state] Indicates if the popup should be toggled on or off. true - open; false - close;
+                */
+                toggle: function (selector, state) {
+                    this._spawnPopups(selector).forEach(function (p) {
+                        p.toggle(state);
+                    });
+                },
+
+                /**
+                * Sets the appropriate aria-* attributes to the popup nodes according to the supplied &#x60;visible&#x60; parameter or with the internal state of the popup.
+                *
+                * @method setTargetAttr
+                * @param {Boolean} [visible] Indicating the internal state of the popup
+                */
+                setTargetAttr: function (visible) {
+                    this._spawnPopups().forEach(function (p) {
+                        p.setTargetAttr(visible);
+                    });
+                }
+            },
+
+        /**
+        * A concrete instance of popup referencing actual DOM nodes as its handle and target.
+        *
+        * @class Popup
+        * @for PopupManager
+        */
+            popupTempate = {
+                /**
+                * Indicates if the Popup target is being animated.
+                *
+                * @property _isAnimating
+                * @type {Boolean}
+                * @for Popup
+                * @private
+                */
+                _isAnimating: false,
+
+                /**
+                * The function to execute when the popup opens.
+                *
+                * @property openHandler
+                * @type {Function}
+                * @default null
+                */
+                openHandler: null,
+
+                /**
+                * The function to execute when the popup closes.
+                *
+                * @property closeHandler
+                * @type {Function}
+                * @default null
+                */
+                closeHandler: null,
+
+                /**
+                * The CSS class to be applied to the handle of the popup when the popup opens.
+                *
+                * @property activeClass
+                * @type {String}
+                * @default null
+                */
+                activeClass: null,
+
+                /**
+                * Indicates whether activeClass should be applied before openHandler function completes or after.
+                *
+                * @property setClassBefore
+                * @type {String}
+                * @default null
+                */
+                setClassBefore: null,
+
+                /**
+                * Indicates whether to apply aria-* attributes to DOM nodes.
+                *
+                * @property useAria
+                * @type {Boolean}
+                * @default true
+                */
+                useAria: null,
+
+                /**
+                * An actual {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the handle&#x27;s DOM node.
+                *
+                * @property handle
+                * @type {JQuery}
+                * @default null
+                */
+                handle: null,
+
+                /**
+                * An actual {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} of the targets&#x27;s DOM node.
+                *
+                * @property target
+                * @type {JQuery}
+                * @default null
+                */
+                target: null,
+
+                /**
+                * Checks if this Popup is open.
+                *
+                * @method isOpen
+                * @return {Boolean} True if open, false otherwise
+                */
+                isOpen: function () {
+                    return this.handle.hasClass(this.activeClass);
+                },
+
+                /**
+                * Opens this Popup.
+                *
+                * @method open
+                */
+                open: function () {
+                    this._performAction(
+                        this.openHandler,
+
+                        function () {
+                            this.handle.addClass(this.activeClass);
+                        },
+
+                        function () {
+                            this.setTargetAttr(true);
+                        }
+                    );
+                },
+
+                /**
+                * Closes this Popup.
+                *
+                * @method close
+                */
+                close: function () {
+                    this._performAction(
+                        this.closeHandler,
+
+                        function () {
+                            this.handle.removeClass(this.activeClass);
+                        },
+
+                        function () {
+                            this.setTargetAttr(false);
+                        }
+                    );
+                },
+
+                /**
+                * Toggles this Popup.
+                *
+                * @method toggle
+                * @param {Boolean} [state] Indicates if the popup should be toggled on or off. true - open; false - close;
+                */
+                toggle: function (state) {
+                    state = UtilMisc.isUndefined(state) ? this.isOpen() : !state;
+                    if (state) {
+                        this.close();
+                    } else {
+                        this.open();
+                    }
+                },
+
+                /**
+                * Performs actions like closing and opening on this Popup.
+                *
+                * @method _performAction
+                * @private
+                * @param {Function} action Open or close action on this Popup
+                * @param {Function} cssAction Function setting style properties on this Popup
+                * @param {Function} callback The callback to be executed
+                */
+                _performAction: function (action, cssAction, callback) {
+                    if ($.isFunction(action) &amp;&amp; !this._isAnimating) {
+                        var deferred = new Deferred();
+
+                        deferred.then(lang.hitch(this,
+                            function () {
+                                this._isAnimating = false;
+
+                                if (!this.setClassBefore) {
+                                    cssAction.call(this);
+                                }
+
+                                callback.call(this);
+                            }));
+
+                        this._isAnimating = true;
+
+                        if (this.setClassBefore) {
+                            cssAction.call(this);
+                        }
+
+                        action.call(this, deferred);
+                    }
+                },
+
+                /**
+                * Sets the appropriate aria-* attributes to this popup nodes according to the supplied &#x60;visible&#x60; parameter or with the internal state of the popup.
+                *
+                * @method setTargetAttr
+                * @param {Boolean} [visible] Indicating the internal state of the popup
+                */
+                setTargetAttr: function (visible) {
+                    if (visible !== true &amp;&amp; visible !== false) {
+                        visible = this.isOpen();
+                    }
+
+                    if (this.useAria) {
+                        this.handle.attr(&quot;aria-pressed&quot;, visible);
+
+                        // if handle and target are the same object, do not set aria attributes on target
+                        if (this.handle[0] !== this.target[0]) {
+                            this.target.attr({
+                                &quot;aria-expanded&quot;: visible,
+                                &quot;aria-hidden&quot;: !visible
+                            });
+                        }                       
+                    }
+                }
+            };
+
+        /**
+        * Create a new PopupBase object from the settings provided.
+        *
+        * @method newPopup
+        * @private
+        * @param {PopupBaseSettings} popupAttr Popup settings
+        * @return popup
+        * @for PopupManager
+        */
+        function newPopup(popupAttr) {
+            var popup = Object.create(popupBaseTemplate, {
+                _attr: {
+                    value: popupAttr
+                }
+            });
+
+            popup._spawnPopups().forEach(function (p) {
+                if (p.useAria) {
+                    p.handle.attr(&quot;aria-pressed&quot;, false);
+
+                    // if handle and target are the same object, do not set aria attributes on target
+                    if (p.handle[0] !== p.target[0]) {
+                        p.handle.attr(&quot;aria-haspopup&quot;, true);
+                    }
+
+                    p.setTargetAttr();
+                }
+
+                p.target.find(&quot;.button-close&quot;).on(&quot;click&quot;,
+                    function () {
+                        p.close();
+
+                        // reset the focus to the popup&#x27;s handle when the popup&#x27;s internal close button is clicked
+                        if (p.resetFocusOnClose) {
+                            p.handle.focus();
+                        }
+                    });
+            });
+
+            return popup;
+        }
+
+        return {
+            /**
+            * Register a PopupBase definition. By a popup here we mean a section of the page that reacts to the user&#x27;s action on this or different section of the page.
+            * Can be used to register popups with already existing page nodes, or, using handle and target selectors with the nodes that will be created later.
+            *
+            * ####Example
+            *     popupManager.registerPopup(panelToggle, &quot;click&quot;,
+            *         openPanel,
+            *             {
+            *                 activeClass: cssExpandedClass,
+            *                 closeHandler: closePanel
+            *             }
+            *         );
+            * Here we register a popup on the &#x60;panelToggle&#x60; node which will trigger &#x60;openPanel&#x60; function when the user clicks to open the popup and &#x60;closePanel&#x60; to close it;
+            * &#x60;cssExpandedClass&#x60; will be set on the &#x60;panelToggle&#x60; node when the popup is opened.
+            *
+            *      popupManager.registerPopup(sectionNode, &quot;hover, focus&quot;,
+            *           openFunction,
+            *           {
+            *               handleSelector: &quot;tr&quot;,
+            *
+            *               targetSelector: &quot;.record-controls&quot;,
+            *
+            *               closeHandler: closeFunction,
+            *
+            *               activeClass: &quot;background-light&quot;,
+            *               useAria: false
+            *           }
+            *       );
+            * Here we define a set of virtual popups on the &#x60;sectionNode&#x60; node that would be triggered when the user hovers over or sets focus to any &#x60;tr&#x60; child node of &#x60;sectionNode&#x60;.
+            * Then the &#x60;openFunction&#x60; will be executed with &#x60;this.handle&#x60; pointing to the actual handle node which trigged the popup and  &#x60;this.target&#x60; pointing to the actual target node
+            * corresponding to a node or nodes found with the &#x60;targetSelector&#x60; inside the actual handle node.
+            *
+            * @method registerPopup
+            * @static
+            * @param {jQuery} handle A {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} handle to listen to events on
+            * @param {String} event The name of the event or events separated by a comma to trigger the popup. There are several predefined event names to register hover popups:
+            * - &#x60;hoverIntent&#x60; uses the hoverIntent jQuery plugin to determine when the user intends to hover over something
+            * - &#x60;hover&#x60; is a combination of two events - &#x60;mouseleave&#x60; and &#x60;mouseenter&#x60; and unlike &#x60;hoverIntent&#x60; it is triggered immediatelly
+            * - &#x60;focus&#x60; is a combination of two events - &#x60;focusin&#x60; and &#x60;focusout&#x60;
+            * You can subscribe to a combination of event shortcuts like &#x60;focus,hover&#x60;
+            *
+            * Additionally, almost any other {{#crossLink &quot;jQuery&quot;}}{{/crossLink}} event can be specified like &#x60;click&#x60; or &#x60;keypress&#x60;.
+            * @param {Function} openHandler The function to run when the popup opens
+            * @param {PopupBaseSettings} [settings] additional setting to define the popup
+            * @return {PopupBase} Returns a PopupBase with the specified conditions
+            */
+            registerPopup: function (handle, event, openHandler, settings) {
+                var popup,
+                    popupAttr;
+
+                // splitting event names
+                event = event.split(&quot;,&quot;).map(function (a) {
+                    return a.trim();
+                });
+
+                // mixing default and user-provided settings
+                popupAttr = lang.mixin(Object.create(popupBaseAttrTemplate),
+                    {
+                        activeClass: UtilMisc.guid()
+                    },
+                    settings,
+                    {
+                        handle: handle,
+                        openHandler: openHandler
+                    }
+                );
+
+                popup = newPopup(popupAttr);
+
+                // iterating over event array
+                event.forEach(function (e) {
+                    switch (e) {
+                        // hover intent uses a jQuery plugin: http://cherne.net/brian/resources/jquery.hoverIntent.html
+                        // this plugin is loaded by WET, and sometimes it might not be loaded fast enough, so we use executeOnLoad to wait for the plugin to load
+                        case &quot;hoverIntent&quot;:
+                            var timeoutHandle,
+                                open = function (event) {
+                                    window.clearTimeout(timeoutHandle);
+                                    popup.open(event.currentTarget);
+                                },
+                                close = function (event) {
+                                    var t = event ? event.currentTarget : null;
+                                    popup.close(t);
+                                };
+
+                            UtilMisc.executeOnLoad($(document), &quot;hoverIntent&quot;, function () {
+                                popup._attr.handle
+                                    .hoverIntent({
+                                        over: open,
+                                        out: close,
+                                        selector: popup._attr.handleSelector,
+                                        timeout: popup._attr.timeout
+                                    })
+                                    .on(&quot;click focusin&quot;, popup._attr.handleSelector, open)
+                                    .on(&quot;focusout&quot;, popup._attr.handleSelector, function () {
+                                        timeoutHandle = window.setTimeout(close, popup._attr.timeout);
+                                    });
+                            });
+
+                            break;
+
+                        case &quot;hover&quot;:
+                            popup._attr.handle
+                                .on(&quot;mouseenter&quot;, popup._attr.handleSelector,
+                                    function (event) {
+                                        popup.open(event.currentTarget);
+                                    })
+                                .on(&quot;mouseleave&quot;, popup._attr.handleSelector,
+                                    function (event) {
+                                        popup.close(event.currentTarget);
+                                    });
+                            break;
+
+                        case &quot;focus&quot;:
+                            popup._attr.handle
+                                .on(&quot;focusin&quot;, popup._attr.handleSelector,
+                                    function (event) {
+                                        popup.open(event.currentTarget);
+                                    })
+                                .on(&quot;focusout&quot;, popup._attr.handleSelector,
+                                    function (event) {
+                                        popup.close(event.currentTarget);
+                                    });
+
+                            break;
+
+                        default:
+                            if (popup._attr.reverseEvent) {
+                                handle
+                                    .on(e, popup._attr.handleSelector, function (event) {
+                                        popup.open(event.currentTarget);
+                                    })
+                                    .on(popup._attr.reverseEvent, popup._attr.handleSelector, function (event) {
+                                        popup.close(event.currentTarget);
+                                    });
+                            } else {
+                                handle.on(e, popup._attr.handleSelector, function (event) {
+                                    popup.toggle(event.currentTarget);
+                                });
+                            }
+
+                            break;
+                    }
+                });
+
+                return popup;
+            }
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

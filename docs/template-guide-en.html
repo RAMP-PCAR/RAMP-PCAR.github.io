@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>Templating Guide</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -43,7 +40,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -53,7 +50,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -70,8 +67,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -125,7 +122,11 @@
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
                 
+<p><a name="top"></a></p>
+
 <h1 id="wb-cont">RAMP Templating Guide</h1>
+
+<div class="toc"></div>
 
 <h2 id="libraries">Libraries</h2>
 
@@ -135,6 +136,8 @@
 
 <p>The library has been modified from its original form.  It has been enhanced to allow the loading of JSON files that contain multiple template definitions.</p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="template-structure">Template Structure</h2>
 
 <p>Templates are stored in .json files, but can contain extended json (such as inline comments and embedded javascript)</p>
@@ -143,7 +146,7 @@
 
 <p>The basic structure of the template file is a key value dictionary, the keys being the template names, the values being the templates.  E.g.</p>
 
-<div class="highlight"><pre><code class="js"><span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
     <span class="s2">&quot;TemplateOne&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;b&gt;A bold template&lt;/b&gt;&quot;</span><span class="p">,</span>
     <span class="s2">&quot;TemplateTwo&quot;</span><span class="o">:</span> <span class="s2">&quot;A plain template&quot;</span>
 <span class="p">}</span></code></pre></div>
@@ -152,7 +155,7 @@
 
 <p>Comments can be added to the files to improve readability.  Both // and /* */ formats are accepted.  E.g.</p>
 
-<div class="highlight"><pre><code class="js"><span class="cm">/*</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/*</span>
 <span class="cm">* A fun sample template file</span>
 <span class="cm">* to help with your code learnin</span>
 <span class="cm">*/</span>
@@ -170,7 +173,7 @@
 
 <p>The template references a data object called <strong>o</strong>.  The value of <strong>o</strong> is the data object supplied to the template engine when it is called.  Using the embedded value tags {%=  %} we can reference the object and have the value appear in the template output.  E.g. this template will output a hyperlink based on the values in the data object.  The data object must have properties .url and .text to work.</p>
 
-<div class="highlight"><pre><code class="js"><span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
     <span class="s2">&quot;UrlTemplate&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;a href=&#39;{%=o.url%}&#39;&gt;{%=o.text%}&lt;/a&gt;&quot;</span>
 <span class="p">}</span></code></pre></div>
 
@@ -180,13 +183,13 @@
 
 <p>(in global javascript space)</p>
 
-<div class="highlight"><pre><code class="js"><span class="kd">function</span> <span class="nx">itIsFun</span><span class="p">(</span><span class="nx">subject</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">itIsFun</span><span class="p">(</span><span class="nx">subject</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">subject</span> <span class="o">+</span> <span class="s2">&quot; is fun!&quot;</span><span class="p">;</span>
 <span class="p">}</span></code></pre></div>
 
 <p>(template)</p>
 
-<div class="highlight"><pre><code class="js"><span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
     <span class="s2">&quot;SubjectReview&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;div&gt;{%=itIsFun(o.subjectName)%}&lt;/div&gt;&quot;</span>
 <span class="p">}</span></code></pre></div>
 
@@ -194,7 +197,7 @@
 
 <p>Templates can embed other templates within them.  They do this by calling the <strong>include</strong> function inside code tags {%  %}.  The include function parameters are the template name, and a data object for that template.  E.g.</p>
 
-<div class="highlight"><pre><code class="js"><span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
     <span class="c1">//A link in a div</span>
     <span class="s2">&quot;DivTemplate&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;div class=&#39;nice-format&#39;&gt;</span>
 <span class="s2">            {% include(&#39;UrlTemplate&#39;, o); %}</span>
@@ -207,7 +210,7 @@
 <h3 id="embedded-javascript">Embedded Javascript</h3>
 <p>The template can also include embedded javascript to help construct more complex templates.  Code is contained in {%  %} tags.  E.g. this template will loop through all the properties in the data object and generate list items for each property based on a second template.  Note how the <strong>include</strong> call bundles up a custom data object to pass to the simpleListItem template.</p>
 
-<div class="highlight"><pre><code class="js"><span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
     <span class="c1">//make a full list of properties</span>
     <span class="s2">&quot;PropertiesTemplate&quot;</span><span class="o">:</span>
         <span class="s2">&quot;&lt;div&gt;</span>
@@ -228,23 +231,27 @@
 <span class="s2">            &lt;/li&gt;&quot;</span>
 <span class="p">}</span></code></pre></div>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="template-usage">Template Usage</h2>
 
 <p>Once the template is loaded from a file, it must be parsed from the human-readable file form to a computer readable form.  This parsing includes: removing inline comments; removing hard returns; removing tabs.  A function in module <strong>utils/tmplHelper</strong> called <strong>stringifyTemplate</strong> will perform this parsing.</p>
 
 <p>The parsed contents are then converted to a JSON object, and assigned to the customized templates property of the template engine.  E.g.</p>
 
-<div class="highlight"><pre><code class="js"><span class="nx">tmpl</span><span class="p">.</span><span class="nx">templates</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">tmplHelper</span><span class="p">.</span><span class="nx">stringifyTemplate</span><span class="p">(</span><span class="nx">tmplFileContent</span><span class="p">));</span></code></pre></div>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">tmpl</span><span class="p">.</span><span class="nx">templates</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">tmplHelper</span><span class="p">.</span><span class="nx">stringifyTemplate</span><span class="p">(</span><span class="nx">tmplFileContent</span><span class="p">));</span></code></pre></div>
 
 <p>Now the template object is ready to generate content using the templates provided.  To get the content, provide the template name (as defined in the template file) and a data JSON object (that has the appropriate properties required by the template).  E.g.</p>
 
-<div class="highlight"><pre><code class="js"><span class="nx">result</span> <span class="o">=</span> <span class="nx">tmpl</span><span class="p">(</span><span class="s2">&quot;myTemplateName&quot;</span><span class="p">,</span> <span class="nx">oDataObject</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">result</span> <span class="o">=</span> <span class="nx">tmpl</span><span class="p">(</span><span class="s2">&quot;myTemplateName&quot;</span><span class="p">,</span> <span class="nx">oDataObject</span><span class="p">)</span></code></pre></div>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="full-example">Full Example</h2>
 
 <h3 id="template-file">Template File</h3>
 
-<div class="highlight"><pre><code class="js"><span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
     <span class="c1">//make a full list of properties</span>
     <span class="s2">&quot;PropertiesTemplate&quot;</span><span class="o">:</span>
         <span class="s2">&quot;&lt;div&gt;</span>
@@ -269,7 +276,7 @@
 
 <p>We assume the main page has included the Templating javascript library.</p>
 
-<div class="highlight"><pre><code class="js"><span class="nx">define</span><span class="p">([</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">define</span><span class="p">([</span>
     <span class="s2">&quot;utils/tmplHelper&quot;</span><span class="p">,</span>
     <span class="s2">&quot;dojo/text!./templates/sample_template.json&quot;</span><span class="p">],</span>
 
@@ -294,7 +301,7 @@
 
 <h3 id="result">Result</h3>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;div&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;ul&gt;</span>
         <span class="nt">&lt;li&gt;</span>
             <span class="nt">&lt;p&gt;</span>user<span class="nt">&lt;/p&gt;&lt;p&gt;</span>HappyDuck<span class="nt">&lt;/p&gt;</span>
@@ -304,6 +311,8 @@
         <span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="template-files">Template Files</h2>
 
@@ -317,6 +326,8 @@
   <li>Embedding a simple, pure-JSON template within the main config file</li>
   <li>Loading a template file via <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/xhr.html">dojo/xhr</a>.  Again, templates should be in proper JSON format (i.e. no comments)</li>
 </ul>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="template-data-object-standard-properties">Template Data Object Standard Properties</h2>
 
@@ -343,16 +354,20 @@
 
 <p>The function takes two parameters.  The first parameter determines the JSON object that is stored in o.data.  The second optional parameter is a url for a feature layer.  If provided, the data object will have its o.lyr property pointing to the appropriate layer config node.  If not provided, o.lyr will be undefined.  The other properties in the data object are automatically assigned by the function.</p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="common-template-functions">Common Template Functions</h2>
 
 <p>The module <strong>utils/tmplUtil</strong> provides common functions that can be used inside the templates.  As an example, one function is <strong>getGraphicIcon</strong>, which will return the symbology image for a feature.</p>
 
 <p>Note that a scoping issue exists when calling functions from the template.  Any function called from within the template cannot call a second function, unless that function is defined within the scope of the first function.  <strong>THIS ISSUE MAY NOT ACTUALLY EXIST.  MORE RESEARCH TO BE DONE!</strong></p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-07-07</time>
+                        <time>2014-10-29</time>
                     </dd>
                 </dl>
             </main>
@@ -414,6 +429,16 @@
                         Template Summary
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -454,11 +479,26 @@
                         Basemap Support
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/yuidoc/index.html">
+            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
                 API Reference
             </a>
         </li>
@@ -516,5 +556,18 @@
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
 
     <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

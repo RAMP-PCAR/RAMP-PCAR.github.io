@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>mapClickHandler.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>mapClickHandler.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, RAMP */</span>
+
+<span class="hljs-comment">/**
+* @module RAMP
+* @submodule Map
+*/</span>
+
+<span class="hljs-comment">/**
+* Map click handler class.
+*
+* The mapClickHandler registers WMS layers for combined getFeatureInfo request.  It makes a 
+* single subscription to Map.CLICK and triggers a set of requests and joins the results together.
+*
+* @class MapClickHandler
+* @static
+* @uses EventManager
+* @uses esri/request
+* @uses dojo/promise/all
+* @uses dojo/_base/array
+* @uses dojo/topic
+*/</span>
+
+define([
+<span class="hljs-comment">/* RAMP */</span>
+    <span class="hljs-string">"ramp/eventManager"</span>,
+
+<span class="hljs-comment">/* Dojo */</span>
+    <span class="hljs-string">"esri/request"</span>, <span class="hljs-string">"dojo/promise/all"</span>, <span class="hljs-string">"dojo/_base/array"</span>, <span class="hljs-string">"dojo/topic"</span>
+    ],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* RAMP */</span>
+    EventManager,
+
+    <span class="hljs-comment">/* Dojo */</span>
+    EsriRequest, all, dojoArray, topic
+    )</span> </span>{<span class="hljs-pi">
+
+        "use strict"</span>;
+        <span class="hljs-keyword">var</span> wmsClickQueue = [], <span class="hljs-comment">// the queue of WMS layers registered to trigger on click</span>
+            esriMap; <span class="hljs-comment">// a local reference to the map object (for pull extent and dimensions)</span>
+
+        <span class="hljs-keyword">return</span> {
+
+            <span class="hljs-comment">/**
+            * This function should be called after the map has been created.  It will subscribe to the Map.CLICK event
+            * and trigger GUI.SUBPANEL_OPEN events for displaying the response data.
+            *
+            * @method registerWMSClick
+            * @param  {Object} map an EsriMap instance
+            */</span>
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(map)</span> </span>{
+                esriMap = map;
+                topic.subscribe(EventManager.Map.CLICK, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                    <span class="hljs-keyword">var</span> visibleLayers = [],
+                        rqPromises = [];
+
+                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                        panelName: <span class="hljs-string">"WMS Click Results"</span>,
+                        title: <span class="hljs-string">"WMS Click Results"</span>,
+                        content: <span class="hljs-literal">null</span>,
+                        origin: <span class="hljs-string">"wmsFeatureInfo"</span>,
+                        target: $(<span class="hljs-string">"#map-div"</span>),
+                        guid: <span class="hljs-string">'wms-guid'</span>
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>filter only currently visible layers</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    visibleLayers = dojoArray.filter(wmsClickQueue, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(wmsData)</span> </span>{
+                        <span class="hljs-keyword">return</span> wmsData.wmsLayer.visible;
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>create an EsriRequest for each WMS layer (these follow the promise API)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    rqPromises = dojoArray.map(visibleLayers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(wmsData)</span> </span>{
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EsriRequest({
+                            url: wmsData.wmsLayer.url.split(<span class="hljs-string">'?'</span>)[<span class="hljs-number">0</span>],
+                            content: {
+                                SERVICE: <span class="hljs-string">"WMS"</span>,
+                                REQUEST: <span class="hljs-string">"GetFeatureInfo"</span>,
+                                VERSION: wmsData.wmsLayer.version,
+                                SRS: <span class="hljs-string">"EPSG:"</span> + wmsData.wmsLayer.spatialReference.wkid,
+                                BBOX: esriMap.extent.xmin + <span class="hljs-string">","</span> + esriMap.extent.ymin + <span class="hljs-string">","</span> + esriMap.extent.xmax + <span class="hljs-string">","</span> + esriMap.extent.ymax,
+                                WIDTH: esriMap.width,
+                                HEIGHT: esriMap.height,
+                                QUERY_LAYERS: wmsData.layerConfig.layerInfo.name,
+                                INFO_FORMAT: wmsData.layerConfig.featureInfo.mimeType,
+                                X: evt.layerX,
+                                Y: evt.layerY
+                            },
+                            handleAs: <span class="hljs-string">"text"</span>
+                        });
+
+                    });
+
+                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                        content: <span class="hljs-string">""</span>,
+                        origin: <span class="hljs-string">"wmsFeatureInfo"</span>,
+                        update: <span class="hljs-literal">true</span>,
+                        guid: <span class="hljs-string">'wms-guid'</span>
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>wait for all success or any failure in the requests</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    all(rqPromises).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'all success'</span>);
+                        <span class="hljs-built_in">console</span>.log(results);
+
+                        <span class="hljs-keyword">var</span> strings = dojoArray.map(results, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(response, index)</span> </span>{
+                            <span class="hljs-keyword">var</span> res = <span class="hljs-string">"&lt;h5 class='margin-top-none'&gt;"</span> + visibleLayers[index].layerConfig.displayName + <span class="hljs-string">"&lt;/h5&gt;"</span> +
+                                      RAMP.plugins.featureInfoParser[visibleLayers[index].layerConfig.featureInfo.parser](response);
+                            <span class="hljs-keyword">return</span> res;
+                        });
+
+                        topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                            content: strings.join(<span class="hljs-string">''</span>),
+                            origin: <span class="hljs-string">"wmsFeatureInfo"</span>,
+                            update: <span class="hljs-literal">true</span>,
+                            guid: <span class="hljs-string">'wms-guid'</span>
+                        });
+
+                    }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(errors)</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'wms errors'</span>);
+                        <span class="hljs-built_in">console</span>.log(errors);
+
+                        topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                            content: <span class="hljs-string">':('</span>,  <span class="hljs-comment">// FIXME</span>
+                            origin: <span class="hljs-string">"wmsFeatureInfo"</span>,
+                            update: <span class="hljs-literal">true</span>,
+                            guid: <span class="hljs-string">'wms-guid'</span>
+                        });
+
+                    });
+
+                });
+
+            },
+
+            <span class="hljs-comment">/**
+            * This function is called to register a WMS layer for feature info click events.  The parameter wmsData
+            * should include wmsLayer (an instance of an ESRI WMSLayer) and layerConfig (a reference to the configuration
+            * node for the WMS layer).
+            *
+            * @method registerWMSClick
+            * @param  {Object} wmsData
+            */</span>
+            registerWMSClick: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(wmsData)</span> </span>{
+                wmsClickQueue.push(wmsData);
+            }
+
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>Initialization</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -43,7 +40,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -53,7 +50,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -70,8 +67,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -125,18 +122,22 @@
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
                 
+<p><a name="top"></a></p>
+
 <h1 id="wb-cont">Initialization</h1>
+
+<div class="toc"></div>
 
 <h2 id="loading-dojo-and-esri">Loading Dojo and ESRI</h2>
 
 <p>RAMP uses the <a href="http://dojotoolkit.org/">Dojo</a> and <a href="https://developers.arcgis.com/javascript/">ESRI</a> Javascript API, which can be loaded from your main html map page using:</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./javascript/src/RAMP/RAMP-starter.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./javascript/src/RAMP/RAMP-starter.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 	<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://js.arcgis.com/3.8/&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
 
 <p>The latter load ESRI and Dojo, the former is a <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/config.html">configuration file</a> that Dojo needs in order to link up RAMP modules (Note: order matters, the configuration file must be loaded before Dojo). The configuration file contains an object called “dojoConfig” (it is a globalObject that needs to be named exactly like that, case-sensitive):</p>
 
-<div class="highlight"><pre><code class="js"><span class="nx">dojoConfig</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">dojoConfig</span> <span class="o">=</span> <span class="p">{</span>
 		<span class="nx">parseOnLoad</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
 		<span class="nx">locale</span><span class="o">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
 		<span class="nx">async</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -150,6 +151,8 @@
 		<span class="p">}]</span>
 	<span class="p">};</span></code></pre></div>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="dojo-config-parameters">Dojo Config Parameters</h2>
 
 <p>The dojoConfig object contains many different parameters, the ones relevant for RAMP are outlined below, a description of the rest can be found <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/config.html">here</a>.</p>
@@ -162,16 +165,20 @@
 
 <p><em>packages</em>: an array of objects, each object contains a “name” and “location” field, which is used to give alias to module locations. The location should be relative to your HTML map page. In the above example, “ramp” is an alias for “javascript/src/RAMP/Modules/”, thus if there is a module located at: “javascript/src/RAMP/Modules/map.js”, then using the alias, the module can simply be referenced with “ramp/map”.</p>
 
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="loading-the-bootstrapper">Loading the bootstrapper</h2>
 
 <p>The bootstrapper module is responsible for loading the JSON configuration file used by RAMP and for loading all the modules in the proper order.</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./javascript/src/RAMP/bootstrapper.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./javascript/src/RAMP/bootstrapper.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
 
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-07-07</time>
+                        <time>2014-10-29</time>
                     </dd>
                 </dl>
             </main>
@@ -233,6 +240,16 @@
                         Template Summary
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -273,11 +290,26 @@
                         Basemap Support
                     </a>
                 </li>
+                <li>
+                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/yuidoc/index.html">
+            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
                 API Reference
             </a>
         </li>
@@ -335,5 +367,18 @@
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
 
     <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Modules\theme.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 3.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Modules\theme.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/*global define, TimelineLite, $ */
+
+/**
+* This submodule contains theme-specific classes with animation sequences such as Full Screen transition or tooltip setter helper method.
+*
+* @module RAMP
+* @submodule Theme
+*
+*/
+
+/**
+* Base theme for RAMP.
+*
+* @class Theme
+*/
+
+define([&quot;utils/util&quot;],
+    function (util) {
+        &quot;use strict&quot;;
+
+        var body = $(&quot;body&quot;),
+            wbCore = $(&quot;main&quot;),
+            wbFoot = $(&quot;footer&quot;),
+
+            megaMenuDiv = $(&quot;#wb-sm&quot;),
+            navigation = $(&quot;#wb-bar&quot;),
+
+            header = $(&quot;header&quot;),
+
+            transitionDuration = 0.5,
+
+            layout = {
+                headerHeight: 155,
+                headerHeightCollapsed: 64,
+
+                footerHeight: 30,
+                footerHeightCollapsed: 5,
+
+                subtitleHeight: 35,
+
+                toolbarHeight: 32
+            },
+
+            heightGain = layout.headerHeight - layout.headerHeightCollapsed + layout.footerHeight - layout.footerHeightCollapsed,
+
+            isFullScreen = false,
+            fullScreenTimeLine = new TimelineLite(
+                {
+                    paused: true
+                });
+
+        fullScreenTimeLine
+                .to(header, transitionDuration, { top: navigation.outerHeight() * -1, position: &quot;relative&quot;, ease: &quot;easeOutCirc&quot; }, 0)
+                .set([navigation, megaMenuDiv], { display: &quot;none !important&quot; })
+
+                .to(wbCore, transitionDuration, { top: layout.headerHeightCollapsed, bottom: layout.footerHeightCollapsed, ease: &quot;easeOutCirc&quot; }, 0)
+                .to(wbFoot, transitionDuration, { height: layout.footerHeightCollapsed, ease: &quot;easeOutCirc&quot; }, 0)
+
+                .set(body, { className: &quot;+=full-screen&quot; });
+
+        /**
+         * Toggles full screen mode
+         *
+         * @method _toggleFullScreenMode
+         * @param  {Boolean} fullscreen true - full screen on; false - full screen off; undefined - toggle;
+         */
+        function _toggleFullScreenMode(fullscreen) {
+            var extraTweeen = new TimelineLite({ paused: true });
+
+            isFullScreen = util.isUndefined(fullscreen) ? !isFullScreen : fullscreen;
+
+            if (isFullScreen) {
+                fullScreenTimeLine.play();
+
+                //TweenLite.to(&quot;.sub-panel-container&quot;, transitionDuration, { top: &quot;96px&quot;, bottom: &quot;5px&quot;, ease: &quot;easeOutCirc&quot; });
+                
+                extraTweeen
+                    .to(&quot;.sub-panel-container.summary-data-details&quot;, transitionDuration,
+                        { top: layout.headerHeightCollapsed + layout.toolbarHeight, bottom: layout.footerHeightCollapsed, ease: &quot;easeOutCirc&quot; }, 0)
+                    .to(&quot;.sub-panel-container.full-data-details&quot;, transitionDuration,
+                        { top: layout.headerHeightCollapsed, bottom: layout.footerHeightCollapsed, ease: &quot;easeOutCirc&quot; }, 0)
+
+                    .to(&quot;.full-data-mode .dataTables_scrollBody&quot;, transitionDuration,
+                        { height: &quot;+=&quot; + heightGain, ease: &quot;easeOutCirc&quot; }, 0.01); // animate height of the datatable scrollBody since it&#x27;s explicitly set  
+
+            } else {
+                fullScreenTimeLine.reverse();
+
+                /*TweenLite.fromTo(&quot;.sub-panel-container&quot;, transitionDuration,
+                    { top: &quot;96px&quot;, bottom: &quot;5px&quot; },
+                    { top: &quot;187px&quot;, bottom: &quot;30px&quot;, ease: &quot;easeInCirc&quot; });*/
+                
+                extraTweeen
+                    .to(&quot;.sub-panel-container.summary-data-details&quot;, transitionDuration,
+                        { top: layout.headerHeight + layout.toolbarHeight, bottom: layout.footerHeight, ease: &quot;easeInCirc&quot; }, 0)
+                    .to(&quot;.sub-panel-container.full-data-details&quot;, transitionDuration,
+                        { top: layout.headerHeight, bottom: layout.footerHeight, ease: &quot;easeInCirc&quot; }, 0)
+
+                    .to(&quot;.full-data-mode .dataTables_scrollBody&quot;, transitionDuration - 0.01,
+                        { height: &quot;-=&quot; + heightGain, ease: &quot;easeInCirc&quot; }, 0); // animate height of the datatable scrollBody since it&#x27;s explicitly set
+            }
+
+            extraTweeen.play();
+        }
+
+        return {
+            /**
+             * Allows to set callbacks to the full screen transition.
+             *
+             * @method fullScreenCallback
+             * @param  {String} event Event name to set a callback on
+             * @param  {Function} func  A callback function
+             * @return {Object}     This
+             * @chainable
+             */
+            fullScreenCallback: function (event, func) {
+                fullScreenTimeLine.eventCallback(event, func);
+
+                return this;
+            },
+
+            /**
+             * Returns a boolean indication whether the full screen mode is on.
+             *
+             * @method isFullScreen
+             * @return {Boolean} true / false
+             */
+            isFullScreen: function () {
+                return isFullScreen;
+            },
+
+            /**
+            * Toggles the FullScreen mode of the application
+            *
+            * @method toggleFullScreenMode
+            * @param  {Boolean} fullscreen true - expand; false - collapse; undefined - toggle;
+            * @return {Object} This
+            * @chainable
+            */
+            toggleFullScreenMode: function (fullscreen) {
+                _toggleFullScreenMode(fullscreen);
+
+                return this;
+            },
+
+            /**
+             * Tooltip setter helper method.
+             *
+             * @method tooltipster
+             * @param  {Jquery} target  A node to looked for tooltiped children on
+             * @param  {String} type    Type of the tooltips to set
+             * @param  {String} [action] Action name: &quot;update&quot; will update all the tooltips on target with their respective title attributes;
+             * null will create new tooltips
+             * @return {Object}         This
+             * @chainable
+             */
+            tooltipster: function (target, type, action) {
+                var attr;
+                target = target || $(&quot;body&quot;);
+
+                switch (type) {
+                    case &quot;map&quot;:
+                        break;
+
+                    default:
+                        attr = {
+                            theme: &#x27;tooltipster-shadow&#x27;,
+                            delay: 500
+                        };
+                        break;
+                }
+
+                switch (action) {
+                    case &quot;update&quot;:
+
+                        target
+                            .find(&quot;.tooltipstered&quot;)
+                            .each(function (i, obj) {
+                                var node = $(obj);
+                                node
+                                    .tooltipster(&quot;content&quot;, node.attr(&quot;title&quot;))
+                                    .removeAttr(&quot;title&quot;);
+                            });
+                        break;
+
+                    case &quot;destroy&quot;:
+                        target
+                            .find(&quot;.tooltipstered&quot;)
+                            .each(function (i, obj) {
+                                var node = $(obj);
+                                node
+                                    .tooltipster(&quot;destroy&quot;);
+                            });
+                        break;
+
+                    default:
+                        target.find(&#x27;.tooltip, ._tooltip&#x27;)
+                            .tooltipster({
+                                theme: &#x27;tooltipster-shadow&#x27;,
+                                delay: 500
+                            });
+                        break;
+                }
+
+                return this;
+            }
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

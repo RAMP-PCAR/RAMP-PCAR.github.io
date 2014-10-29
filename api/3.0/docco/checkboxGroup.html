@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>checkboxGroup.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>checkboxGroup.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, console, $ */</span>
+
+<span class="hljs-comment">/**
+* @module Utils
+*/</span>
+
+<span class="hljs-comment">/**
+* Creates a Checkbox group bound from the supplied JArray of input nodes. Optionally, the group is bound to the supplied master input node
+* which acts as a global toggle for the group.
+*
+*
+* @class CheckboxGroup
+* @constructor
+* @uses dojo/Evented
+* @uses dojo/_base/declare
+* @uses dojo/_base/lang
+* @uses dojo/_base/array
+* @uses Checkbox
+*
+* @param {JArray} nodes a jQuery object representing the checkboxes to be grouped
+* @param {Object} [options] Additional options
+* @param {String} [options.nodeIdAttr] Name of the "data-*" attribute set on the checkbox node to be treated as the checkbox id. If no appropriate "data-*" attribute found,
+* `nodeIdAttr` is used directly, failing that, regular `id` is used.
+* @param {Object} [options.cssClass] `active`, `focus`, and `check` CSS class to be applied to the Checkbox correspondingly.
+* @param {Object} [options.cssClass.active] CSS class to be set when the Checkbox is `active`.
+* @param {Object} [options.cssClass.focus] CSS class to be set when the Checkbox is `focused`.
+* @param {Object} [options.cssClass.check] CSS class to be set when the Checkbox is `checked`.
+* @param {Object} [options.label] `check` and `uncheck` label texts to be applied to the Checkbox labels.
+* @param {Object} [options.label.check] A text to be set as a label when the Checkbox is `checked`
+* @param {Object} [options.label.uncheck] A text to be set as a label when the Checkbox is `unchecked`
+* @param {Function} [options.onChnage] A function to be called when the state of the Checkbox changes.
+* @param {Object} [options.master] Additional options applied to the master Checkbox.
+* @param {Object} [options.master.node] An `input` node to serve as the master Checkbox for the group.
+* @param {Object} [options.master.cssClass] `active`, `focus`, and `check` CSS class to be applied to the master Checkbox correspondingly.
+* @param {Object} [options.master.cssClass.active] CSS class to be set when the Checkbox is `active`.
+* @param {Object} [options.master.cssClass.focus] CSS class to be set when the master Checkbox is `focused`.
+* @param {Object} [options.master.cssClass.check] CSS class to be set when the master Checkbox is `checked`.
+* @param {Object} [options.master.label] `check` and `uncheck` label texts to be applied to the master Checkbox labels.
+* @param {Object} [options.master.label.check] A text to be set as a label when the master Checkbox is `checked`
+* @param {Object} [options.master.label.uncheck] A text to be set as a label when the master Checkbox is `unchecked`
+* @param {Function} [options.master.onChnage] A function to be called when the state of the master Checkbox changes.
+*
+* @return {CheckboxGroup} A control objects allowing to toggle individual checkboxes in a group as well as the group as a whole.
+*/</span>
+
+define([<span class="hljs-string">"dojo/Evented"</span>, <span class="hljs-string">"dojo/_base/declare"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/_base/array"</span>,
+
+        <span class="hljs-string">"utils/checkbox"</span>],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Evented, declare, lang, dojoArray,
+            Checkbox)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">return</span> declare([Evented], {
+            constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(nodes, options)</span> </span>{
+                <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>,
+                    checkbox,
+                    checkboxOptions;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>declare individual properties inside the constructor: <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/declare.html#id6">http://dojotoolkit.org/reference-guide/1.9/dojo/_base/declare.html#id6</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                lang.mixin(<span class="hljs-keyword">this</span>,
+                    {
+                        <span class="hljs-comment">/**
+                         * Nodes of the checkbox nodes originally supplied to the CheckboxGroup.
+                         *
+                         * @property nodes
+                         * @type JArray
+                         * @default []
+                         */</span>
+                        nodes: [],
+
+                        <span class="hljs-comment">/**
+                         * Name of the "data-*" attribute set on the checkbox node to be treated as the checkbox id.
+                         *
+                         * @property nodeIdAttr
+                         * @type String
+                         * @default "id"
+                         */</span>
+                        nodeIdAttr: <span class="hljs-string">"id"</span>,
+
+                        <span class="hljs-comment">/**
+                         * An array of the Checkbox object belonging to the body of the group.
+                         *
+                         * @property nodes
+                         * @type Array
+                         * @default []
+                         */</span>
+                        checkboxes: [],
+
+                        <span class="hljs-comment">/**
+                         * `active`, `focus`, and `check` CSS class to be applied to the Checkbox correspondingly.
+                         *
+                         * @property cssClass
+                         * @type {Object}
+                         * @default
+                         * @example
+                         *      cssClass: {
+                         *          active: "active",
+                         *          focus: "focused",
+                         *          check: "checked"
+                         *      }
+                         */</span>
+                        cssClass: {
+                            active: <span class="hljs-string">"active"</span>,
+                            focus: <span class="hljs-string">"focused"</span>,
+                            check: <span class="hljs-string">"checked"</span>
+                        },
+
+                        <span class="hljs-comment">/**
+                         * `check` and `uncheck` label texts to be applied to the Checkbox labels.
+                         *
+                         * @property label
+                         * @type {Object}
+                         * @default
+                         * @example
+                         *      label: {
+                         *          check: "check",
+                         *          uncheck: "unchecked"
+                         *      }
+                         */</span>
+                        label: {
+                            check: <span class="hljs-string">"checked"</span>,
+                            uncheck: <span class="hljs-string">"unchecked"</span>
+                        },
+
+                        <span class="hljs-comment">/**
+                         * A function to be called when the state of the Checkbox changes.
+                         *
+                         * @property onChnage
+                         * @type Function
+                         * @default
+                         * @example     function () { }
+                         */</span>
+                        onChange: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ },
+
+                        <span class="hljs-comment">/**
+                         * Options for the master Checkbox.
+                         *
+                         * @property master
+                         * @type Object
+                         * @default
+                         * @example
+                         *      master: {
+                         *          node: null,
+                         *          checkbox: null,
+                         *          nodeIdAttr: null,
+                         *
+                         *          cssClass: {
+                         *              active: "active",
+                         *              focus: "focused",
+                         *              check: "checked"
+                         *          },
+                         *
+                         *          label: {
+                         *              check: "checked",
+                         *              uncheck: "unchecked"
+                         *          },
+                         *
+                         *          onChange: function () { }
+                         *      }
+                         *
+                         */</span>
+                        master: {
+                            node: <span class="hljs-literal">null</span>,
+                            checkbox: <span class="hljs-literal">null</span>,
+                            nodeIdAttr: <span class="hljs-literal">null</span>,
+
+                            cssClass: {
+                                active: <span class="hljs-string">"active"</span>,
+                                focus: <span class="hljs-string">"focused"</span>,
+                                check: <span class="hljs-string">"checked"</span>
+                            },
+                            label: {
+                                check: <span class="hljs-string">"checked"</span>,
+                                uncheck: <span class="hljs-string">"unchecked"</span>
+                            },
+
+                            onChange: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ }
+                        },
+
+                        <span class="hljs-comment">/**
+                        * Event names published by the Checkbox
+                        *
+                        * @private
+                        * @property event
+                        * @type Object
+                        * @default null
+                        * @example
+                        *      {
+                        *          MEMBER_TOGGLE: "checkbox/toggled",
+                        *          MASTER_TOGGLE: "checkbox/toggled"
+                        *      }
+                        */</span>
+                        event: {
+                            <span class="hljs-comment">/**
+                            * This event is not published by CheckboxGroup. __Ignore this.__
+                            *
+                            * @event TOGGLE
+                            * @private
+                            */</span>
+
+                            <span class="hljs-comment">/**
+                            * Published whenever a Checkbox get toggled.
+                            *
+                            * @event MEMBER_TOGGLE
+                            * @param event {Object}
+                            * @param event.checkbox {Checkbox} Checkbox object that has been toggled
+                            * @param event.agency {String} Agency that toggled the Checkbox
+                            */</span>
+                            MEMBER_TOGGLE: <span class="hljs-string">"checkbox/member-toggle"</span>,
+
+                            <span class="hljs-comment">/**
+                            * Published whenever the master Checkbox get toggled.
+                            *
+                            * @event MASTER_TOGGLE
+                            * @param event {Object}
+                            * @param event.checkbox {Checkbox} master Checkbox object that has been toggled
+                            * @param event.agency {String} Agency that toggled the Checkbox
+                            */</span>
+                            MASTER_TOGGLE: <span class="hljs-string">"checkbox/master-toggle"</span>
+                        }
+                    },
+                    options,
+                    {
+                        nodes: nodes
+                    }
+                );
+
+                checkboxOptions = {
+                    nodeIdAttr: <span class="hljs-keyword">this</span>.nodeIdAttr,
+                    cssClass: <span class="hljs-keyword">this</span>.cssClass,
+                    label: <span class="hljs-keyword">this</span>.label,
+                    onChange: <span class="hljs-keyword">this</span>.onChange
+                };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Create individual Checkboxes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">this</span>.nodes.each(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(index, node)</span> </span>{
+                    node = $(node);
+                    checkbox = <span class="hljs-keyword">new</span> Checkbox(node, checkboxOptions);
+                    that.checkboxes.push(checkbox);
+
+                    checkbox.on(checkbox.event.TOGGLE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>re-emit individual checkbox’s toggle event as groups;
+console.log(“CheckboxGroup -&gt;”, evt.checkbox.id, “set by”, evt.agency, “to”, evt.checkbox.state);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                        that.emit(that.event.MEMBER_TOGGLE, evt);
+
+                        <span class="hljs-keyword">if</span> (evt.agency === evt.checkbox.agency.USER) {
+                            that._checkMaster();
+                        }
+                    });
+                });
+
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.master.node) {
+                    <span class="hljs-keyword">this</span>.master.checkbox = <span class="hljs-keyword">new</span> Checkbox(
+                        <span class="hljs-keyword">this</span>.master.node,
+                        lang.mixin(checkboxOptions, <span class="hljs-keyword">this</span>.master)
+                    );
+
+                    <span class="hljs-keyword">this</span>.master.checkbox.on(checkbox.event.TOGGLE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>re-emit individual checkbox’s toggle event as groups;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"CheckboxGroup Master -&gt;"</span>, evt.checkbox.id, <span class="hljs-string">"set by"</span>, evt.agency, <span class="hljs-string">"to"</span>, evt.checkbox.state);
+
+                        that.emit(that.event.MASTER_TOGGLE, evt);
+
+                        <span class="hljs-keyword">if</span> (evt.agency === evt.checkbox.agency.USER) {
+                            that.setState(evt.checkbox.state);
+                        }
+                    });
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">this</span>.master = <span class="hljs-literal">null</span>;
+                }
+            },
+
+            <span class="hljs-comment">/**
+             * Synchronizes the state of the master Checkbox with the state of the group.
+             * All group members checked -&gt; master checked
+             * Any of the group members unchecked -&gt; master unchecked
+             *
+             * @method _checkMaster
+             * @private
+             */</span>
+            _checkMaster: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> allChecked = dojoArray.every(<span class="hljs-keyword">this</span>.checkboxes, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(checkbox)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>return checkbox.isChecked();</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">return</span> checkbox.state;
+                });
+
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.master) {
+                    <span class="hljs-keyword">this</span>.master.checkbox.setState(allChecked);
+                }
+            },
+
+            <span class="hljs-comment">/**
+            * Toggles the state of the specified Checkbox. If checkboxId is not supplied, toggles the whole group.
+            *
+            * @method setState
+            * @param {Boolean} state Specifies the state of the checkbox: true, false
+            * @param {String} [checkboxId] Specifies the checkbox to toggle.
+            * @return CheckboxGroup
+            * @chainable
+            */</span>
+            setState: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(state, checkboxId)</span> </span>{
+                <span class="hljs-keyword">var</span> checkbox,
+                    masterCheckboxId = <span class="hljs-keyword">this</span>.master.checkbox ? <span class="hljs-keyword">this</span>.master.checkbox.id : <span class="hljs-literal">undefined</span>;
+
+                <span class="hljs-keyword">if</span> (!checkboxId || masterCheckboxId === checkboxId) {
+                    <span class="hljs-keyword">this</span>.master.checkbox.setState(state);
+
+                    <span class="hljs-keyword">this</span>.checkboxes.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(checkbox)</span> </span>{
+                        checkbox.setState(state);
+                    });
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.checkboxes.length; i++) {
+                        checkbox = <span class="hljs-keyword">this</span>.checkboxes[i];
+                        <span class="hljs-keyword">if</span> (checkbox.id === checkboxId) {
+                            <span class="hljs-keyword">break</span>;
+                        }
+                    }
+
+                    checkbox.setState(state);
+
+                    <span class="hljs-keyword">this</span>._checkMaster();
+                }
+
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+            },
+
+            <span class="hljs-comment">/**
+            * Toggle all the checkboxes based on the return value of the given function.
+            *
+            * @param {Function} fcn a function that takes a checkbox as an argument and returns
+            * true if the given checkbox should be toggled on, false if it should be toggled off
+            * @method setEachState
+            * @chainable
+            */</span>
+            setEachState: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fcn)</span> </span>{
+                <span class="hljs-keyword">this</span>.checkboxes.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(checkbox)</span> </span>{
+                    checkbox.setState(fcn(checkbox));
+                });
+                <span class="hljs-keyword">this</span>._checkMaster();
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+            }
+        });
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

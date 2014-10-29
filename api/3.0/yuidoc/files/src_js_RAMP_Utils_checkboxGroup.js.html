@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Utils\checkboxGroup.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 3.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Utils\checkboxGroup.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/* global define, console, $ */
+
+/**
+* @module Utils
+*/
+
+/**
+* Creates a Checkbox group bound from the supplied JArray of input nodes. Optionally, the group is bound to the supplied master input node
+* which acts as a global toggle for the group.
+*
+*
+* @class CheckboxGroup
+* @constructor
+* @uses dojo/Evented
+* @uses dojo/_base/declare
+* @uses dojo/_base/lang
+* @uses dojo/_base/array
+* @uses Checkbox
+*
+* @param {JArray} nodes a jQuery object representing the checkboxes to be grouped
+* @param {Object} [options] Additional options
+* @param {String} [options.nodeIdAttr] Name of the &quot;data-*&quot; attribute set on the checkbox node to be treated as the checkbox id. If no appropriate &quot;data-*&quot; attribute found,
+* &#x60;nodeIdAttr&#x60; is used directly, failing that, regular &#x60;id&#x60; is used.
+* @param {Object} [options.cssClass] &#x60;active&#x60;, &#x60;focus&#x60;, and &#x60;check&#x60; CSS class to be applied to the Checkbox correspondingly.
+* @param {Object} [options.cssClass.active] CSS class to be set when the Checkbox is &#x60;active&#x60;.
+* @param {Object} [options.cssClass.focus] CSS class to be set when the Checkbox is &#x60;focused&#x60;.
+* @param {Object} [options.cssClass.check] CSS class to be set when the Checkbox is &#x60;checked&#x60;.
+* @param {Object} [options.label] &#x60;check&#x60; and &#x60;uncheck&#x60; label texts to be applied to the Checkbox labels.
+* @param {Object} [options.label.check] A text to be set as a label when the Checkbox is &#x60;checked&#x60;
+* @param {Object} [options.label.uncheck] A text to be set as a label when the Checkbox is &#x60;unchecked&#x60;
+* @param {Function} [options.onChnage] A function to be called when the state of the Checkbox changes.
+* @param {Object} [options.master] Additional options applied to the master Checkbox.
+* @param {Object} [options.master.node] An &#x60;input&#x60; node to serve as the master Checkbox for the group.
+* @param {Object} [options.master.cssClass] &#x60;active&#x60;, &#x60;focus&#x60;, and &#x60;check&#x60; CSS class to be applied to the master Checkbox correspondingly.
+* @param {Object} [options.master.cssClass.active] CSS class to be set when the Checkbox is &#x60;active&#x60;.
+* @param {Object} [options.master.cssClass.focus] CSS class to be set when the master Checkbox is &#x60;focused&#x60;.
+* @param {Object} [options.master.cssClass.check] CSS class to be set when the master Checkbox is &#x60;checked&#x60;.
+* @param {Object} [options.master.label] &#x60;check&#x60; and &#x60;uncheck&#x60; label texts to be applied to the master Checkbox labels.
+* @param {Object} [options.master.label.check] A text to be set as a label when the master Checkbox is &#x60;checked&#x60;
+* @param {Object} [options.master.label.uncheck] A text to be set as a label when the master Checkbox is &#x60;unchecked&#x60;
+* @param {Function} [options.master.onChnage] A function to be called when the state of the master Checkbox changes.
+*
+* @return {CheckboxGroup} A control objects allowing to toggle individual checkboxes in a group as well as the group as a whole.
+*/
+
+define([&quot;dojo/Evented&quot;, &quot;dojo/_base/declare&quot;, &quot;dojo/_base/lang&quot;, &quot;dojo/_base/array&quot;,
+
+        &quot;utils/checkbox&quot;],
+    function (Evented, declare, lang, dojoArray,
+            Checkbox) {
+        &quot;use strict&quot;;
+
+        return declare([Evented], {
+            constructor: function (nodes, options) {
+                var that = this,
+                    checkbox,
+                    checkboxOptions;
+
+                // declare individual properties inside the constructor: http://dojotoolkit.org/reference-guide/1.9/dojo/_base/declare.html#id6
+                lang.mixin(this,
+                    {
+                        /**
+                         * Nodes of the checkbox nodes originally supplied to the CheckboxGroup.
+                         *
+                         * @property nodes
+                         * @type JArray
+                         * @default []
+                         */
+                        nodes: [],
+
+                        /**
+                         * Name of the &quot;data-*&quot; attribute set on the checkbox node to be treated as the checkbox id.
+                         *
+                         * @property nodeIdAttr
+                         * @type String
+                         * @default &quot;id&quot;
+                         */
+                        nodeIdAttr: &quot;id&quot;,
+
+                        /**
+                         * An array of the Checkbox object belonging to the body of the group.
+                         *
+                         * @property nodes
+                         * @type Array
+                         * @default []
+                         */
+                        checkboxes: [],
+
+                        /**
+                         * &#x60;active&#x60;, &#x60;focus&#x60;, and &#x60;check&#x60; CSS class to be applied to the Checkbox correspondingly.
+                         *
+                         * @property cssClass
+                         * @type {Object}
+                         * @default
+                         * @example
+                         *      cssClass: {
+                         *          active: &quot;active&quot;,
+                         *          focus: &quot;focused&quot;,
+                         *          check: &quot;checked&quot;
+                         *      }
+                         */
+                        cssClass: {
+                            active: &quot;active&quot;,
+                            focus: &quot;focused&quot;,
+                            check: &quot;checked&quot;
+                        },
+
+                        /**
+                         * &#x60;check&#x60; and &#x60;uncheck&#x60; label texts to be applied to the Checkbox labels.
+                         *
+                         * @property label
+                         * @type {Object}
+                         * @default
+                         * @example
+                         *      label: {
+                         *          check: &quot;check&quot;,
+                         *          uncheck: &quot;unchecked&quot;
+                         *      }
+                         */
+                        label: {
+                            check: &quot;checked&quot;,
+                            uncheck: &quot;unchecked&quot;
+                        },
+
+                        /**
+                         * A function to be called when the state of the Checkbox changes.
+                         *
+                         * @property onChnage
+                         * @type Function
+                         * @default
+                         * @example     function () { }
+                         */
+                        onChange: function () { },
+
+                        /**
+                         * Options for the master Checkbox.
+                         *
+                         * @property master
+                         * @type Object
+                         * @default
+                         * @example
+                         *      master: {
+                         *          node: null,
+                         *          checkbox: null,
+                         *          nodeIdAttr: null,
+                         *
+                         *          cssClass: {
+                         *              active: &quot;active&quot;,
+                         *              focus: &quot;focused&quot;,
+                         *              check: &quot;checked&quot;
+                         *          },
+                         *
+                         *          label: {
+                         *              check: &quot;checked&quot;,
+                         *              uncheck: &quot;unchecked&quot;
+                         *          },
+                         *
+                         *          onChange: function () { }
+                         *      }
+                         *
+                         */
+                        master: {
+                            node: null,
+                            checkbox: null,
+                            nodeIdAttr: null,
+
+                            cssClass: {
+                                active: &quot;active&quot;,
+                                focus: &quot;focused&quot;,
+                                check: &quot;checked&quot;
+                            },
+                            label: {
+                                check: &quot;checked&quot;,
+                                uncheck: &quot;unchecked&quot;
+                            },
+
+                            onChange: function () { }
+                        },
+
+                        /**
+                        * Event names published by the Checkbox
+                        *
+                        * @private
+                        * @property event
+                        * @type Object
+                        * @default null
+                        * @example
+                        *      {
+                        *          MEMBER_TOGGLE: &quot;checkbox/toggled&quot;,
+                        *          MASTER_TOGGLE: &quot;checkbox/toggled&quot;
+                        *      }
+                        */
+                        event: {
+                            /**
+                            * This event is not published by CheckboxGroup. __Ignore this.__
+                            *
+                            * @event TOGGLE
+                            * @private
+                            */
+
+                            /**
+                            * Published whenever a Checkbox get toggled.
+                            *
+                            * @event MEMBER_TOGGLE
+                            * @param event {Object}
+                            * @param event.checkbox {Checkbox} Checkbox object that has been toggled
+                            * @param event.agency {String} Agency that toggled the Checkbox
+                            */
+                            MEMBER_TOGGLE: &quot;checkbox/member-toggle&quot;,
+
+                            /**
+                            * Published whenever the master Checkbox get toggled.
+                            *
+                            * @event MASTER_TOGGLE
+                            * @param event {Object}
+                            * @param event.checkbox {Checkbox} master Checkbox object that has been toggled
+                            * @param event.agency {String} Agency that toggled the Checkbox
+                            */
+                            MASTER_TOGGLE: &quot;checkbox/master-toggle&quot;
+                        }
+                    },
+                    options,
+                    {
+                        nodes: nodes
+                    }
+                );
+
+                checkboxOptions = {
+                    nodeIdAttr: this.nodeIdAttr,
+                    cssClass: this.cssClass,
+                    label: this.label,
+                    onChange: this.onChange
+                };
+
+                // Create individual Checkboxes
+                this.nodes.each(function (index, node) {
+                    node = $(node);
+                    checkbox = new Checkbox(node, checkboxOptions);
+                    that.checkboxes.push(checkbox);
+
+                    checkbox.on(checkbox.event.TOGGLE, function (evt) {
+                        // re-emit individual checkbox&#x27;s toggle event as groups;
+                        //console.log(&quot;CheckboxGroup -&gt;&quot;, evt.checkbox.id, &quot;set by&quot;, evt.agency, &quot;to&quot;, evt.checkbox.state);
+
+                        that.emit(that.event.MEMBER_TOGGLE, evt);
+
+                        if (evt.agency === evt.checkbox.agency.USER) {
+                            that._checkMaster();
+                        }
+                    });
+                });
+
+                if (this.master.node) {
+                    this.master.checkbox = new Checkbox(
+                        this.master.node,
+                        lang.mixin(checkboxOptions, this.master)
+                    );
+
+                    this.master.checkbox.on(checkbox.event.TOGGLE, function (evt) {
+                        // re-emit individual checkbox&#x27;s toggle event as groups;
+                        console.log(&quot;CheckboxGroup Master -&gt;&quot;, evt.checkbox.id, &quot;set by&quot;, evt.agency, &quot;to&quot;, evt.checkbox.state);
+
+                        that.emit(that.event.MASTER_TOGGLE, evt);
+
+                        if (evt.agency === evt.checkbox.agency.USER) {
+                            that.setState(evt.checkbox.state);
+                        }
+                    });
+                } else {
+                    this.master = null;
+                }
+            },
+
+            /**
+             * Synchronizes the state of the master Checkbox with the state of the group.
+             * All group members checked -&gt; master checked
+             * Any of the group members unchecked -&gt; master unchecked
+             *
+             * @method _checkMaster
+             * @private
+             */
+            _checkMaster: function () {
+                var allChecked = dojoArray.every(this.checkboxes, function (checkbox) {
+                    //return checkbox.isChecked();
+                    return checkbox.state;
+                });
+
+                if (this.master) {
+                    this.master.checkbox.setState(allChecked);
+                }
+            },
+
+            /**
+            * Toggles the state of the specified Checkbox. If checkboxId is not supplied, toggles the whole group.
+            *
+            * @method setState
+            * @param {Boolean} state Specifies the state of the checkbox: true, false
+            * @param {String} [checkboxId] Specifies the checkbox to toggle.
+            * @return CheckboxGroup
+            * @chainable
+            */
+            setState: function (state, checkboxId) {
+                var checkbox,
+                    masterCheckboxId = this.master.checkbox ? this.master.checkbox.id : undefined;
+
+                if (!checkboxId || masterCheckboxId === checkboxId) {
+                    this.master.checkbox.setState(state);
+
+                    this.checkboxes.forEach(function (checkbox) {
+                        checkbox.setState(state);
+                    });
+                } else {
+                    for (var i = 0; i &lt; this.checkboxes.length; i++) {
+                        checkbox = this.checkboxes[i];
+                        if (checkbox.id === checkboxId) {
+                            break;
+                        }
+                    }
+
+                    checkbox.setState(state);
+
+                    this._checkMaster();
+                }
+
+                return this;
+            },
+
+            /**
+            * Toggle all the checkboxes based on the return value of the given function.
+            *
+            * @param {Function} fcn a function that takes a checkbox as an argument and returns
+            * true if the given checkbox should be toggled on, false if it should be toggled off
+            * @method setEachState
+            * @chainable
+            */
+            setEachState: function (fcn) {
+                this.checkboxes.forEach(function (checkbox) {
+                    checkbox.setState(fcn(checkbox));
+                });
+                this._checkMaster();
+                return this;
+            }
+        });
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

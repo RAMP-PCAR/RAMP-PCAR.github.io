@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Tools\distanceTool.js - ramp-gis-viewer</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\src\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-gis-viewer">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 2.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FEGC-Theme.html">FEGC-Theme</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Intranet-Theme.html">Intranet-Theme</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Tools\distanceTool.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/*global define, i18n */
+
+/**
+* MeasureTool submodule.
+*
+* Computes the area and perimeter length of a selected area. When the user draws a polygon, the area
+* and length will be displayed in the bottom right corner.
+*
+* @module RAMP
+* @submodule MeasureTool
+* @main MeasureTool
+*/
+
+/**
+* MeasureTool class.
+*
+* @class MeasureTool
+* @static
+* @uses dojo/dom
+* @uses dojo/_base/lang
+* @uses esri/config
+* @uses esri/graphic
+* @uses esri/tasks/GeometryService
+* @uses esri/tasks/LengthsParameters
+* @uses esri/toolbars/draw
+* @uses esri/symbols/SimpleFillSymbol
+* @uses Map
+* @uses GlobalStorage
+*/
+
+define([
+// Dojo
+      &quot;dojo/dom&quot;, &quot;dojo/string&quot;, &quot;dojo/_base/lang&quot;,
+// Esri
+      &quot;esri/config&quot;, &quot;esri/graphic&quot;, &quot;esri/tasks/GeometryService&quot;,
+      &quot;esri/tasks/LengthsParameters&quot;, &quot;esri/toolbars/draw&quot;, &quot;esri/symbols/SimpleFillSymbol&quot;,
+// Ramp
+      &quot;ramp/map&quot;, &quot;ramp/globalStorage&quot;, &quot;tools/baseTool&quot;
+],
+    function (
+// Dojo
+      dom, string, dojoLang,
+// Esri
+      esriConfig, Graphic, GeometryService, LengthsParameters, Draw, SimpleFillSymbol,
+// Ramp
+      RampMap, GlobalStorage, BaseTool) {
+        &quot;use strict&quot;;
+
+        var ui,
+            geometryService,
+            measureApp,
+            that;
+
+        /**
+        * Compute the area and length of a specified polygon.
+        *
+        * @method computeAreaAndLength
+        * @private
+        * @param {Object} evtObj an object representing the event.
+        *
+        */
+        function computeAreaAndLength(evtObj) {
+            that.working(true);
+
+            geometryService = new GeometryService(GlobalStorage.config.geometryService);
+            geometryService.on(&quot;lengths-complete&quot;, outputAreaAndLength);
+
+            var geometry = evtObj.geometry;
+            measureApp.map.graphics.clear();
+
+            measureApp.map.graphics.add(new Graphic(geometry, new SimpleFillSymbol()));
+
+            //setup the parameters for the areas and lengths operation
+            var lengthsParams = new LengthsParameters();
+            lengthsParams.lengthUnit = GeometryService.UNIT_KILOMETER;
+            lengthsParams.calculationType = &quot;geodesic&quot;;
+
+            geometryService.simplify([geometry], function (simplifiedGeometries) {
+                lengthsParams.polylines = simplifiedGeometries;
+                geometryService.lengths(lengthsParams);
+            });
+        }
+
+        /**
+        * Display the calculated area and length on the map.
+        *
+        * @method outputAreaAndLength
+        * @private
+        * @param {Object} evtObj an object representing the event.
+        *
+        */
+        function outputAreaAndLength(evtObj) {
+            var result = evtObj.result,
+                // Convert feet to km.
+                length = result.lengths[0].toFixed(3);// (result.lengths[0] / 3280.8).toFixed(3);
+
+            that.working(false);
+
+            length = string.substitute(&quot;${number:dojo.number.format}&quot;, { number: length });
+            displayOutput(length, &quot;km&quot;);
+        }
+
+        ui = {
+            init: function () {
+                var map = RampMap.getMap(),
+                    toolbar = new Draw(map);
+
+                toolbar.on(&quot;draw-end&quot;, computeAreaAndLength);
+
+                measureApp = {
+                    map: map,
+                    toolbar: toolbar
+                };
+
+                //identify proxy page to use if the toJson payload to the geometry service is greater than 2000 characters.
+                //If this null or not available the project and lengths operation will not work.  Otherwise it will do a http post to the proxy.
+                esriConfig.defaults.io.proxyUrl = GlobalStorage.config.proxyUrl;
+                esriConfig.defaults.io.alwaysUseProxy = false;
+            }
+        };
+
+        /**
+        * Activates the Tool. This method is passed to the &#x60;initToggle&#x60; method and is triggered by the BaseTool logic.
+        *
+        * @method activate
+        * @private
+        */
+        function activate() {
+            measureApp.toolbar.activate(Draw.LINE);
+
+            displayOutput(i18n.t(that.ns + &quot;:na&quot;));
+        }
+
+        /**
+        * Deactivates the Tool. This method is passed to the &#x60;initToggle&#x60; method and is triggered by the BaseTool logic.
+        *
+        * @method deactivate
+        * @private
+        */
+        function deactivate() {
+            measureApp.toolbar.deactivate();
+            clearMap();
+        }
+
+        /**
+        * Clears the map. This method is passed to the &#x60;initToggle&#x60; method as the &#x60;defaultAction&#x60;
+        * to be triggered by the BaseTool logic when the &#x60;float-default-button&#x60; is clicked.
+        *
+        * @method clearMap
+        * @private
+        */
+        function clearMap() {
+            measureApp.map.graphics.clear();
+
+            displayOutput(i18n.t(that.ns + &quot;:na&quot;));
+        }
+
+        /**
+        * Displays the tool&#x27;s output by calling BaseTool&#x27;s &#x60;displayOutput&#x60; function.
+        *
+        * @method displayOutput
+        * @private
+        */
+        function displayOutput(length, lengthUnits) {
+            that.displayTemplateOutput(
+                {
+                    lengthLabel: i18n.t(that.ns + &quot;:length&quot;),
+                    lengthOutput: length,
+                    lengthUnits: lengthUnits                    
+                }
+            );
+        }
+
+        return dojoLang.mixin({}, BaseTool, {
+            /**
+            * Initialize the population tool
+            *
+            * @method init
+            * @constructor
+            *
+            */
+            init: function (selector, d) {
+                that = this;
+
+                this.initToggle(selector, d,
+                    {
+                        activate: activate,
+                        deactivate: deactivate,
+                        defaultAction: clearMap
+                    }
+                );
+
+                ui.init();
+
+                return this;
+            },
+
+            name: &quot;distanceTool&quot;
+        });
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
