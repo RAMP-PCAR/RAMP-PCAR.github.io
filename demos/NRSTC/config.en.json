@@ -910,7 +910,7 @@
             "symbology": {
                 "icons": {
                     "default": {
-                        "imageUrl": "assets/images/wms.png",
+                        "imageUrl": "assets/images/WMS.png",
                         "legendText": "Air Temperature"
                     }
                 },
@@ -971,7 +971,7 @@
             "symbology": {
                 "icons": {
                     "default": {
-                        "imageUrl": "assets/images/wms.png",
+                        "imageUrl": "assets/images/WMS.png",
                         "legendText": "Winds"
                     }
                 },
