@@ -1,5 +1,152 @@
-/*! ramp-gis-viewer 09-09-2014 13:44:31 : v. 2.0.0 
- * 
- * RAMP GIS viewer - Bobcat; Sample of an implementation of RAMP 
- **/
-define(["ramp/globalStorage"],function(a){"use strict";return{getGraphicIcon:function(a,b){var c=b.symbology;switch(c.renderer.type){case"unique":var d=a.attributes[c.renderer.key1];return c.icons[d].imageUrl;case"simple":return c.icons["default"].imageUrl;default:return c.icons["default"].imageUrl}},getFeatureName:function(a,b){return a.attributes[b.nameField]},getObjectId:function(a){return a.attributes[a.getLayer().objectIdField]},getAttributeValueByName:function(a,b){return a.attributes[b]},generateVisibilityLegend:function(a){var b="",c={"for":"filterGroup_"+a.data[a.idx].id,attr:b,value:a.data[a.idx].id,checked:"checked",label:a.data[a.idx].layerConfig.displayName,"class":"eye checked",layerId:a.data[a.idx].id};return c},generateBoundingBoxLegend:function(b){var c,d=!1,e="";return d=Boolean(b.data[b.idx].ramp.type===a.layerType.Static||b.data[b.idx].ramp.type===a.layerType.WMS),c={"for":"filterGroup_"+b.data[b.idx].id+"1",attr:e+"1",value:b.data[b.idx].id,checked:"checked",label:b.data[b.idx].layerConfig.displayName,"class":"box checked",disabled:d,layerId:b.data[b.idx].id}},generateSettingsToggle:function(a){var b={str:a.str,layerId:a.data[a.idx].id,settings:a.data[a.idx].layerConfig.settings};return b}}});
+﻿/* global define */
+
+/**
+* Utility module containing useful static classes.
+*
+* @module Utils
+*/
+
+/**
+* A set of functions that can be accessed within templates
+*
+*
+* @class TmplUtil
+* @static
+*/
+
+define(["ramp/globalStorage"],
+    function (GlobalStorage) {
+        "use strict";
+
+        return {
+            /**
+            * Given a feature object or a graphic object (or any object that has a getLayer method and an
+            * attributes field) return the image URL for that feature/graphic object.
+            *
+            * NOTE: all dependent functions should be written as nested functions inside the caller function, otherwise TmplEx templating library won't identify
+            *
+            * @method getGraphicIcon
+            * @param {Graphic} graphic
+            * @param {Object} layerConfig
+            * @return {String} imageUrl Url to the features symbology image
+            */
+            getGraphicIcon: function (graphic, layerConfig) {
+                var symbolConfig = layerConfig.symbology;
+
+                //TODO expand logic.  Need to handle up to 3 keys in unique renderer.  Need to handle Ranged renderer
+                switch (symbolConfig.renderer.type) {
+                    case "unique":
+                        var key = graphic.attributes[symbolConfig.renderer.key1];
+                        return symbolConfig.icons[key].imageUrl;
+
+                    case "simple":
+                        return symbolConfig.icons["default"].imageUrl;
+                    default:
+                        return symbolConfig.icons["default"].imageUrl;
+                }
+            },
+
+            /**
+            * Given a feature object or a graphic object (or any object that has a getLayer method and an
+            * attributes field) return the attribute value for its designed "name" field
+            *
+            * NOTE: all dependent functions should be written as nested functions inside the caller function, otherwise TmplEx templating library won't identify
+            *
+            * @method getFeatureName
+            * @param {Graphic} graphic
+            * @param {Object} layerConfig
+            * @return {String} imageUrl Url to the features symbology image
+            */
+            getFeatureName: function (graphic, layerConfig) {
+                return graphic.attributes[layerConfig.nameField];
+            },
+
+            /**
+            * Given a feature object return the objectid for that item.
+            * This will likely fail on a non-feature object (e.g. a plain graphic)
+            *
+            * NOTE: all dependent functions should be written as nested functions inside the caller function, otherwise TmplEx templating library won't identify
+            *
+            * @method getObjectId
+            * @param {Graphic} graphic
+            * @return {Integer} objectId
+            */
+            getObjectId: function (graphic) {
+                return graphic.attributes[graphic.getLayer().objectIdField];
+            },
+            /*
+            * Helper function, get attribute value by field name
+            *
+            * @method getAttributeValueByName
+            * @param {Object} graphic ?
+            * @param {String} fieldName ?
+            */
+            getAttributeValueByName: function (graphic, fieldName) {
+                return graphic.attributes[fieldName];
+            },
+
+            /* Helper function used by filterManager.*/
+            /*
+            * generate visibility legend object
+            * @param o
+            */
+            generateVisibilityLegend: function (o) {
+                var attr = "",
+                    visibilityLegendLabel = {
+                        for: "filterGroup_" + o.data[o.idx].id,
+                        attr: attr,
+                        value: o.data[o.idx].id,
+                        checked: "checked",
+                        label: o.data[o.idx].layerConfig.displayName,
+                        class: "eye checked",
+                        layerId: o.data[o.idx].id
+                    };
+                return visibilityLegendLabel;
+            },
+            /*
+            * generate visibility legend object
+            * @param o
+            */
+            generateBoundingBoxLegend: function (o) {
+                // adding flag for the generated o object
+                // o.disabled will indicate the bounding checkbox is to be disabled.
+                var checkboxDisabled = false,
+                    attr = "",
+                    boundingLegendLabel;
+
+                // determine if given layer is static or WMS
+                checkboxDisabled = Boolean(o.data[o.idx].ramp.type === GlobalStorage.layerType.Static ||
+                    o.data[o.idx].ramp.type === GlobalStorage.layerType.WMS);
+
+                boundingLegendLabel = {
+                    for: "filterGroup_" + o.data[o.idx].id + "1",
+                    attr: attr + "1",
+                    value: o.data[o.idx].id,
+                    checked: "checked",
+                    label: o.data[o.idx].layerConfig.displayName,
+                    class: "box checked",
+                    disabled: checkboxDisabled,
+                    layerId: o.data[o.idx].id
+                };
+
+                return boundingLegendLabel;
+            },
+
+            /*
+            * Generate settings toggle object.
+            *
+            * @method generateSettingsToggle
+            * @param o
+            */
+            generateSettingsToggle: function (o) {
+                var //attr = "",
+                    boundingLegendLabel = {
+                        str: o.str,
+                        layerId: o.data[o.idx].id,
+                        settings: o.data[o.idx].layerConfig.settings
+                    };
+
+                return boundingLegendLabel;
+            }
+        };
+    });

@@ -1,6 +1,73 @@
-/*! ramp-gis-viewer 09-09-2014 13:44:31 : v. 2.0.0 
- * 
- * RAMP GIS viewer - Bobcat; Sample of an implementation of RAMP 
- **/
-var RAMP,jsFolderPath="js/",cssFolderPath="css/",state="build/",pathname=location.pathname.replace(/\/[^/]+$/,"")+"/",htmlNode=$("html"),themeName=htmlNode.attr("class").split(" ").filter(function(a){"use strict";return 0===a.indexOf("ramp-")})[0]||"ramp-base",dojoConfig;RAMP={plugins:{featureInfoParser:{}}},dojoConfig={parseOnLoad:!1,locale:"fr"===htmlNode.attr("lang")?"fr":"en",async:!0,packages:[{name:"ramp",location:pathname+jsFolderPath+"RAMP/Modules"},{name:"utils",location:pathname+jsFolderPath+"RAMP/Utils"},{name:"defaultTheme",location:pathname+jsFolderPath+"RAMP/Themes/ramp-base"},{name:"themes",location:pathname+jsFolderPath+"RAMP/Themes/"+themeName},{name:"tools",location:pathname+jsFolderPath+"RAMP/Tools/"}],jsFolderPath:jsFolderPath,cssFolderPath:cssFolderPath,fullPluginPath:pathname+jsFolderPath+"plugins/",extensionPrefix:"build/"===state?".min":"",buildState:state},$(document).ready(function(){"use strict";var a=document.getElementsByTagName("head")[0],b=document.createElement("script");b.type="text/javascript",b.src=pathname+jsFolderPath+"RAMP/bootstrapper.js",a.appendChild(b)});
-console.log("\n                        ______         _                   _                 \n                        | ___ \\       | |                 | |                \n                        | |_/ /  ___  | |__    ___   __ _ | |_               \n         ,  ,           | ___ \\ / _ \\ | '_ \\  / __| / _` || __|              \n        (\\ \"\\           | |_/ /| (_) || |_) || (__ | (_| || |_               \n        ,--;.)._        \\____/  \\___/ |_.__/  \\___| \\__,_| \\__|              \n       ).,-._ . \"\"-,_   \n      /.'\".- \" 8 o . \";_                             \n      `L_ ,-)) o . 8.o .\"\"-.---...,,--------.._   _\"\";\n       \"\"\"  \")) 8 . . 8 . 8   8  8  8  8. 8 8 ._\"\"._;\n             \";. .8 .8  .8  8  8  8  8 . 8. 8 .\".\"\"\n                ;.. 8 ; .  8. 8  8  8 . } 8 . 8 :\n                 ;.. 8 ; 8. 8  8  8  8 (  . 8 . :\n                   ;. 8 \\ .   .......;;;  8 . 8 :\n                    ;o  ;\"\\\\\\\\```````( o(  8   .;\n                    : o:  ;           :. : . 8 (\n                    :o ; ;             \"; \";. o :\n                    ; o; ;               \"; ;\";..\\\n            ctr     ;.; .:                )./  ;. ;\n                   _).< .;              _;./  _;./\n                 ;\"__/--\"             ((__7  ((_J -._ v2 _.\n\n");
+/*global location, $, document */
+
+/**
+*
+*
+* @module RAMP
+*/
+
+/**
+* RAMPStarter class.
+* Performs initial configuration of the dojo config object specifying path to the RAMP modules, detecting locale, and loading the {{#crossLink "Bootstrapper"}}{{/crossLink}} module.
+* pipe the locale to dojo.
+*
+* @class RAMPStarter
+* @static
+*/
+
+//required to get draw bar to show in French
+var RAMP,
+    jsFolderPath = "js/",
+    pathname = location.pathname.replace(/\/[^/]+$/, "") + "/",
+    htmlNode = $("html"),
+    dojoConfig;
+
+/**
+* RAMP global class.
+* A general globally available class to hold any RAMP global data. Currently houses any plugins which are not loaded via AMD.
+*
+* @class RAMP
+*/
+RAMP = {
+    plugins: {
+        featureInfoParser: {}
+    }
+};
+
+dojoConfig = {
+    parseOnLoad: false,
+    locale: htmlNode.attr("lang"),
+    async: true,
+    packages: [
+        {
+            name: "ramp",
+            location: pathname + jsFolderPath + "RAMP/Modules"
+        },
+        {
+            name: "utils",
+            location: pathname + jsFolderPath + "RAMP/Utils"
+        },
+        {
+            name: "tools",
+            location: pathname + jsFolderPath + "RAMP/Tools/"
+        }
+    ],
+    fullPluginPath: pathname + jsFolderPath + 'plugins/'
+};
+
+$(document).ready(function () {
+    "use strict";
+    // when loading js file this way, it will NOT show up in the debug panel in Firebug
+    /*$.getScript(pathname + jsFolderPath + state + "RAMP/bootstrapper.js",
+        function( data, textStatus, jqxhr ) {
+            console.log( jqxhr.status ); // 200
+    });*/
+
+    // when loading js file this way, it will show up in the debug panel in Firebug
+    var head = document.getElementsByTagName('head')[0],
+        script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = pathname + jsFolderPath + "RAMP/bootstrapper.js";
+    head.appendChild(script);
+});
+console.log("  _____                       _         _____                      \n /  __ \\                     | |       |  __ \\                                           ___\n | /  \\/ __ _ _ __   __ _  __| | __ _  | |  \\/ ___   ___  ___  ___                   ,-\"\"   `.\n | |    / _` | '_ \\ / _` |/ _` |/ _` | | | __ / _ \\ / _ \\/ __|/ _ \\                ,'  _   e )`-._\n | \\__/\\ (_| | | | | (_| | (_| | (_| | | |_\\ \\ (_) | (_) \\__ \\  __/               /  ,' `-._<.===-'\n  \\____/\\__,_|_| |_|\\__,_|\\__,_|\\__,_|  \\____/\\___/ \\___/|___/\\___|              /  /\n                                                                                /  /\n        ._ v3 _.                                                               /  /\n                                                                              /   ;     \n                                                                  _          /    ;\n                                                     (`._    _.-\"\" \"\"--..__,'     |\n                                                     <_  `-\"\"                      \\\n                                                      <`-                           :\n                                                       (__   <__.                   ;\n                                                         `-.   '-.__.      _.'     /\n                                                            \\      `-.__,-'    _,''\n                                                             `._    ,    /__,-'\n                                                                \"\"._\\__,'< <____\n                                                                     | |  `----.`.\n                                                                     | |        \\ `.\n                                                                     ; |___      \\-``\n                                                                     \\   --<\n                                                                      `.`.<\n                                                                 hjw    `-'");

@@ -1,1 +1,6 @@
-{"toolName":"Area","length":"Length","area":"Area","na":"n/a"}
+﻿{
+    "toolName": "Area",
+    "length": "Length",
+    "area": "Area",
+    "na": "n/a"
+}

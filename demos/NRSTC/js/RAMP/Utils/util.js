@@ -1,5 +1,926 @@
-/*! ramp-gis-viewer 09-09-2014 13:44:31 : v. 2.0.0 
- * 
- * RAMP GIS viewer - Bobcat; Sample of an implementation of RAMP 
- **/
-define(["dojo/_base/array","dojo/_base/lang","dojo/topic","dojo/Deferred","esri/geometry/Extent"],function(a,b,c,d,e){"use strict";return{checkConsole:function(){for(var a,b=function(){},c=["assert","clear","count","debug","dir","dirxml","error","exception","group","groupCollapsed","groupEnd","info","log","markTimeline","profile","profileEnd","table","time","timeEnd","timeStamp","trace","warn"],d=c.length,e=window.console=window.console||{};d--;)a=c[d],e[a]||(e[a]=b)},escapeHtml:function(a){return a.replaceAll("<","&lt;").replaceAll(">","&gt;")},isNumber:function(a){return isFinite(String(a).trim()||0/0)},parseBool:function(a){return"true"===a.toLowerCase()},afterAll:function(b,c,d){if(0===b.length)return void c();var e=0;a.forEach(b,function(a){a.then(function(){e++,e===b.length&&c.call(d)})})},arrayToQuery:function(a){return a.join("+")},queryToArray:function(a){return a.split("+")},subscribe:function(a,d,e){this.isUndefined(e)?c.subscribe(a,d):c.subscribe(a,b.hitch(e,d))},subscribeOnce:function(a,b){var d=null,e=function(a){d.remove(),b(a)};return d=c.subscribe(a,e)},subscribeOnceAny:function(c,d){function e(b){a.forEach(f,function(a){a.remove()}),d(b)}var f=[];a.forEach(c,b.hitch(this,function(a){f.push(this.subscribeOnce(a,e))}))},subscribeAll:function(b,d){var e=[];a.forEach(b,function(b,f){e.push({fired:!1,args:null}),c.subscribe(b,function(){if(!e[f].fired&&(e[f].fired=!0,e[f].args=Array.prototype.slice.call(arguments),a.every(e,function(a){return a.fired}))){var b=[];a.forEach(e,function(a){b.append(a.args)}),d(b)}})})},createLazyVariable:function(a){var b=null;return{reset:function(){b=null},get:function(){return null==b&&(b=a()),b}}},once:function(a){var b=!1;return function(){b||(a(),b=!0)}},isUndefined:function(a){return"undefined"==typeof a},compareGraphics:function(a,b){var c,d,e,f="0",g="1";return a&&b&&$.isFunction(a.getLayer)&&$.isFunction(b.getLayer)&&(d=a.getLayer(),e=b.getLayer(),c=d.objectIdField,f=d.url+a.attributes[c],g=e.url+b.attributes[c]),f===g},scrollbarWidth:function(){var a,b,c=jQuery('<div style="width: 100%; height:200px;">test</div>'),d=jQuery('<div style="width:200px;height:150px; position: absolute; top: 0; left: 0; visibility: hidden; overflow:hidden;"></div>').append(c),e=c[0],f=d[0];return jQuery("body").append(f),a=e.offsetWidth,d.css("overflow","scroll"),b=f.clientWidth,d.remove(),a-b},adjustWidthForSrollbar:function(b,c){var d=b.innerHeight()<b[0].scrollHeight?this.scrollbarWidth():0;a.map(c,function(a){a.css({right:d})})},executeOnLoad:function(a,b,c){var e,f=new d;f.then(function(){window.clearInterval(e),c()}),e=window.setInterval(function(){$.isFunction(a[b])&&f.resolve(!0)},500)},executeOnDone:function(a,b,c){function e(){c.cancel()}function f(){h--,0===h&&c.resolve(!0)}var g,h=0,i=[];c=c||new d;for(var j in a)a.hasOwnProperty(j)&&i.push(a[j]);h=i.length,i.forEach(function(a){g=new d(e),g.then(f),b(a,g)}),0===h&&c.resolve(!0)},guid:function(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,function(a){var b=16*Math.random()|0,c="x"===a?b:3&b|8;return c.toString(16)})},getWhereClause:function(a,b){return this.isNumber(b)?String.format("{0}={1}",a,b):String.format("Upper({0})=Upper('{1}')",a,b)},stripHtml:function(a){var b=document.createElement("DIV");return $(b).text(a),b.textContent||b.innerText||""},pointToExtent:function(a,b,c){var d=a.extent.getWidth()/a.width,f=c*d;return new e(b.x-f,b.y-f,b.x+f,b.y+f,a.spatialReference)},transformXML:function(a,b,c,e){function f(a){var b;b=window.ActiveXObject?new ActiveXObject("Msxml2.XMLHTTP"):new XMLHttpRequest,b.open("GET",a,!1);try{b.responseType="msxml-document"}catch(c){}return b.send(""),b.responseXML}var g,h,i,j,k,l=new d,m=new d,n=[l,m];if(this.afterAll(n,function(){k||(j=new XSLTProcessor,j.importStylesheet(h),i=j.transformToFragment(g,document),e||(i=$("body").append(i).children().last().detach())),c(k,i)}),window.ActiveXObject||window.hasOwnProperty("ActiveXObject")){g=f(a),h=f(b);var o,p=new ActiveXObject("Msxml2.XSLTemplate"),q=new ActiveXObject("Msxml2.DOMDocument"),r=new ActiveXObject("Msxml2.FreeThreadedDOMDocument");q.loadXML(g.xml),r.loadXML(h.xml),p.stylesheet=r,o=p.createProcessor(),o.input=q,o.transform(),c(k,o.output)}else $.ajax({type:"GET",url:a,dataType:"xml",cache:!1,success:function(a){g=a,l.resolve()},error:function(){k=!0,l.resolve()}}),$.ajax({type:"GET",url:b,dataType:"xml",cache:!1,success:function(a){h=a,m.resolve()},error:function(){k=!0,m.resolve()}})},keyboardSortable:function(c,d){d=b.mixin({linkLists:!1,onStart:function(){},onUpdate:function(){},onStop:function(){}},d),c.each(function(b,e){function f(a,b,c){a.focus(),b.attr("aria-dropeffect","move"),c.attr("aria-grabbed","true").removeAttr("aria-dropeffect")}var g,h=$(e),i=h.find("> li"),j=i.find(".sort-handle"),k=!1;j.focusout(function(a){var b=$(this).closest("li");b.hasClass("list-item-grabbed")&&!k&&(i.removeAttr("aria-dropeffect"),b.removeClass("list-item-grabbed").attr({"aria-selected":!1,"aria-grabbed":!1}),g=!1,d.onStop.call(null,a,{item:null}))}).on("keyup",function(e){var j=$(this).closest("li"),l=j[0].id,m=h.sortable("toArray"),n=a.indexOf(m,l);13===e.which||32===e.which?g?(i.removeAttr("aria-dropeffect"),j.attr("aria-grabbed","false").removeClass("list-item-grabbed"),d.onStop.call(null,e,{item:j}),g=!1):(i.attr("aria-dropeffect","move"),j.attr("aria-grabbed","true").removeAttr("aria-dropeffect").addClass("list-item-grabbed"),d.onStart.call(null,e,{item:j}),g=!0):38===e.which?g?n>0&&(k=!0,j.prev().before(j),f($(this),i,j),g=!0,n-=1,d.onUpdate.call(null,e,{item:j}),k=!1):(j=d.linkLists&&0===n&&0!==b?$(c[b-1]).find("> li:last"):j.prev(),j.find(":tabbable:first").focus()):40===e.which&&(g?n<i.length-1&&(k=!0,j.next().after(j),f($(this),i,j),g=!0,n+=1,d.onUpdate.call(null,e,{item:j}),k=!1):(j=d.linkLists&&n===i.length-1&&b<c.length-1?$(c[b+1]).find("> li:first"):j.next(),j.find(":tabbable:first").focus()))})})}}});
+﻿/* global define, window, XMLHttpRequest, ActiveXObject, XSLTProcessor, console, $, document, jQuery */
+/* jshint bitwise:false  */
+
+/**
+* Utility module containing useful static classes.
+*
+* @module Utils
+* @main Utils
+*/
+
+/**
+* A set of functions used by at least one module in this project. The functions
+* are generic enough that they may become useful for other modules later or functions
+* that are shared amongst multiple modules should be added here.
+*
+* *__NOTE__: None of these functions require the global configuration object. (i.e. they
+* are not exclusive to RAMP). For functions that depend on the global configuration
+* object, place them in ramp.js.*
+*
+* @class Util
+* @static
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+* @uses dojo/topic
+* @uses dojo/Deferred
+*/
+define(["dojo/_base/array", "dojo/_base/lang", "dojo/topic", "dojo/Deferred", "esri/geometry/Extent"],
+    function (dojoArray, dojoLang, topic, Deferred, Extent) {
+        "use strict";
+
+        return {
+            /**
+            * Checks if the console exists, if not, redefine the console and all console methods to
+            * a function that does nothing. Useful for IE which does not have the console until the
+            * debugger is opened.
+            *
+            * @method checkConsole
+            * @static
+            */
+            checkConsole: function () {
+                var noop = function () { },
+                    methods = [
+                        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+                        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+                        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+                        'timeStamp', 'trace', 'warn'
+                    ],
+                    length = methods.length,
+                    console = (window.console = window.console || {}),
+                    method;
+
+                while (length--) {
+                    method = methods[length];
+
+                    // Only stub undefined methods.
+                    if (!console[method]) {
+                        console[method] = noop;
+                    }
+                }
+            },
+
+            // String Functions
+
+            /**
+            * Returns an String that has it's angle brackets ('<' and '>') escaped (replaced by '&lt;' and '&gt;').
+            * This will effectively cause the String to be displayed in plain text when embedded in an HTML page.
+            *
+            * @method escapeHtml
+            * @static
+            * @param {String} html String to escape
+            * @return {String} escapeHtml Escaped string
+            */
+            escapeHtml: function (html) {
+                return html.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+            },
+
+            /**
+            * Returns true if the given String is a number
+            *
+            * @method isNumber
+            * @static
+            * @param {String} input The string to check
+            * @return {boolean} True if number
+            */
+            isNumber: function (input) {
+                return isFinite(String(input).trim() || NaN);
+            },
+
+            /**
+            * Parse the given String into a boolean. Returns true if the String
+            * is the word "true" (case insensitive). False otherwise.
+            *
+            * @method parseBool
+            * @static
+            * @param {String} str The string to check
+            * @return {boolean} True if `true`
+            */
+            parseBool: function (str) {
+                return (str.toLowerCase() === 'true');
+            },
+
+            // Deferred
+
+            /**
+            * Executes the callback function only after all the deferred Objects in the
+            * given deferredList has resolved.
+            *
+            * @method afterAll
+            * @static
+            * @param {array} deferredList A list of Deferred objects
+            * @param {function} callback The callback to be executed
+            */
+            afterAll: function (deferredList, callback, context) {
+                if (deferredList.length === 0) {
+                    callback();
+                    return;
+                }
+
+                var completed = 0; // Keeps track of the number of deferred that has resolved
+                dojoArray.forEach(deferredList, function (deferred) {
+                    deferred.then(function () {
+                        completed++;
+                        if (completed === deferredList.length) {
+                            callback.call(context);
+                        }
+                    });
+                });
+            },
+
+            // Serialization
+
+            /**
+            * Converts an array into a '+' separated String that can be used as
+            * the query parameter of a URL.
+            *
+            *      arrayToQuery(["abc", 123, "efg"]) -> "abc+123+efg"
+            *
+            * *__NOTE:__ the array should only contain primitives, objects will not be serialized
+            * properly.*
+            *
+            * @method arrayToQuery
+            * @static
+            * @param {array} array An array of primitives to be serialized
+            * @return {String} A serialized representation of the given array
+            */
+            arrayToQuery: function (array) {
+                return array.join("+");
+            },
+
+            /**
+            * Converts a query String generated by arrayToQuery into an array object.
+            * The array object will only contain Strings.
+            *
+            *      queryToArray("abc+123+efg") -> ["abc", "123", "efg"]
+            *
+            * @method queryToArray
+            * @static
+            * @param {String} query A query string to be converted
+            * @return {String} A resulting array of strings
+            */
+            queryToArray: function (query) {
+                return query.split("+");
+            },
+
+            // Event handling
+
+            /**
+            * A convenience method that wraps around Dojo's subscribe method to allow
+            * a scope to hitched to the given callback function.
+            *
+            * @method subscribe
+            * @static
+            * @param {String} name Event name
+            * @param {function} callback The callback to be executed
+            * @param {object} scope Scope of the callback
+            */
+            subscribe: function (name, callback, scope) {
+                if (this.isUndefined(scope)) {
+                    topic.subscribe(name, callback);
+                } else {
+                    topic.subscribe(name, dojoLang.hitch(scope, callback));
+                }
+            },
+
+            /**
+            * Subscribes to an event, after the event has occurred, the handle is
+            * removed.
+            *
+            * @method subscribeOnce
+            * @static
+            * @param {String} name Event name
+            * @param {function} callback The callback to be executed
+            */
+            subscribeOnce: function (name, callback) {
+                var handle = null,
+                    wrapper = function (evt) {
+                        handle.remove();
+                        callback(evt);
+                    };
+
+                return (handle = topic.subscribe(name, wrapper));
+            },
+
+            /**
+            * Subscribes to a set of events, executes the callback when any of the events fire, then removes the handle.
+            *
+            * @method subscribeOnceAny
+            * @static
+            * @param  {String} names An array of event names
+            * @param  {Function} callback The callback to be executed
+            */
+            subscribeOnceAny: function (names, callback) {
+                var handles = [];
+
+                function wrapper(evt) {
+                    dojoArray.forEach(handles, function (handle) {
+                        handle.remove();
+                    });
+
+                    callback(evt);
+                }
+
+                dojoArray.forEach(names, dojoLang.hitch(this,
+                    function (name) {
+                        handles.push(this.subscribeOnce(name, wrapper));
+                    }));
+            },
+
+            /**
+            * Given an array of event names published by topic.publish, call the given
+            * callback function after ALL of the given events have occurred. An array of
+            * arguments is passed to the callback function, the arguments are those returned
+            * by the events (in the order that the events appear in the array).
+            *
+            * #####Example
+            *
+            * Assume somewhere a module publishes a "click" event:
+            *
+            *      topic.publish("click", { mouseX: 10, mouseY: 50 });
+            *
+            * and somewhere else another module publishes a "finishLoading" event:
+            *
+            *      topic.publish("finishLoading", { loadedPictures: [pic1, pic2] });
+            *
+            * Then if one wants to do something (e.g. display pictures) only after the pictures
+            * have been loaded AND the user clicked somewhere, then:
+            *
+            * - args[0] will be the object returned by the "click" event
+            * - which in this case will be: { mouseX: 10, mouseY: 50 }
+            * - args[1] will be the object returned by the "finishLoading" event
+            * - which in this case will be: { loadedPictures: [pic1, pic2] }
+            *
+            *
+            *      subscribe(["click", "finishLoading"], function(args) {
+            *          doSomething();
+            *      });
+            *
+            * *__NOTE:__
+            * If one of the events fires multiple times before the other event, the object
+            * passed by this function to the callback will be the object returned when the
+            * event FIRST fired (subsequent firings of the same event are ignored). Also, if
+            * some event do not return an object, it will also be excluded in the arguments to
+            * the callback function. So be careful! For example, say you subscribed to the events:
+            * "evt1", "evt2", "evt3". "evt1" returns an object (call it "evt1Obj"), "evt2" does not,
+            * "evt3" returns two objects (call it "evt3Obj-1" and "evt3Obj-2" respectively).
+            * Then the array passed to the callback will be: ["evt1Obj", "evt3Obj-1", "evt3Obj-2"].*
+            *
+            * @method subscribeAll
+            * @static
+            * @param {array} nameArray An array of Strings containing the names of events to subscribe to
+            * @param {function} callback The callback to be executed
+            */
+            subscribeAll: function (nameArray, callback) {
+                // Keeps track of the status of all the events being subscribed to
+                var events = [];
+
+                dojoArray.forEach(nameArray, function (eventName, i) {
+                    events.push({
+                        fired: false,
+                        args: null
+                    });
+
+                    topic.subscribe(eventName, function () {
+                        // If this is the fire time the event fired
+                        if (!events[i].fired) {
+                            // Mark the event has fired and capture it's arguments (if any)
+                            events[i].fired = true;
+                            events[i].args = Array.prototype.slice.call(arguments);
+
+                            // Check if all events have fired
+                            if (dojoArray.every(events, function (event) {
+                                return event.fired;
+                            })) {
+                                // If so construct an array with arguments from the events
+                                var eventArgs = [];
+                                dojoArray.forEach(events, function (event) {
+                                    eventArgs.append(event.args);
+                                });
+                                callback(eventArgs);
+                            }
+                        }
+                    });
+                });
+            },
+
+            // Specialized Variables *
+
+            /**
+            * Creates an object that acts like a lazy variable (i.e. a variable whose value is only
+            * resolved the first time it is retrieved, not when it is assigned). The value given to
+            * the lazy variable should be the return value of the given initFunc. The returned object
+            * has two methods:
+            *
+            * - get - returns the value of the variable, if it is the first time get is called, the
+            * the initFunc will be called to resolve the value of the variable.
+            * - reset - forces the variable to call the initFunc again the next time get is called
+            *
+            * @method createLazyVariable
+            * @static
+            * @param {function} initFunc A function to call to resolve the variable value
+            * @return {Object} The lazy varialbe
+            */
+            createLazyVariable: function (initFunc) {
+                var value = null;
+                return {
+                    reset: function () {
+                        value = null;
+                    },
+
+                    get: function () {
+                        if (value == null) {
+                            value = initFunc();
+                        }
+                        return value;
+                    }
+                };
+            },
+
+            // FUNCTION DECORATORS
+
+            /**
+            * Returns a function that has the same functionality as the given function, but
+            * can only be executed once (subsequent execution does nothing).
+            *
+            * @method once
+            * @static
+            * @param {function} func Function to be decorated
+            * @return {function} Decorated function that can be executed once
+            */
+            once: function (func) {
+                var ran = false;
+                return function () {
+                    if (!ran) {
+                        func();
+                        ran = true;
+                    }
+                };
+            },
+
+            // MISCELLANEOUS
+
+            /**
+            * Returns true if the given obj is undefined, false otherwise.
+            *
+            * @method isUndefined
+            * @static
+            * @param {object} obj Object to be checked
+            * @return {boolean} True if the given object is undefined, false otherwise
+            */
+            isUndefined: function (obj) {
+                return (typeof obj === 'undefined');
+            },
+
+            /**
+            * Compares two graphic objects.
+            *
+            * @method compareGraphics
+            * @static
+            * @param  {Object} one Graphic object
+            * @param  {Object} two Graphic object
+            * @return {boolean} True if the objects represent the same feature
+            */
+            compareGraphics: function (one, two) {
+                var oneKey = "0",
+                    twoKey = "1",
+                    objectIdField,
+                    oneLayer,
+                    twoLayer;
+
+                if (one && two &&
+                    $.isFunction(one.getLayer) && $.isFunction(two.getLayer)) {
+                    oneLayer = one.getLayer();
+                    twoLayer = two.getLayer();
+                    objectIdField = oneLayer.objectIdField;
+                    oneKey = oneLayer.url + one.attributes[objectIdField];
+                    twoKey = twoLayer.url + two.attributes[objectIdField];
+                }
+
+                return oneKey === twoKey;
+            },
+
+            /**
+            * Returns the width of the scrollbar in pixels. Since different browsers render scrollbars differently, the width may vary.
+            *
+            * @method scrollbarWidth
+            * @static
+            * @return {int} The width of the scrollbar in pixels
+            * @for Util
+            */
+            scrollbarWidth: function () {
+                var $inner = jQuery('<div style="width: 100%; height:200px;">test</div>'),
+                    $outer = jQuery('<div style="width:200px;height:150px; position: absolute; top: 0; left: 0; visibility: hidden; overflow:hidden;"></div>').append($inner),
+                    inner = $inner[0],
+                    outer = $outer[0],
+                    width1, width2;
+
+                jQuery('body').append(outer);
+                width1 = inner.offsetWidth;
+                $outer.css('overflow', 'scroll');
+                width2 = outer.clientWidth;
+                $outer.remove();
+
+                return (width1 - width2);
+            },
+
+            /**
+            * Checks if the height of the scrollable content of the body is taller than its height;
+            * if so, offset the content horizontally to accomodate for the scrollbar assuming target's width is
+            * set to "100%".
+            *
+            * @method adjustWidthForSrollbar
+            * @static
+            * @param {jObject} body A DOM node with a scrollbar (or not)
+            * @param {jObject} targets An array of jObjects to add the offset to
+            */
+            adjustWidthForSrollbar: function (body, targets) {
+                var offset = body.innerHeight() < body[0].scrollHeight ? this.scrollbarWidth() : 0;
+
+                dojoArray.map(targets, function (target) {
+                    target.css({
+                        right: offset
+                    });
+                });
+            },
+
+            /**
+            * Waits until a given function is available and executes a callback function.
+            *
+            * @method executeOnLoad
+            * @static
+            * @param {Object} target an object on which to wait for function to appear
+            * @param {function} func A function whose availability in question
+            * @param {function} callback The callback function to be executed after func is available
+            */
+            executeOnLoad: function (target, func, callback) {
+                var deferred = new Deferred(),
+                    handle;
+
+                deferred.then(function () {
+                    window.clearInterval(handle);
+                    //console.log("deffered resolved");
+
+                    callback();
+                });
+
+                handle = window.setInterval(function () {
+                    if ($.isFunction(target[func])) {
+                        deferred.resolve(true);
+                    }
+                }, 500);
+            },
+
+            /**
+            * Loops through all object properties and applies a given function to each. Resolves the given deferred when done.
+            *
+            * @method executeOnDone
+            * @static
+            * @param {object} o Object to look through
+            * @param {function} func A function to be executed with each object propety. Accepts two parameters: property and deferred to be resolved when it's done.
+            * @param {object} d A deferred to be resolved when all properties have been processed.
+            */
+            executeOnDone: function (o, func, d) {
+                var counter = 0,
+                    arr = [],
+                    deferred;
+
+                function fnOnDeferredCancel() {
+                    d.cancel();
+                }
+
+                function fnOnDeferredThen() {
+                    counter--;
+                    if (counter === 0) {
+                        d.resolve(true);
+                    }
+                }
+
+                d = d || new Deferred();
+
+                for (var q in o) {
+                    if (o.hasOwnProperty(q)) {
+                        arr.push(o[q]);
+                    }
+                }
+
+                counter = arr.length;
+
+                arr.forEach(function (p) {
+                    deferred = new Deferred(fnOnDeferredCancel);
+
+                    deferred.then(fnOnDeferredThen);
+
+                    func(p, deferred);
+                });
+
+                if (counter === 0) {
+                    d.resolve(true);
+                }
+            },
+
+            /**
+            * Generates an rfc4122 version 4 compliant guid.
+            * Taken from here: http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+            *
+            * @method guid
+            * @static
+            * @return {String} The generated guid string
+            */
+            guid: function () {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0,
+                        v = c === 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            },
+
+            /**
+            * Returns an appropriate where clause depending on whether the query
+            * is a String (returns a where clause with CASE INSENSITIVE comparison)
+            * or an integer.
+            *
+            * @method getWhereClause
+            * @static
+            * @param {String} varName ???
+            * @param {String | Number} query A query string
+            * @return {String} The generated "where" clause
+            */
+            getWhereClause: function (varName, query) {
+                if (this.isNumber(query)) {
+                    return String.format("{0}={1}", varName, query);
+                }
+                return String.format("Upper({0})=Upper(\'{1}\')", varName, query);
+            },
+
+            /**
+            * Converts html into text by replacing
+            * all html tags with their appropriate special characters
+            *
+            * @method stripHtml
+            * @static
+            * @param {String} html HTML to be converted to text
+            * @return {String} The HTML in text form
+            */
+            stripHtml: function (html) {
+                var tmp = document.createElement("DIV");
+                // jquery .text function converts html into text by replacing
+                // all html tags with their appropriate special characters
+                $(tmp).text(html);
+                return tmp.textContent || tmp.innerText || "";
+            },
+
+            // Query geometry
+            /*
+            * Create a new extent based on the current map size, a point (X/Y coordinates), and a pixel tolerance value.
+            * @method pointToExtent
+            * @param {Object} map The map control
+            * @param {Object} point The location on screen (X/Y coordinates)
+            * @param {Number} toleranceInPixel A value indicating how many screen pixels the extent should be from the point
+            * @returns {Object} a new extent calculated from the given parameters
+            *
+            */
+            pointToExtent: function (map, point, toleranceInPixel) {
+                var pixelWidth = map.extent.getWidth() / map.width,
+                    toleraceInMapCoords = toleranceInPixel * pixelWidth;
+
+                return new Extent(point.x - toleraceInMapCoords,
+                              point.y - toleraceInMapCoords,
+                              point.x + toleraceInMapCoords,
+                              point.y + toleraceInMapCoords,
+                              map.spatialReference);
+            },
+            /**
+            * Checks if the string ends with the supplied suffix.
+            *
+            * @method endsWith
+            * @static
+            * @param {String} str String to be evaluated
+            * @param {String} suffix Ending string to be matched
+            * @return {boolean} True if suffix matches
+            */
+            endsWith: function (str, suffix) {
+                return str.indexOf(suffix, str.length - suffix.length) !== -1;
+            },
+
+            /**
+            * Applies supplied xslt to supplied xml. IE always returns a String; others may return a documentFragment or a jObject.
+            *
+            * @method transformXML
+            * @static
+            * @param {String} xmlurl Location of the xml file
+            * @param {String} xslurl Location of the xslt file
+            * @param {Function} callback The callback to be executed
+            * @param {Boolean} returnFragment True if you want a document fragment returned (doesn't work in IE)}
+            */
+            transformXML: function (xmlurl, xslurl, callback, returnFragment) {
+                var xmld = new Deferred(),
+                    xsld = new Deferred(),
+                    xml, xsl,
+                    dlist = [xmld, xsld],  
+                    result,
+                    error,
+                    that = this;
+
+                that.afterAll(dlist, function () {
+                    if (!error) {
+                        result = applyXSLT(xml, xsl);
+                    }
+                    callback(error, result);
+                });
+
+                // Transform XML using XSLT
+                function applyXSLT(xmlString, xslString) {
+                    var output;
+                    if (window.ActiveXObject || window.hasOwnProperty("ActiveXObject")) { // IE
+                        var xslt = new ActiveXObject("Msxml2.XSLTemplate"),
+                            xmlDoc = new ActiveXObject("Msxml2.DOMDocument"),
+                            xslDoc = new ActiveXObject("Msxml2.FreeThreadedDOMDocument"),
+                            xslProc;
+
+                        xmlDoc.loadXML(xmlString);
+                        xslDoc.loadXML(xslString);
+                        xslt.stylesheet = xslDoc;
+                        xslProc = xslt.createProcessor();
+                        xslProc.input = xmlDoc;
+                        xslProc.transform();
+                        output = xslProc.output;
+                    } else { // Chrome/FF/Others
+                        var xsltProcessor = new XSLTProcessor();
+                        xsltProcessor.importStylesheet(xslString);
+                        output = xsltProcessor.transformToFragment(xmlString, document);
+
+                        // turn a document fragment into a proper jQuery object
+                        if (!returnFragment) {
+                            output = ($('body')
+                                .append(output)
+                                .children().last())
+                                .detach();
+                        }
+                    }
+                    return output;
+                }
+
+                // Distinguish between XML/XSL deferred objects to resolve and set response
+                function resolveDeferred(filename, responseObj) {
+                    if (filename.endsWith(".xsl")) {
+                        xsl = responseObj.responseText;
+                        xsld.resolve();
+                    } else {
+                        xml = responseObj.responseText;
+                        xmld.resolve();
+                    }
+                }
+                /*
+               function loadXMLFileIE9(filename) {
+                   var xdr = new XDomainRequest();
+                    xdr.contentType = "text/plain";
+                    xdr.open("GET", filename);
+                    xdr.onload = function () {
+                        resolveDeferred(filename, xdr);
+                    };
+                    xdr.onprogress = function () { };
+                    xdr.ontimeout = function () { };
+                    xdr.onerror = function () {
+                        error = true;
+                        resolveDeferred(filename, xdr);
+                    };
+                    window.setTimeout(function () {
+                        xdr.send();
+                    }, 0); 
+
+                   
+               }
+               */
+                // IE10+
+                function loadXMLFileIE(filename) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.open("GET", filename);
+                    try {
+                        xhttp.responseType = "msxml-document";
+                    } catch (err) { } // Helping IE11
+                    xhttp.onreadystatechange = function () {
+                        if (xhttp.readyState === 4) {
+                            if (xhttp.status !== 200) {
+                                error = true;
+                            }
+                            resolveDeferred(filename, xhttp);
+                        }
+                    };
+                    xhttp.send("");
+                }
+
+                
+
+                if ('withCredentials' in new XMLHttpRequest() && "ActiveXObject" in window) { // IE10 and above
+                    loadXMLFileIE(xmlurl);
+                    loadXMLFileIE(xslurl);
+                } else if (window.XDomainRequest) { // IE9 and below
+                   /*
+                    loadXMLFileIE9(xmlurl);
+                    loadXMLFileIE9(xslurl);
+                   */
+                   // dataType need to be set to "text" for xml doc requests.                   
+                   $.ajax({
+                        type: "GET",
+                        url: xmlurl,
+                        dataType:  "text",
+                        cache: false,
+                        success: function (data) {
+                            xml = data;
+                            xmld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xmld.resolve();
+                        }
+                    });
+
+                    $.ajax({
+                        type: "GET",
+                        url: xslurl,
+                        dataType: "text",
+                        cache: false,
+                        success: function (data) {
+                            xsl = data;
+                            xsld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xsld.resolve();
+                        }
+                    });
+                    
+                } else { // Good browsers (Chrome/FF)
+
+                   $.ajax({
+                        type: "GET",
+                        url: xmlurl,
+                        dataType: "xml",
+                        cache: false,
+                        success: function (data) {
+                            xml = data;
+                            xmld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xmld.resolve();
+                        }
+                    });
+
+                    $.ajax({
+                        type: "GET",
+                        url: xslurl,
+                        dataType: "xml",
+                        cache: false,
+                        success: function (data) {
+                            xsl = data;
+                            xsld.resolve();
+                        },
+                        error: function () {
+                            error = true;
+                            xsld.resolve();
+                        }
+                    });
+                }
+            },
+
+            /**
+            * [settings.linkLists]: false
+            */
+            keyboardSortable: function (ulNodes, settings) {
+                settings = dojoLang.mixin({
+                    linkLists: false,
+
+                    onStart: function () { },
+                    onUpdate: function () { },
+                    onStop: function () { }
+                }, settings);
+
+                ulNodes.each(function (index, _ulNode) {
+                    var ulNode = $(_ulNode),
+                        liNodes = ulNode.find("> li"),
+                        sortHandleNodes = liNodes.find(".sort-handle"),
+                        isReordering = false,
+                        grabbed;
+
+                    // Reset focus, set aria attributes, and styling
+                    function reorderReset(handle, liNodes, liNode) {
+                        handle.focus();
+                        liNodes.attr("aria-dropeffect", "move");
+                        liNode.attr("aria-grabbed", "true").removeAttr("aria-dropeffect");
+                    }
+
+                    sortHandleNodes
+                        .focusout(function (event) {
+                            var node = $(this).closest("li");
+
+                            // if the list is not being reordered right now, release list item
+                            if (node.hasClass("list-item-grabbed") && !isReordering) {
+                                liNodes.removeAttr("aria-dropeffect");
+                                node
+                                    .removeClass("list-item-grabbed")
+                                    .attr({ "aria-selected": false, "aria-grabbed": false });
+
+                                grabbed = false;
+
+                                console.log("Keyboard Sortable: OnStop -> ", event);
+                                settings.onStop.call(null, event, { item: null });
+                            }
+                        })
+                        .on("keyup", function (event) {
+                            var liNode = $(this).closest("li"),
+                                liId = liNode[0].id,
+                                liIdArray = ulNode.sortable("toArray"),
+                                liIndex = dojoArray.indexOf(liIdArray, liId);
+
+                            // Toggle grabbed state and aria attributes (13 = enter, 32 = space bar)
+                            if (event.which === 13 || event.which === 32) {
+                                if (grabbed) {
+                                    liNodes.removeAttr("aria-dropeffect");
+                                    liNode
+                                        .attr("aria-grabbed", "false")
+                                        .removeClass("list-item-grabbed");
+
+                                    console.log("Keyboard Sortable: OnStop -> ", liNode);
+                                    settings.onStop.call(null, event, { item: liNode });
+
+                                    grabbed = false;
+                                } else {
+                                    liNodes.attr("aria-dropeffect", "move");
+                                    liNode
+                                        .attr("aria-grabbed", "true")
+                                        .removeAttr("aria-dropeffect")
+                                        .addClass("list-item-grabbed");
+
+                                    console.log("Keyboard Sortable: OnStart -> ", liNode);
+                                    settings.onStart.call(null, event, { item: liNode });
+
+                                    grabbed = true;
+                                }
+                                // Keyboard up (38) and down (40)
+                            } else if (event.which === 38) {
+                                if (grabbed) {
+                                    // Don't move up if first layer in list
+                                    if (liIndex > 0) {
+                                        isReordering = true;
+
+                                        liNode.prev().before(liNode);
+
+                                        reorderReset($(this), liNodes, liNode);
+
+                                        grabbed = true;
+                                        liIndex -= 1;
+
+                                        console.log("Keyboard Sortable: OnUpdate -> ", liNode);
+                                        settings.onUpdate.call(null, event, { item: liNode });
+
+                                        isReordering = false;
+                                    }
+                                } else {
+                                    // if lists are linked, jump to the last item of the previous list, if any
+                                    if (settings.linkLists &&
+                                        liIndex === 0 &&
+                                        index !== 0) {
+                                        liNode = $(ulNodes[index - 1]).find("> li:last");
+                                    } else {
+                                        liNode = liNode.prev();
+                                    }
+
+                                    liNode.find(":tabbable:first").focus();
+                                }
+                            } else if (event.which === 40) {
+                                if (grabbed) {
+                                    // Don't move down if last layer in list
+                                    if (liIndex < liNodes.length - 1) {
+                                        isReordering = true;
+
+                                        liNode.next().after(liNode);
+
+                                        reorderReset($(this), liNodes, liNode);
+
+                                        grabbed = true;
+                                        liIndex += 1;
+
+                                        console.log("Keyboard Sortable: OnUpdate -> ", liNode);
+                                        settings.onUpdate.call(null, event, { item: liNode });
+
+                                        isReordering = false;
+                                    }
+                                } else {
+                                    // if lists are linked, jump to the first item of the next list, if any
+                                    if (settings.linkLists &&
+                                        liIndex === liNodes.length - 1 &&
+                                        index < ulNodes.length - 1) {
+                                        liNode = $(ulNodes[index + 1]).find("> li:first");
+                                    } else {
+                                        liNode = liNode.next();
+                                    }
+
+                                    liNode.find(":tabbable:first").focus();
+                                }
+                            }
+                        });
+                });
+            }
+        };
+    });

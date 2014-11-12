@@ -1,5 +1,13 @@
-/*! ramp-gis-viewer Plugins 09-09-2014 13:44:32 : v. 2.0.0 
- * 
- * RAMP GIS viewer - Bobcat; Sample of an implementation of RAMP 
- **/
-RAMP.plugins.featureInfoParser.tempParse=function(a){"use strict";var b=a.match(/value=(-?\d+\.?\d?)\d*\n/),c=a.match(/unit=(.*)\n/);return b=b?b[1]:"",c=c?c[1]:"","<p>{0} &deg;C</p>".format(b,c)};
+﻿/* global RAMP, console */
+
+console.log('loading tempParse');
+RAMP.plugins.featureInfoParser.tempParse = function (data) {
+    "use strict";
+
+    var val = data.match(/value=(-?\d+\.?\d?)\d*\n/),
+        unit = data.match(/unit=(.*)\n/);
+    val = val ? val[1] : '';
+    unit = unit ? unit[1] : '';
+    return "<p>{0} &deg;C</p>".format(val, unit);
+};
+console.log('loaded tempParse');
