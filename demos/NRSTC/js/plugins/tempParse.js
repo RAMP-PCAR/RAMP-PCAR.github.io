@@ -1,13 +1,5 @@
-﻿/* global RAMP, console */
-
-console.log('loading tempParse');
-RAMP.plugins.featureInfoParser.tempParse = function (data) {
-    "use strict";
-
-    var val = data.match(/value=(-?\d+\.?\d?)\d*\n/),
-        unit = data.match(/unit=(.*)\n/);
-    val = val ? val[1] : '';
-    unit = unit ? unit[1] : '';
-    return "<p>{0} &deg;C</p>".format(val, unit);
-};
-console.log('loaded tempParse');
+/*! ramp-pcar Plugins 12-11-2014 15:03:59 : v. 3.0.1 
+ * 
+ * RAMP GIS viewer - Canada Goose; Sample of an implementation of RAMP 
+ **/
+RAMP.plugins.featureInfoParser.tempParse=function(a){"use strict";var b=a.match(/value=(-?\d+\.?\d?)\d*\n/),c=a.match(/unit=(.*)\n/);return b=b?b[1]:"",c=c?c[1]:"","<p>{0} &deg;C</p>".format(b,c)};
