@@ -1,11 +1,8 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
     <title>Working Examples</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -42,7 +39,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -52,7 +49,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -69,8 +66,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -80,7 +77,7 @@
                             <div class="form-group">
                                 <label for="wb-srch-q">Search website</label>
                                 <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
-                                <input type="hidden" name="q" value="site:/ OR site:github.com/environment-canada/" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
                             </div>
                             <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
                         </form>
@@ -122,7 +119,7 @@
         
 <h1 id="working-examples">Working Examples</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -132,18 +129,32 @@
   </thead>
   <tbody>
     <tr>
-      <td>NRSTC</td>
-      <td><a href="/demos/NRSTC/ramp-en.html">link</a></td>
-      <td>A Simple Implementation of the built-in RAMP templates</td>
+      <td>NRSTC - RAMP Core Theme</td>
+      <td><a href="/demos/NRSTC/core/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Core Theme</td>
+    </tr>
+    <tr>
+      <td>NRSTC - RAMP Usability Theme</td>
+      <td><a href="/demos/NRSTC/usability/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Usability Theme</td>
+    </tr>
+    <tr>
+      <td>NRSTC - RAMP Intranet Theme</td>
+      <td><a href="/demos/NRSTC/intranet/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Intranet Theme</td>
+    </tr>
+    <tr>
+      <td>NRSTC - RAMP Canada.ca Theme</td>
+      <td><a href="/demos/NRSTC/canada/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Canada.ca Theme</td>
     </tr>
   </tbody>
 </table>
 
-
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>
             <dd>
-                <time>2014-07-07</time>
+                <time>2014-11-13</time>
             </dd>
         </dl>
     </main>
@@ -166,7 +177,7 @@
                 <h3>Contact us</h3>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://github.com/Environment-Canada/RAMP-AF/issues/new">Questions or comments?</a>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
                     </li>
                 </ul>
             </section>
@@ -174,10 +185,10 @@
                 <h3>News</h3>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://github.com/Environment-Canada/RAMP-AF/pulse">Recent project activity</a>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
                     </li>
                     <li>
-                        <a href="https://github.com/Environment-Canada/RAMP-AF/graphs">Project statistics</a>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
                     </li>
                 </ul>
             </section>
@@ -190,5 +201,19 @@
     <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
     <!--<![endif]-->
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg")
+                .toc({
+                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>
