@@ -160,7 +160,7 @@
 
 <p>This will add the grunt and bower commands to your system path, allowing it to be run from any directory. You might want to restart your machine, just in case.</p>
 
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="getting-started">Getting Started</h2>
 <p>To run the build tool do the following:</p>
 
 <ol>
@@ -174,22 +174,22 @@
 
 <p>if you get an error that something is not found, try running <strong>npm install</strong> again.</p>
 
-<h3 id="default-task">Default Task</h3>
+<h2 id="default-task">Default Task</h2>
 <p>Unless you specify a task to run, <strong>grunt</strong> command creates an unminified development, minified and tarballed distribution packages. They are located in <strong>build</strong>, <strong>dist</strong>, and <strong>tarball</strong> folders respectivelly.</p>
 
-<h3 id="other-tasks">Other Tasks</h3>
+<h2 id="other-tasks">Other Tasks</h2>
 
-<h4 id="api">api</h4>
+<h3 id="api">api</h3>
 <p>Generate API documentation using YUIDoc and annotated source code documents using Docco and save them in “<strong>docs/docco</strong>” and “<strong>docs/yuidoc</strong>” folder. Use the following to run this task:</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt api</code></pre></div>
 
-<h4 id="build">build</h4>
+<h3 id="build">build</h3>
 <p>Creates an unminified development package. Use the following to run this task:</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt build</code></pre></div>
 
-<h4 id="clean">clean</h4>
+<h3 id="clean">clean</h3>
 <p>Removes all temporary and build folders:</p>
 
 <ul>
@@ -202,19 +202,19 @@
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt cleanAll</code></pre></div>
 
-<h4 id="deploy">deploy</h4>
+<h3 id="deploy">deploy</h3>
 <p>Creates a minified distribution package and copies it into to a specified location. This task <em>will</em> fail if there are any JS errors present. Use the following to run this task:</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt deploy</code></pre></div>
 
 <p>Note: The target folder is cleaned prior to copying files.</p>
 
-<h4 id="dist">dist</h4>
+<h3 id="dist">dist</h3>
 <p>Identical to the default task. Use the following to run this task:</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt dist</code></pre></div>
 
-<h4 id="servebuild">serve:build</h4>
+<h3 id="servebuild">serve:build</h3>
 <p>Creates an unminified development package, starts a node server on port 3002, watches for modified JS, CSS and other files, and reloads HTML page on change.</p>
 
 <p>Use the following to run this task:</p>
@@ -225,7 +225,7 @@
 http://localhost:3002/ramp-en.html
 http://localhost:3002/ramp-fr.html</p>
 
-<h4 id="servedist">serve:dist</h4>
+<h3 id="servedist">serve:dist</h3>
 <p>Creates a minified distribution package and starts a node server on port 3002.</p>
 
 <p>Use the following to run this task:</p>
@@ -238,29 +238,29 @@ http://localhost:3002/ramp-fr.html</p>
 
 <p>Note: This task does not monitor files and will not rebuild the package or reload the pages.</p>
 
-<h3 id="config-file---packagejson">Config File - package.json</h3>
+<h2 id="config-file---packagejson">Config File - package.json</h2>
 
 <p>package.json contains the metadata about the build tool project, grunt dependencies to be installed and some of the variables used by the build tool such as various paths, folders, and file names. package.json is a pure JSON file (no comments, no unquoted strings, no multiline values allowed). All the variables related to the build tool stored in <strong>ramp</strong> object.</p>
 
-<h4 id="rampconcatjslib">ramp.concat.jsLib</h4>
+<h3 id="rampconcatjslib">ramp.concat.jsLib</h3>
 <p>A list of JS libraries’ files to be concatenated together for use in RAMP.</p>
 
-<h4 id="rampconcatcsslib">ramp.concat.cssLib</h4>
+<h3 id="rampconcatcsslib">ramp.concat.cssLib</h3>
 <p>A list of CSS libraries’ files to be concatenated together for use in RAMP.</p>
 
-<h4 id="rampdeploytofolder">ramp.deployToFolder</h4>
+<h3 id="rampdeploytofolder">ramp.deployToFolder</h3>
 <p>A path to the deploy folder.</p>
 
-<h4 id="rampdoccopath">ramp.docco.path</h4>
+<h3 id="rampdoccopath">ramp.docco.path</h3>
 <p>A path to the JavaScript folder to be parsed.</p>
 
-<h4 id="rampdoccooutdir">ramp.docco.outdir</h4>
+<h3 id="rampdoccooutdir">ramp.docco.outdir</h3>
 <p>A path where to put generated documents.</p>
 
-<h4 id="yuidocconfig">yuidocconfig</h4>
+<h3 id="yuidocconfig">yuidocconfig</h3>
 <p>The Config object for YUIDoc is located in yuidoc.json file. You can read about its structure here: <a href="http://yui.github.io/yuidoc/args/index.html">http://yui.github.io/yuidoc/args/index.html</a></p>
 
-<h3 id="grunt-modules">Grunt Modules</h3>
+<h2 id="grunt-modules">Grunt Modules</h2>
 <p>The build tool uses a number of Grunt-specific and general <a href="https://www.npmjs.org/">NPM</a> modules. They are:</p>
 
 <ul>
@@ -274,7 +274,6 @@ http://localhost:3002/ramp-fr.html</p>
   <li><a href="https://github.com/gruntjs/grunt-contrib-less">grunt-contrib-less</a></li>
   <li><a href="https://github.com/outaTiME/grunt-replace">grunt-replace</a></li>
   <li><a href="https://github.com/nDmitry/grunt-autoprefixer">grunt-autoprefixer</a></li>
-  <li><a href="https://github.com/Keyang/node-csvtojson">csvtojson</a></li>
   <li><a href="https://github.com/mikeal/request">request</a></li>
   <li><a href="https://github.com/DavidSouther/grunt-docco">grunt-docco</a></li>
   <li><a href="https://github.com/gruntjs/grunt-contrib-yuidoc">grunt-contrib-yuidoc</a></li>
@@ -285,19 +284,18 @@ http://localhost:3002/ramp-fr.html</p>
   <li><a href="https://github.com/gruntjs/grunt-contrib-htmlmin">grunt-contrib-htmlmin</a></li>
   <li><a href="https://github.com/gustavohenke/grunt-jscs-checker">grunt-jscs-checker</a></li>
   <li><a href="https://github.com/spatools/grunt-html-build">grunt-html-build</a></li>
-  <li><a href="https://github.com/JamesMGreene/grunt-chmod">grunt-chmod</a></li>
   <li><a href="https://github.com/gruntjs/grunt-contrib-compress">grunt-contrib-compress</a></li>
   <li><a href="https://www.npmjs.org/package/grunt-json-minify">grunt-json-minify</a></li>
 </ul>
 
-<h3 id="other">Other</h3>
+<h2 id="other">Other</h2>
 
-<h4 id="making-your-grunt-snarl">Making your Grunt Snarl</h4>
+<h3 id="making-your-grunt-snarl">Making your Grunt Snarl</h3>
 <p>To see sweet notification balloons when your Grunt wants to tell you that your task has failed (or when JS has been JShinted successfully, or when LESS has been converted to proper CSS), install <a href="http://snarl.fullphat.net/">Snarl</a> from here: <a href="http://sourceforge.net/projects/snarlwin/files/latest/download?source=files">http://sourceforge.net/projects/snarlwin/files/latest/download?source=files</a></p>
 
 <p>You don’t need to do anything else.</p>
 
-<h4 id="adding-javascript-library">Adding JavaScript Library</h4>
+<h3 id="adding-javascript-library">Adding JavaScript Library</h3>
 <p>To add a JavaScript library, do the following:</p>
 
 <ol>
@@ -308,7 +306,7 @@ http://localhost:3002/ramp-fr.html</p>
   <li>run the tool;</li>
 </ol>
 
-<h4 id="adding-css-library">Adding CSS Library</h4>
+<h3 id="adding-css-library">Adding CSS Library</h3>
 <p>To add a CSS library, do the following:</p>
 
 <ol>
@@ -319,9 +317,9 @@ http://localhost:3002/ramp-fr.html</p>
   <li>run the tool;</li>
 </ol>
 
-<h3 id="troubleshooting">Troubleshooting</h3>
+<h2 id="troubleshooting">Troubleshooting</h2>
 
-<h4 id="task-not-found">Task Not Found</h4>
+<h3 id="task-not-found">Task Not Found</h3>
 <p>If you get a “Task not found” error like this one:</p>
 
 <pre><code>Warning: Task "***" not found.  Use --force to continue.
@@ -333,7 +331,7 @@ Aborted due to warnings.
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-11-14</time>
+                        <time>2014-11-21</time>
                     </dd>
                 </dl>
             </main>
@@ -354,14 +352,14 @@ Aborted due to warnings.
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/started-en.html">
+            <a class="list-group-item" href="started-en.html">
                 Getting Started
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                    <a class="list-group-item" href="quick-start-en.html">
                         Quick Start Guide
                     </a>
                 </li>
@@ -369,94 +367,104 @@ Aborted due to warnings.
         </li>
 
         <li>
-            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
                 Customization Introduction
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/json-config-en.html">
+                    <a class="list-group-item" href="json-config-en.html">
                         JSON Config Definition
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                    <a class="list-group-item" href="template-guide-en.html">
                         Templating Guide
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-example-en.html">
+                    <a class="list-group-item" href="template-example-en.html">
                         Template Example
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                    <a class="list-group-item" href="template-summary-en.html">
                         Template Summary
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/proxy.html">
+                    <a class="list-group-item" href="proxy.html">
                         Proxy Configuration
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/add-new-module.html">
+                    <a class="list-group-item" href="add-new-module.html">
                         Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
                     </a>
                 </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+            <a class="list-group-item" href="architecture-overview-en.html">
                 Architecture Overview
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                    <a class="list-group-item" href="dojo-setup-en.html">
                         Initialization
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                    <a class="list-group-item" href="namingconventions-en.html">
                         Naming Conventions
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                    <a class="list-group-item" href="module-overview-en.html">
                         Module Overview
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                    <a class="list-group-item" href="external-libraries-en.html">
                         External Library Implementations
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                    <a class="list-group-item" href="build-tool-en.html">
                         Build Tool
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
                         Basemap Support
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                    <a class="list-group-item" href="wms-support-en.html">
                         WMS Support
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
                         Advanced Toolbar
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                    <a class="list-group-item" href="static-layer-support-en.html">
                         Static Layer Support
                     </a>
                 </li>
@@ -464,13 +472,13 @@ Aborted due to warnings.
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
+            <a class="list-group-item" href="/api/index-en.html">
                 API Reference
             </a>
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/known-issues-en.html">
+            <a class="list-group-item" href="known-issues-en.html">
                 Known Issues
             </a>
         </li>
@@ -526,9 +534,9 @@ Aborted due to warnings.
     <script type="text/javascript">
         $(document).ready(function () {
             $('.toc')
-                .addClass("mrgn-bttm-lg")
+                .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({
-                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
                     listType: 'ul',
                     selector: 'h2, h3, h4, h5, h6, .include_toc',
                     showSpeed: 0

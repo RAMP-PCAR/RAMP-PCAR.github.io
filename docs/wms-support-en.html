@@ -143,11 +143,15 @@
 
 <h2 id="supported-features-in-ramp">Supported Features in RAMP</h2>
 
-<p>RAMP can display a layer from a WMS.  It will display as an image on the map, and will appear in the layer selector.  Layer visibility and opacity can be adjusted.  WMS layers can be re-ordered amongst themselves, but must always remain underneath any feature layers on the map.  The WMS must support a projection that is compatible with the basemap being used.  </p>
+<p>RAMP can display a layer from a WMS.  It will display as an image on the map and will appear in the layer selector.  Layer visibility and opacity can be adjusted.  WMS layers can be re-ordered amongst themselves, but must always remain underneath any feature layers on the map.  The WMS must support a projection that is compatible with the basemap being used.</p>
 
-<p>A legend can be displayed along with the WMS.  It will be displayed in the metadata panel.  If this feature is enabled, an image path can be specified.  This path can be the GetLegend request of the WMS.</p>
+<p>Legend support is available if configured in RAMP and provided that the WMS source implements the GetLegendGraphic request.  In the RAMP configuration an entry should be made in <code>legendMimeType</code>, if this entry is not present then no legend will be displayed.</p>
 
 <p>Clicking the WMS layer on the map is also supported.  Data returned from the getFeatureInfo function of the WMS is displayed in the subpanel.  To support feature info requests developers will have to provide their own parsers.</p>
+
+<h3 id="proxy-considerations">Proxy Considerations</h3>
+
+<p>If the WMS does not allow <a href="http://www.w3.org/TR/cors/#access-control-allow-origin-response-header">CORS</a> requests then a proxy is required.  The proxy should be located on the same server as RAMP so it does not violate the same origin policy.  ESRI distributes <a href="https://github.com/Esri/resource-proxy">proxy scripts</a> for .Net, Java and PHP which can be used for this purpose (these are distributed under an Apache 2.0 license).  If a proxy is configured it should be set in the config file or by the config service (see <a href="json-config-en.html#proxyUrl">proxyUrl</a>).</p>
 
 <h3 id="getfeatureinfo-support">GetFeatureInfo Support</h3>
 
@@ -155,7 +159,7 @@
 
 <h4 id="config-file">Config File</h4>
 
-<p>Within each wmsLayers[] entry add a featureInfo section, this section is optional and its presence enables the click support for getFeatureInfo queries.
+<p>Within each wms[] entry add a featureInfo section, this section is optional and its presence enables the click support for getFeatureInfo queries.
 A featureInfo section should contain two keys: mimeType, a string containing the format that should be requested from the server; and parser, a string
 linking to the parser plugin which will convert the response from the server into something appropriate for display.</p>
 
@@ -199,7 +203,7 @@ RAMP.plugins.featureInfoParser .  The plugin itself should define a function whi
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-11-14</time>
+                        <time>2014-11-21</time>
                     </dd>
                 </dl>
             </main>
@@ -220,14 +224,14 @@ RAMP.plugins.featureInfoParser .  The plugin itself should define a function whi
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/started-en.html">
+            <a class="list-group-item" href="started-en.html">
                 Getting Started
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                    <a class="list-group-item" href="quick-start-en.html">
                         Quick Start Guide
                     </a>
                 </li>
@@ -235,94 +239,104 @@ RAMP.plugins.featureInfoParser .  The plugin itself should define a function whi
         </li>
 
         <li>
-            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
                 Customization Introduction
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/json-config-en.html">
+                    <a class="list-group-item" href="json-config-en.html">
                         JSON Config Definition
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                    <a class="list-group-item" href="template-guide-en.html">
                         Templating Guide
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-example-en.html">
+                    <a class="list-group-item" href="template-example-en.html">
                         Template Example
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                    <a class="list-group-item" href="template-summary-en.html">
                         Template Summary
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/proxy.html">
+                    <a class="list-group-item" href="proxy.html">
                         Proxy Configuration
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/add-new-module.html">
+                    <a class="list-group-item" href="add-new-module.html">
                         Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
                     </a>
                 </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+            <a class="list-group-item" href="architecture-overview-en.html">
                 Architecture Overview
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                    <a class="list-group-item" href="dojo-setup-en.html">
                         Initialization
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                    <a class="list-group-item" href="namingconventions-en.html">
                         Naming Conventions
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                    <a class="list-group-item" href="module-overview-en.html">
                         Module Overview
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                    <a class="list-group-item" href="external-libraries-en.html">
                         External Library Implementations
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                    <a class="list-group-item" href="build-tool-en.html">
                         Build Tool
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
                         Basemap Support
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                    <a class="list-group-item" href="wms-support-en.html">
                         WMS Support
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
                         Advanced Toolbar
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                    <a class="list-group-item" href="static-layer-support-en.html">
                         Static Layer Support
                     </a>
                 </li>
@@ -330,13 +344,13 @@ RAMP.plugins.featureInfoParser .  The plugin itself should define a function whi
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
+            <a class="list-group-item" href="/api/index-en.html">
                 API Reference
             </a>
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/known-issues-en.html">
+            <a class="list-group-item" href="known-issues-en.html">
                 Known Issues
             </a>
         </li>
@@ -392,9 +406,9 @@ RAMP.plugins.featureInfoParser .  The plugin itself should define a function whi
     <script type="text/javascript">
         $(document).ready(function () {
             $('.toc')
-                .addClass("mrgn-bttm-lg")
+                .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({
-                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
                     listType: 'ul',
                     selector: 'h2, h3, h4, h5, h6, .include_toc',
                     showSpeed: 0

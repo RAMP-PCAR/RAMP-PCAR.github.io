@@ -145,15 +145,7 @@
 <h2 id="object-outline">Object Outline</h2>
 
 <ul>
-  <li>stringResources</li>
-  <li>gridstrings
-    <ul>
-      <li>oPaginate</li>
-      <li>oAria</li>
-    </ul>
-  </li>
   <li>lang</li>
-  <li>helpContent</li>
   <li>geometryService</li>
   <li>proxyUrl</li>
   <li>spatialReference</li>
@@ -178,15 +170,11 @@
   <li>advancedToolbar
     <ul>
       <li>enabled</li>
-      <li>tools
+      <li>tools (collection)
         <ul>
-          <li>toolname (1 per tool)
-            <ul>
-              <li>name</li>
-              <li>selector</li>
-              <li>enabled</li>
-            </ul>
-          </li>
+          <li>name</li>
+          <li>selector</li>
+          <li>enabled</li>
         </ul>
       </li>
     </ul>
@@ -195,13 +183,6 @@
     <ul>
       <li>minLevel</li>
       <li>maxLevel</li>
-      <li>levels (collection)
-        <ul>
-          <li>level</li>
-          <li>resolution</li>
-          <li>scale</li>
-        </ul>
-      </li>
     </ul>
   </li>
   <li>basemaps (collection)
@@ -217,132 +198,109 @@
       <li>description</li>
     </ul>
   </li>
-  <li>featureLayers (collection)
+  <li>layers
     <ul>
-      <li>id</li>
-      <li>displayName</li>
-      <li>url</li>
-      <li>datagrid
+      <li>featureLayers (collection)
         <ul>
-          <li>rowsPerPage</li>
-          <li>gridColumns (collection)
+          <li>id</li>
+          <li>displayName</li>
+          <li>url</li>
+          <li>datagrid
             <ul>
-              <li>id</li>
-              <li>fieldName</li>
-              <li>width</li>
-              <li>isSortable</li>
-              <li>sortType</li>
-              <li>alignment</li>
-              <li>title</li>
-              <li>columnTemplate</li>
-            </ul>
-          </li>
-          <li>summaryRowTemplate</li>
-        </ul>
-      </li>
-      <li>layerAttributes</li>
-      <li>filter</li>
-      <li>mapTipSettings
-        <ul>
-          <li>hoverTemplate</li>
-          <li>anchorTemplate</li>
-        </ul>
-      </li>
-      <li>symbology
-        <ul>
-          <li>renderer
-            <ul>
-              <li>type</li>
-              <li>key1</li>
-              <li>key2</li>
-              <li>Key3</li>
-            </ul>
-          </li>
-          <li>icons
-            <ul>
-              <li>default
+              <li>rowsPerPage</li>
+              <li>gridColumns (collection)
                 <ul>
-                  <li>imageUrl</li>
-                  <li>legendText</li>
+                  <li>id</li>
+                  <li>fieldName</li>
+                  <li>width</li>
+                  <li>isSortable</li>
+                  <li>sortType</li>
+                  <li>alignment</li>
+                  <li>title</li>
+                  <li>columnTemplate</li>
                 </ul>
               </li>
             </ul>
           </li>
-        </ul>
-      </li>
-      <li>uuid</li>
-      <li>detailTemplate</li>
-      <li>nameField</li>
-      <li>settings
-        <ul>
-          <li>enabled</li>
-          <li>opacity
+          <li>layerAttributes</li>
+          <li>templates
             <ul>
-              <li>enabled</li>
-              <li>default</li>
+              <li>hover</li>
+              <li>anchor</li>
+              <li>summary</li>
+              <li>detail</li>
             </ul>
           </li>
-        </ul>
-      </li>
-      <li>isStatic (static layer only)</li>
-      <li>layerType (static layer only)</li>
-    </ul>
-  </li>
-  <li>wmsLayers (collection)
-    <ul>
-      <li>id</li>
-      <li>displayName</li>
-      <li>url</li>
-      <li>uuid</li>
-      <li>extent</li>
-      <li>format</li>
-      <li>settings
-        <ul>
-          <li>enabled</li>
-          <li>opacity</li>
-        </ul>
-      </li>
-      <li>layerInfo
-        <ul>
-          <li>name</li>
-          <li>title</li>
-          <li>allExtents (collection)</li>
-          <li>spatialReferences (collection)</li>
-          <li>subLayers (collection)</li>
-        </ul>
-      </li>
-      <li>legend
-        <ul>
-          <li>enable</li>
-          <li>legendURL</li>
-        </ul>
-      </li>
-      <li>symbology
-        <ul>
-          <li>renderer
+          <li>symbology
             <ul>
               <li>type</li>
-              <li>key1</li>
-              <li>key2</li>
-              <li>Key3</li>
-            </ul>
-          </li>
-          <li>icons
-            <ul>
-              <li>default
+              <li>label</li>
+              <li>imageUrl</li>
+              <li>defaultImageUrl</li>
+              <li>field1</li>
+              <li>field2</li>
+              <li>field3</li>
+              <li>valueMaps (collection)
                 <ul>
+                  <li>label</li>
+                  <li>value</li>
                   <li>imageUrl</li>
-                  <li>legendText</li>
+                </ul>
+              </li>
+              <li>field</li>
+              <li>minValue</li>
+              <li>rangeMaps (collection)
+                <ul>
+                  <li>label</li>
+                  <li>maxValue</li>
+                  <li>imageUrl</li>
                 </ul>
               </li>
             </ul>
           </li>
+          <li>nameField</li>
+          <li>settings
+            <ul>
+              <li>panelEnabled</li>
+              <li>opacity
+                <ul>
+                  <li>enabled</li>
+                  <li>default</li>
+                </ul>
+              </li>
+              <li>visible</li>
+              <li>boundingBoxVisible</li>
+            </ul>
+          </li>
+          <li>isStatic</li>
         </ul>
       </li>
-      <li>featureInfo (optional)
+      <li>wmsLayers (collection)
         <ul>
-          <li>mimeType</li>
-          <li>parser</li>
+          <li>id</li>
+          <li>displayName</li>
+          <li>url</li>
+          <li>format</li>
+          <li>layerName</li>
+          <li>settings
+            <ul>
+              <li>panelEnabled</li>
+              <li>opacity
+                <ul>
+                  <li>enabled</li>
+                  <li>default</li>
+                </ul>
+              </li>
+              <li>visible</li>
+            </ul>
+          </li>
+          <li>legendType</li>
+          <li>featureInfo
+            <ul>
+              <li>mimeType</li>
+              <li>parser</li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
@@ -407,54 +365,44 @@
   </thead>
   <tbody>
     <tr>
-      <td><a name="stringresources"></a>stringResources</td>
-      <td>key value dictionary</td>
-      <td>holds all application strings and language specific values for a SINGLE LANGUAGE.  Switching languages will trigger the load of a new config object with separate dictionary</td>
-    </tr>
-    <tr>
-      <td><a name="gridstrings"></a>gridstrings</td>
-      <td>Key value dictionary</td>
-      <td>holds all datagrid strings and language specific value for a SINGLE LANGUAGE. Switching languages will trigger the load of a new config object with separate dictionary</td>
-    </tr>
-    <tr>
       <td><a name="lang_field"></a> lang</td>
       <td>string</td>
-      <td>language of current object; en or fr</td>
-    </tr>
-    <tr>
-      <td>helpContent</td>
-      <td>string</td>
-      <td>blob content the of help section for current language</td>
+      <td>Language of this config object; en or fr</td>
     </tr>
     <tr>
       <td>geometryService</td>
       <td>string</td>
-      <td>URL to geometry service</td>
+      <td>URL to an ArcGIS geometry service REST endpoint.  Used for advanced drawing tools.</td>
     </tr>
     <tr>
-      <td>proxyUrl</td>
+      <td><a name="proxyUrl"></a>proxyUrl</td>
       <td>string</td>
-      <td>Path to proxy service (relative path)</td>
+      <td>Path to a proxy service (relative path).  Used for sending large requests to services.</td>
     </tr>
     <tr>
       <td><a name="spatialreference"></a>spatialReference</td>
-      <td>numeric</td>
-      <td>the WKID of the spatial reference for the map.  WILL BREAK IF YOU STORE IT AS A STRING!</td>
+      <td>object</td>
+      <td>A valid ESRI spatial reference object.  See https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html#spatialreference1</td>
     </tr>
     <tr>
-      <td><a name="extents"></a>extents.defaultExtent</td>
+      <td><a name="extents"></a>extents</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>extents.defaultExtent</td>
       <td>envelope</td>
-      <td>extent the app should initialize to</td>
+      <td>Map extent to display when the app initializes</td>
     </tr>
     <tr>
       <td>extents.fullExtent</td>
       <td>envelope</td>
-      <td>extent the app should go to when full extent button is pushed</td>
+      <td>Map extent to display when the full extent button is pushed</td>
     </tr>
     <tr>
       <td>extents.maximumExtent</td>
       <td>envelope</td>
-      <td>extent the app not allow user to pan past</td>
+      <td>Map extent that defines the valid viewing area.  the app should not allow a user to pan outside of this extent</td>
     </tr>
     <tr>
       <td><a name="navwidget"></a>navWidget</td>
@@ -464,37 +412,37 @@
     <tr>
       <td>navWidget.sliderMinVal</td>
       <td>numeric</td>
-      <td>Navigation widget slider minimum value</td>
+      <td>Navigation widget slider minimum scale level value</td>
     </tr>
     <tr>
       <td>navWidget.sliderMaxVal</td>
       <td>numeric</td>
-      <td>Navigation widget slider maximum value</td>
+      <td>Navigation widget slider maximum scale level value</td>
     </tr>
     <tr>
       <td>navWidget.debug</td>
       <td>numeric</td>
-      <td>Debug flag, generate console log when set</td>
+      <td>Debug flag, will generate console log when set to a non-zero value</td>
     </tr>
     <tr>
       <td>navWidget.animate</td>
       <td>string</td>
-      <td> </td>
+      <td>Slider animation setting. Can be “fast”, “slow”, or a number in milliseconds</td>
     </tr>
     <tr>
       <td>navWidget.locale</td>
       <td>string</td>
-      <td>Navigation widget locale</td>
+      <td>Navigation widget locale.  en or fr</td>
     </tr>
     <tr>
       <td>navWidget.cssPath</td>
       <td>string</td>
-      <td>Path to CSS</td>
+      <td>Path to folder containing the CSS skins</td>
     </tr>
     <tr>
       <td>navWidget.skin</td>
       <td>string</td>
-      <td>Skin style</td>
+      <td>Name of the skin style to apply.  Style must be in the above folder</td>
     </tr>
     <tr>
       <td><a name="advancedToolbar"></a>advancedToolbar</td>
@@ -504,32 +452,27 @@
     <tr>
       <td>advancedToolbar.enabled</td>
       <td>boolean</td>
-      <td>determines if the advanced toolbar is available in the app</td>
+      <td>Determines if the advanced toolbar is available in the app</td>
     </tr>
     <tr>
       <td>advancedToolbar.tools</td>
-      <td>object</td>
-      <td>holds a child object for each available tool</td>
+      <td>collection of tool objects</td>
+      <td>Holds a child object for each available tool</td>
     </tr>
     <tr>
-      <td>advancedToolbar.tools.toolname</td>
-      <td>object</td>
-      <td>object defining an individual tool.  object name will be specific to the tool (i.e. it is not called “toolname”)</td>
-    </tr>
-    <tr>
-      <td>advancedToolbar.tools.toolname.name</td>
+      <td>advancedToolbar.tools[].name</td>
       <td>string</td>
-      <td>name of the tool.  should match the name property of the tool’s javascript module</td>
+      <td>Name of the tool.  Should match the name property of the tool’s javascript module</td>
     </tr>
     <tr>
-      <td>advancedToolbar.tools.toolname.selector</td>
+      <td>advancedToolbar.tools[].selector</td>
       <td>string</td>
-      <td>name of the selector tag to use in the html layout.  should be unique amongst tools</td>
+      <td>Name of the selector tag to use in the html layout.  Should be unique amongst tools</td>
     </tr>
     <tr>
-      <td>advancedToolbar.tools.toolname.enabled</td>
+      <td>advancedToolbar.tools[].enabled</td>
       <td>boolean</td>
-      <td>determines if the tool should be made available in the toolbar</td>
+      <td>Determines if the tool should be made available in the toolbar</td>
     </tr>
     <tr>
       <td>levelOfDetails</td>
@@ -547,34 +490,14 @@
       <td>Maximum level of detail</td>
     </tr>
     <tr>
-      <td>levelOfDetails.levels[]</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>levelOfDetails.levels[].level</td>
-      <td>numeric</td>
-      <td>ID for each level</td>
-    </tr>
-    <tr>
-      <td>levelOfDetails.levels[].resolution</td>
-      <td>numeric</td>
-      <td>Resolution in map units of each pixel in a tile for each level</td>
-    </tr>
-    <tr>
-      <td>levelOfDetails.levels[].scale</td>
-      <td>numeric</td>
-      <td>Scale for each level</td>
-    </tr>
-    <tr>
       <td><a name="basemaps"></a> basemaps</td>
-      <td>collection of map items</td>
-      <td>order of collection will determine order they are added to the map.  can be empty.  if more than one entry, basemap selector widget could/(should?) initialize.</td>
+      <td>collection of basemap items</td>
+      <td>Order of collection will determine order they are added to the basemap selector list.  Can be empty.</td>
     </tr>
     <tr>
       <td>basemaps[].id</td>
       <td>string</td>
-      <td>to identify layer.  unique across all map items.  no spaces!  use this to derive language based strings from stringResources (e.g. text to go in basemap selector would have a key like “basemapName<id>")</id></td>
+      <td>To identify basemap.  Unique across all map items.  No spaces!</td>
     </tr>
     <tr>
       <td><a name="basemaps_url"></a> basemaps[].url</td>
@@ -584,27 +507,27 @@
     <tr>
       <td><a name="basemaps_thumbnail"></a>basemaps[].thumbnail</td>
       <td>string</td>
-      <td>path to image file for use in basemap selector (optional)</td>
+      <td>Path to image file to display in the basemap selector (optional)</td>
     </tr>
     <tr>
       <td><a name="basemaps_showoninit"></a>basemaps[].showOnInit</td>
       <td>boolean</td>
-      <td>indicates if map should be active on load.  Only one TRUE per collection</td>
+      <td>Indicates if basemap should be the active basemap when the site loads.  Only one TRUE per collection</td>
     </tr>
     <tr>
       <td>basemaps[].scaleCssClass</td>
       <td>string</td>
-      <td>Map scale style</td>
+      <td>Map scale style.  Use ‘map-scale-dark’ for light basemaps, ‘map-scale-light’ for dark basemaps.</td>
     </tr>
     <tr>
       <td><a name="basemaps_type"></a>basemaps[].type</td>
       <td>string</td>
-      <td>Base map type</td>
+      <td>Base map type.  This is descriptive only, and will be shown in the basemap selector.</td>
     </tr>
     <tr>
       <td><a name="basemaps_name"></a>basemaps[].name</td>
       <td>string</td>
-      <td>Basemap name</td>
+      <td>Basemap name to be displayed in the selector.</td>
     </tr>
     <tr>
       <td>basemaps[].altText</td>
@@ -614,327 +537,322 @@
     <tr>
       <td><a name="basemaps_description"></a>basemaps[].description</td>
       <td>string</td>
-      <td>Description of the basemap</td>
+      <td>Description of the basemap.  Will be visible when basemap selector is expanded.</td>
     </tr>
     <tr>
-      <td>featureLayers</td>
-      <td>collection of map items</td>
-      <td>order of collection will determine order they are added to the map.  can be empty. if more than one entry, layer selector widget could/(should?) initialize.</td>
+      <td>layers</td>
+      <td> </td>
+      <td>Where layer collections reside</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_id"></a>featureLayers[].id</td>
+      <td>layers.feature</td>
+      <td>collection of feature layer objects</td>
+      <td>Order of collection will determine order they are added to the map.  Can be empty.</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_id"></a>layers.feature[].id</td>
       <td>string</td>
-      <td>to identify layer.  unique across all map items.  no spaces!</td>
+      <td>To identify a layer.  Unique across all map items.  no spaces!</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_displayname"></a>featureLayers[].displayName</td>
-      <td> </td>
-      <td>Display name of the feature layer</td>
-    </tr>
-    <tr>
-      <td><a name="featurelayers_url"></a> featureLayers[].url</td>
+      <td><a name="featurelayers_displayname"></a>layers.feature[].displayName</td>
       <td>string</td>
-      <td>REST URL of the layer</td>
+      <td>Name of the feature layer.  Will be displayed in the layer selector</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_datagrid"></a>featureLayers[].datagrid</td>
+      <td><a name="featurelayers_url"></a> layers.feature[].url</td>
+      <td>string</td>
+      <td>REST URL of the layer.  Should be an ESRI feature service.</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_datagrid"></a>layers.feature[].datagrid</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.rowsPerPage</td>
+      <td>layers.feature[].datagrid.rowsPerPage</td>
       <td>numeric</td>
-      <td>number of rows to show in the grid (i.e. one page of results)</td>
+      <td>Optional.  Number of rows to display in the grid (i.e. one page of results).  Default value is 50.</td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.gridColumns [].id</td>
+      <td>layers.feature[].datagrid.gridColumns[].id</td>
       <td>string</td>
-      <td>to identify column.  unique across all columns for all layers in the app.  no spaces!</td>
+      <td>To identify a column.  Unique across all columns.  No spaces!</td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.gridColumns [].fieldName</td>
+      <td>layers.feature[].datagrid.gridColumns[].fieldName</td>
       <td>string</td>
-      <td>attribute field that populates this column.  really just used as a reference now.</td>
+      <td>Feature attribute field that defines this column.  Used by the default grid templates to populate values.</td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.gridColumns [].width</td>
-      <td>numeric</td>
-      <td>width of the field (pixels?  em’s?)</td>
+      <td>layers.feature[].datagrid.gridColumns[].width</td>
+      <td>string</td>
+      <td>Width of the field in pixels.  E.g. ‘500px’</td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.gridColumns [].isSortable</td>
+      <td>layers.feature[].datagrid.gridColumns[].isSortable</td>
       <td>boolean</td>
-      <td>tells if we can sort on this column</td>
+      <td>Determines if we can sort on this column</td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.gridColumns [].sortType</td>
+      <td>layers.feature[].datagrid.gridColumns[].sortType</td>
       <td>string</td>
-      <td>not sure what goes here.  text/number/date sort?</td>
+      <td>The type of sort to apply.  Can use ‘numeric’, ‘string’, ‘date’, or ‘html’</td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.gridColumns [].alignment</td>
+      <td>layers.feature[].datagrid.gridColumns[].alignment</td>
+      <td>numeric</td>
+      <td>If 1, the column will be centered.  If 0, the column will be left-aligned.</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].datagrid.gridColumns[].title</td>
       <td>string</td>
-      <td>alignment type.  use values from current services</td>
+      <td>Title of the grid column.  This will show in the column header</td>
     </tr>
     <tr>
-      <td>featureLayers[].datagrid.gridColumns [].title</td>
-      <td>Int</td>
-      <td>Title of the grid column.  This will show in the grid header</td>
-    </tr>
-    <tr>
-      <td><a name="featurelayers_datagrid_gridcolumns_columntemplate"></a>featureLayers[].datagrid.gridColumns [].columnTemplate</td>
+      <td><a name="featurelayers_datagrid_gridcolumns_columntemplate"></a>layers.feature[].datagrid.gridColumns[].columnTemplate</td>
       <td> </td>
-      <td>Template name to be used to generate the content of the given column</td>
+      <td>Template name to be used to generate the content of the given column.  A plain value template is ‘unformatted_grid_value’</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_datagrid_summaryrowtemplate"></a>featureLayers[].datagrid.summaryRowTemplate</td>
-      <td> </td>
-      <td>Summary row template name to be used to generate content</td>
-    </tr>
-    <tr>
-      <td><a name="featurelayers_layerattributes"></a>featureLayers[].layerAttributes</td>
+      <td><a name="featurelayers_layerattributes"></a>layers.feature[].layerAttributes</td>
       <td>string</td>
-      <td>An array of strings which correspond to fields to include in the FeatureLayer. If not specified, the feature layer will return the OBJECTID field and if applicable the start time field, end time field and type id field. You can specify [“*”] to fetch the values for all fields in the layer, this is useful when editing features. Associated with outfield options in ESRI FeatureLayer.</td>
+      <td>An array of strings which correspond to fields to include in the FeatureLayer.  If not specified, the feature layer will return the OBJECTID field and if applicable the start time field, end time field and type id field. You can specify [“*”] to fetch the values for all fields in the layer, this is useful when editing features. Associated with outfield options in ESRI FeatureLayer.</td>
     </tr>
     <tr>
-      <td>featureLayers[].filter</td>
+      <td><a name="featurelayers_templates"></a> layers.feature[].templates</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><a name="featurelayers_maptipsettings"></a> featureLayers[].mapTipSettings</td>
+      <td><a name="featurelayers_templates_hover"></a> layers.feature[].templates.hover</td>
+      <td>string</td>
+      <td>Optional.  Template name defining the contents of a hover tip.  Default value is ‘feature_hover_maptip_template’</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_templates_anchor"></a>layers.feature[].templates.anchor</td>
+      <td>string</td>
+      <td>Optional.  Template name defining the contents of an anchored map tip.  Default value is ‘anchored_map_tip’</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_templates_summary"></a>layers.feature[].templates.summary</td>
+      <td>string</td>
+      <td>Optional.  Template name defining the contents of a row for features of this layer in the summary grid.  Default value is ‘default_grid_summary_row’</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_templates_detail"></a> layers.feature[].templates.detail</td>
+      <td>string</td>
+      <td>Optional.  Template name defining the contents of the details pane for a feature of this layer.  Default value is ‘default_feature_details’</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_symbology"></a>layers.feature[].symbology</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><a name="featurelayers_maptipsettings_hovertemplate"></a> featureLayers[].mapTipSettings.hoverTemplating</td>
+      <td>layers.feature[].symbology.type</td>
       <td>string</td>
-      <td>has template of what to show in hover tip.  if blank, hover tips are not initialized.  template processor should be able to generate text, as well as derive image names from feature attributes</td>
+      <td>The type of renderer being used on the layer.  Current supported values are ‘simple’, ‘uniqueValue’, and ‘classBreaks’</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_maptipsettings_anchortemplate"></a>featureLayers[].mapTipSettings.anchorTemplate</td>
+      <td>layers.feature[].symbology.imageUrl</td>
       <td>string</td>
-      <td>Template name used to generate anchored map tip</td>
+      <td>Optional.  For use in ‘simple’ renderers.  Url path to the symbology image.</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_symbology"></a>featureLayers[].symbology</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>featureLayers[].symbology.renderer</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>featureLayers[].symbology.renderer.type</td>
+      <td>layers.feature[].symbology.label</td>
       <td>string</td>
-      <td>The type of renderer being used on the layer.  Current supported values are “simple” and “unique”</td>
+      <td>Optional.  For use in ‘simple’ renderers.  Label describing the layer’s symbol.</td>
     </tr>
     <tr>
-      <td>featureLayers[].symbology.renderer.key1</td>
+      <td>layers.feature[].symbology.defaultImageUrl</td>
       <td>string</td>
-      <td>First attribute used in unique value renderer</td>
+      <td>Optional.  For use in ‘uniqueValue’ and ‘classBreaks’ renderers.  Url path to the symbology image for features that do not have a mapping in the renderer.</td>
     </tr>
     <tr>
-      <td>featureLayers[].symbology.renderer.key2</td>
+      <td>layers.feature[].symbology.field1</td>
       <td>string</td>
-      <td>Second attribute used in unique value renderer</td>
+      <td>Optional.  For use in ‘unqiueValue’ renderers.  Name of the first attribute used in defining the symbology.</td>
     </tr>
     <tr>
-      <td>featureLayers[].symbology.renderer.key3</td>
+      <td>layers.feature[].symbology.field2</td>
       <td>string</td>
-      <td>Third attribute used in unique value renderer</td>
+      <td>Optional.  For use in ‘unqiueValue’ renderers.  Name of the second attribute used in defining the symbology.</td>
     </tr>
     <tr>
-      <td>featureLayers[].symbology.icons[]</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>featureLayers[].symbology.icons[].default.imageUrl</td>
+      <td>layers.feature[].symbology.field3</td>
       <td>string</td>
-      <td>Url to symbology image</td>
+      <td>Optional.  For use in ‘unqiueValue’ renderers.  Name of the third attribute used in defining the symbology.</td>
     </tr>
     <tr>
-      <td>featureLayers[].symbology.icons[].default.legendText</td>
+      <td>layers.feature[].symbology.valueMaps[]</td>
+      <td>collection of unique value objects</td>
+      <td>Optional.  For use in ‘unqiueValue’ renderers.</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].symbology.valueMaps[].label</td>
       <td>string</td>
-      <td>Legend text for the given symbology</td>
+      <td>Optional.  Label describing the symbol of this mapping.</td>
     </tr>
     <tr>
-      <td>featureLayers[].uuid</td>
+      <td>layers.feature[].symbology.valueMaps[].value</td>
       <td>string</td>
-      <td>Feature layer UUID</td>
+      <td>Value of the attributes defining this mapping.  For mappings spanning multiple fields, values are delimited by a comma and a space.  E.g. ‘Val1, Val2, Val3’</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_detailtemplate"></a> featureLayers[].detailTemplate</td>
+      <td>layers.feature[].symbology.valueMaps[].imageUrl</td>
       <td>string</td>
-      <td>Template used to generate detail content of a selected feature</td>
+      <td>Url path to the symbology image for this mapping</td>
     </tr>
     <tr>
-      <td>featureLayers[].nameField</td>
+      <td>layers.feature[].symbology.field</td>
       <td>string</td>
-      <td>Field to be used to describe a feature.  Utilized in summary grid, detail content, map tip, and anchored maptip</td>
+      <td>Optional.  For use in ‘classBreaks’ renderers.  Name of the attribute used in defining the symbology.</td>
     </tr>
     <tr>
-      <td><a name="featurelayers_settings"></a>featureLayers[].settings</td>
+      <td>layers.feature[].symbology.minValue</td>
+      <td>numeric</td>
+      <td>Optional.  For use in ‘classBreaks’ renderers.  Lower bound of the value in the first range of the symbology.</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].symbology.rangeMaps[]</td>
+      <td>collection of ranged value objects</td>
+      <td>Optional.  For use in ‘classBreaks’ renderers.  Order of elements matters, as lower bounds for ranges are derived from the upper bound of the previous range.</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].symbology.rangeMaps[].label</td>
+      <td>string</td>
+      <td>Optional.  Label describing the symbol of this mapping.</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].symbology.rangeMaps[].maxValue</td>
+      <td>numeric</td>
+      <td>Upper bound of he value for this range of the symbology.</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].symbology.rangeMaps[].imageUrl</td>
+      <td>string</td>
+      <td>Url path to the symbology image for this mapping</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].nameField</td>
+      <td>string</td>
+      <td>Field to be used to identify a feature to a user.  Utilized in summary grid, detail content, map tip, and anchored maptip.  Ideal choice would be the name of a feature.</td>
+    </tr>
+    <tr>
+      <td><a name="featurelayers_settings"></a>layers.feature[].settings</td>
       <td>object</td>
-      <td>Object to store layer settings and their presets.</td>
+      <td>Optional. Object to store layer settings.  If missing, default values will be used.</td>
     </tr>
     <tr>
-      <td>featureLayers[].settings.enabled</td>
+      <td>layers.feature[].settings.panelEnabled</td>
       <td>boolean</td>
-      <td>Indicates whether the settings panel should be accessible to the user.</td>
+      <td>Optional. Indicates whether the settings panel should be accessible to the user.  Default value is True</td>
     </tr>
     <tr>
-      <td>featureLayers[].settings.opacity</td>
+      <td>layers.feature[].settings.opacity</td>
       <td>object</td>
-      <td>Object to store opacity information.</td>
+      <td>Optional.  Object to store opacity information.</td>
     </tr>
     <tr>
-      <td>featureLayers[].settings.opacity.enabled</td>
+      <td>layers.feature[].settings.opacity.enabled</td>
       <td>boolean</td>
-      <td>Indicates whether opacity of the layer can be changed by the user. If settings are disabled, the opacity preset value will still be applied to the opacity level.</td>
+      <td>Optional.  Indicates whether opacity of the layer can be changed by the user. If settings are disabled, the opacity preset value will still be applied to the opacity level.  Default value is True</td>
     </tr>
     <tr>
-      <td>featureLayers[].settings.opacity.default</td>
+      <td>layers.feature[].settings.opacity.default</td>
       <td>numeric</td>
-      <td>Specifies the preset opacity level to be applied to the layer on load.</td>
+      <td>Optional.  Specifies the preset opacity level to be applied to the layer on load.  Value must be between 0 and 1 inclusively.  Default value is 1.</td>
     </tr>
     <tr>
-      <td>featureLayers[].isStatic</td>
+      <td>layers.feature[].settings.visible</td>
       <td>boolean</td>
-      <td>Specifies the current layer as static layer.</td>
+      <td>Optional.  The initial visibility of the layer.  Default value is True.</td>
     </tr>
     <tr>
-      <td>featureLayers[].layerType</td>
-      <td>string</td>
-      <td>Specifies the map service layer type (feature, tile, or dynamic.)</td>
-    </tr>
-    <tr>
-      <td>featureLayers[].layerVisible</td>
+      <td>layers.feature[].settings.boundingBoxVisible</td>
       <td>boolean</td>
-      <td>The initial visibility of the layer</td>
+      <td>Optional.  The initial visibility of the layer’s bounding box.  Default value is True.</td>
     </tr>
     <tr>
-      <td>featureLayers[].boundingBoxVisible</td>
+      <td>layers.feature[].isStatic</td>
       <td>boolean</td>
-      <td>The initial visibility of the bounding box for this layer (optional for static layers)</td>
+      <td>Optional.  Specifies the current layer is a static layer.  Default value is False.</td>
     </tr>
     <tr>
-      <td><a name="wmsLayers"></a> wmsLayers</td>
+      <td><a name="wmsLayers"></a> layers.wmsLayers</td>
       <td>collection</td>
       <td>WMS layers to be added to the map.  Order dictates initial order on the map.</td>
     </tr>
     <tr>
-      <td>wmsLayers[].id</td>
+      <td>layers.wmsLayers[].id</td>
       <td>string</td>
-      <td>to identify a layer.  unique across all WMS layers</td>
+      <td>To identify a layer.  Unique across all WMS layers</td>
     </tr>
     <tr>
-      <td>wmsLayers[].url</td>
+      <td>layers.wmsLayers[].url</td>
       <td>string</td>
-      <td>the url of the WMS service.  does not specify name of individual layer to show</td>
+      <td>The url of the WMS service.  Does not specify name of individual layer to show</td>
     </tr>
     <tr>
-      <td>wmsLayers[].uuid</td>
+      <td>layers.wmsLayers[].format</td>
       <td>string</td>
-      <td>UUID of the layer</td>
+      <td>Format of the return image (e.g. png)</td>
     </tr>
     <tr>
-      <td>wmsLayers[].format</td>
-      <td>string</td>
-      <td>format of the return image (e.g. png)</td>
+      <td>layers.wmsLayers[].settings</td>
+      <td>object</td>
+      <td>Optional. Object to store layer settings.  If missing, default values will be used.</td>
     </tr>
     <tr>
-      <td>wmsLayers[].settings</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].settings.enabled</td>
+      <td>layers.wmsLayers[].settings.panelEnabled</td>
       <td>boolean</td>
-      <td>determines if a layer can be interacted with in the layer selector</td>
+      <td>Optional. Indicates whether the settings panel should be accessible to the user.  Default value is True</td>
     </tr>
     <tr>
-      <td>wmsLayers[].settings.opacity</td>
+      <td>layers.wmsLayers[].settings.opacity</td>
+      <td>object</td>
+      <td>Optional.  Object to store opacity information.</td>
+    </tr>
+    <tr>
+      <td>layers.wmsLayers[].settings.opacity.enabled</td>
+      <td>boolean</td>
+      <td>Optional.  Indicates whether opacity of the layer can be changed by the user. If settings are disabled, the opacity preset value will still be applied to the opacity level.  Default value is True</td>
+    </tr>
+    <tr>
+      <td>layers.wmsLayers[].settings.opacity.default</td>
       <td>numeric</td>
-      <td>opacity of layer (decimal). 1 being fully opaque, 0 being fully transparent</td>
+      <td>Optional.  Specifies the preset opacity level to be applied to the layer on load.  Value must be between 0 and 1 inclusively.  Default value is 1.</td>
     </tr>
     <tr>
-      <td>wmsLayers[].extent</td>
-      <td><a href="https://developers.arcgis.com/javascript/jsapi/extent-amd.html">ESRI Extent</a></td>
-      <td>A valid extent object, including spatial reference.  Extent should define a valid extent for the WMS</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].layerInfo</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].layerInfo.name</td>
-      <td>string</td>
-      <td>name of the layer in the WMS we want to display.  must match exactly from the WMS definition</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].layerInfo.title</td>
-      <td>string</td>
-      <td>title of the layer in the WMS we want to display.  must match exactly from the WMS definition</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].layerInfo.allExtents</td>
-      <td>collection</td>
-      <td>empty for now.  possible to utilize this in later versions</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].layerInfo.spatialReferences</td>
-      <td>collection</td>
-      <td>empty for now.  possible to utilize this in later versions</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].layerInfo.subLayers</td>
-      <td>collection</td>
-      <td>empty for now.  possible to utilize this in later versions</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].legend</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].legend.enable</td>
+      <td>layers.wmsLayers[].settings.visible</td>
       <td>boolean</td>
-      <td>true to enable WMS legends, false to disable it</td>
+      <td>Optional.  The initial visibility of the layer.  Default value is True.</td>
     </tr>
     <tr>
-      <td>wmsLayers[].legend.legendURL</td>
+      <td>layers.wmsLayers[].layerName</td>
       <td>string</td>
-      <td>url to legend image for the layer.  optional</td>
+      <td>Name of the layer in the WMS we want to display.  Must match exactly from the WMS definition</td>
     </tr>
     <tr>
-      <td>wmsLayers[].symbology</td>
+      <td>layers.wmsLayers[].legendType</td>
+      <td>string</td>
+      <td>Optional.  If absent, indicates no legend support.  If present it should be a mime type.</td>
+    </tr>
+    <tr>
+      <td>layers.wmsLayers[].featureInfo</td>
       <td>object</td>
-      <td>identical structure to the featureLayers[].symbology node</td>
+      <td>Optional.  If defined implies that getFeatureInfo functionality should be enabled for this layer.</td>
     </tr>
     <tr>
-      <td>wmsLayers[].layerVisible</td>
-      <td>boolean</td>
-      <td>The initial visibility of the WMS layer</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].featureInfo</td>
-      <td>object</td>
-      <td>an optional object section, if defined implies that getFeatureInfo should be enabled for this layer</td>
-    </tr>
-    <tr>
-      <td>wmsLayers[].featureInfo.mimeType</td>
+      <td>layers.wmsLayers[].featureInfo.mimeType</td>
       <td>string</td>
-      <td>the mime type to be requested from the server (used in the FORMAT argument of the request)</td>
+      <td>The mime type to be requested from the server (used in the FORMAT argument of the request)</td>
     </tr>
     <tr>
-      <td>wmsLayers[].featureInfo.parser</td>
+      <td>layers.wmsLayers[].featureInfo.parser</td>
       <td>string</td>
-      <td>the name of the plugin used to parse the response</td>
+      <td>The name of the plugin used to parse the response.  Plugins reside in the js\plugins directory.</td>
     </tr>
     <tr>
       <td><a name="datagrid"></a>datagrid</td>
@@ -1079,7 +997,7 @@
     <tr>
       <td>plugins</td>
       <td>collection of strings</td>
-      <td>a set of plugins to be loaded with RAMP</td>
+      <td>A set of plugins to be loaded with RAMP.  The value of the strings should match a javascript file in the js\plugins folder.</td>
     </tr>
   </tbody>
 </table>
@@ -1089,7 +1007,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-11-14</time>
+                        <time>2014-11-21</time>
                     </dd>
                 </dl>
             </main>
@@ -1110,14 +1028,14 @@
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/started-en.html">
+            <a class="list-group-item" href="started-en.html">
                 Getting Started
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/quick-start-en.html">
+                    <a class="list-group-item" href="quick-start-en.html">
                         Quick Start Guide
                     </a>
                 </li>
@@ -1125,94 +1043,104 @@
         </li>
 
         <li>
-            <a class="list-group-item item" href="/docs/ramp-customization-intro-en.html">
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
                 Customization Introduction
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/json-config-en.html">
+                    <a class="list-group-item" href="json-config-en.html">
                         JSON Config Definition
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-guide-en.html">
+                    <a class="list-group-item" href="template-guide-en.html">
                         Templating Guide
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-example-en.html">
+                    <a class="list-group-item" href="template-example-en.html">
                         Template Example
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/template-summary-en.html">
+                    <a class="list-group-item" href="template-summary-en.html">
                         Template Summary
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/proxy.html">
+                    <a class="list-group-item" href="proxy.html">
                         Proxy Configuration
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/add-new-module.html">
+                    <a class="list-group-item" href="add-new-module.html">
                         Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
                     </a>
                 </li>
             </ul>
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/architecture-overview-en.html">
+            <a class="list-group-item" href="architecture-overview-en.html">
                 Architecture Overview
             </a>
 
             <ul class="list-group list-unstyled">
 
                 <li>
-                    <a class="list-group-item" href="/docs/dojo-setup-en.html">
+                    <a class="list-group-item" href="dojo-setup-en.html">
                         Initialization
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/namingconventions-en.html">
+                    <a class="list-group-item" href="namingconventions-en.html">
                         Naming Conventions
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/module-overview-en.html">
+                    <a class="list-group-item" href="module-overview-en.html">
                         Module Overview
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/external-libraries-en.html">
+                    <a class="list-group-item" href="external-libraries-en.html">
                         External Library Implementations
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/build-tool-en.html">
+                    <a class="list-group-item" href="build-tool-en.html">
                         Build Tool
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/basemap-support-en.html">
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
                         Basemap Support
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/wms-support-en.html">
+                    <a class="list-group-item" href="wms-support-en.html">
                         WMS Support
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/advanced-toolbar-en.html">
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
                         Advanced Toolbar
                     </a>
                 </li>
                 <li>
-                    <a class="list-group-item" href="/docs/static-layer-support-en.html">
+                    <a class="list-group-item" href="static-layer-support-en.html">
                         Static Layer Support
                     </a>
                 </li>
@@ -1220,13 +1148,13 @@
         </li>
 
         <li>
-            <a class="list-group-item" href="/api/3.0/yuidoc/index.html">
+            <a class="list-group-item" href="/api/index-en.html">
                 API Reference
             </a>
         </li>
 
         <li>
-            <a class="list-group-item" href="/docs/known-issues-en.html">
+            <a class="list-group-item" href="known-issues-en.html">
                 Known Issues
             </a>
         </li>
@@ -1282,9 +1210,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('.toc')
-                .addClass("mrgn-bttm-lg")
+                .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({
-                    title: '<h2 class="mrgn-tp-sm">Table of Content</h2>',
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
                     listType: 'ul',
                     selector: 'h2, h3, h4, h5, h6, .include_toc',
                     showSpeed: 0
