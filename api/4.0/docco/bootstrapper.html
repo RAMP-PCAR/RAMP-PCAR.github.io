@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>bootstrapper.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>bootstrapper.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global require, window, dojoConfig, i18n, document, $, console, RAMP */</span>
+
+<span class="hljs-comment">/**
+* Ramp module
+*
+* @module RAMP
+* @main RAMP
+*/</span>
+
+<span class="hljs-comment">/**
+* Bootstrapper class.
+* Starting point of RAMP, RAMP modules are loaded here and mapped to a function parameter
+* Phase X?: For mobile support, there can be a different mobileBootstrapper with only the mobile modules loaded
+*
+* @class Bootstrapper
+* @static
+*
+* @uses dojo/parser
+* @uses dojo/on
+* @uses dojo/topic
+* @uses dojo/request/script
+* @uses dojo/request/xhr
+*
+* @uses Map
+* @uses Basemapselector
+* @uses Maptips
+* @uses Datagrid
+* @uses Navigation
+* @uses FilterManager
+* @uses BookmarkLink
+* @uses Url
+* @uses FeatureHighlighter
+* @uses Ramp
+* @uses GlobalStorage
+* @uses GUI
+* @uses EventManager
+* @uses AdvancedToolbar
+* @uses Util
+* @uses Prototype
+* @uses FunctionMangler
+*/</span>
+
+<span class="hljs-built_in">require</span>([
+<span class="hljs-comment">/* Dojo */</span>
+    <span class="hljs-string">"dojo/parser"</span>, <span class="hljs-string">"dojo/on"</span>, <span class="hljs-string">"dojo/topic"</span>,
+    <span class="hljs-string">"dojo/request/script"</span>,
+    <span class="hljs-string">"dojo/request/xhr"</span>, <span class="hljs-string">"dojo/_base/array"</span>,
+    <span class="hljs-string">"esri/config"</span>,
+
+<span class="hljs-comment">/* RAMP */</span>
+    <span class="hljs-string">"ramp/map"</span>, <span class="hljs-string">"ramp/basemapSelector"</span>, <span class="hljs-string">"ramp/maptips"</span>, <span class="hljs-string">"ramp/datagrid"</span>,
+    <span class="hljs-string">"ramp/navigation"</span>, <span class="hljs-string">"ramp/filterManager"</span>, <span class="hljs-string">"ramp/bookmarkLink"</span>,
+    <span class="hljs-string">"utils/url"</span>, <span class="hljs-string">"ramp/featureHighlighter"</span>,
+    <span class="hljs-string">"ramp/ramp"</span>, <span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"ramp/gui"</span>, <span class="hljs-string">"ramp/eventManager"</span>,
+    <span class="hljs-string">"ramp/advancedToolbar"</span>,
+    <span class="hljs-string">"ramp/theme"</span>,
+
+<span class="hljs-comment">/* Utils */</span>
+    <span class="hljs-string">"utils/util"</span>,
+
+<span class="hljs-comment">/* Plugins */</span>
+    <span class="hljs-string">"utils/prototype!"</span>, <span class="hljs-string">"utils/functionMangler!"</span>],</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>“dojo/domReady!”],</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* Dojo */</span>
+    parser, dojoOn, topic, requestScript, xhr, dojoArray,
+    esriConfig,
+
+    <span class="hljs-comment">/* RAMP */</span>
+    RampMap, BasemapSelector, Maptips, Datagrid, NavWidget, FilterManager,
+    BookmarkLink, Url, FeatureHighlighter,
+    Ramp, globalStorage, gui, EventManager, AdvancedToolbar, theme,
+
+    <span class="hljs-comment">/* Utils */</span>
+        UtilMisc
+    )</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-comment">/**
+        * loadPlugin takes a plugin file and loads it into the DOM.
+        * Creates a dynamic script tag to load the script at runtime.
+        *
+        * @method loadPlugin
+        * @private
+        * @param {String} pluginName, the file name of the plugin to be loaded (should be in the plugins folder)
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadPlugin</span><span class="hljs-params">(pluginName)</span> </span>{
+            <span class="hljs-keyword">var</span> head = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'head'</span>)[<span class="hljs-number">0</span>],
+                script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
+            script.type = <span class="hljs-string">'text/javascript'</span>;
+            script.src = dojoConfig.fullPluginPath + pluginName;
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'loading plugin: '</span> + script.src);
+            head.appendChild(script);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initializeMap</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-comment">/* Start - RAMP Events, after map is loaded */</span>
+
+            topic.subscribe(EventManager.Map.ALL_LAYERS_LOADED, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"map - &gt;&gt; first update-end; init the rest"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Only initialize the bookmark link after all the UI events of all other modules have
+finished loading
+IMPORTANT: for now, only basemapselector and filtermanager have a UI complete event
+but in the future, if other modules start publishing their own UI complete events, it needs
+to be subscribe to here so BookmarkLink will not attempt to call the module before its GUI
+has finished rendering</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                UtilMisc.subscribeAll(
+                    [
+                        EventManager.BasemapSelector.UI_COMPLETE,
+                        EventManager.FilterManager.UI_COMPLETE
+                    ], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        BookmarkLink.subscribeAndUpdate();
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Added current level so slider will know how to adjust the position</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">var</span> currentLevel = (RampMap.getMap().__LOD.level) ? RampMap.getMap().__LOD.level : <span class="hljs-number">0</span>;
+
+                NavWidget.init(currentLevel);
+                FeatureHighlighter.init();
+                
+                Maptips.init();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Apply listeners for basemap gallery</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                BasemapSelector.init();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>initialize the filter</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                FilterManager.init();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Initialize the advanced toolbar and tools.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (RAMP.config.advancedToolbar.enabled) {
+                    AdvancedToolbar.init();
+                }
+
+                Datagrid.init();
+                theme.tooltipster();
+            });
+
+            RampMap.init();
+            NavWidget.construct();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>a workaround for bug#3460; ideally each module’s ui component would call tooltipster on its own; probably a good idea would to implement this when working on mobile view</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            theme.tooltipster();            
+
+            <span class="hljs-comment">/* End - RAMP Events */</span>
+        }
+        <span class="hljs-comment">/* End - Bootstrapper functions */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Check to make sure the console exists, redefines it to the no-op function
+if it does not (e.g. in IE when the debugger is not on)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        UtilMisc.checkConsole();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Once all of our modules are loaded and the DOM is ready:</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>call the parser to create the dijit layout dijits</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        parser.parse();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>To hold values from RAMP service</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        <span class="hljs-keyword">var</span> lang = $(<span class="hljs-string">"html"</span>).attr(<span class="hljs-string">"lang"</span>),
+            configFile,
+            defJson;
+
+        <span class="hljs-keyword">if</span> (lang !== <span class="hljs-string">"en"</span> &amp;&amp; lang !== <span class="hljs-string">"fr"</span>) {
+            lang = <span class="hljs-string">"en"</span>;
+        }
+
+        i18n.init(
+        {
+            lng: lang + <span class="hljs-string">"-CA"</span>,
+            load: <span class="hljs-string">"current"</span>,
+            fallbackLng: <span class="hljs-literal">false</span>
+        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>loading config object from JSON file</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        configFile = (lang === <span class="hljs-string">"fr"</span>) ? <span class="hljs-string">"config.fr.json"</span> : <span class="hljs-string">"config.en.json"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Request the JSON config file</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        defJson = xhr(configFile, {
+            handleAs: <span class="hljs-string">"json"</span>
+        });
+
+   
+   
+
+        defJson.then(
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fileConfig)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>there is no need to convert the result to an object.  it comes through pre-parsed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (!RAMP.configServiceURL) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>no config service.  we just use the file provided</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    configReady(fileConfig);
+                } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>get additional config stuff from the config service.  mash it into our primary object</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>pull smallkeys from URL</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">var</span> siteURL = <span class="hljs-keyword">new</span> Url(<span class="hljs-built_in">require</span>.toUrl(<span class="hljs-built_in">document</span>.location)),                        
+                        smallkeys = siteURL.queryObject.keys;
+                    
+
+                    <span class="hljs-keyword">if</span> (!smallkeys || smallkeys === <span class="hljs-string">""</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>no keys.  no point hitting the service.  jump to next step</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        configReady(fileConfig);
+                    } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>TODO verify endpoint is correct</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">var</span> serviceUrl = RAMP.configServiceURL + <span class="hljs-string">"docs/"</span> + $(<span class="hljs-string">"html"</span>).attr(<span class="hljs-string">"lang"</span>) + <span class="hljs-string">"/"</span> + smallkeys,
+                            defService = requestScript.get(serviceUrl, { jsonp:<span class="hljs-string">'callback'</span>, timeout: <span class="hljs-number">2000</span> });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Request the JSON snippets from the RAMP Config Service</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>NOTE: XHR cannot be used here for cross domain purposes (primarily when running thru visual studio).
+     we use request/script instead to get the config as jsonp
+     we may consider looking into ways to mitiate the cross domain issue (Aly had some ideas)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                        defService.then(
+                            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(serviceContent)</span> </span>{
+                                <span class="hljs-built_in">console</span>.log(serviceContent);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>we are expecting an array of JSON config fragments
+merge each fragment into the file config</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                dojoArray.forEach(serviceContent, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(configFragment)</span> </span>{
+                                    UtilMisc.mergeRecursive(fileConfig, configFragment);
+                                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>fragments are now in fileConfig.  carry on.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                configReady(fileConfig);
+                            },
+                            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"An error occurred: "</span> + error);
+                            }
+                        );
+
+                    }
+                  
+
+                }
+               
+            },
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"An error occurred when retrieving the JSON Config: "</span> + error);
+            }
+        );
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configReady</span><span class="hljs-params">(configObject)</span> </span>{
+            <span class="hljs-keyword">var</span> pluginConfig,
+                advancedToolbarToggle = $(<span class="hljs-string">"li.map-toolbar-item #advanced-toggle"</span>).parent();
+
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Bootstrapper: config loaded"</span>);
+
+            globalStorage.init(configObject);
+
+            esriConfig.defaults.io.proxyUrl = RAMP.config.proxyUrl;<span class="hljs-comment">// "/proxy/proxy.ashx";</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>try to avoid the proxy if possible, but this will cause network errors if CORS is not allowed by the target server</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            esriConfig.defaults.io.corsDetection = <span class="hljs-literal">true</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Show or remove advanced toolbar toggle based on the config value</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (RAMP.config.advancedToolbar.enabled) {
+                advancedToolbarToggle.removeClass(<span class="hljs-string">"wb-invisible"</span>);
+            } <span class="hljs-keyword">else</span> {
+                advancedToolbarToggle.remove();
+            }
+
+            pluginConfig = RAMP.config.plugins;
+            <span class="hljs-keyword">if</span> (pluginConfig) {
+                dojoArray.map(pluginConfig, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(pName)</span> </span>{
+                    loadPlugin(pName);
+                });
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Modify the config based on the url
+needs to do this before the gui loads because the gui module
+also reads from the config</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            BookmarkLink.updateConfig(<span class="hljs-built_in">window</span>.location.pathname.split(<span class="hljs-string">"/"</span>).last());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Initialize the map only after the gui loads
+if we do it beforehand, the map extent may get messed up since
+the available screen size may still be changing (e.g. due to fullscreen
+or subpanel closing)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            topic.subscribe(EventManager.GUI.UPDATE_COMPLETE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                initializeMap();
+            });
+
+            gui.load(<span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>Create the panel that the bookmark link sits in
+can only do this after the gui loads</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            BookmarkLink.createUI();
+
+            Ramp.loadStrings();
+        }
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

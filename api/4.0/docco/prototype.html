@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>prototype.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>prototype.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, $, console */</span>
+<span class="hljs-comment">/* jshint bitwise:false  */</span>
+
+<span class="hljs-comment">/**
+* @module Utils
+*/</span>
+
+<span class="hljs-comment">/**
+* Adds method prototypes to predefined classes to enhance their functionality.
+*
+* @class Prototype
+* @static
+* @uses esri/geometry/Extent
+*/</span>
+define([
+<span class="hljs-comment">/* ESRI */</span>
+        <span class="hljs-string">"esri/geometry/Extent"</span>
+],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* ESRI */</span>
+        EsriExtent)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-comment">/**
+        * Attempt to add the given fcn as a prototype to the given obj under
+        * the given name. Outputs a warning message to the console if
+        * a prototype of the same name already exists.
+        *
+        * @method addProtytype
+        * @param {Object} obj
+        * @param {String} name
+        * @param {Function} fcn
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addPrototype</span><span class="hljs-params">(obj, name, fcn)</span> </span>{
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj.prototype[name] !== <span class="hljs-string">'function'</span>) {
+                obj.prototype[name] = fcn;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">String</span>.format(<span class="hljs-string">"WARNING: unable to add prototype {0} to {1}. One already exists!"</span>, name, obj.toString()));
+            }
+        }
+
+        <span class="hljs-comment">/**
+        * Attempt to add the given fcn as a static function to the given class under
+        * the given name. Outputs a warning message to the console if
+        * a function of the same name already exists.
+        *
+        * @method AddStaticFcn
+        * @param {Object} obj
+        * @param {String} name
+        * @param {Function} fcn
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addStaticFcn</span><span class="hljs-params">(obj, name, fcn)</span> </span>{
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj[name] !== <span class="hljs-string">'function'</span>) {
+                obj[name] = fcn;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">String</span>.format(<span class="hljs-string">"WARNING: unable to add static function {0} to {1}. One already exists!"</span>, name, obj.toString()));
+            }
+        }
+
+        <span class="hljs-comment">/**
+        * Add extra functions to the Array object. Adds the following:
+        * - `Array.remove()` - prototype for removing items from array
+        * - `Array.append(arr)` - Add all the elements of the given array to this array.
+        * - `Array.isEmpty()` - Returns true if the length of the array is 0.
+        * - `Array.last()` - Returns true if the length of the array is 0.
+        * - `Array.contains(obj)` - Returns true if this Array contains the given object
+        * - `Array.flatter(arr)` - Array Flatten object extension: http://tech.karbassi.com/2009/12/17/pure-javascript-flatten-array/
+        * - `Array.max()` - Returns the max value in the array
+        * - `Array.min()` - Returns the min value in the array
+        *
+        *
+        * @method _initArrayPrototype
+        * @return {Array} The array
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initArrayPrototype</span><span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>prototype for removing items from array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addPrototype(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"remove"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> what, a = <span class="hljs-built_in">arguments</span>,
+                    L = a.length,
+                    ax;
+                <span class="hljs-keyword">while</span> (L &amp;&amp; <span class="hljs-keyword">this</span>.length) {
+                    what = a[--L];
+                    <span class="hljs-keyword">while</span> ((ax = <span class="hljs-keyword">this</span>.indexOf(what)) !== -<span class="hljs-number">1</span>) {
+                        <span class="hljs-keyword">this</span>.splice(ax, <span class="hljs-number">1</span>);
+                    }
+                }
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Add all the elements of the given array to this array.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addPrototype(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"append"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr)</span> </span>{
+                <span class="hljs-keyword">this</span>.push.apply(<span class="hljs-keyword">this</span>, arr);
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Sum all the elements in the array, no checking for non-numeric types</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addPrototype(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"sum"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> i, res;
+                <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>, res = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.length; ++i) {
+                    res += <span class="hljs-keyword">this</span>[i];
+                }
+                <span class="hljs-keyword">return</span> res;
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Returns true if the length of the array is 0.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addPrototype(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"isEmpty"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.length === <span class="hljs-number">0</span>;
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Returns the last element of the array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addPrototype(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"last"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>[<span class="hljs-keyword">this</span>.length - <span class="hljs-number">1</span>];
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Returns true if this Array contains the given object</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addPrototype(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"contains"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(obj)</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.indexOf(obj) &gt; -<span class="hljs-number">1</span>;
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Array Flatten object extension: <a href="http://tech.karbassi.com/2009/12/17/pure-javascript-flatten-array/">http://tech.karbassi.com/2009/12/17/pure-javascript-flatten-array/</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addStaticFcn(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"flatten"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">flatten</span><span class="hljs-params">(arr)</span> </span>{
+                <span class="hljs-keyword">var</span> flat = [],
+                    i, l, type;
+
+                <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>, l = arr.length; i &lt; l; i++) {
+                    type = <span class="hljs-built_in">Object</span>.prototype.toString.call(arr[i]).split(<span class="hljs-string">' '</span>).pop().split(<span class="hljs-string">']'</span>).shift().toLowerCase();
+                    <span class="hljs-keyword">if</span> (type) {
+                        flat = flat.concat(<span class="hljs-regexp">/^(array|collection|arguments|object)$/</span>.test(type) ? flatten.call(arr[i]) : arr[i]);
+                    }
+                }
+                <span class="hljs-keyword">return</span> flat;
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Returns the max value in the array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addStaticFcn(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"max"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr)</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.max.apply(<span class="hljs-built_in">Math</span>, arr);
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Returns the min value in the array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addStaticFcn(<span class="hljs-built_in">Array</span>, <span class="hljs-string">"min"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr)</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.min.apply(<span class="hljs-built_in">Math</span>, arr);
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Add extra functions to the Object object. Adds the following:
+        * - `Object.create(o)` - Takes an old object as a parameter and returns an empty new object that inherits from the old one
+        *
+        * @method _initObjectPrototype
+        * @return {Array} The array
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initObjectPrototype</span><span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Takes an old object as a parameter and returns an empty new object that inherits from the old one</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addStaticFcn(<span class="hljs-built_in">Object</span>, <span class="hljs-string">"create"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(o)</span> </span>{
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span><span class="hljs-params">()</span> </span>{ }
+                F.prototype = o;
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> F();
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Add extra functions to the String object. Adds the following:
+        * - `String.format()` - format the string replacing the placeholders with provided values
+        * - `String.replaceAll(search, replace)` - replaces all instances
+        *
+        * @method _initStringPrototype
+        * @return {Array} The array
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initStringPrototype</span><span class="hljs-params">()</span> </span>{
+            addStaticFcn(<span class="hljs-built_in">String</span>, <span class="hljs-string">"format"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> s = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>],
+                    i,
+                    reg;
+
+                <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">arguments</span>.length - <span class="hljs-number">1</span>; i++) {
+                    reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"\\{"</span> + i + <span class="hljs-string">"\\}"</span>, <span class="hljs-string">"gm"</span>);
+                    s = s.replace(reg, <span class="hljs-built_in">arguments</span>[i + <span class="hljs-number">1</span>]);
+                }
+
+                <span class="hljs-keyword">return</span> s;
+            });
+
+            addPrototype(<span class="hljs-built_in">String</span>, <span class="hljs-string">"replaceAll"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(search, replace)</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.toString().split(search).join(replace);
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Add extra functions to the EsriExtent object. Adds the following:
+        * - `EsriExtent.clone()` -
+        * - `EsriExtent.widht()` -
+        * - `EsriExtent.height()` -
+        * - `EsriExtent.xyAspectFactor()` - Returns the ratio of this Extent's width to this Extent's height
+        * - `EsriExtent.centerX()` -
+        * - `EsriExtent.centerY()` -
+        * - `EsriExtent.center()` -
+        * - `EsriExtent.pan()` -
+        *
+        * @method _initEsriPrototype
+        * @return {Array} The array
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initEsriPrototype</span><span class="hljs-params">()</span> </span>{
+            addPrototype(EsriExtent, <span class="hljs-string">"clone"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EsriExtent(<span class="hljs-keyword">this</span>.xmin, <span class="hljs-keyword">this</span>.ymin, <span class="hljs-keyword">this</span>.xmax, <span class="hljs-keyword">this</span>.ymax, <span class="hljs-keyword">this</span>.spatialReference);
+            });
+
+            addPrototype(EsriExtent, <span class="hljs-string">"width"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(<span class="hljs-keyword">this</span>.xmin - <span class="hljs-keyword">this</span>.xmax);
+            });
+
+            addPrototype(EsriExtent, <span class="hljs-string">"height"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(<span class="hljs-keyword">this</span>.ymin - <span class="hljs-keyword">this</span>.ymax);
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Returns the ratio of this Extent’s width to this Extent’s height</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            addPrototype(EsriExtent, <span class="hljs-string">"xyAspectFactor"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.width() / <span class="hljs-keyword">this</span>.height();
+            });
+
+            addPrototype(EsriExtent, <span class="hljs-string">"centerX"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.xmin + <span class="hljs-keyword">this</span>.xmax) / <span class="hljs-number">2</span>;
+            });
+
+            addPrototype(EsriExtent, <span class="hljs-string">"centerY"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.ymin + <span class="hljs-keyword">this</span>.ymax) / <span class="hljs-number">2</span>;
+            });
+
+            addPrototype(EsriExtent, <span class="hljs-string">"center"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> {
+                    X: <span class="hljs-keyword">this</span>.centerX,
+                    Y: <span class="hljs-keyword">this</span>.centerY
+                };
+            });
+
+            addPrototype(EsriExtent, <span class="hljs-string">"pan"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, y)</span> </span>{
+                <span class="hljs-keyword">var</span> dx = <span class="hljs-keyword">this</span>.centerX() - x,
+                    dy = <span class="hljs-keyword">this</span>.centerY() - y;
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EsriExtent(<span class="hljs-keyword">this</span>.xmin - dx, <span class="hljs-keyword">this</span>.ymin - dy, <span class="hljs-keyword">this</span>.xmax - dx, <span class="hljs-keyword">this</span>.ymax - dy, <span class="hljs-keyword">this</span>.spatialReference);
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Add extra jQuery functions. Adds the following:
+        * - `$.findInputLabel()` - Returns labels corresponding to the set of input controls.
+        * - `$.isOverflowed()` - Detects if the given span is overflowing with text
+        *
+        * @method _initJQueryprototype
+        * @return {Array} The array
+        * @private
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initJQueryprototype</span><span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Returns labels corresponding to the set of input controls.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            $.fn.findInputLabel = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">return</span> $(<span class="hljs-keyword">this</span>).parent().find(<span class="hljs-string">"label[for='"</span> + <span class="hljs-keyword">this</span>.id + <span class="hljs-string">"']"</span>)[<span class="hljs-number">0</span>];
+                });
+            };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Detects if the given span is overflowing with text</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            $.fn.isOverflowed = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> result,
+                    span = $(<span class="hljs-keyword">this</span>),
+                    element = span
+                        .clone()
+                        .css({
+                            display: <span class="hljs-string">'inline'</span>,
+                            width: <span class="hljs-string">'auto'</span>,
+                            visibility: <span class="hljs-string">'hidden'</span>,
+                            <span class="hljs-string">"font-size"</span>: span.css(<span class="hljs-string">"font-size"</span>)
+                        })
+                        .appendTo(<span class="hljs-string">'body'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>also check the size of the parent’s container</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                result = element.width() &gt; span.width() || span.width() &gt; span.parent().width();
+
+                element.remove();
+
+                <span class="hljs-keyword">return</span> result;
+            };
+
+            $.fn.forceStyle = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(obj)</span> </span>{
+                <span class="hljs-keyword">var</span> element = $(<span class="hljs-keyword">this</span>);
+
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> obj) {
+                    <span class="hljs-keyword">if</span> (obj.hasOwnProperty(prop)) {
+                        element[<span class="hljs-number">0</span>].style.cssText += <span class="hljs-string">';'</span> + prop + <span class="hljs-string">':'</span> + obj[prop] + <span class="hljs-string">' !important'</span>;
+                    }
+                }
+
+                <span class="hljs-keyword">return</span> element;
+            };
+        }
+
+        _initStringPrototype();
+        _initObjectPrototype();
+        _initArrayPrototype();
+        _initEsriPrototype();
+        _initJQueryprototype();
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * Defines useful prototypes for basic types in javascript (e.g. String, Array)
+            *
+            * @param {Number} id
+            * @param {String} require
+            * @param {Function} load
+            * @method load
+            */</span>
+            load: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(id, require, load)</span> </span>{
+                load();
+            }
+        };
+    }
+);</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

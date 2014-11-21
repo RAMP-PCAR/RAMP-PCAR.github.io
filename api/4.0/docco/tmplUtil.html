@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>tmplUtil.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>tmplUtil.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, console */</span>
+
+<span class="hljs-comment">/**
+* Utility module containing useful static classes.
+*
+* @module Utils
+*/</span>
+
+<span class="hljs-comment">/**
+* A set of functions that can be accessed within templates
+*
+*
+* @class TmplUtil
+* @static
+*/</span>
+
+define([<span class="hljs-string">"ramp/globalStorage"</span>],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(GlobalStorage)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * Given a feature object or a graphic object (or any object that has a getLayer method and an
+            * attributes field) return the image URL for that feature/graphic object.
+            *
+            * NOTE: all dependent functions should be written as nested functions inside the caller function, otherwise TmplEx templating library won't identify
+            *
+            * @method getGraphicIcon
+            * @param {Graphic} graphic
+            * @param {Object} layerConfig
+            * @return {String} imageUrl Url to the features symbology image
+            */</span>
+            getGraphicIcon: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(graphic, layerConfig)</span> </span>{
+                <span class="hljs-keyword">var</span> i, symbolConfig = layerConfig.symbology, img = <span class="hljs-string">""</span>;
+
+                <span class="hljs-keyword">switch</span> (symbolConfig.type) {
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">"simple"</span>:
+                        <span class="hljs-keyword">return</span> symbolConfig.imageUrl;
+
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">"uniqueValue"</span>:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>make a key value for the graphic in question, using comma-space delimiter if multiple fields</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">var</span> graphicKey = graphic.attributes[symbolConfig.field1];
+                        <span class="hljs-keyword">if</span> (symbolConfig.field2) {
+                            graphicKey = graphicKey + <span class="hljs-string">", "</span> + graphic.attributes[symbolConfig.field2];
+                            <span class="hljs-keyword">if</span> (symbolConfig.field3) {
+                                graphicKey = graphicKey + <span class="hljs-string">", "</span> + graphic.attributes[symbolConfig.field3];
+                            }
+                        }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>search the value maps for a matching entry.  if no match found, use the default image</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; symbolConfig.valueMaps.length; i++) {
+                            <span class="hljs-keyword">if</span> (symbolConfig.valueMaps[i].value === graphicKey) {
+                                img = symbolConfig.valueMaps[i].imageUrl;
+                                <span class="hljs-keyword">break</span>;
+                            }
+                        }
+
+                        <span class="hljs-keyword">if</span> (img === <span class="hljs-string">""</span>) {
+                            img = symbolConfig.defaultImageUrl;
+                        }
+
+                        <span class="hljs-keyword">return</span> img;
+
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">"classBreaks"</span>:
+
+                        <span class="hljs-keyword">var</span> gVal, lower, upper;
+                        gVal = graphic.attributes[symbolConfig.field];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>find where the value exists in the range</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        lower = symbolConfig.minValue;
+
+                        <span class="hljs-keyword">if</span> (gVal &lt; lower) {
+                            img = symbolConfig.defaultImageUrl;
+                        } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>a trick to prime the first loop iteration
+the first low value is inclusive.  every other low value is exclusive.
+if we have entered this else bracket, we know we are not below the first lower limit.
+so we reduce lower by 1 to make the first exclusive test inclusive</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            upper = lower - <span class="hljs-number">1</span>;
+
+                            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; symbolConfig.rangeMaps.length; i++) {
+                                lower = upper;
+                                upper = symbolConfig.rangeMaps[i].maxValue;
+                                <span class="hljs-keyword">if</span> ((gVal &gt; lower) &amp;&amp; (gVal &lt;= upper)) {
+                                    img = symbolConfig.rangeMaps[i].imageUrl;
+                                    <span class="hljs-keyword">break</span>;
+                                }
+                            }
+
+                            <span class="hljs-keyword">if</span> (img === <span class="hljs-string">""</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>no match in defined ranges.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                img = symbolConfig.defaultImageUrl;
+                            }
+                        }
+
+                        <span class="hljs-keyword">return</span> img;
+
+                    <span class="hljs-keyword">default</span>:
+                        <span class="hljs-keyword">return</span> symbolConfig.icons[<span class="hljs-string">"default"</span>].imageUrl;
+                }
+            },
+
+            <span class="hljs-comment">/**
+            * Given a feature object or a graphic object (or any object that has a getLayer method and an
+            * attributes field) return the attribute value for its designed "name" field
+            *
+            * NOTE: all dependent functions should be written as nested functions inside the caller function, otherwise TmplEx templating library won't identify
+            *
+            * @method getFeatureName
+            * @param {Graphic} graphic
+            * @param {Object} layerConfig
+            * @return {String} imageUrl Url to the features symbology image
+            */</span>
+            getFeatureName: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(graphic, layerConfig)</span> </span>{
+                <span class="hljs-keyword">return</span> graphic.attributes[layerConfig.nameField];
+            },
+
+            <span class="hljs-comment">/**
+            * Given a feature object return the objectid for that item.
+            * This will likely fail on a non-feature object (e.g. a plain graphic)
+            *
+            * NOTE: all dependent functions should be written as nested functions inside the caller function, otherwise TmplEx templating library won't identify
+            *
+            * @method getObjectId
+            * @param {Graphic} graphic
+            * @return {Integer} objectId
+            */</span>
+            getObjectId: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(graphic)</span> </span>{
+                <span class="hljs-keyword">return</span> graphic.attributes[graphic.getLayer().objectIdField];
+            },
+            <span class="hljs-comment">/*
+            * Helper function, get attribute value by field name
+            *
+            * @method getAttributeValueByName
+            * @param {Object} graphic ?
+            * @param {String} fieldName ?
+            */</span>
+            getAttributeValueByName: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(graphic, fieldName)</span> </span>{
+                <span class="hljs-keyword">return</span> graphic.attributes[fieldName];
+            },
+
+            <span class="hljs-comment">/* Helper function used by filterManager.*/</span>
+            <span class="hljs-comment">/*
+            * generate visibility legend object
+            * @param o
+            */</span>
+            generateVisibilityLegend: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(o)</span> </span>{
+                <span class="hljs-keyword">var</span> attr = <span class="hljs-string">""</span>,
+                    visibilityLegendLabel = {
+                        <span class="hljs-keyword">for</span>: <span class="hljs-string">"filterGroup_"</span> + o.data[o.idx].id,
+                        attr: attr,
+                        value: o.data[o.idx].id,
+                        checked: <span class="hljs-string">"checked"</span>,
+                        label: o.data[o.idx].layerConfig.displayName,
+                        <span class="hljs-keyword">class</span>: <span class="hljs-string">"eye checked"</span>,
+                        layerId: o.data[o.idx].id
+                    };
+                <span class="hljs-keyword">return</span> visibilityLegendLabel;
+            },
+            <span class="hljs-comment">/*
+            * generate visibility legend object
+            * @param o
+            */</span>
+            generateBoundingBoxLegend: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(o)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>adding flag for the generated o object
+o.disabled will indicate the bounding checkbox is to be disabled.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">var</span> checkboxDisabled = <span class="hljs-literal">false</span>,
+                    attr = <span class="hljs-string">""</span>,
+                    boundingLegendLabel;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>determine if given layer is static or WMS</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                checkboxDisabled = <span class="hljs-built_in">Boolean</span>(o.data[o.idx].ramp.type === GlobalStorage.layerType.Static ||
+                    o.data[o.idx].ramp.type === GlobalStorage.layerType.WMS);
+
+                boundingLegendLabel = {
+                    <span class="hljs-keyword">for</span>: <span class="hljs-string">"filterGroup_"</span> + o.data[o.idx].id + <span class="hljs-string">"1"</span>,
+                    attr: attr + <span class="hljs-string">"1"</span>,
+                    value: o.data[o.idx].id,
+                    checked: <span class="hljs-string">"checked"</span>,
+                    label: o.data[o.idx].layerConfig.displayName,
+                    <span class="hljs-keyword">class</span>: <span class="hljs-string">"box checked"</span>,
+                    disabled: checkboxDisabled,
+                    layerId: o.data[o.idx].id
+                };
+
+                <span class="hljs-keyword">return</span> boundingLegendLabel;
+            },
+
+            <span class="hljs-comment">/*
+            * Generate settings toggle object.
+            *
+            * @method generateSettingsToggle
+            * @param o
+            */</span>
+            generateSettingsToggle: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(o)</span> </span>{
+                <span class="hljs-keyword">var</span> <span class="hljs-comment">//attr = "",</span>
+                    boundingLegendLabel = {
+                        str: o.str,
+                        layerId: o.data[o.idx].id,
+                        settings: o.data[o.idx].layerConfig.settings
+                    };
+
+                <span class="hljs-keyword">return</span> boundingLegendLabel;
+            },
+
+            <span class="hljs-comment">/**
+             * Gets an array of symbology images to display in the layer selector
+             * @method getSymbolForLayer
+             * @param {Object} layerConfig A layer's config object
+             * @returns {icon} The array of icon(s) to use in layer selector
+             */</span>
+            getSymbolForLayer: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerConfig)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>will take a symbol list that has 1 or more entries.  will return first 3.  if fewer than 3, will duplicate values</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pick3</span><span class="hljs-params">(symbolList)</span> </span>{
+                    <span class="hljs-keyword">var</span> num = symbolList.length, indexes;
+
+                    <span class="hljs-keyword">if</span> (num &gt; <span class="hljs-number">2</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>pick first 3</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        indexes = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+                    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (num === <span class="hljs-number">2</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>duplicate the first</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        indexes = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>];
+                    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>triple whammy</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        indexes = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+                    } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>something is ruined</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">return</span> [<span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>];
+                    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>return images in an array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">return</span> [symbolList[indexes[<span class="hljs-number">0</span>]].imageUrl, symbolList[indexes[<span class="hljs-number">1</span>]].imageUrl, symbolList[indexes[<span class="hljs-number">2</span>]].imageUrl];
+                }
+
+                <span class="hljs-keyword">if</span> (layerConfig.symbology) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>feature layer.  make an array for the appropriate renderer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                    <span class="hljs-keyword">var</span> symbNode = layerConfig.symbology;
+                    <span class="hljs-keyword">switch</span> (symbNode.type) {
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"simple"</span>:
+                            <span class="hljs-keyword">return</span> [symbNode.imageUrl];
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"uniqueValue"</span>:
+                            <span class="hljs-keyword">return</span> pick3(symbNode.valueMaps);
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"classBreaks"</span>:
+                            <span class="hljs-keyword">return</span> pick3(symbNode.rangeMaps);
+                        <span class="hljs-keyword">default</span>:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>we have an unknown renderer type.  at this point, something else would have failed most likely.  write out a screech to the console just incase</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'unknown renderer encountered: '</span> + symbNode.type);
+                            <span class="hljs-keyword">return</span> [<span class="hljs-string">""</span>];
+                    }
+                } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>no symbology defined, assume a WMS</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                    <span class="hljs-keyword">if</span> (layerConfig.imageUrl) {
+                        <span class="hljs-keyword">return</span> [layerConfig.imageUrl];
+                    } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>catch-all in the case that things are really messed up</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'layer with no image info for layer selector'</span>);
+                        <span class="hljs-keyword">return</span> [<span class="hljs-string">""</span>];
+                    }
+                }               
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

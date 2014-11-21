@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>quickzoom.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>quickzoom.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, console, $, RAMP */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>the “use strict” forces the ECMA Script 5 interpretation of the code</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-comment">/**
+* QuickZoom submodule
+*
+* @module RAMP
+* @submodule QuickZoom
+* @main QuickZoom
+*/</span>
+
+<span class="hljs-comment">/**
+* The QuickZoom class handles zooming in the map based on province, city, or postal code.
+* These zoom in services rely on web services which return extent values based the user-entered province, city, or postal code
+*
+* @class QuickZoom
+* @uses dojo/_base/declare
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+* @uses dojo/dom
+* @uses dojo/dom-construct
+* @uses dijit/form/Form
+* @uses dijit/form/TextBox
+* @uses dijit/form/Select
+* @uses dijit/form/Button
+* @uses esri/geometry/Extent
+* @uses esri/tasks/QueryTask
+* @uses esri/tasks/query
+* @uses GlobalStorage
+* @uses Map
+* @uses Util
+*/</span>
+
+define([
+<span class="hljs-comment">/* Dojo */</span>
+<span class="hljs-string">"dojo/_base/declare"</span>, <span class="hljs-string">"dojo/_base/array"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/dom"</span>, <span class="hljs-string">"dojo/dom-construct"</span>, <span class="hljs-string">"dijit/form/Form"</span>,
+<span class="hljs-string">"dijit/form/TextBox"</span>, <span class="hljs-string">"dijit/form/Select"</span>, <span class="hljs-string">"dijit/form/Button"</span>,
+<span class="hljs-comment">/* Esri */</span>
+<span class="hljs-string">"esri/geometry/Extent"</span>, <span class="hljs-string">"esri/tasks/QueryTask"</span>, <span class="hljs-string">"esri/tasks/query"</span>,
+<span class="hljs-comment">/* Ramp */</span>
+<span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"ramp/map"</span>,
+<span class="hljs-comment">/* Util */</span>
+<span class="hljs-string">"utils/util"</span>],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* Dojo */</span>
+    declare, dojoArray, dojoLang, dom, domConstruct, Form, TextBox, Select, Button,
+    Extent, QueryTask, Query,
+    <span class="hljs-comment">/* Ramp */</span>
+    GlobalStorage, RampMap,
+    <span class="hljs-comment">/* Util */</span>
+    UtilMisc)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+        <span class="hljs-keyword">return</span> declare(<span class="hljs-literal">null</span>, {
+            <span class="hljs-comment">/*
+             * Defines the UI controls for the province, city, and postal code selections
+             * @method constructor
+             * @constructor
+             *
+             */</span>
+            constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">this</span>.config = RAMP.config;
+
+                <span class="hljs-keyword">this</span>.form = <span class="hljs-keyword">new</span> Form({
+                    style: <span class="hljs-string">"overflow:hidden; clear:none;"</span>
+                });
+
+                <span class="hljs-keyword">var</span> className = <span class="hljs-string">"quickZoom"</span>; <span class="hljs-comment">// used for CSS styling</span>
+
+                <span class="hljs-keyword">this</span>.provinceSelect = <span class="hljs-keyword">new</span> Select({
+                    id: <span class="hljs-string">"quickZoomProvince"</span>,
+                    <span class="hljs-keyword">class</span>: className,
+                    options: []
+                });
+
+                <span class="hljs-keyword">this</span>.citySelect = <span class="hljs-keyword">new</span> Select({
+                    id: <span class="hljs-string">"quickZoomCity"</span>,
+                    <span class="hljs-keyword">class</span>: className,
+                    options: []
+                });
+
+                <span class="hljs-keyword">this</span>.postalCodeTextbox = <span class="hljs-keyword">new</span> TextBox({
+                    id: <span class="hljs-string">"quickZoomPostalCode"</span>,
+                    <span class="hljs-keyword">class</span>: className,
+                    style: <span class="hljs-string">"width : 30%"</span>
+                });
+
+                <span class="hljs-keyword">this</span>.button = <span class="hljs-keyword">new</span> Button({
+                    label: <span class="hljs-string">"Find"</span>,
+                    id: <span class="hljs-string">"quickZoomButton"</span>,
+                    <span class="hljs-keyword">class</span>: className
+                });
+
+                <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>; <span class="hljs-comment">// for local access to "this"</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_addNode</span><span class="hljs-params">(domNode)</span> </span>{
+                    that.form.domNode.appendChild(domNode);
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_addLabel</span><span class="hljs-params">(text)</span> </span>{
+                    <span class="hljs-keyword">var</span> node = domConstruct.create(<span class="hljs-string">"label"</span>, {
+                        <span class="hljs-keyword">class</span>: className,
+                        innerHTML: text
+                    });
+                    _addNode(node);
+                    <span class="hljs-keyword">return</span> node;
+                }
+
+                _addLabel(<span class="hljs-string">"Choose province:"</span>);
+                _addNode(<span class="hljs-keyword">this</span>.provinceSelect.domNode);
+
+                _addLabel(<span class="hljs-string">"City:"</span>);
+                _addNode(<span class="hljs-keyword">this</span>.citySelect.domNode);
+
+                _addLabel(<span class="hljs-string">"or enter postal code (e.g. A1A):"</span>);
+                _addNode(<span class="hljs-keyword">this</span>.postalCodeTextbox.domNode);
+
+                _addNode(<span class="hljs-keyword">this</span>.button.domNode);
+                <span class="hljs-keyword">this</span>.errorText = _addLabel(<span class="hljs-string">""</span>);
+            },
+
+            _setError: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(errorMsg)</span> </span>{
+                <span class="hljs-built_in">console</span>.log(errorMsg);
+                $(<span class="hljs-keyword">this</span>.errorText).text(errorMsg);
+            },
+            <span class="hljs-comment">/*
+             * This adds the search tools to the UI and populates the UI controls: Province dropdown, city drop down, postal code text box
+             *
+             * @method init
+             * @param {Object} where A DOM object where the dropdowns will be placed
+             * @constructor
+             */</span>
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(where)</span> </span>{
+                <span class="hljs-keyword">var</span> provinceSelect = <span class="hljs-keyword">this</span>.provinceSelect,
+                    citySelect = <span class="hljs-keyword">this</span>.citySelect,
+                    config = <span class="hljs-keyword">this</span>.config,
+                    that = <span class="hljs-keyword">this</span>; <span class="hljs-comment">// for local access to "this"</span>
+
+                <span class="hljs-comment">/**
+                * Change the extent of the map based on the extent data
+                * retrieved from the given url
+                *
+                * @method changeExtent
+                * @private
+                * @param {String} url
+                * @param {Object} query
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeExtent</span><span class="hljs-params">(url, query)</span> </span>{
+                    query.returnGeometry = <span class="hljs-literal">true</span>;
+
+                    <span class="hljs-keyword">var</span> queryTask = <span class="hljs-keyword">new</span> QueryTask(url);
+                    queryTask.execute(query,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(featureSet)</span> </span>{
+                            <span class="hljs-keyword">if</span> (featureSet.features.isEmpty()) {
+                                that._setError(<span class="hljs-string">"invalid query"</span>);
+                                <span class="hljs-keyword">return</span>;
+                            }
+                            <span class="hljs-keyword">var</span> extent = featureSet.features[<span class="hljs-number">0</span>].geometry.getExtent();
+                            <span class="hljs-keyword">if</span> (RampMap.getMaxExtent().contains(extent)) {
+                                RampMap.getMap().setExtent(extent);
+                                that._setError(<span class="hljs-string">""</span>);
+                            } <span class="hljs-keyword">else</span> {
+                                that._setError(<span class="hljs-string">"beyond max extent"</span>);
+                            }
+                        },
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Could not load extent from service"</span>);
+                            <span class="hljs-built_in">console</span>.log(error);
+                        });
+                }
+
+                <span class="hljs-comment">/**
+                * Populate the given dropdown with data from the given url.
+                *
+                * @method populateDropDown
+                * @param {String} url the url to the service containing the data to populate the dropdown
+                * @param {DObject} select the dojo Select object to populate
+                * @param {Object} query to execute
+                * @param {Function} mapFunc the function to convert each element in the retrieved data to a label that can be added to the dropdown menu
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">populateDropDown</span><span class="hljs-params">(url, select, query, mapFunc)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Clear the dropdown</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    select.removeOption(select.getOptions());
+
+                    <span class="hljs-keyword">var</span> queryTask = <span class="hljs-keyword">new</span> QueryTask(url);
+                    queryTask.execute(query,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(featureSet)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Populate the dropdown from a list retrieved
+from service</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            select.addOption(dojoArray.map(featureSet.features, mapFunc));
+                        },
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Could not populate dropdown"</span>);
+                            <span class="hljs-built_in">console</span>.log(error);
+                        });
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Populate the province dropdown from a list retrieved
+from service</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                provinceSelect.loadDropDown(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> provinceConfig = config.quickzoom.province,
+                        query = <span class="hljs-keyword">new</span> Query();
+
+                    query.where = <span class="hljs-string">"OBJECTID&gt;0"</span>;
+                    query.outFields = [provinceConfig.shortName, provinceConfig.name];
+
+                    populateDropDown(provinceConfig.url, provinceSelect, query,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(feature)</span> </span>{
+                            <span class="hljs-keyword">var</span> shortName = feature.attributes[provinceConfig.shortName];
+                            <span class="hljs-keyword">return</span> {
+                                label: feature.attributes[provinceConfig.name],
+                                value: shortName,
+                                selected: shortName === provinceConfig.selectedProv
+                            };
+                        });
+                });
+
+                <span class="hljs-comment">/**
+                * Populates the city dropdown menu with the cities in the
+                * selected province.
+                *
+                * @method populateCityDropDown
+                * @private
+                * @param {String} prov
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">populateCityDropDown</span><span class="hljs-params">(prov)</span> </span>{
+                    <span class="hljs-keyword">var</span> cityConfig = config.quickzoom.city,
+                        query = <span class="hljs-keyword">new</span> Query();
+
+                    query.where = UtilMisc.getWhereClause(cityConfig.province, prov);
+                    query.outFields = [cityConfig.name, cityConfig.id];
+                    populateDropDown(cityConfig.url, citySelect, query,
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(feature)</span> </span>{
+                        <span class="hljs-keyword">return</span> {
+                            label: feature.attributes[cityConfig.name],
+                            value: feature.attributes[cityConfig.id],
+                            selected: <span class="hljs-literal">false</span>
+                        };
+                    });
+                }
+
+                citySelect.loadDropDown(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Populate with the cities of the default province first</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    populateCityDropDown(config.quickzoom.province.selectedProv);
+                });
+
+                provinceSelect.on(<span class="hljs-string">"change"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Change the extent, then populate the city with the cities in the province</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">var</span> provConfig = config.quickzoom.province,
+                        prov = provinceSelect.get(<span class="hljs-string">"value"</span>),
+                        query = <span class="hljs-keyword">new</span> Query();
+                    query.where = UtilMisc.getWhereClause(provConfig.shortName, prov);
+
+                    changeExtent(provConfig.url, query);
+                    populateCityDropDown(prov);
+                });
+
+                citySelect.on(<span class="hljs-string">"change"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> cityConfig = config.quickzoom.city,
+                        city = citySelect.get(<span class="hljs-string">"value"</span>),
+                        query = <span class="hljs-keyword">new</span> Query();
+                    query.where = UtilMisc.getWhereClause(cityConfig.id, city);
+
+                    changeExtent(cityConfig.url, query);
+                });
+
+                <span class="hljs-comment">/**
+                * Returns true if the given postal code is valid, false otherwise.
+                *
+                * @method validatePostalCode
+                * @private
+                * @param {String} fsa fsa
+                */</span>
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">validatePostalCode</span><span class="hljs-params">(fsa)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Perform case insensitive matching</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">var</span> regexp = <span class="hljs-regexp">/[abcdefghijklmnopqrstuvwxyz]\d[abcdefghijklmnopqrstuvwxyz]/i</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Remove space from the input FSA</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    fsa = dojoLang.trim(fsa);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Detect if the user has entered the postal code in correct format</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> (fsa) {
+                        <span class="hljs-keyword">var</span> result = fsa.match(regexp);
+                        <span class="hljs-keyword">return</span> (result &amp;&amp; result.length === <span class="hljs-number">1</span>);
+                    }
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }
+
+                <span class="hljs-keyword">this</span>.button.on(<span class="hljs-string">"click"</span>, dojoLang.hitch(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> postalCode = <span class="hljs-keyword">this</span>.postalCodeTextbox.get(<span class="hljs-string">"value"</span>);
+                    <span class="hljs-keyword">if</span> (validatePostalCode(postalCode)) {
+                        <span class="hljs-keyword">var</span> postalConfig = config.quickzoom.postalCode,
+                            query = <span class="hljs-keyword">new</span> Query();
+                        query.where = UtilMisc.getWhereClause(postalConfig.id, postalCode);
+                        changeExtent(postalConfig.url, query);
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"invalid postal code!"</span>);
+                        that._setError(<span class="hljs-string">"invalid postal code"</span>);
+                    }
+                }));
+
+                <span class="hljs-keyword">var</span> whereNode = dom.byId(where);
+                domConstruct.place(<span class="hljs-keyword">this</span>.form.domNode, whereNode, <span class="hljs-string">"replace"</span>);
+            }
+        });
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

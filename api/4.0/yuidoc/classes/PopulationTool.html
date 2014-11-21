@@ -1,0 +1,4307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PopulationTool - ramp-pcar</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-pcar">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 4.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SidePanel.html">SidePanel</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited">
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>PopulationTool Class</h1>
+<div class="box meta">
+    
+        <div class="uses">
+            Uses
+            <ul class="inline commas">
+                
+                    <li><a href="http://dojotoolkit.org/reference-guide/1.9/dojo/dom.html">dojo/dom</a></li>
+                
+                    <li><a href="http://dojotoolkit.org/reference-guide/1.9/dojo/string.html">dojo/string</a></li>
+                
+                    <li><a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/lang.html">dojo/_base/lang</a></li>
+                
+                    <li><a href="esri/config.html">esri/config</a></li>
+                
+                    <li><a href="esri/graphic.html">esri/graphic</a></li>
+                
+                    <li><a href="esri/tasks/Geoprocessor.html">esri/tasks/Geoprocessor</a></li>
+                
+                    <li><a href="esri/tasks/FeatureSet.html">esri/tasks/FeatureSet</a></li>
+                
+                    <li><a href="esri/toolbars/draw.html">esri/toolbars/draw</a></li>
+                
+                    <li><a href="esri/symbols/SimpleLineSymbol.html">esri/symbols/SimpleLineSymbol</a></li>
+                
+                    <li><a href="esri/symbols/SimpleFillSymbol.html">esri/symbols/SimpleFillSymbol</a></li>
+                
+                    <li><a href="Map.html">Map</a></li>
+                
+                    <li><a href="GlobalStorage.html">GlobalStorage</a></li>
+                
+            </ul>
+        </div>
+    
+
+    
+        <div class="extends">
+            Extends <a href="../classes/BaseTool.html" class="crosslink">BaseTool</a>
+        </div>
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l7"><code>src\js\RAMP\Tools\populationTool.js:7</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/Tools.html">Tools</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>PopulationTool.</p>
+<p>Computes the total population of a selected area. When the user draws a polygon, the population will
+be displayed in the bottom right corner.</p>
+
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+            <li class="api-class-tab events"><a href="#events">Events</a></li>
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method__hideLoadingImg">_hideLoadingImg</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method__initEventHandlers">_initEventHandlers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method__initListeners">_initListeners</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method__initRepublishers">_initRepublishers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method__initScale">_initScale</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method__showLoadingImg">_showLoadingImg</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method__updateScale">_updateScale</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_activate">activate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_AddStaticLayer">AddStaticLayer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_checkBoundary">checkBoundary</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_clearMap">clearMap</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_computeZonalStats">computeZonalStats</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_createExtent">createExtent</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_deactivate">deactivate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_displayOutput">displayOutput</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_displayTemplateOutput">displayTemplateOutput</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_getFeatureLayer">getFeatureLayer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_getVisibleFeatureLayers">getVisibleFeatureLayers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_init">init</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_initToggle">initToggle</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_newPopup">newPopup</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_outputTotalPopulation">outputTotalPopulation</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_republish">republish</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private inherited">
+                                <a href="#method_setBoundingBoxVisibility">setBoundingBoxVisibility</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_ui.init">ui.init</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_working">working</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_baseLayer">baseLayer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_boundingBoxLayers">boundingBoxLayers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_boundingBoxMapping">boundingBoxMapping</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_event">event</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_featureLayers">featureLayers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_featureLayerStartIndex">featureLayerStartIndex</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_fullExtent">fullExtent</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_getMap">getMap</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_getMaxExtent">getMaxExtent</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_handle">handle</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_InitExtent">InitExtent</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_maxExtent">maxExtent</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_name">name</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_node">node</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_options">options</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_outputFloat">outputFloat</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_spatialReference">spatialReference</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_template">template</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_tooltip">tooltip</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_url">url</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private inherited">
+                                <a href="#property_wmsLayers">wmsLayers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property inherited">
+                                <a href="#property_workingLabel">workingLabel</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events extends">
+                        
+                            <li class="index-item event inherited">
+                                <a href="#event_ACTIVATE">ACTIVATE</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event inherited">
+                                <a href="#event_DEACTIVATE">DEACTIVATE</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__hideLoadingImg" class="method item private inherited">
+    <h3 class="name"><code>_hideLoadingImg</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method__hideLoadingImg">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l124"><code>src\js\RAMP\Modules\map.js:124</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Hides the loading image.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__initEventHandlers" class="method item private inherited">
+    <h3 class="name"><code>_initEventHandlers</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>map</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method__initEventHandlers">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l362"><code>src\js\RAMP\Modules\map.js:362</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Creates event handlers for the map control: click, mouse-over, load, extent change, and update events.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">map</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A ESRI map object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__initListeners" class="method item private inherited">
+    <h3 class="name"><code>_initListeners</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>map</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method__initListeners">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l212"><code>src\js\RAMP\Modules\map.js:212</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Subscribe to external events (published using topic.publish)
+and react accordingly</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">map</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>map object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__initRepublishers" class="method item private inherited">
+    <h3 class="name"><code>_initRepublishers</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>map</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method__initRepublishers">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l181"><code>src\js\RAMP\Modules\map.js:181</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Republishes map events to the outside using topic.publish</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">map</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__initScale" class="method item private inherited">
+    <h3 class="name"><code>_initScale</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>event</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method__initScale">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l151"><code>src\js\RAMP\Modules\map.js:151</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initialize Map Scale</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__showLoadingImg" class="method item private inherited">
+    <h3 class="name"><code>_showLoadingImg</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method__showLoadingImg">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l114"><code>src\js\RAMP\Modules\map.js:114</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Shows the loading image.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__updateScale" class="method item private inherited">
+    <h3 class="name"><code>_updateScale</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>event</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method__updateScale">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l134"><code>src\js\RAMP\Modules\map.js:134</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Update Map Scale when zoom level changes</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_activate" class="method item private">
+    <h3 class="name"><code>activate</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            <p>Inherited from
+            <a href="../classes/BaseTool.html#method_activate">
+                BaseTool
+            </a>
+            
+            but overwritten in
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l134"><code>src\js\RAMP\Tools\populationTool.js:134</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Activates the Tool. This method is passed to the <code>initToggle</code> method and is triggered by the BaseTool logic.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_AddStaticLayer" class="method item private inherited">
+    <h3 class="name"><code>AddStaticLayer</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>layer_type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>layer_url</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>layer_op</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method_AddStaticLayer">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l458"><code>src\js\RAMP\Modules\map.js:458</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Add a static, non-interactive Layer to the map</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">layer_type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A value which controls how the layer is going to be added to the map</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">layer_url</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A URL pointing to a valid map service endpoint</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">layer_op</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A value between 0.0 and 1.0 which determines the transparency of the layer</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_checkBoundary" class="method item inherited">
+    <h3 class="name"><code>checkBoundary</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>e</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>maxExtent</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Esri/geometry/Extent</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method_checkBoundary">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l641"><code>src\js\RAMP\Modules\map.js:641</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Given an ESRI Extent Object, returns a new ESRI Extent Object that
+contains the extent adjusted according to this map&#39;s maximum extent</p>
+<p>NOTE: this method is currently unused!</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">e</code>
+                        <span class="type">Esri/geometry/Extent</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>the extent Object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">maxExtent</code>
+                        <span class="type">Esri/geometry/Extent</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>the maximum extent</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Esri/geometry/Extent</span>:
+                    
+                    <p>An adjusted extent, if the target extent is outside the boundary</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_clearMap" class="method item private">
+    <h3 class="name"><code>clearMap</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l157"><code>src\js\RAMP\Tools\populationTool.js:157</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Clears the map. This method is passed to the <code>initToggle</code> method as the <code>defaultAction</code>
+to be triggered by the BaseTool logic when the <code>float-default-button</code> is clicked.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_computeZonalStats" class="method item private">
+    <h3 class="name"><code>computeZonalStats</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>evtObj</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l54"><code>src\js\RAMP\Tools\populationTool.js:54</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Compute an estimated amount of people in a specified polygon.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">evtObj</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>an object representing the event.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_createExtent" class="method item private inherited">
+    <h3 class="name"><code>createExtent</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>extentConfig</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>sr</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Esri/geometry/Extent</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method_createExtent">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l444"><code>src\js\RAMP\Modules\map.js:444</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Instantiates an extent from a JSON config object and spatial reference</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">extentConfig</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>the JSON config object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">sr</code>
+                        <span class="type"><a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html" class="crosslink external" target="_blank">Esri/SpatialReference</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>the <a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html" class="crosslink external" target="_blank">Esri/SpatialReference</a></p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Esri/geometry/Extent</span>:
+                    
+                    <p>An ESRI extent object based on the config data</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_deactivate" class="method item private">
+    <h3 class="name"><code>deactivate</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            <p>Inherited from
+            <a href="../classes/BaseTool.html#method_deactivate">
+                BaseTool
+            </a>
+            
+            but overwritten in
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l146"><code>src\js\RAMP\Tools\populationTool.js:146</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Deactivates the Tool. This method is passed to the <code>initToggle</code> method and is triggered by the BaseTool logic.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_displayOutput" class="method item private">
+    <h3 class="name"><code>displayOutput</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            <p>Inherited from
+            <a href="../classes/BaseTool.html#method_displayOutput">
+                BaseTool
+            </a>
+            
+            but overwritten in
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l170"><code>src\js\RAMP\Tools\populationTool.js:170</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Displays the tool&#39;s output by calling BaseTool&#39;s <code>displayOutput</code> function.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_displayTemplateOutput" class="method item inherited">
+    <h3 class="name"><code>displayTemplateOutput</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>templateData</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[templateName]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#method_displayTemplateOutput">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l305"><code>src\js\RAMP\Tools\baseTool.js:305</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Generates output to be injected into the tool&#39;s float given a template&#39;s name and data object.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">templateData</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>data to be put inside the specified template</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[templateName]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>template name to be completed with provided data; if not supplied, &quot;toolOutputTemplate&quot; property of the options object will be used</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>this tool</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getFeatureLayer" class="method item private inherited">
+    <h3 class="name"><code>getFeatureLayer</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>featureUrl</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developers.arcgis.com/javascript/jsapi/featurelayer-amd.html" class="crosslink external" target="_blank">Esri/layer/FeatureLayer</a></span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method_getFeatureLayer">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l626"><code>src\js\RAMP\Modules\map.js:626</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Return the feature layer corresponding to the given url.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">featureUrl</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>the url of the feature layer</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developers.arcgis.com/javascript/jsapi/featurelayer-amd.html" class="crosslink external" target="_blank">Esri/layer/FeatureLayer</a></span>:
+                    
+                    <p>feature layer</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getVisibleFeatureLayers" class="method item inherited">
+    <h3 class="name"><code>getVisibleFeatureLayers</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method_getVisibleFeatureLayers">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l612"><code>src\js\RAMP\Modules\map.js:612</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Returns a list of feature layers that are currently visible on the map.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    
+                    <p>an array of <a href="https://developers.arcgis.com/javascript/jsapi/featurelayer-amd.html" class="crosslink external" target="_blank">Esri/layer/FeatureLayer</a> objects</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_init" class="method item">
+    <h3 class="name"><code>init</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l186"><code>src\js\RAMP\Tools\populationTool.js:186</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initialize the population tool</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_initToggle" class="method item inherited">
+    <h3 class="name"><code>initToggle</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>selector</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>d</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[options]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#method_initToggle">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l173"><code>src\js\RAMP\Tools\baseTool.js:173</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initializes the tool and sets up popup to handle activating/deactivating of the tool. Tools should call this function on <code>init</code>,
+unless they employ a different workflow and then need to handle all function activation/deactivation/working themselves.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">selector</code>
+                        <span class="type">JObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>a target selector that serves as a toggle for the tool</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">d</code>
+                        <span class="type">JObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>a Deferred object to be resolved after tool initiates</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[options]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Additional options</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[target]</code>
+                                    <span class="type">JObject</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Target where the tool&#39;s float should be appended to</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[outputFloatTemplate]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Template name to generate the float container with</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[outputFloatData]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Data payload to be passed to the template engine when generate the float container</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[workingLabelTemplate]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Template name to generate the <code>busy</code> label</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[workingLabelData]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Data payload to be passed to the template engine when generate the <code>busy</code> label</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[activate]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>an activate function to be called when the toggle is clicked</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[deactivate]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>a deactivate function to be called when the toggle is clicked</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[defaultAction]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Function to be executed when the <code>float-default-button</code> is clicked</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>this tool</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_newPopup" class="method item private inherited">
+    <h3 class="name"><code>newPopup</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>popupAttr</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/PopupManager.html#method_newPopup">PopupManager</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Utils_popupManager.js.html#l498"><code>src\js\RAMP\Utils\popupManager.js:498</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Create a new PopupBase object from the settings provided.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">popupAttr</code>
+                        <span class="type"><a href="../classes/PopupBaseSettings.html" class="crosslink">PopupBaseSettings</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Popup settings</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>popup</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_outputTotalPopulation" class="method item private">
+    <h3 class="name"><code>outputTotalPopulation</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>evtObj</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l88"><code>src\js\RAMP\Tools\populationTool.js:88</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Display the calculated population on the map.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">evtObj</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>an object representing the event.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_republish" class="method item private inherited">
+    <h3 class="name"><code>republish</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method_republish">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l191"><code>src\js\RAMP\Modules\map.js:191</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Republish map events using topic.publish</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_setBoundingBoxVisibility" class="method item private inherited">
+    <h3 class="name"><code>setBoundingBoxVisibility</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>layerId</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#method_setBoundingBoxVisibility">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l501"><code>src\js\RAMP\Modules\map.js:501</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Sets the visibility of the bounding box that belongs to the layer with the given layerId.
+Note: the layerId needs to be the ID of the featurelayer, not the ID of the actual bounding
+box layer.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">layerId</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>the id of the layer whose bounding box visibility should be set</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_ui.init" class="method item private">
+    <h3 class="name"><code>ui.init</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_populationTool.js.html#l107"><code>src\js\RAMP\Tools\populationTool.js:107</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initiates additional UI components of the Tool.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_working" class="method item inherited">
+    <h3 class="name"><code>working</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>state</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#method_working">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l345"><code>src\js\RAMP\Tools\baseTool.js:345</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Sets the tool into a specified state; if the tool is <code>working</code>, a <code>working</code> label is placed beside the cursor and injected into the tool output float.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">state</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>indicates the state of the tool: working, idle</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>This tool</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_baseLayer" class="property item private inherited">
+    <h3 class="name"><code>baseLayer</code></h3>
+    <span class="type"><a href="https://developers.arcgis.com/javascript/jsapi/arcgistiledmapservicelayer-amd.html" class="crosslink external" target="_blank">Esri/layers/ArcGISTiledMapServiceLayer</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_baseLayer">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l750"><code>src\js\RAMP\Modules\map.js:750</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The basemap layer</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_boundingBoxLayers" class="property item inherited">
+    <h3 class="name"><code>boundingBoxLayers</code></h3>
+    <span class="type">Array of esri/layer/GraphicsLayer</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_boundingBoxLayers">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l849"><code>src\js\RAMP\Modules\map.js:849</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>A list GraphicsLayer that represent the extent bounding box of the feature layers.
+{[esr/layer/featurelayers]} featureLayers A list of feature layers found in the application config
+{[esri/layer/graphiclayer]}  An array of graphic layers to add to the map</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_boundingBoxMapping" class="property item private inherited">
+    <h3 class="name"><code>boundingBoxMapping</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_boundingBoxMapping">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l89"><code>src\js\RAMP\Modules\map.js:89</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Maps the id of a graphic layer to the GraphicsLayer Object that represents its extent bounding box.
+A dictionary of String, <a href="https://developers.arcgis.com/javascript/jsapi/graphicslayer-amd.html" class="crosslink external" target="_blank">Esri/layer/GraphicsLayer</a> pairs.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_event" class="property item inherited">
+    <h3 class="name"><code>event</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_event">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l130"><code>src\js\RAMP\Tools\baseTool.js:130</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Event names published by the BaseTool</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code> {
+     ACTIVATE: &quot;basetool-activate&quot;,
+     DEACTIVATE: &quot;basetool-deactivate&quot;
+ }</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_featureLayers" class="property item private inherited">
+    <h3 class="name"><code>featureLayers</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_featureLayers">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l73"><code>src\js\RAMP\Modules\map.js:73</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>An Array of <a href="https://developers.arcgis.com/javascript/jsapi/featurelayer-amd.html" class="crosslink external" target="_blank">Esri/layer/FeatureLayer</a> objects.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_featureLayerStartIndex" class="property item private inherited">
+    <h3 class="name"><code>featureLayerStartIndex</code></h3>
+    <span class="type">Integer</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_featureLayerStartIndex">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l98"><code>src\js\RAMP\Modules\map.js:98</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The map not only contains feature layers, but also other layers such as the
+basemap layer, highlight layer, bounding box layer, etc. This variable is
+used to store the starting index of the feature layers in the map.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_fullExtent" class="property item private inherited">
+    <h3 class="name"><code>fullExtent</code></h3>
+    <span class="type">Esri/geometry/Extent</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_fullExtent">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l779"><code>src\js\RAMP\Modules\map.js:779</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Used for full extent in nav widget</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_getMap" class="property item inherited">
+    <h3 class="name"><code>getMap</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_getMap">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l599"><code>src\js\RAMP\Modules\map.js:599</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Return the map control object</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_getMaxExtent" class="property item inherited">
+    <h3 class="name"><code>getMaxExtent</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_getMaxExtent">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l590"><code>src\js\RAMP\Modules\map.js:590</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The maximum extent of the map control is allowed to go to</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_handle" class="property item inherited">
+    <h3 class="name"><code>handle</code></h3>
+    <span class="type">JObject</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_handle">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l62"><code>src\js\RAMP\Tools\baseTool.js:62</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle (popup handle) that triggers opening/closing of the tool.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_InitExtent" class="property item private inherited">
+    <h3 class="name"><code>InitExtent</code></h3>
+    <span class="type">Esri/geometry/Extent</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_InitExtent">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l770"><code>src\js\RAMP\Modules\map.js:770</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The initial extent of the map</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_maxExtent" class="property item private inherited">
+    <h3 class="name"><code>maxExtent</code></h3>
+    <span class="type">Esri/geometry/Extent</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_maxExtent">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l761"><code>src\js\RAMP\Modules\map.js:761</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The maximum extent of the map</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_name" class="property item inherited">
+    <h3 class="name"><code>name</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_name">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l164"><code>src\js\RAMP\Tools\baseTool.js:164</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Name of the tool so AdvancedToolbar can distinguish between them.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> BaseTool</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_node" class="property item inherited">
+    <h3 class="name"><code>node</code></h3>
+    <span class="type">JObject</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_node">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l72"><code>src\js\RAMP\Tools\baseTool.js:72</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Node (button) the handle is attached too.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_options" class="property item private inherited">
+    <h3 class="name"><code>options</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_options">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l52"><code>src\js\RAMP\Tools\baseTool.js:52</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Stored options passed to the BaseTool.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_outputFloat" class="property item inherited">
+    <h3 class="name"><code>outputFloat</code></h3>
+    <span class="type">JObject</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_outputFloat">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l81"><code>src\js\RAMP\Tools\baseTool.js:81</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Node representing the tool output float container.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> templates/tools_template.json:base_tool_float</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code> &lt;div class=&#39;advanced-output-section-container&#39;&gt;
+     &lt;div class=&#39;advanced-output-section&#39;&gt;
+         &lt;section class=&#39;float-content&#39;&gt;&lt;/section&gt;
+         &lt;button class=&#39;button button-none float-default-button&#39; &gt;
+             &lt;i class=&#39;fa fa-trash-o&#39;&gt;&lt;/i&gt;&lt;span class=&#39;on-right&#39;&gt;{%= o.clearMapButton %}&lt;/span&gt;
+         &lt;/button&gt;
+         &lt;div class=&#39;clear&#39;&gt;&lt;/div&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_spatialReference" class="property item private inherited">
+    <h3 class="name"><code>spatialReference</code></h3>
+    <span class="type"><a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html" class="crosslink external" target="_blank">Esri/SpatialReference</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_spatialReference">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l730"><code>src\js\RAMP\Modules\map.js:730</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The spatial reference of the map</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_template" class="property item inherited">
+    <h3 class="name"><code>template</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_template">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l120"><code>src\js\RAMP\Tools\baseTool.js:120</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Stringified and parsed templates</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> templates/tools_template.json</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_tooltip" class="property item inherited">
+    <h3 class="name"><code>tooltip</code></h3>
+    <span class="type">JObject</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_tooltip">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l110"><code>src\js\RAMP\Tools\baseTool.js:110</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Tooltip node that appears by the mouse cursor when tools is activated.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> $(&quot;#mainMap.map &gt; .tooltip&quot;)</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_url" class="property item private inherited">
+    <h3 class="name"><code>url</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_url">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l739"><code>src\js\RAMP\Modules\map.js:739</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The URL of the basemap that is on by default</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_wmsLayers" class="property item private inherited">
+    <h3 class="name"><code>wmsLayers</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Map.html#property_wmsLayers">Map</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Modules_map.js.html#l81"><code>src\js\RAMP\Modules\map.js:81</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>An Array of Esri/layer/WMSLayer objects.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_workingLabel" class="property item inherited">
+    <h3 class="name"><code>workingLabel</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#property_workingLabel">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l100"><code>src\js\RAMP\Tools\baseTool.js:100</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Template string representing <code>working</code> label shown when the tool is in <code>busy</code> state.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> templates/tools_template.json:working_label</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code> &lt;span class=&#39;tool-tooltip&#39;&gt;&lt;i class=&#39;fa fa-cog fa-spin&#39;&gt;&lt;/i&gt;{%= o.workingLabel %}&lt;/span&gt;</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+            <div id="events" class="api-class-tabpanel">
+                <h2 class="off-left">Events</h2>
+
+                
+                    <div id="event_ACTIVATE" class="events item inherited">
+    <h3 class="name"><code>ACTIVATE</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#event_ACTIVATE">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l143"><code>src\js\RAMP\Tools\baseTool.js:143</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Published whenever a Tool is activated.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">tool</code>
+                                    <span class="type"><a href="../classes/BaseTool.html" class="crosslink">BaseTool</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>Tool that was activated</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_DEACTIVATE" class="events item inherited">
+    <h3 class="name"><code>DEACTIVATE</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseTool.html#event_DEACTIVATE">BaseTool</a>:
+            
+        
+        
+        <a href="../files/src_js_RAMP_Tools_baseTool.js.html#l152"><code>src\js\RAMP\Tools\baseTool.js:152</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Published whenever a Tool is deactivated.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">tool</code>
+                                    <span class="type"><a href="../classes/BaseTool.html" class="crosslink">BaseTool</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>Tool that was deactivated</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+</div>
+
+                
+            </div>
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
