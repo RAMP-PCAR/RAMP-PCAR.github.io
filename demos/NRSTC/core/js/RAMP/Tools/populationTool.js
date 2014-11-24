@@ -1,5 +1,211 @@
-/*! ramp-pcar 24-11-2014 09:52:24 : v. 4.0.0 
- * 
- * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP 
- **/
-define(["dojo/dom","dojo/string","dojo/_base/lang","esri/config","esri/graphic","esri/tasks/Geoprocessor","esri/tasks/FeatureSet","esri/toolbars/draw","esri/symbols/SimpleLineSymbol","esri/symbols/SimpleFillSymbol","ramp/map","ramp/globalStorage","tools/baseTool"],function(a,b,c,d,e,f,g,h,i,j,k,l,m){"use strict";function n(a){var b,c,d,f,h=a.geometry;w.working(!0),v.map.graphics.clear(),b=v.map.graphics.add(new e(h,new j)),v.map.graphics.add(b),c=[],c.push(b),d=new g,d.features=c,f={inputPoly:d},u.execute(f)}function o(a){var c=a.results,d=Math.floor(c[0].value.features[0].attributes.SUM);w.working(!1),d=b.substitute("${number:dojo.number.format}",{number:d}),s(d)}function p(){v.toolbar.activate(h.FREEHAND_POLYGON),s(i18n.t(w.ns+":na"))}function q(){v.toolbar.deactivate(),r()}function r(){v.map.graphics.clear(),s(i18n.t(w.ns+":na"))}function s(a){w.displayTemplateOutput({totalPopulationLabel:i18n.t(w.ns+":population"),populationOutput:a})}var t,u,v,w;return t={init:function(){var a=k.getMap(),b=new h(a);u=new f("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Population_World/GPServer/PopulationSummary"),u.setOutputSpatialReference({wkid:RAMP.config.spatialReference.wkid}),u.on("execute-complete",o),b.on("draw-end",n),v={map:a,toolbar:b}}},c.mixin({},m,{init:function(a,b){return w=this,this.initToggle(a,b,{activate:p,deactivate:q,defaultAction:r}),t.init(),this},name:"populationTool"})});
+﻿/*global define, i18n, RAMP */
+
+/**
+* @module Tools
+*/
+
+/**
+* PopulationTool.
+*
+* Computes the total population of a selected area. When the user draws a polygon, the population will
+* be displayed in the bottom right corner.
+*
+* @class PopulationTool
+* @static
+* @uses dojo/dom
+* @uses dojo/string
+* @uses dojo/_base/lang
+* @uses esri/config
+* @uses esri/graphic
+* @uses esri/tasks/Geoprocessor
+* @uses esri/tasks/FeatureSet
+* @uses esri/toolbars/draw
+* @uses esri/symbols/SimpleLineSymbol
+* @uses esri/symbols/SimpleFillSymbol
+* @uses Map
+* @uses GlobalStorage
+* @extends BaseTool
+*/
+
+define([
+// Dojo
+        "dojo/dom", "dojo/string", "dojo/_base/lang",
+// Esri
+        "esri/config", "esri/graphic", "esri/tasks/Geoprocessor", "esri/tasks/FeatureSet",
+        "esri/toolbars/draw", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleFillSymbol",
+// Ramp
+        "ramp/map", "ramp/globalStorage", "tools/baseTool"
+],
+    function (
+// Dojo
+        dom, string, dojoLang,
+// Esri
+        esriConfig, Graphic, Geoprocessor, FeatureSet, Draw, SimpleLineSymbol, SimpleFillSymbol,
+// Ramp
+        RampMap, GlobalStorage, BaseTool) {
+        "use strict";
+
+        var ui,
+            geoprocessor,
+            populationApp,
+
+            that;
+
+        /**
+        * Compute an estimated amount of people in a specified polygon.
+        *
+        * @method computeZonalStats
+        * @private
+        * @param {Object} evtObj an object representing the event.
+        *
+        */
+        function computeZonalStats(evtObj) {
+            var geometry = evtObj.geometry,
+                graphic,
+                features,
+                featureSet,
+                params;
+
+            that.working(true);
+
+            /*After user draws shape on map using the draw toolbar compute the zonal*/
+            populationApp.map.graphics.clear();
+            graphic = populationApp.map.graphics.add(new Graphic(geometry, new SimpleFillSymbol()));
+            populationApp.map.graphics.add(graphic);
+
+            features = [];
+            features.push(graphic);
+
+            featureSet = new FeatureSet();
+            featureSet.features = features;
+
+            params = {
+                inputPoly: featureSet
+            };
+            geoprocessor.execute(params);
+        }
+
+        /**
+        * Display the calculated population on the map.
+        *
+        * @method outputTotalPopulation
+        * @private
+        * @param {Object} evtObj an object representing the event.
+        *
+        */
+        function outputTotalPopulation(evtObj) {
+            var results = evtObj.results,
+                totalPopulation = Math.floor(results[0].value.features[0].attributes.SUM);
+
+            that.working(false);
+
+            totalPopulation = string.substitute("${number:dojo.number.format}", { number: totalPopulation });
+            displayOutput(totalPopulation);
+        }
+
+        ui = {
+            /**
+            * Initiates additional UI components of the Tool.
+            *
+            * @method ui.init
+            * @private
+            */
+            init: function () {
+                var map = RampMap.getMap(),
+                    toolbar = new Draw(map);
+
+                //TODO store this URL in config
+                geoprocessor = new Geoprocessor("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Population_World/GPServer/PopulationSummary");
+
+                geoprocessor.setOutputSpatialReference({
+                    wkid: RAMP.config.spatialReference.wkid
+                });
+                geoprocessor.on("execute-complete", outputTotalPopulation);
+
+                toolbar.on("draw-end", computeZonalStats);
+
+                populationApp = {
+                    map: map,
+                    toolbar: toolbar
+                };
+            }
+        };
+
+        /**
+        * Activates the Tool. This method is passed to the `initToggle` method and is triggered by the BaseTool logic.
+        *
+        * @method activate
+        * @private
+        */
+        function activate() {
+            populationApp.toolbar.activate(Draw.FREEHAND_POLYGON);
+
+            displayOutput(i18n.t(that.ns + ":na"));
+        }
+
+        /**
+        * Deactivates the Tool. This method is passed to the `initToggle` method and is triggered by the BaseTool logic.
+        *
+        * @method deactivate
+        * @private
+        */
+        function deactivate() {
+            populationApp.toolbar.deactivate();
+            clearMap();
+        }
+
+        /**
+        * Clears the map. This method is passed to the `initToggle` method as the `defaultAction`
+        * to be triggered by the BaseTool logic when the `float-default-button` is clicked.
+        *
+        * @method clearMap
+        * @private
+        */
+        function clearMap() {
+            populationApp.map.graphics.clear();
+
+            displayOutput(i18n.t(that.ns + ":na"));
+        }
+
+        /**
+        * Displays the tool's output by calling BaseTool's `displayOutput` function.
+        *
+        * @method displayOutput
+        * @private
+        */
+        function displayOutput(value) {
+            that.displayTemplateOutput(
+                {
+                    totalPopulationLabel: i18n.t(that.ns + ":population"),
+                    populationOutput: value
+                }
+            );
+        }
+
+        return dojoLang.mixin({}, BaseTool, {
+            /**
+            * Initialize the population tool
+            *
+            * @method init
+            * @chainable
+            * @constructor
+            *
+            */
+            init: function (selector, d) {
+                that = this;
+                this.initToggle(selector, d,
+                    {
+                        activate: activate,
+                        deactivate: deactivate,
+                        defaultAction: clearMap
+                    }
+                );
+
+                ui.init();
+
+                return this;
+            },
+
+            name: "populationTool"
+        });
+    });

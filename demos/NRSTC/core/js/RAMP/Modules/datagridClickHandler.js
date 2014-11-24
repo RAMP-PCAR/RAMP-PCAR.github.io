@@ -1,5 +1,227 @@
-/*! ramp-pcar 24-11-2014 09:52:24 : v. 4.0.0 
- * 
- * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP 
- **/
-define(["ramp/graphicExtension","ramp/eventManager","dojo/topic","dojo/dom-construct","utils/util"],function(a,b,c,d,e){"use strict";function f(){c.publish(b.FeatureHighlighter.ZOOMLIGHT_HIDE),c.publish("datagrid/zoomlightrow-hide")}var g;return{onDetailSelect:function(d,f,g){var h=d.data("guid")||d.data("guid",e.guid()).data("guid"),i=a.getTextContent(f),j=a.getGraphicTitle(f),k=d.parents(".record-row").parent();"summary"===g?c.publish(b.GUI.SUBPANEL_OPEN,{panelName:i18n.t("datagrid.details"),title:j,content:i,target:k.find(".record-controls"),origin:"datagrid",consumeOrigin:"rampPopup",guid:h,doOnOpen:function(){e.subscribeOnce(b.Maptips.EXTENT_CHANGE,function(a){var d=a.scroll;c.publish(b.Datagrid.HIGHLIGHTROW_SHOW,{graphic:f,scroll:d})}),c.publish(b.FeatureHighlighter.HIGHLIGHT_SHOW,{graphic:f})},doOnHide:function(){c.publish(b.Datagrid.HIGHLIGHTROW_HIDE)},doOnDestroy:function(){f=null,c.publish(b.FeatureHighlighter.HIGHLIGHT_HIDE)}}):(k=d,c.publish(b.GUI.SUBPANEL_OPEN,{panelName:i18n.t("datagrid.details"),title:j,content:i,target:k,origin:"ex-datagrid",templateKey:"full_sub_panel_container",guid:h,doAfterUpdate:function(){c.publish(b.Datagrid.HIGHLIGHTROW_SHOW,{graphic:f,scroll:!0})},doOnHide:function(){c.publish(b.Datagrid.HIGHLIGHTROW_HIDE)},doOnDestroy:function(){f=null,c.publish(b.FeatureHighlighter.HIGHLIGHT_HIDE)}}))},onDetailDeselect:function(a){"summary"===a?c.publish(b.GUI.SUBPANEL_CLOSE,{origin:"rampPopup,datagrid"}):c.publish(b.GUI.SUBPANEL_CLOSE,{origin:"ex-datagrid"})},onZoomTo:function(a,d){function h(){c.publish(b.FeatureHighlighter.ZOOMLIGHT_SHOW,{graphic:d}),e.subscribeOnceAny(["map/pan-start","map/zoom-start"],f)}switch(g=a,d.geometry.type){case"point":c.publish(b.Map.CENTER_AND_ZOOM,{graphic:d,level:9,callback:h});break;case"polygon":c.publish(b.Map.SET_EXTENT,{extent:d._extent.expand(1.5),callback:h});break;default:c.publish(b.Map.SET_EXTENT,{extent:d._extent.expand(1.5),callback:h})}c.publish(b.Datagrid.ZOOMLIGHTROW_SHOW,{graphic:d})},onZoomBack:function(){c.publish(b.Map.SET_EXTENT,{extent:g}),c.publish(b.FeatureHighlighter.ZOOMLIGHT_HIDE),c.publish(b.Datagrid.ZOOMLIGHTROW_HIDE)},onZoomCancel:function(){f()}}});
+﻿/*global define, i18n */
+
+/**
+*
+*
+* @module RAMP
+* @submodule Datagrid
+*/
+
+/**
+* Datagridclick handler class.
+*
+* @class DatagridClickHandler
+* @static
+* @uses RAMP
+* @uses GraphicExtension
+* @uses EventManager
+* @uses dojo/topic
+* @uses dojo/dom-construct
+* @uses Util
+*/
+
+define([
+/* RAMP */
+    "ramp/graphicExtension", "ramp/eventManager",
+
+/* Dojo */
+    "dojo/topic", "dojo/dom-construct",
+
+/* Utils */
+    "utils/util"],
+
+    function (
+    /* RAMP */
+    GraphicExtension, EventManager,
+
+    /* Dojo */
+    topic, domConstruct,
+
+    /* Utils */
+    UtilMisc) {
+        "use strict";
+        var zoomBackExtent;
+
+        /**
+        * Publishes new events when zoomCancel event happens.  Following events are published:
+        * highlighter/zoomlight-hide
+        * datagrid/zoomlightrow-hide
+        *
+        * @method onZoomCancel
+        */
+        function onZoomCancel() {
+            topic.publish(EventManager.FeatureHighlighter.ZOOMLIGHT_HIDE);
+
+            topic.publish("datagrid/zoomlightrow-hide");
+        }
+
+        return {
+            /**
+            * This function is called whenever the "Details" button is clicked in the datagrid.
+            *
+            * @method onDetailSelect
+            * @param {JObject} buttonNode the "Details" button node
+            * @param {Object} selectedGraphic {esri/Graphic} the graphic object associated with the entry in the datagrid
+            */
+            onDetailSelect: function (buttonNode, selectedGraphic, mode) {
+                var guid = buttonNode.data("guid") || buttonNode.data("guid", UtilMisc.guid()).data("guid"),
+                    content = GraphicExtension.getTextContent(selectedGraphic),
+                    title = GraphicExtension.getGraphicTitle(selectedGraphic),
+                    node = buttonNode.parents(".record-row").parent();
+
+                if (mode === "summary") {
+                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                        panelName: i18n.t('datagrid.details'),
+                        title: title,
+                        content: content,
+                        target: node.find(".record-controls"),
+                        origin: "datagrid",
+                        consumeOrigin: "rampPopup",
+                        guid: guid,
+                        doOnOpen: function () {
+                            UtilMisc.subscribeOnce(EventManager.Maptips.EXTENT_CHANGE, function (evt) {
+                                var scroll = evt.scroll;
+                                topic.publish(EventManager.Datagrid.HIGHLIGHTROW_SHOW, {
+                                    graphic: selectedGraphic,
+                                    scroll: scroll
+                                });
+                            });
+
+                            topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_SHOW, {
+                                graphic: selectedGraphic
+                            });
+                        },
+                        doOnHide: function () {
+                            topic.publish(EventManager.Datagrid.HIGHLIGHTROW_HIDE);
+                        },
+                        doOnDestroy: function () {
+                            selectedGraphic = null;
+
+                            topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_HIDE);
+                        }
+                    });
+                } else {
+                    node = buttonNode;
+
+                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                        panelName: i18n.t('datagrid.details'),
+                        title: title,
+                        content: content,
+                        target: node,
+                        origin: "ex-datagrid",
+                        templateKey: "full_sub_panel_container",
+                        guid: guid,
+                        //doOnOpen: function () {
+                        doAfterUpdate: function () {
+                            topic.publish(EventManager.Datagrid.HIGHLIGHTROW_SHOW, {
+                                graphic: selectedGraphic,
+                                scroll: true
+                            });
+                        },
+
+                        doOnHide: function () {
+                            topic.publish(EventManager.Datagrid.HIGHLIGHTROW_HIDE);
+                        },
+
+                        doOnDestroy: function () {
+                            selectedGraphic = null;
+
+                            topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_HIDE);
+                        }
+                    });
+                }
+            },
+
+            /**
+            * This function is called whenever the "Details" button is deselected (either by the user click on
+            * another "Details" button, clicking on another point, or by clicking on an already highlighted
+            * "Details" button).
+            *
+            * @method onDetailDeselect
+            */
+            onDetailDeselect: function (mode) {
+                if (mode === "summary") {
+                    topic.publish(EventManager.GUI.SUBPANEL_CLOSE, {
+                        origin: "rampPopup,datagrid"
+                    });
+                } else {
+                    topic.publish(EventManager.GUI.SUBPANEL_CLOSE, {
+                        origin: "ex-datagrid"
+                    });
+                }
+            },
+
+            /**
+            * This function is called whenever the user clicks on the "Zoom To" button.
+            *
+            * @method onZoomTo
+            * @param {esri/geometry/Extent} currentExtent the current extent of the map
+            * @param {Object} zoomToGraphic graphic object of the feature to zoom to
+            */
+            onZoomTo: function (currentExtent, zoomToGraphic) {
+                zoomBackExtent = currentExtent;
+
+                function callback() {
+                    topic.publish(EventManager.FeatureHighlighter.ZOOMLIGHT_SHOW, {
+                        graphic: zoomToGraphic
+                    });
+
+                    UtilMisc.subscribeOnceAny(["map/pan-start", "map/zoom-start"], onZoomCancel);
+                }
+
+                switch (zoomToGraphic.geometry.type) {
+                    case "point":
+                        topic.publish(EventManager.Map.CENTER_AND_ZOOM, {
+                            graphic: zoomToGraphic,
+                            level: 9,
+                            callback: callback
+                        });
+                        break;
+
+                    case "polygon":
+
+                        topic.publish(EventManager.Map.SET_EXTENT, {
+                            extent: zoomToGraphic._extent.expand(1.5),
+                            callback: callback
+                        });
+                        break;
+
+                    default:
+                        topic.publish(EventManager.Map.SET_EXTENT, {
+                            extent: zoomToGraphic._extent.expand(1.5),
+                            callback: callback
+                        });
+                        break;
+                }
+
+                topic.publish(EventManager.Datagrid.ZOOMLIGHTROW_SHOW, {
+                    graphic: zoomToGraphic
+                });
+            },
+
+            /**
+            * This function is called whenever the user clicks on the "Zoom Back" button.
+            *
+            * @method onZoomBack
+            */
+            onZoomBack: function () {
+                topic.publish(EventManager.Map.SET_EXTENT, {
+                    extent: zoomBackExtent
+                });
+
+                topic.publish(EventManager.FeatureHighlighter.ZOOMLIGHT_HIDE);
+
+                topic.publish(EventManager.Datagrid.ZOOMLIGHTROW_HIDE);
+            },
+
+            /**
+            * This function is called whenever the user deselects the "Zoom To" button (either by the
+            * user clicking on another point on the map, or by clicking on another "Zoom To" button)
+            *
+            * @method onZoomCancel
+            */
+            onZoomCancel: function () {
+                onZoomCancel();
+            }
+        };
+    });

@@ -1,5 +1,229 @@
-/*! ramp-pcar 24-11-2014 09:52:24 : v. 4.0.0 
- * 
- * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP 
- **/
-define(["dojo/dom","dojo/_base/array","dojo/_base/Color","dojo/_base/lang","esri/config","esri/graphic","esri/tasks/GeometryService","esri/tasks/BufferParameters","esri/toolbars/draw","esri/symbols/SimpleLineSymbol","esri/symbols/SimpleFillSymbol","esri/SpatialReference","ramp/map","ramp/globalStorage","tools/baseTool"],function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o){"use strict";function p(a){var b=a.geometry,d=w.map,e=new g(RAMP.config.geometryService),i=new k(k.STYLE_NONE,new j(j.STYLE_DASHDOT,new c([255,0,0,1]),new c([0,255,0,.25]))),m=new f(b,i);x.working(!0),d.graphics.add(m);var n=new h,o=x.outputFloat.find(".distance-input").val().replace(/[^0-9\.]+/g,"");""===o?x.working(!1):(n.distances=[o],n.bufferSpatialReference=new l({wkid:RAMP.config.spatialReference.wkid}),n.outSpatialReference=w.map.spatialReference,n.unit=9036,e.simplify([b],function(a){n.geometries=a,e.buffer(n,q)}))}function q(a){var d=new k(k.STYLE_SOLID,new j(j.STYLE_SOLID,new c([255,0,0,.65]),2),new c([255,0,0,.35]));b.forEach(a,function(a){var b=new f(a,d);w.map.graphics.add(b)}),w.map.showZoomSlider(),x.working(!1)}function r(){w.toolbar.activate(i.FREEHAND_POLYGON),u()}function s(){w.toolbar.deactivate(),t()}function t(){w.map.graphics.clear()}function u(){x.displayTemplateOutput({distanceLabel:i18n.t(x.ns+":distance")})}var v,w,x;return v={init:function(){var a=m.getMap(),b=new i(a);b.on("draw-end",p),w={map:a,toolbar:b}}},d.mixin({},o,{init:function(a,b){return x=this,this.initToggle(a,b,{activate:r,deactivate:s,defaultAction:t}),v.init(),this},name:"bufferTool"})});
+﻿/*global define, i18n, RAMP */
+
+/**
+* @module Tools
+*/
+
+/**
+* BufferTool.
+*
+* Adds a buffer around the a selected area. The user will be able to specify the distance
+* in the bottom right corner, then draw a polygon on the map.
+*
+* @class BufferTool
+* @static
+* @uses dojo/_base/array
+* @uses dojo/_base/Color
+* @uses esri/config
+* @uses esri/graphic
+* @uses esri/SpatialReference
+* @uses esri/symbols/SimpleLineSymbol
+* @uses esri/symbols/SimpleFillSymbol
+* @uses esri/tasks/GeometryService
+* @uses esri/tasks/BufferParameters
+* @uses esri/toolbars/draw
+* @uses Map
+* @uses GlobalStorage
+* @extends BaseTool
+*/
+
+define([
+// Dojo
+    "dojo/dom",
+    "dojo/_base/array",
+    "dojo/_base/Color",
+    "dojo/_base/lang",
+// Esri
+    "esri/config",
+    "esri/graphic",
+    "esri/tasks/GeometryService",
+    "esri/tasks/BufferParameters",
+    "esri/toolbars/draw",
+    "esri/symbols/SimpleLineSymbol",
+    "esri/symbols/SimpleFillSymbol",
+    "esri/SpatialReference",
+// Ramp
+    "ramp/map", "ramp/globalStorage", "tools/baseTool"
+],
+
+  function (
+// Dojo
+      dom, array, Color, dojoLang,
+// Esri
+      esriConfig, Graphic, GeometryService, BufferParameters, Draw, SimpleLineSymbol, SimpleFillSymbol, SpatialReference,
+// Ramp
+      RampMap, GlobalStorage, BaseTool) {
+      "use strict";
+      var ui,
+          bufferApp,
+          that;
+
+      /**
+      * Compute the buffer of a specified polygon.
+      *
+      * @method computeBuffer
+      * @private
+      * @param {Object} evtObj an object representing the `draw-end` event.
+      *
+      */
+      function computeBuffer(evtObj) {
+          var geometry = evtObj.geometry,
+              map = bufferApp.map,
+              geometryService = new GeometryService(RAMP.config.geometryService),
+
+              symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_NONE,
+                 new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASHDOT,
+                 new Color([255, 0, 0, 1]), new Color([0, 255, 0, 0.25]))),
+
+              graphic = new Graphic(geometry, symbol);
+
+          that.working(true);
+
+          map.graphics.add(graphic);
+
+          //setup the buffer parameters
+          var params = new BufferParameters(),
+
+              // Get rid of all non-numerical/non-period characters.
+              distanceInput = that.outputFloat.find(".distance-input").val().replace(/[^0-9\.]+/g, '');
+
+          if (distanceInput === "") {
+              that.working(false);
+          } else {
+              params.distances = [distanceInput];
+              params.bufferSpatialReference = new SpatialReference({ wkid: RAMP.config.spatialReference.wkid });
+              params.outSpatialReference = bufferApp.map.spatialReference;
+              params.unit = 9036; // Kilometers
+
+              // Simplify polygon.  this will make the user drawn polygon topologically correct.
+              geometryService.simplify([geometry], function (geometries) {
+                  params.geometries = geometries;
+                  geometryService.buffer(params, outputBuffer);
+              });
+          }
+      }
+
+      /**
+      * Display the buffered polygon on the map.
+      *
+      * @method outputBuffer
+      * @private
+      * @param {Object} bufferedGeometries result of the geoprocessor.
+      *
+      */
+      function outputBuffer(bufferedGeometries) {
+          var symbol = new SimpleFillSymbol(
+          SimpleFillSymbol.STYLE_SOLID,
+          new SimpleLineSymbol(
+              SimpleLineSymbol.STYLE_SOLID,
+              new Color([255, 0, 0, 0.65]), 2
+          ),
+          new Color([255, 0, 0, 0.35])
+          );
+
+          array.forEach(bufferedGeometries, function (geometry) {
+              var graphic = new Graphic(geometry, symbol);
+              bufferApp.map.graphics.add(graphic);
+          });
+          //TODO if we change to an "always on" we will want to make this a public function like the activate function below
+
+          bufferApp.map.showZoomSlider();
+
+          that.working(false);
+      }
+
+      ui = {
+          /**
+            * Initiates additional UI components of the Tool.
+            *
+            * @method ui.init
+            * @private
+            */
+          init: function () {
+              var map = RampMap.getMap(),
+                   toolbar = new Draw(map);
+
+              toolbar.on("draw-end", computeBuffer);
+
+              bufferApp = {
+                  map: map,
+                  toolbar: toolbar
+              };
+          }
+      };
+
+      /**
+       * Activates the Tool. This method is passed to the `initToggle` method and is triggered by the BaseTool logic.
+       *
+       * @method activate
+       * @private
+       */
+      function activate() {
+          bufferApp.toolbar.activate(Draw.FREEHAND_POLYGON);
+
+          displayOutput();
+      }
+
+      /**
+       * Deactivates the Tool. This method is passed to the `initToggle` method and is triggered by the BaseTool logic.
+       *
+       * @method deactivate
+       * @private
+       */
+      function deactivate() {
+          bufferApp.toolbar.deactivate();
+          clearMap();
+      }
+
+      /**
+       * Clears the map. This method is passed to the `initToggle` method as the `defaultAction`
+       * to be triggered by the BaseTool logic when the `float-default-button` is clicked.
+       *
+       * @method clearMap
+       * @private
+       */
+      function clearMap() {
+          bufferApp.map.graphics.clear();
+      }
+
+      /**
+       * Displays the tool's output by calling BaseTool's `displayOutput` function.
+       *
+       * @method displayOutput
+       * @private
+       */
+      function displayOutput() {
+          that.displayTemplateOutput(
+              {
+                  distanceLabel: i18n.t(that.ns + ":distance")
+              }
+          );
+      }
+
+      return dojoLang.mixin({}, BaseTool, {
+          /**
+          * Initialize the buffer tool
+          *
+          * @method init
+          * @chainable
+          * @constructor
+          *
+          */
+          init: function (selector, d) {
+              that = this;
+              this.initToggle(selector, d,
+                  {
+                      activate: activate,
+                      deactivate: deactivate,
+                      defaultAction: clearMap
+                  }
+              );
+
+              ui.init();
+
+              return this;
+          },
+
+          name: "bufferTool"
+      });
+  });

@@ -1,5 +1,136 @@
-/*! ramp-pcar 24-11-2014 09:52:24 : v. 4.0.0 
- * 
- * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP 
- **/
-define(["dojo/_base/declare","dojo/query","dojo/_base/array","dojo/dom","dojo/dom-class","dojo/dom-style","dojo/dom-construct","dojo/request/script","ramp/globalStorage","ramp/map","utils/array","utils/dictionary","utils/util","utils/tmplUtil"],function(a,b,c,d,e,f,g,h,i,j,k,l,m,n){"use strict";return{loadStrings:function(){},getLayerConfig:function(a,b){i.urlCfg||(i.urlCfg={});var c=k.find(RAMP.config.layers.wms.concat(RAMP.config.layers.feature),function(c){return null==b?c.url===a:c.url.indexOf(a)>=0&&c.layerName===b});return i.urlCfg[a]=c,i.urlCfg[a]},getLayerConfigWithId:function(a){return k.find(RAMP.config.layers.wms.concat(RAMP.config.layers.feature),function(b){return b.id===a})},_getSymbolConfig:function(a,b){return this.getLayerConfig(a,b).symbology},getSymbolForFeature:function(a){var b=this.getLayerConfig(a.getLayer().url);return n.getGraphicIcon(a,b)},getServiceURL:function(a,b,c){var d=a+"configservice/map?mapid="+b+"&lang="+c;return d}}});
+﻿/*global define, RAMP */
+
+/**
+*
+*
+* @module RAMP
+*/
+
+/**
+* RAMP class.
+*
+* Module for shared code that need the global configuration object.
+* For code that can be of use to any javascript program and do not
+* require the global configuration object, place the code in
+* util.js
+*
+* @class RAMP
+* @uses dojo/_base/declare
+* @uses dojo/query
+* @uses dojo/_base/array
+* @uses dojo/dom
+* @uses dojo/dom-class
+* @uses dojo/dom-style
+* @uses dojo/dom-construct
+* @uses dojo/request/script
+* @uses GlobalStorage
+* @uses Array
+* @uses Dictionary
+* @uses Util
+* @uses TmplUtil
+*/
+
+define([
+// Dojo
+    "dojo/_base/declare", "dojo/query", "dojo/_base/array", "dojo/dom", "dojo/dom-class", "dojo/dom-style",
+    "dojo/dom-construct", "dojo/request/script",
+
+// RAMP
+    "ramp/globalStorage", "ramp/map",
+
+// Utils
+    "utils/array", "utils/dictionary", "utils/util", "utils/tmplUtil"],
+
+    function (
+    // Dojo
+    declare, dojoQuery, dojoArray, dom, domClass, domStyle, domConstruct, requestScript,
+
+    // RAMP
+    GlobalStorage, RampMap,
+
+    // Utils,
+    UtilArray, UtilDict, UtilMisc, UtilTmpl) {
+        "use strict";
+        return {
+            /**
+            * Updates some of the Strings on the HTML page using the config string resources
+            *
+            * @method loadStrings
+            */
+            loadStrings: function () {
+                // doesn't seem to be doing a lot, this function
+            },
+
+            /**
+            * Returns the feature layer config for the given url
+            *
+            * @param {String} url
+            * @param {String} wmsName WMS Layer name.  Optional.  Should only be provided if attempting to get a WMS layer.
+            * @method getLayerConfig
+            */
+            getLayerConfig: function (url, wmsName) {
+                if (!GlobalStorage.urlCfg) {
+                    GlobalStorage.urlCfg = {};
+                }
+
+                var res = UtilArray.find(RAMP.config.layers.wms.concat(RAMP.config.layers.feature), function (layerConfig) {
+                    if (wmsName == null) {
+                        return layerConfig.url === url;
+                    } else {
+                        return (layerConfig.url.indexOf(url) >= 0 && layerConfig.layerName === wmsName);
+                    }
+                });
+
+                GlobalStorage.urlCfg[url] = res;
+
+                return GlobalStorage.urlCfg[url];
+            },
+
+            getLayerConfigWithId: function (id) {
+                return UtilArray.find(RAMP.config.layers.wms.concat(RAMP.config.layers.feature),
+                    function (layerConfig) {
+                        return layerConfig.id === id;
+                    });
+            },
+
+            /**
+             * Gets the defined symbology from a layer's web service
+             * @method _getSymbolConfig
+             * @param {String} layerUrl A URL to the feature layer service
+             * @param {String} wmsName WMS Layer name.  Optional.  Should only be provided if attempting to get a WMS layer.
+             * @returns {esri/layer/symbology} The defined symbology from the layer definition
+             */
+            _getSymbolConfig: function (layerUrl, wmsName) {
+                return this.getLayerConfig(layerUrl, wmsName).symbology;
+            },
+
+            /**
+            * Given a feature object or a graphic object (or any object that has a getLayer method and an
+            * attributes field) return the object containing the image URL and legend text for that
+            * feature/graphic object.
+            *
+            * @param {Object} feature
+            * @return {icon} The default icon used to represent the feature layer
+            * @method getSymbolForFeature
+            */
+            getSymbolForFeature: function (feature) {
+                var layerConfig = this.getLayerConfig(feature.getLayer().url);
+
+                //as this function is used by templating, we piggyback the logic here
+                return UtilTmpl.getGraphicIcon(feature, layerConfig);
+            },
+
+            /**
+             * This method builds a complete service URL callout for a map configuration. The URL is built using a base URL and map ID, and a language culture code.
+             * @method getServiceURL
+             * @param {String} rampService The base URL for a web service that provide's valid map JSON configuration data
+             * @param {Number} mapID a unique identifier for a group of map configuration
+             * @param {String} language culture code either 'en' or 'fr'
+             *
+             */
+            getServiceURL: function (rampService, mapID, language) {
+                var serviceURL = rampService + "configservice/map?mapid=" + mapID + "&lang=" + language;
+                return serviceURL;
+            }
+        };
+    });

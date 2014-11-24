@@ -1,5 +1,306 @@
-/*! ramp-pcar 24-11-2014 09:52:24 : v. 4.0.0 
- * 
- * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP 
- **/
-define(["dojo/_base/declare","dojo/_base/array","dojo/_base/lang","dojo/dom","dojo/dom-construct","dijit/form/Form","dijit/form/TextBox","dijit/form/Select","dijit/form/Button","esri/geometry/Extent","esri/tasks/QueryTask","esri/tasks/query","ramp/globalStorage","ramp/map","utils/util"],function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o){"use strict";return a(null,{constructor:function(){function a(a){d.form.domNode.appendChild(a)}function b(b){var d=e.create("label",{"class":c,innerHTML:b});return a(d),d}this.config=RAMP.config,this.form=new f({style:"overflow:hidden; clear:none;"});var c="quickZoom";this.provinceSelect=new h({id:"quickZoomProvince","class":c,options:[]}),this.citySelect=new h({id:"quickZoomCity","class":c,options:[]}),this.postalCodeTextbox=new g({id:"quickZoomPostalCode","class":c,style:"width : 30%"}),this.button=new i({label:"Find",id:"quickZoomButton","class":c});var d=this;b("Choose province:"),a(this.provinceSelect.domNode),b("City:"),a(this.citySelect.domNode),b("or enter postal code (e.g. A1A):"),a(this.postalCodeTextbox.domNode),a(this.button.domNode),this.errorText=b("")},_setError:function(a){$(this.errorText).text(a)},init:function(a){function f(a,b){b.returnGeometry=!0;var c=new k(a);c.execute(b,function(a){if(a.features.isEmpty())return void q._setError("invalid query");var b=a.features[0].geometry.getExtent();n.getMaxExtent().contains(b)?(n.getMap().setExtent(b),q._setError("")):q._setError("beyond max extent")},function(a){})}function g(a,c,d,e){c.removeOption(c.getOptions());var f=new k(a);f.execute(d,function(a){c.addOption(b.map(a.features,e))},function(a){})}function h(a){var b=p.quickzoom.city,c=new l;c.where=o.getWhereClause(b.province,a),c.outFields=[b.name,b.id],g(b.url,m,c,function(a){return{label:a.attributes[b.name],value:a.attributes[b.id],selected:!1}})}function i(a){var b=/[abcdefghijklmnopqrstuvwxyz]\d[abcdefghijklmnopqrstuvwxyz]/i;if(a=c.trim(a)){var d=a.match(b);return d&&1===d.length}return!1}var j=this.provinceSelect,m=this.citySelect,p=this.config,q=this;j.loadDropDown(function(){var a=p.quickzoom.province,b=new l;b.where="OBJECTID>0",b.outFields=[a.shortName,a.name],g(a.url,j,b,function(b){var c=b.attributes[a.shortName];return{label:b.attributes[a.name],value:c,selected:c===a.selectedProv}})}),m.loadDropDown(function(){h(p.quickzoom.province.selectedProv)}),j.on("change",function(){var a=p.quickzoom.province,b=j.get("value"),c=new l;c.where=o.getWhereClause(a.shortName,b),f(a.url,c),h(b)}),m.on("change",function(){var a=p.quickzoom.city,b=m.get("value"),c=new l;c.where=o.getWhereClause(a.id,b),f(a.url,c)}),this.button.on("click",c.hitch(this,function(){var a=this.postalCodeTextbox.get("value");if(i(a)){var b=p.quickzoom.postalCode,c=new l;c.where=o.getWhereClause(b.id,a),f(b.url,c)}else q._setError("invalid postal code")}));var r=d.byId(a);e.place(this.form.domNode,r,"replace")}})});
+﻿/*global define, console, $, RAMP */
+
+//the "use strict" forces the ECMA Script 5 interpretation of the code
+
+/**
+* QuickZoom submodule
+*
+* @module RAMP
+* @submodule QuickZoom
+* @main QuickZoom
+*/
+
+/**
+* The QuickZoom class handles zooming in the map based on province, city, or postal code.
+* These zoom in services rely on web services which return extent values based the user-entered province, city, or postal code
+*
+* @class QuickZoom
+* @uses dojo/_base/declare
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+* @uses dojo/dom
+* @uses dojo/dom-construct
+* @uses dijit/form/Form
+* @uses dijit/form/TextBox
+* @uses dijit/form/Select
+* @uses dijit/form/Button
+* @uses esri/geometry/Extent
+* @uses esri/tasks/QueryTask
+* @uses esri/tasks/query
+* @uses GlobalStorage
+* @uses Map
+* @uses Util
+*/
+
+define([
+/* Dojo */
+"dojo/_base/declare", "dojo/_base/array", "dojo/_base/lang", "dojo/dom", "dojo/dom-construct", "dijit/form/Form",
+"dijit/form/TextBox", "dijit/form/Select", "dijit/form/Button",
+/* Esri */
+"esri/geometry/Extent", "esri/tasks/QueryTask", "esri/tasks/query",
+/* Ramp */
+"ramp/globalStorage", "ramp/map",
+/* Util */
+"utils/util"],
+
+    function (
+    /* Dojo */
+    declare, dojoArray, dojoLang, dom, domConstruct, Form, TextBox, Select, Button,
+    Extent, QueryTask, Query,
+    /* Ramp */
+    GlobalStorage, RampMap,
+    /* Util */
+    UtilMisc) {
+        "use strict";
+        return declare(null, {
+            /*
+             * Defines the UI controls for the province, city, and postal code selections
+             * @method constructor
+             * @constructor
+             *
+             */
+            constructor: function () {
+                this.config = RAMP.config;
+
+                this.form = new Form({
+                    style: "overflow:hidden; clear:none;"
+                });
+
+                var className = "quickZoom"; // used for CSS styling
+
+                this.provinceSelect = new Select({
+                    id: "quickZoomProvince",
+                    class: className,
+                    options: []
+                });
+
+                this.citySelect = new Select({
+                    id: "quickZoomCity",
+                    class: className,
+                    options: []
+                });
+
+                this.postalCodeTextbox = new TextBox({
+                    id: "quickZoomPostalCode",
+                    class: className,
+                    style: "width : 30%"
+                });
+
+                this.button = new Button({
+                    label: "Find",
+                    id: "quickZoomButton",
+                    class: className
+                });
+
+                var that = this; // for local access to "this"
+                function _addNode(domNode) {
+                    that.form.domNode.appendChild(domNode);
+                }
+
+                function _addLabel(text) {
+                    var node = domConstruct.create("label", {
+                        class: className,
+                        innerHTML: text
+                    });
+                    _addNode(node);
+                    return node;
+                }
+
+                _addLabel("Choose province:");
+                _addNode(this.provinceSelect.domNode);
+
+                _addLabel("City:");
+                _addNode(this.citySelect.domNode);
+
+                _addLabel("or enter postal code (e.g. A1A):");
+                _addNode(this.postalCodeTextbox.domNode);
+
+                _addNode(this.button.domNode);
+                this.errorText = _addLabel("");
+            },
+
+            _setError: function (errorMsg) {
+                console.log(errorMsg);
+                $(this.errorText).text(errorMsg);
+            },
+            /*
+             * This adds the search tools to the UI and populates the UI controls: Province dropdown, city drop down, postal code text box
+             *
+             * @method init
+             * @param {Object} where A DOM object where the dropdowns will be placed
+             * @constructor
+             */
+            init: function (where) {
+                var provinceSelect = this.provinceSelect,
+                    citySelect = this.citySelect,
+                    config = this.config,
+                    that = this; // for local access to "this"
+
+                /**
+                * Change the extent of the map based on the extent data
+                * retrieved from the given url
+                *
+                * @method changeExtent
+                * @private
+                * @param {String} url
+                * @param {Object} query
+                */
+                function changeExtent(url, query) {
+                    query.returnGeometry = true;
+
+                    var queryTask = new QueryTask(url);
+                    queryTask.execute(query,
+                        function (featureSet) {
+                            if (featureSet.features.isEmpty()) {
+                                that._setError("invalid query");
+                                return;
+                            }
+                            var extent = featureSet.features[0].geometry.getExtent();
+                            if (RampMap.getMaxExtent().contains(extent)) {
+                                RampMap.getMap().setExtent(extent);
+                                that._setError("");
+                            } else {
+                                that._setError("beyond max extent");
+                            }
+                        },
+                        function (error) {
+                            console.log("Could not load extent from service");
+                            console.log(error);
+                        });
+                }
+
+                /**
+                * Populate the given dropdown with data from the given url.
+                *
+                * @method populateDropDown
+                * @param {String} url the url to the service containing the data to populate the dropdown
+                * @param {DObject} select the dojo Select object to populate
+                * @param {Object} query to execute
+                * @param {Function} mapFunc the function to convert each element in the retrieved data to a label that can be added to the dropdown menu
+                */
+                function populateDropDown(url, select, query, mapFunc) {
+                    // Clear the dropdown
+                    select.removeOption(select.getOptions());
+
+                    var queryTask = new QueryTask(url);
+                    queryTask.execute(query,
+                        function (featureSet) {
+                            // Populate the dropdown from a list retrieved
+                            // from service
+                            select.addOption(dojoArray.map(featureSet.features, mapFunc));
+                        },
+                        function (error) {
+                            console.log("Could not populate dropdown");
+                            console.log(error);
+                        });
+                }
+
+                // Populate the province dropdown from a list retrieved
+                // from service
+                provinceSelect.loadDropDown(function () {
+                    var provinceConfig = config.quickzoom.province,
+                        query = new Query();
+
+                    query.where = "OBJECTID>0";
+                    query.outFields = [provinceConfig.shortName, provinceConfig.name];
+
+                    populateDropDown(provinceConfig.url, provinceSelect, query,
+                        function (feature) {
+                            var shortName = feature.attributes[provinceConfig.shortName];
+                            return {
+                                label: feature.attributes[provinceConfig.name],
+                                value: shortName,
+                                selected: shortName === provinceConfig.selectedProv
+                            };
+                        });
+                });
+
+                /**
+                * Populates the city dropdown menu with the cities in the
+                * selected province.
+                *
+                * @method populateCityDropDown
+                * @private
+                * @param {String} prov
+                */
+                function populateCityDropDown(prov) {
+                    var cityConfig = config.quickzoom.city,
+                        query = new Query();
+
+                    query.where = UtilMisc.getWhereClause(cityConfig.province, prov);
+                    query.outFields = [cityConfig.name, cityConfig.id];
+                    populateDropDown(cityConfig.url, citySelect, query,
+                    function (feature) {
+                        return {
+                            label: feature.attributes[cityConfig.name],
+                            value: feature.attributes[cityConfig.id],
+                            selected: false
+                        };
+                    });
+                }
+
+                citySelect.loadDropDown(function () {
+                    // Populate with the cities of the default province first
+                    populateCityDropDown(config.quickzoom.province.selectedProv);
+                });
+
+                provinceSelect.on("change", function () {
+                    // Change the extent, then populate the city with the cities in the province
+                    var provConfig = config.quickzoom.province,
+                        prov = provinceSelect.get("value"),
+                        query = new Query();
+                    query.where = UtilMisc.getWhereClause(provConfig.shortName, prov);
+
+                    changeExtent(provConfig.url, query);
+                    populateCityDropDown(prov);
+                });
+
+                citySelect.on("change", function () {
+                    var cityConfig = config.quickzoom.city,
+                        city = citySelect.get("value"),
+                        query = new Query();
+                    query.where = UtilMisc.getWhereClause(cityConfig.id, city);
+
+                    changeExtent(cityConfig.url, query);
+                });
+
+                /**
+                * Returns true if the given postal code is valid, false otherwise.
+                *
+                * @method validatePostalCode
+                * @private
+                * @param {String} fsa fsa
+                */
+                function validatePostalCode(fsa) {
+                    //Perform case insensitive matching
+                    var regexp = /[abcdefghijklmnopqrstuvwxyz]\d[abcdefghijklmnopqrstuvwxyz]/i;
+
+                    //Remove space from the input FSA
+                    fsa = dojoLang.trim(fsa);
+
+                    //Detect if the user has entered the postal code in correct format
+                    if (fsa) {
+                        var result = fsa.match(regexp);
+                        return (result && result.length === 1);
+                    }
+                    return false;
+                }
+
+                this.button.on("click", dojoLang.hitch(this, function () {
+                    var postalCode = this.postalCodeTextbox.get("value");
+                    if (validatePostalCode(postalCode)) {
+                        var postalConfig = config.quickzoom.postalCode,
+                            query = new Query();
+                        query.where = UtilMisc.getWhereClause(postalConfig.id, postalCode);
+                        changeExtent(postalConfig.url, query);
+                    } else {
+                        console.log("invalid postal code!");
+                        that._setError("invalid postal code");
+                    }
+                }));
+
+                var whereNode = dom.byId(where);
+                domConstruct.place(this.form.domNode, whereNode, "replace");
+            }
+        });
+    });

@@ -1,5 +1,72 @@
-/*! ramp-pcar 24-11-2014 09:52:24 : v. 4.0.0 
- * 
- * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP 
- **/
-define(["dojo/_base/array","utils/util"],function(a,b){"use strict";function c(a,c){var d=$.extend(!0,{},a);return b.mergeRecursive(d,c)}function d(b){var d;return d=c(g,b),d.layers.wms=a.map(d.layers.wms,function(a){return c(f,a)}),d.layers.feature=a.map(d.layers.feature,function(a){return c(e,a)}),d}var e={layerAttributes:"*",settings:{panelEnabled:!0,opacity:{enabled:!0,"default":1},visible:!0,boundingBoxVisible:!1},datagrid:{rowsPerPage:50},templates:{detail:"default_feature_details",hover:"feature_hover_maptip_template",anchor:"anchored_map_tip",summary:"default_grid_summary_row"}},f={settings:{panelEnabled:!0,opacity:{enabled:!0,"default":1},visible:!0,boundingBoxVisible:!0}},g={layers:{feature:[],wms:[]}};return{init:function(a){var b=d(a);RAMP.config=b},layerType:{Basemap:"Basemap",WMS:"WMS",BoundingBox:"Bounding Box",Feature:"Feature Layer",Static:"Static",Highlight:"Highlight",Hoverlight:"Hoverlight",Zoomlight:"Zoomlight"}}});
+﻿/*global define, $, console, RAMP */
+
+//the "use strict" forces the ECMA Script 5 interpretation of the code
+
+/**
+*
+*
+* @module RAMP
+* @submodule GlobalStorage
+*
+*/
+
+/**
+* GlobalStorage class is used to store variables and exchange them between different modules. Each module has the ability to add variables to the global storage and retrieve them as needed.
+*
+* @class GlobalStorage
+*/
+
+define(["dojo/_base/array","utils/util"],
+    function (dojoArray, util) {
+        "use strict";
+
+        var featureLayerDefaults = {
+                layerAttributes: '*',
+                settings: { panelEnabled: true, opacity: { enabled: true, default: 1 }, visible: true, boundingBoxVisible: false },
+                datagrid: { rowsPerPage: 50 },
+                templates: { detail: 'default_feature_details', hover: 'feature_hover_maptip_template', anchor: 'anchored_map_tip', summary: 'default_grid_summary_row' }
+            },
+            wmsLayerDefaults = {
+                settings: { panelEnabled: true, opacity: { enabled: true, default: 1 }, visible: true, boundingBoxVisible: true }
+            },
+            configDefaults = {
+                layers: { feature: [], wms: [] }
+            };
+
+        function applyDefaults(defaults, srcObj) {
+            var defaultClone = $.extend(true, {}, defaults);
+            return util.mergeRecursive(defaultClone, srcObj);
+        }
+
+        function applyConfigDefaults(configObj) {
+            var result;
+            console.log(configObj);
+            result = applyDefaults(configDefaults, configObj);
+            result.layers.wms = dojoArray.map(result.layers.wms, function (wms) {
+                return applyDefaults(wmsLayerDefaults,wms);
+            });
+            result.layers.feature = dojoArray.map(result.layers.feature, function (fl) {
+                return applyDefaults(featureLayerDefaults,fl);
+            });
+            console.log(result);
+            return result;
+
+        }
+
+        return {
+            init: function (configObj) {
+                var config = applyConfigDefaults(configObj);
+                RAMP.config = config;
+            },
+            layerType: {
+                Basemap: "Basemap",
+                WMS: "WMS",
+                BoundingBox: "Bounding Box",
+                Feature: "Feature Layer",
+                Static: "Static",
+                Highlight: "Highlight",
+                Hoverlight: "Hoverlight",
+                Zoomlight: "Zoomlight"
+            }
+        };
+    });
