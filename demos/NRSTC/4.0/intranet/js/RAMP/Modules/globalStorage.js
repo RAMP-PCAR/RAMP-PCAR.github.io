@@ -1,0 +1,5 @@
+/*! ramp-theme-intranet 21-11-2014 12:49:12 : v. 4.0.0 
+ * 
+ * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP with Intranet Theme 
+ **/
+define(["dojo/_base/array","utils/util"],function(a,b){"use strict";function c(a,c){var d=$.extend(!0,{},a);return b.mergeRecursive(d,c)}function d(b){var d;return d=c(g,b),d.layers.wms=a.map(d.layers.wms,function(a){return c(f,a)}),d.layers.feature=a.map(d.layers.feature,function(a){return c(e,a)}),d}var e={layerAttributes:"*",settings:{panelEnabled:!0,opacity:{enabled:!0,"default":1},visible:!0,boundingBoxVisible:!1},datagrid:{rowsPerPage:50},templates:{detail:"default_feature_details",hover:"feature_hover_maptip_template",anchor:"anchored_map_tip",summary:"default_grid_summary_row"}},f={settings:{panelEnabled:!0,opacity:{enabled:!0,"default":1},visible:!0,boundingBoxVisible:!0}},g={layers:{feature:[],wms:[]}};return{init:function(a){var b=d(a);RAMP.config=b},layerType:{Basemap:"Basemap",WMS:"WMS",BoundingBox:"Bounding Box",Feature:"Feature Layer",Static:"Static",Highlight:"Highlight",Hoverlight:"Hoverlight",Zoomlight:"Zoomlight"}}});
