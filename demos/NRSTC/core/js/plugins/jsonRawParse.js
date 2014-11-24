@@ -2,4 +2,4 @@
  * 
  * RAMP GIS viewer - Dragonfly; Sample of an implementation of RAMP 
  **/
-RAMP.plugins.featureInfoParser.stringParse=function(a){"use strict";return"<p>{0}</p>".format(a)};
+RAMP.plugins.featureInfoParser.jsonRawParse=function(a){"use strict";return"<p>{0}</p>".format(a)};
