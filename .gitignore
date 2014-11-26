@@ -14,6 +14,10 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+node_modules/
+Gruntfile.js
+package.json
+RAMPDocs.sln
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/

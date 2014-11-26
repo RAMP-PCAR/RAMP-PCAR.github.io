@@ -230,7 +230,8 @@ to the extended mode. The data grid is destroyed and reconstructed each time the
 <h4 id="extent-filtering">Extent Filtering</h4>
 <p>Each time the extent of the map is changed (via a pan or zoom operation), the datagrid updates to show only the features that are visible in the current extent. The bottom of the datagrid contains
 a record count to notify the user of the number of features currently visible on the map versus the total number of features in the entire map. The extent filter behaviour can be toggled in the extended
-grid using the <a href="json-config-en.html#datagrid_extendedextentfilterenabled">extendedExtentFilterEnabled</a> field. The summary grid will always have the extent filter enabled.</p>
+grid using the <a href="json-config-en.html#datagrid_extendedextentfilterenabled">extendedExtentFilterEnabled</a> field. The summary grid will always have the extent filter enabled. Each time the extent of the map
+changes, the data grid is cleared, a query is sent to fetch a list of features visible in the current extent, and the data grid is repopulated with the new features. </p>
 
 <h4 id="pagination">Pagination</h4>
 <p>Pagination is a custom plugin into the datatables library</p>
@@ -240,10 +241,14 @@ grid using the <a href="json-config-en.html#datagrid_extendedextentfilterenabled
 
 <h4 id="feature-selection">Feature Selection</h4>
 <p>Whenever the user clicks on a feature on the map, the corresponding row in the summary grid is highlighted. This is done by caching the object IDs of all the features and mapping them to the index of the feature in the datagrid.
-Once the user clicks on a feature, the index is retrieved and the datagrid navigates to the correct page using the datatables pagination functions and scrolls to the correct row using JQuery.</p>
+Once the user clicks on a feature, the index is retrieved and the datagrid navigates to the correct page using the datatables pagination functions and scrolls to the correct row using JQuery. If a feature was highlighted prior
+to the extent change, it will remain highlighted after the extent change if it is visible in the current extent. </p>
 
 <h4 id="details-and-zoom-buttons">Details and Zoom Buttons</h4>
-<p>The grid contains buttons to obtain details and zoom to row items.  This is done via the dataGridClickHandler module (see below).  In future releases, we plan to have this extensible to allow easy overriding of the controls.</p>
+<p>The grid contains a “details” button that is used to show detailed information about a feature, which will appear in a slide out panel.  The datagrid also
+contains a “zoom to” button that is used to zoom to the feature on the map. Once zoomed in, the “zoom to” button will change to a “zoom back” button which will bring the user back to the original extent prior to the zoom to
+operation. The dataGridClickHandler module (see below) is responsible for the behaviour of the datagrid when the “details” or “zoom to” button is clicked. In future releases, we plan to have this extensible to allow easy overriding 
+of the default behaviour.</p>
 
 <p><strong>Relevant Sequence Diagrams</strong></p>
 
@@ -648,7 +653,7 @@ Once the user clicks on a feature, the index is retrieved and the datagrid navig
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2014-11-21</time>
+                        <time>2014-11-26</time>
                     </dd>
                 </dl>
             </main>
@@ -721,6 +726,11 @@ Once the user clicks on a feature, the index is retrieved and the datagrid navig
                     </a>
                 </li>
                 <li>
+                    <a class="list-group-item" href="wet-customization-en.html">
+                        WET Template Customization
+                    </a>
+                </li>
+                <li>
                     <a class="list-group-item" href="locale-en.html">
                         Localization
                     </a>
@@ -783,6 +793,11 @@ Once the user clicks on a feature, the index is retrieved and the datagrid navig
                 <li>
                     <a class="list-group-item" href="static-layer-support-en.html">
                         Static Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="symbology-en.html">
+                        Symbology Support
                     </a>
                 </li>
             </ul>

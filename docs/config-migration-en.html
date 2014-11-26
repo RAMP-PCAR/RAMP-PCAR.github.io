@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
-    <title>Getting Started</title>
+    <title>RAMP Configuration Migration Guide</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     
     <meta name="author" content="Environment Canada">
@@ -120,7 +120,7 @@
                                                 
                         
 
-                        <li class="">Getting Started</li>
+                        <li class="">RAMP Configuration Migration Guide</li>
                     </ol>
                 </div>
             </div>
@@ -129,44 +129,67 @@
         <div class="row">
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
-                
-<p><a name="top"></a></p>
+                <p><a name="top"></a></p>
 
-<h1 id="wb-cont">Getting Started</h1>
-
-<section class="alert alert-info">
-    <h2 class="h3">Work in progress</h2>
-    <p>This page is a work in progress and requires review. Please <a href="https://github.com/ramp-pcar/RAMP-PCAR.github.io/issues/new" target="_blank">file an issue</a> if information or coding is missing, incorrect or out of sync with the main repository <a href="https://github.com/ramp-pcar/ramp-pcar" target="_blank">(ramp-pcar/ramp-pcar)</a>.</p>
-</section>
+<h1 id="wb-cont">RAMP Configuration Migration Guide - Canada Goose to Dragonfly</h1>
 
 <div class="toc"></div>
 
-<h2 id="i-want-to-download-source-code-and-build-the-ramp-viewer">I want to download source code and build the RAMP viewer</h2>
-<ol>
-  <li><a href="build-tool-en.html">Setup Build Tool</a> for your platform.</li>
-  <li><a href="https://help.github.com/articles/signing-up-for-a-new-github-account">Create a GitHub account</a>.</li>
-  <li>Follow GitHub’s guides on <a href="https://help.github.com/articles/set-up-git">setting up Git</a>.</li>
-  <li>Fork the latest <a href="https://github.com/RAMP-PCAR/RAMP-PCAR">RAMP repository</a> by following the GitHub forking guide.  This is a private repo.  Contact <a href="mailto:Mike.Weech@ec.gc.ca?Subject=RAMP%20Repo%20private%20access">Mike Weech</a> to get access.</li>
-  <li>Run grunt to build the project. You may run <code>grunt --help</code> to see the build target descriptions.</li>
-  <li>The latest files will now be compiled in the build folder of the project.</li>
-  <li>To contribute back, follow the instructions on how to create a pull request.</li>
-</ol>
+<p>A number of schema changes were made to the config file in the Dragonfly release of RAMP.  Most of the changes were to facillitate a smaller config file, and to have data in more obvious locations.  </p>
+
+<p>Also note that a number of fields are now optional.  If they are not present in the config file, a default value will be used.  The <a href="json-config-en.html">config schema</a> will describe these fields.</p>
+
+<h2 id="changes-to-feature-layers">Changes to Feature Layers</h2>
+
+<h3 id="feature-layer-collection">Feature Layer Collection</h3>
+
+<p>The <strong>featureLayers</strong> collection now resides under the <strong>layers</strong> node, and is called <strong>feature</strong>.</p>
+
+<p><img src="../assets/images/cfg_featlayer.png" alt="Config file differences - feature layer collection" /></p>
+
+<h3 id="feature-uuid">Feature UUID</h3>
+
+<p>The <strong>uuid</strong> field has been removed.  If a RAMP application uses a uuid, the uuid should be used as the layer’s id field.</p>
+
+<h3 id="visibility-settings">Visibility Settings</h3>
+
+<p>Fields <strong>layerVisible</strong> and <strong>boundingBoxVisible</strong> have been moved to the <strong>settings</strong> node of the feature layer config object.  <strong>layerVisible</strong> has been renamed to <strong>visible</strong></p>
+
+<p><img src="../assets/images/cfg_featsettings.png" alt="Config file differences - feature layer settings" /></p>
+
+<h3 id="templates">Templates</h3>
+
+<p>All template values now reside under the <strong>template</strong> node.  Consequently the <strong>mapTipSettings</strong> node has been removed.  The properties that contain individual template names no longer have the word <strong>Template</strong> in their name.</p>
+
+<p><img src="../assets/images/cfg_template.png" alt="Config file differences - feature layer templates" /></p>
+
+<h3 id="symbology">Symbology</h3>
+
+<p>The symbology section has been restructured to support different types of renderers.  See <a href="symbology-en.html">the symbology guide</a> for details on how to format it.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
-<h2 id="i-want-to-report-a-bug-or-ask-a-question-about-ramp">I want to report a bug or ask a question about RAMP</h2>
-<ol>
-  <li><a href="https://help.github.com/articles/signing-up-for-a-new-github-account">Create a GitHub account</a>.</li>
-  <li>Ask a question relating to the style guide by creating a new issue on GitHub.</li>
-  <li>Report a bug, ask a question or request a feature relating to RAMP by filling out <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">a new issue</a>.</li>
-</ol>
+<h2 id="changes-to-wms-layers">Changes to WMS Layers</h2>
+
+<h3 id="wms-layer-collection">WMS Layer Collection</h3>
+
+<p>The <strong>wmsLayers</strong> collection now resides under the <strong>layers</strong> node, and is called <strong>wms</strong>.</p>
+
+<p><img src="../assets/images/cfg_wmslayer.png" alt="Config file differences - wms layer collection" /></p>
+
+<h3 id="visibility-settings-and-uuid">Visibility Settings and UUID</h3>
+
+<p>The changes to visibility settings and UUID that were applied to feature layers (see above) were also applied to WMS layers.</p>
+
+<h3 id="removed-wms-nodes">Removed WMS Nodes</h3>
+
+<p>Nodes <strong>legend</strong>, <strong>extent</strong> and <strong>layerInfo</strong> have been removed.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
-<h2 id="i-want-to-configure-the-ramp-viewer-to-use-data-of-my-choice">I want to configure the RAMP viewer to use data of my choice</h2>
-<ol>
-  <li>Follow <a href="quick-start-en.html">RAMP Quick Start Guide</a> to setup your web mapping application.</li>
-</ol>
+<h2 id="removed-nodes">Removed Nodes</h2>
+
+<p>the <strong>levelOfDetails.levels</strong> collection has been removed.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 

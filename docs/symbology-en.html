@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
-    <title>Getting Started</title>
+    <title>RAMP Symbology Support</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     
     <meta name="author" content="Environment Canada">
@@ -120,7 +120,7 @@
                                                 
                         
 
-                        <li class="">Getting Started</li>
+                        <li class="">RAMP Symbology Support</li>
                     </ol>
                 </div>
             </div>
@@ -129,44 +129,92 @@
         <div class="row">
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
-                
-<p><a name="top"></a></p>
+                <p><a name="top"></a></p>
 
-<h1 id="wb-cont">Getting Started</h1>
-
-<section class="alert alert-info">
-    <h2 class="h3">Work in progress</h2>
-    <p>This page is a work in progress and requires review. Please <a href="https://github.com/ramp-pcar/RAMP-PCAR.github.io/issues/new" target="_blank">file an issue</a> if information or coding is missing, incorrect or out of sync with the main repository <a href="https://github.com/ramp-pcar/ramp-pcar" target="_blank">(ramp-pcar/ramp-pcar)</a>.</p>
-</section>
+<h1 id="wb-cont">RAMP Symbology Support</h1>
 
 <div class="toc"></div>
 
-<h2 id="i-want-to-download-source-code-and-build-the-ramp-viewer">I want to download source code and build the RAMP viewer</h2>
-<ol>
-  <li><a href="build-tool-en.html">Setup Build Tool</a> for your platform.</li>
-  <li><a href="https://help.github.com/articles/signing-up-for-a-new-github-account">Create a GitHub account</a>.</li>
-  <li>Follow GitHub’s guides on <a href="https://help.github.com/articles/set-up-git">setting up Git</a>.</li>
-  <li>Fork the latest <a href="https://github.com/RAMP-PCAR/RAMP-PCAR">RAMP repository</a> by following the GitHub forking guide.  This is a private repo.  Contact <a href="mailto:Mike.Weech@ec.gc.ca?Subject=RAMP%20Repo%20private%20access">Mike Weech</a> to get access.</li>
-  <li>Run grunt to build the project. You may run <code>grunt --help</code> to see the build target descriptions.</li>
-  <li>The latest files will now be compiled in the build folder of the project.</li>
-  <li>To contribute back, follow the instructions on how to create a pull request.</li>
-</ol>
+<p>RAMP supports feature symbology for the three most common symbology renderers: Simple Renderer, Unique Value Renderer, and Class Breaks Renderer.  All symbology is defined in the <a href="json-config-en.html#featurelayers_symbology">symbology node</a> of the feature layer config object.  Specifics for the node as described below.</p>
+
+<p>It is also of note that the symbology node in the config also drives the legend generation, so we include label values in the structure as well.</p>
+
+<h2 id="simple-renderer">Simple Renderer</h2>
+
+<p>A Simple Renderer means that every feature in layer has the same symbol.  The configuration for a Simple Renderer only defines the images source, and a value to define it as simple.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;symbology&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;imageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/mypic.png&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Buildings&quot;</span>
+	<span class="p">}</span>    
+<span class="p">}</span></code></pre></div>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
-<h2 id="i-want-to-report-a-bug-or-ask-a-question-about-ramp">I want to report a bug or ask a question about RAMP</h2>
-<ol>
-  <li><a href="https://help.github.com/articles/signing-up-for-a-new-github-account">Create a GitHub account</a>.</li>
-  <li>Ask a question relating to the style guide by creating a new issue on GitHub.</li>
-  <li>Report a bug, ask a question or request a feature relating to RAMP by filling out <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">a new issue</a>.</li>
-</ol>
+<h2 id="unique-value-renderer">Unique Value Renderer</h2>
+
+<p>A Unique Value Renderer allows distinct values of a feature’s attributes to define that feature’s symbology.  ESRI allows up to three attributes to be used in combination, but only one is required.  The configuration for a Unique Value Renderer defines the attribute fields to render against, a mapping of field values to image urls, and a default image for features that don’t match any mappings.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;symbology&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;uniqueValue&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;defaultImageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/defpic.png&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;field1&quot;</span><span class="o">:</span> <span class="s2">&quot;BUILDING_TYPE&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;field2&quot;</span><span class="o">:</span> <span class="s2">&quot;SIZE_TYPE&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;field3&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+		<span class="s2">&quot;valueMaps&quot;</span><span class="o">:</span> <span class="p">[</span>
+			<span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;HOUSE, SMALL&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;imageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/green.png&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Small Houses&quot;</span>
+			<span class="p">},</span>
+			<span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;HOUSE, BIG&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;imageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/red.png&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Big Houses&quot;</span>
+			<span class="p">},</span>
+			<span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;OFFICE, SMALL&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;imageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/blue.png&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Small Offices&quot;</span>
+			<span class="p">}</span>
+		<span class="p">]</span>
+	<span class="p">}</span>    
+<span class="p">}</span></code></pre></div>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
-<h2 id="i-want-to-configure-the-ramp-viewer-to-use-data-of-my-choice">I want to configure the RAMP viewer to use data of my choice</h2>
-<ol>
-  <li>Follow <a href="quick-start-en.html">RAMP Quick Start Guide</a> to setup your web mapping application.</li>
-</ol>
+<h2 id="class-breaks-renderer">Class Breaks Renderer</h2>
+
+<p>A Class Breaks Renderer allows a feature’s attribute to define that feature’s symbology based on a numerical range.  The configuration for a Class Breaks Renderer defines the attribute to render against, a mapping of value ranges to image urls, and a default image for features that don’t match any mappings.  Note that order is important in the mapping array, as the max value of the previous item determines the min value of the next.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;symbology&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;classBreaks&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;defaultImageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/defpic.png&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;field&quot;</span><span class="o">:</span> <span class="s2">&quot;BUILDING_SIZE&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;minValue&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+		<span class="s2">&quot;rangeMaps&quot;</span><span class="o">:</span> <span class="p">[</span>
+			<span class="p">{</span> <span class="s2">&quot;maxValue&quot;</span><span class="o">:</span> <span class="mi">1500</span><span class="p">,</span>
+			  <span class="s2">&quot;imageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/green.png&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Small Building&quot;</span>
+			<span class="p">},</span>
+			<span class="p">{</span> <span class="s2">&quot;maxValue&quot;</span><span class="o">:</span> <span class="mi">4000</span><span class="p">,</span>
+			  <span class="s2">&quot;imageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/red.png&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Medium Building&quot;</span>
+			<span class="p">},</span>
+			<span class="p">{</span> <span class="s2">&quot;maxValue&quot;</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+			  <span class="s2">&quot;imageUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.mysite.com/blue.png&quot;</span><span class="p">,</span>
+			  <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Large Building&quot;</span>
+			<span class="p">}</span>
+		<span class="p">]</span>
+	<span class="p">}</span>    
+<span class="p">}</span></code></pre></div>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="image-urls-and-content-switches">Image URLs and Content Switches</h2>
+
+<p>ArcGIS Server will generate REST endpoints that return images for symbology (you can see this in the Legend JSON endpoint).  An example would look something like http://maps-cartes.ec.gc.ca/ArcGIS/rest/services/ECNY/MapServer/0/images/27BF26F8.  These can be convenient ways to reference good images for the symbology configuration, with one exception.  If your server setup involves multiple ArcGIS Servers behind a content switch, the generated image key (e.g. 27BF26F8) can differ across the server instances, leading to broken images.  In this scenario, we recommend using data URLs to define the image, or manually host the images in a location that will have stable URLs.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
