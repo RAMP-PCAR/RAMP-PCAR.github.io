@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RCS Service Contract &mdash; RAMP Configuration Service 1.5.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.5.1 documentation" href="../index.html" />
+    <link rel="up" title="Using RCS Endpoints" href="index.html" />
+    <link rel="prev" title="Service Quick Reference" href="quickref.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="quickref.html" title="Service Quick Reference"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.5.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Using RCS Endpoints</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rcs-service-contract">
+<span id="contract"></span><h1>RCS Service Contract<a class="headerlink" href="#rcs-service-contract" title="Permalink to this headline">¶</a></h1>
+<p>This is the current draft of the RCS service contract.  It outlines the expected
+endpoints and payloads but it is far from finalized.</p>
+<div class="section" id="get-doc-lang-smallkey">
+<h2>GET <tt class="docutils literal"><span class="pre">/doc/[lang]/[smallkey]</span></tt><a class="headerlink" href="#get-doc-lang-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 200</p>
+<p>Request Body: Empty</p>
+<p>Response Body: JSON Object</p>
+<p>The response will have a JSON configuration fragment to be merged into the RAMP
+configuration.</p>
+<p>Error conditions:
+- invalid language code: 400 Bad Request, response body empty
+- smallkey not found: 404 Not Found, response body empty</p>
+</div>
+<div class="section" id="get-docs-lang-smallkey-smallkey">
+<h2>## GET <tt class="docutils literal"><span class="pre">/docs/[lang]/[smallkey]{,[smallkey]}</span></tt><a class="headerlink" href="#get-docs-lang-smallkey-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 200</p>
+<p>Request Body: Empty</p>
+<p>Response Body: JSON Array</p>
+<p>The response will be an array of JSON objects, each object will be a JSON
+configuration fragment to be merged into the RAMP config.</p>
+<p>Error conditions:</p>
+<ul class="simple">
+<li>invalid language code: 400 Bad Request, response body empty</li>
+<li>smallkey not found: 200 normal response, the corresponding fragment will be
+structured as follows:
+&gt; <tt class="docutils literal"><span class="pre">{&quot;error_code&quot;:404,&quot;smallkey&quot;:&quot;[smallkey]&quot;}</span></tt></li>
+</ul>
+</div>
+<div class="section" id="put-register-smallkey">
+<h2>PUT <tt class="docutils literal"><span class="pre">/register/[smallkey]</span></tt><a class="headerlink" href="#put-register-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 201</p>
+<p>Request Body: JSON Object</p>
+<p>Response Body: Empty</p>
+<p>Error Conditions:</p>
+<ul class="simple">
+<li>payload does not conform to schema: 400 Bad Request, body contains:
+&gt; <cite>{&#8220;errors&#8221;:[&#8220;message 1&#8221;,&#8221;message 2&#8221;]}</cite></li>
+<li>exception in processing: 500 Internal Server Error, empty body</li>
+</ul>
+<p>The body of the request should conform to:
+&gt; <tt class="docutils literal"><span class="pre">{&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:(&quot;feature&quot;,&quot;wms&quot;),&quot;en&quot;:(payload),&quot;fr&quot;:(payload)</span> <span class="pre">}</span></tt></p>
+<div class="section" id="payload-type-feature">
+<h3>Payload Type <tt class="docutils literal"><span class="pre">feature</span></tt><a class="headerlink" href="#payload-type-feature" title="Permalink to this headline">¶</a></h3>
+<p>The feature payload should conform to:</p>
+<p>&gt; <tt class="docutils literal"><span class="pre">{&quot;service_url&quot;:(URL</span> <span class="pre">to</span> <span class="pre">ESRI</span> <span class="pre">REST</span> <span class="pre">Service),&quot;service_name&quot;:&quot;Layer</span> <span class="pre">Name&quot;,&quot;display_field&quot;:&quot;Layer</span> <span class="pre">Attribute&quot;}</span></tt></p>
+<ul class="simple">
+<li>the service URL should not have any query string component</li>
+<li><cite>display_field</cite> and <cite>service_name</cite> are optional</li>
+</ul>
+</div>
+<div class="section" id="payload-type-wms">
+<h3>Payload Type <tt class="docutils literal"><span class="pre">wms</span></tt><a class="headerlink" href="#payload-type-wms" title="Permalink to this headline">¶</a></h3>
+<p>The feature payload should conform to:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;service_url&quot;</span><span class="o">:</span><span class="p">(</span><span class="nx">URL</span> <span class="nx">to</span> <span class="nx">WMS</span> <span class="nx">Service</span><span class="p">),</span><span class="s2">&quot;layer&quot;</span><span class="o">:</span><span class="s2">&quot;Layer Identifier&quot;</span><span class="p">,</span><span class="s2">&quot;legend_format&quot;</span><span class="o">:</span><span class="s2">&quot;MIME type&quot;</span><span class="p">,</span><span class="s2">&quot;feature_info_type&quot;</span><span class="o">:</span><span class="p">(</span><span class="o">?</span><span class="p">)}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>the service URL should not have any query string component</li>
+<li><cite>layer</cite> is required and must match the a layer identifier specified in the WMS</li>
+<li><cite>legend_format</cite> is an optional string, if present it indicates legend support
+on the WMS and specifies the image MIME type to request from the server</li>
+<li><cite>feature_info_type</cite> is an optional field, if present it indicates feature
+info support on the WMS</li>
+</ul>
+</div>
+</div>
+<div class="section" id="delete-register-smallkey">
+<h2>DELETE <tt class="docutils literal"><span class="pre">/register/[smallkey]</span></tt><a class="headerlink" href="#delete-register-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 204</p>
+<p>Request Body: Empty</p>
+<p>Response Body: Empty</p>
+<p>Error Conditions:</p>
+<ul class="simple">
+<li>smallkey not found: 404 Not Found</li>
+<li>exception in processing: 500 Internal Server Error, empty body</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RCS Service Contract</a><ul>
+<li><a class="reference internal" href="#get-doc-lang-smallkey">GET <tt class="docutils literal"><span class="pre">/doc/[lang]/[smallkey]</span></tt></a></li>
+<li><a class="reference internal" href="#get-docs-lang-smallkey-smallkey">## GET <tt class="docutils literal"><span class="pre">/docs/[lang]/[smallkey]{,[smallkey]}</span></tt></a></li>
+<li><a class="reference internal" href="#put-register-smallkey">PUT <tt class="docutils literal"><span class="pre">/register/[smallkey]</span></tt></a><ul>
+<li><a class="reference internal" href="#payload-type-feature">Payload Type <tt class="docutils literal"><span class="pre">feature</span></tt></a></li>
+<li><a class="reference internal" href="#payload-type-wms">Payload Type <tt class="docutils literal"><span class="pre">wms</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delete-register-smallkey">DELETE <tt class="docutils literal"><span class="pre">/register/[smallkey]</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quickref.html"
+                        title="previous chapter">Service Quick Reference</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/service/contract.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="quickref.html" title="Service Quick Reference"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.5.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Using RCS Endpoints</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

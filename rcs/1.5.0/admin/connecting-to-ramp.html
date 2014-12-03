@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RAMP Deployment with RCS &mdash; RAMP Configuration Service 1.5.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.5.0 documentation" href="../index.html" />
+    <link rel="up" title="Administrator’s Guide" href="index.html" />
+    <link rel="next" title="Replication" href="replication.html" />
+    <link rel="prev" title="Deployment" href="deployment.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="replication.html" title="Replication"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="deployment.html" title="Deployment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.5.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Administrator&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ramp-deployment-with-rcs">
+<h1>RAMP Deployment with RCS<a class="headerlink" href="#ramp-deployment-with-rcs" title="Permalink to this headline">¶</a></h1>
+<p>This document describes how to deploy RAMP and connect it with an existing RCS
+deployment.  RAMP works as a standalone application just fine, if you want to
+deploy it in that manner just ignore the RCS integration below.  The full RCS
+deployment procedure is describe elsewhere.</p>
+<div class="section" id="ramp-setup">
+<h2>RAMP Setup<a class="headerlink" href="#ramp-setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Get a RAMP release package that is compatible with the RCS version
+the version numbering does not need to match up, but the RCS release notes
+should indicate which RAMP versions it is compatible with</li>
+<li>Extract the RAMP deployment package to a directory readable by your web server</li>
+<li>If you are referencing any non-CORS enabled services please setup an
+appropriate proxy (ESRI has a <a class="reference external" href="https://github.com/Esri/resource-proxy">github resource</a> that provides several under an
+MIT license) and make the appropriate change in the <tt class="docutils literal"><span class="pre">config.??.json</span></tt> files
+(remember to update both languages)</li>
+<li>Ensure that your web server sets the MIME type <tt class="docutils literal"><span class="pre">application/json</span></tt> when
+transferring <tt class="docutils literal"><span class="pre">.json</span></tt> files</li>
+<li>Test your RAMP installation to ensure it is working prior to integrating with RCS</li>
+</ol>
+</div>
+<div class="section" id="connecting-to-rcs">
+<h2>Connecting to RCS<a class="headerlink" href="#connecting-to-rcs" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Edit the <tt class="docutils literal"><span class="pre">RAMP-starter.js</span></tt> file in the root of your RAMP install</li>
+<li>Set the <tt class="docutils literal"><span class="pre">configServiceURL</span></tt> to point to your RCS installation (please
+include a trailing slash)</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RAMP Deployment with RCS</a><ul>
+<li><a class="reference internal" href="#ramp-setup">RAMP Setup</a></li>
+<li><a class="reference internal" href="#connecting-to-rcs">Connecting to RCS</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="deployment.html"
+                        title="previous chapter">Deployment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="replication.html"
+                        title="next chapter">Replication</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/admin/connecting-to-ramp.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="replication.html" title="Replication"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="deployment.html" title="Deployment"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.5.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Administrator&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

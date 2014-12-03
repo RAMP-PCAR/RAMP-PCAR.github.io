@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Replication &mdash; RAMP Configuration Service 1.5.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.5.0 documentation" href="../index.html" />
+    <link rel="up" title="Administrator’s Guide" href="index.html" />
+    <link rel="next" title="RCS Configration Options" href="configuration.html" />
+    <link rel="prev" title="RAMP Deployment with RCS" href="connecting-to-ramp.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="configuration.html" title="RCS Configration Options"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="connecting-to-ramp.html" title="RAMP Deployment with RCS"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.5.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Administrator&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="replication">
+<h1>Replication<a class="headerlink" href="#replication" title="Permalink to this headline">¶</a></h1>
+<p>RCS was designed to be deployed in a load balanced environment.  The following
+steps can be used to setup CouchDB for master-master replication if it is deployed
+on systems which follow the same partitioning as the load balancer.</p>
+<p>The notes are relatively straightforward, but only cover simple network architectures
+where a few servers are connected over local links.</p>
+<div class="section" id="replication-setup">
+<h2>Replication Setup<a class="headerlink" href="#replication-setup" title="Permalink to this headline">¶</a></h2>
+<p>All replication in CouchDB is unidirectional from the source to the target.  There
+seems to be a common convention of setting a remote as the source and local as the
+target.  CouchDB uses a special database named <tt class="docutils literal"><span class="pre">_replicator</span></tt> for keeping replications;
+setting up a replication involves sending a PUT request to <tt class="docutils literal"><span class="pre">/_replicator/&lt;replication_id&gt;</span></tt>.
+Replication IDs can be any short string and RCS will use the convention <tt class="docutils literal"><span class="pre">rep_serverX_rcs</span></tt>.</p>
+<p>The payload for the replication request is:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="s2">&quot;http://rcs:rcs@serverX:5984/rcs_cache&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;target&quot;</span><span class="o">:</span><span class="s2">&quot;rcs_cache&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;continuous&quot;</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;create_target&quot;</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;user_ctx&quot;</span><span class="o">:</span><span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;rcs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;roles&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;rcs&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Please make the necessary updates to the source URL (it is in the form
+<tt class="docutils literal"><span class="pre">&lt;user&gt;:&lt;password&gt;&#64;&lt;server</span> <span class="pre">ip</span> <span class="pre">or</span> <span class="pre">name&gt;:&lt;port&gt;/&lt;database</span> <span class="pre">name&gt;</span></tt>).</p>
+<p>If <a class="reference external" href="http://curl.haxx.se/download.html">curl</a> is available on your system you can copy
+and paste the following.</p>
+<div class="highlight-shell"><div class="highlight"><pre>curl -X PUT http://admin:admin@localhost:5984/_replicator/rep_server4_rcs -d <span class="s1">&#39;{ &quot;source&quot;:&quot;http://rcs:rcs@serverX:5984/rcs_cache&quot;, &quot;target&quot;:&quot;rcs_cache&quot;, &quot;continuous&quot;:true, &quot;create_target&quot;:false, &quot;user_ctx&quot;:{&quot;name&quot;:&quot;rcs&quot;, &quot;roles&quot;:[&quot;rcs&quot;]} }&#39;</span>
+</pre></div>
+</div>
+<p>The following bash script can be used to setup a 4 node replication.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">HOST</span><span class="o">=</span><span class="s2">&quot;http://admin:admin@localhost:5984&quot;</span>
+<span class="nv">RCS1</span><span class="o">=</span><span class="s2">&quot;http://rcs:rcs@10.0.2.6:5984/rcs_cache&quot;</span>
+<span class="nv">RCS2</span><span class="o">=</span><span class="s2">&quot;http://rcs:rcs@10.0.2.7:5984/rcs_cache&quot;</span>
+<span class="nv">RCS3</span><span class="o">=</span><span class="s2">&quot;http://rcs:rcs@10.0.2.8:5984/rcs_cache&quot;</span>
+<span class="nv">RCS4</span><span class="o">=</span><span class="s2">&quot;http://rcs:rcs@10.0.2.9:5984/rcs_cache&quot;</span>
+<span class="nv">REPLICATION</span><span class="o">=</span><span class="s2">&quot;2 3 4&quot;</span>   <span class="c"># do not include the current server in the replication</span>
+
+curl <span class="nv">$HOST</span> <span class="c">#just a test</span>
+<span class="k">for</span> i in <span class="nv">$REPLICATION</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nv">SRV</span><span class="o">=</span>RCS<span class="nv">$i</span>
+    curl -X PUT <span class="nv">$HOST</span>/_replicator/rep_server<span class="nv">$i_rcs</span> -d <span class="s2">&quot;&#39;{ \&quot;source\&quot;:\&quot;</span><span class="si">${</span><span class="p">!SRV</span><span class="si">}</span><span class="s2">\&quot;, \&quot;target\&quot;:\&quot;rcs_cache\&quot;, \&quot;continuous\&quot;:true, \&quot;create_target\&quot;:false, \&quot;user_ctx\&quot;:{\&quot;name\&quot;:\&quot;rcs\&quot;, \&quot;roles\&quot;:[\&quot;rcs\&quot;]} }&#39;&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Replication</a><ul>
+<li><a class="reference internal" href="#replication-setup">Replication Setup</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="connecting-to-ramp.html"
+                        title="previous chapter">RAMP Deployment with RCS</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="configuration.html"
+                        title="next chapter">RCS Configration Options</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/admin/replication.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="configuration.html" title="RCS Configration Options"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="connecting-to-ramp.html" title="RAMP Deployment with RCS"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.5.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Administrator&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

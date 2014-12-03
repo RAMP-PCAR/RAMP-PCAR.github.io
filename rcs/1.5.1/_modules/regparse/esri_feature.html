@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>regparse.esri_feature &mdash; RAMP Configuration Service 1.5.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.5.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">RAMP Configuration Service 1.5.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for regparse.esri_feature</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">An ESRI feature &quot;parser&quot; (really the  requests library does most of the actual parsing).</span>
+
+<span class="sd">Most of the utility functions are exposed but most applications won&#39;t use them</span>
+<span class="sd">:func:make_node is generally the only point of interest here.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<div class="viewcode-block" id="make_grid_col"><a class="viewcode-back" href="../../dev/parsers.html#regparse.esri_feature.make_grid_col">[docs]</a><span class="k">def</span> <span class="nf">make_grid_col</span><span class="p">(</span> <span class="o">**</span><span class="n">kw</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a RAMP compliant datagrid column object with the following defaults:</span>
+<span class="sd">        fieldName &#39;&#39;</span>
+<span class="sd">        isSortable False</span>
+<span class="sd">        sortType &#39;string&#39;</span>
+<span class="sd">        alignment 0</span>
+
+<span class="sd">    :param kw: Takes keyword arguments and just fills in the defaults</span>
+<span class="sd">    :returns: dict -- a dictionary with the defaults applied</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">fieldName</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">isSortable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">sortType</span><span class="o">=</span><span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="n">alignment</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span>
+</div>
+<div class="viewcode-block" id="make_extent"><a class="viewcode-back" href="../../dev/parsers.html#regparse.esri_feature.make_extent">[docs]</a><span class="k">def</span> <span class="nf">make_extent</span><span class="p">(</span> <span class="n">json_data</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extracts the extent for the layer from ESRI&#39;s JSON config.</span>
+
+<span class="sd">    :param json_data: A dictionary containing scraped data from an ESRI feature service endpoint</span>
+<span class="sd">    :type json_data: dict</span>
+<span class="sd">    :returns: dict -- A dictionary with the same data as the ESRI layerExtent node</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">json_data</span><span class="p">[</span><span class="s">&#39;extent&#39;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="make_data_grid"><a class="viewcode-back" href="../../dev/parsers.html#regparse.esri_feature.make_data_grid">[docs]</a><span class="k">def</span> <span class="nf">make_data_grid</span><span class="p">(</span> <span class="n">json_data</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a RAMP datagrid by walking through the attributes.</span>
+<span class="sd">    Iterates over all entries in *fields* that do not have a type of *esriFieldGeometry*</span>
+
+<span class="sd">    :param json_data: A dictionary containing scraped data from an ESRI feature service endpoint</span>
+<span class="sd">    :type json_data: dict</span>
+<span class="sd">    :returns: dict -- A dictionary with a single entry *gridColumns* containing an array of datagrid objects</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">make_grid_col</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&quot;iconCol&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s">&quot;50px&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;Icon&quot;</span><span class="p">,</span> <span class="n">columnTemplate</span><span class="o">=</span><span class="s">&quot;graphic_icon&quot;</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">make_grid_col</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&quot;detailsCol&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s">&quot;60px&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;Details&quot;</span><span class="p">,</span> <span class="n">columnTemplate</span><span class="o">=</span><span class="s">&quot;details_button&quot;</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="p">[</span> <span class="n">make_grid_col</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="n">fieldName</span><span class="o">=</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="s">&quot;400px&quot;</span><span class="p">,</span>
+                              <span class="n">isSortable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">alignment</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span>
+                              <span class="n">columnTemplate</span><span class="o">=</span><span class="s">&quot;unformatted_grid_value&quot;</span><span class="p">)</span> 
+                <span class="k">for</span> <span class="n">attrib</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s">&#39;fields&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">attrib</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&#39;esriFieldGeometry&#39;</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="s">&#39;gridColumns&#39;</span><span class="p">:</span><span class="n">g</span> <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="get_legend_url"><a class="viewcode-back" href="../../dev/parsers.html#regparse.esri_feature.get_legend_url">[docs]</a><span class="k">def</span> <span class="nf">get_legend_url</span><span class="p">(</span> <span class="n">feature_service_url</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a feature service URL into a legend request.  Handles the optional &#39;/&#39; at the end of requests.</span>
+<span class="sd">    </span>
+<span class="sd">    :param feature_service_url: A URL pointing to an ESRI feature service</span>
+<span class="sd">    :type feature_service_url: str</span>
+<span class="sd">    :returns: str -- A URL pointing to a legend request</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">feature_service_url</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">):</span>
+        <span class="n">feature_service_url</span> <span class="o">=</span> <span class="n">feature_service_url</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">feature_service_url</span><span class="p">[:</span><span class="n">feature_service_url</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)]</span> <span class="o">+</span> <span class="s">&#39;/legend?f=json&#39;</span>
+</div>
+<div class="viewcode-block" id="get_legend_mapping"><a class="viewcode-back" href="../../dev/parsers.html#regparse.esri_feature.get_legend_mapping">[docs]</a><span class="k">def</span> <span class="nf">get_legend_mapping</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">layer_id</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a mapping of layer labels to image data URLs.</span>
+
+<span class="sd">    :param data: The initial payload to RCS (should contain a &#39;service_url&#39; entry)</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :param layer_id: The id of the layer to create the mapping for.</span>
+<span class="sd">    :returns: dict -- a mapping of &#39;label&#39; =&gt; &#39;data URI encoded image&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">legend_json</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">get_legend_url</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;service_url&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">legend_json</span><span class="p">[</span><span class="s">&#39;layers&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">layer</span><span class="p">[</span><span class="s">&#39;layerId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">layer_id</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="n">x</span><span class="p">[</span><span class="s">&#39;label&#39;</span><span class="p">]:</span><span class="s">&#39;data:&#39;</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="s">&#39;contentType&#39;</span><span class="p">]</span><span class="o">+</span><span class="s">&#39;;base64,&#39;</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="s">&#39;imageData&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">layer</span><span class="p">[</span><span class="s">&#39;legend&#39;</span><span class="p">]</span> <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="make_symbology"><a class="viewcode-back" href="../../dev/parsers.html#regparse.esri_feature.make_symbology">[docs]</a><span class="k">def</span> <span class="nf">make_symbology</span><span class="p">(</span> <span class="n">json_data</span><span class="p">,</span> <span class="n">data</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a symbology node for the RAMP configuration.  Handles simple,</span>
+<span class="sd">    unique value and class break renders; prefetches all symbology images.</span>
+
+<span class="sd">    :param json_data: A dictionary containing scraped data from an ESRI feature service endpoint</span>
+<span class="sd">    :type json_data: dict</span>
+<span class="sd">    :param data: The initial payload to RCS (should contain a &#39;service_url&#39; entry)</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :returns: dict -- a symbology node</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">render_json</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s">&#39;drawingInfo&#39;</span><span class="p">][</span><span class="s">&#39;renderer&#39;</span><span class="p">]</span>
+    <span class="n">symb</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;type&#39;</span><span class="p">:</span><span class="n">render_json</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="p">}</span>
+    <span class="n">label_map</span> <span class="o">=</span> <span class="n">get_legend_mapping</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">json_data</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">render_json</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;simple&#39;</span><span class="p">:</span>
+        <span class="n">symb</span><span class="p">[</span><span class="s">&#39;imageUrl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_map</span><span class="p">[</span><span class="n">render_json</span><span class="p">[</span><span class="s">&#39;label&#39;</span><span class="p">]]</span>
+
+    <span class="k">elif</span> <span class="n">render_json</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;uniqueValue&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">render_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;defaultLabel&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">):</span>
+            <span class="n">symb</span><span class="p">[</span><span class="s">&#39;defaultImageUrl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_map</span><span class="p">[</span><span class="n">render_json</span><span class="p">[</span><span class="s">&#39;defaultLabel&#39;</span><span class="p">]]</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="s">&#39;field1 field2 field3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+            <span class="n">symb</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">render_json</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+        <span class="n">val_maps</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">value</span><span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="s">&#39;value&#39;</span><span class="p">],</span> <span class="n">imageUrl</span><span class="o">=</span> <span class="n">label_map</span><span class="p">[</span><span class="n">u</span><span class="p">[</span><span class="s">&#39;label&#39;</span><span class="p">]]</span> <span class="p">)</span>
+                     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">render_json</span><span class="p">[</span><span class="s">&#39;uniqueValueInfos&#39;</span><span class="p">]</span> <span class="p">]</span>
+        <span class="n">symb</span><span class="p">[</span><span class="s">&#39;valueMaps&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val_maps</span>
+
+    <span class="k">elif</span> <span class="n">render_json</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;classBreaks&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">render_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;defaultLabel&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">):</span>
+            <span class="n">symb</span><span class="p">[</span><span class="s">&#39;defaultImageUrl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_map</span><span class="p">[</span><span class="n">render_json</span><span class="p">[</span><span class="s">&#39;defaultLabel&#39;</span><span class="p">]]</span>
+        <span class="n">symb</span><span class="p">[</span><span class="s">&#39;field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">render_json</span><span class="p">[</span><span class="s">&#39;field&#39;</span><span class="p">]</span>
+        <span class="n">symb</span><span class="p">[</span><span class="s">&#39;minValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">render_json</span><span class="p">[</span><span class="s">&#39;minValue&#39;</span><span class="p">]</span>
+        <span class="n">range_maps</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">dict</span><span class="p">(</span><span class="n">maxValue</span><span class="o">=</span><span class="n">u</span><span class="p">[</span><span class="s">&#39;classMaxValue&#39;</span><span class="p">],</span> <span class="n">imageUrl</span><span class="o">=</span><span class="n">label_map</span><span class="p">[</span><span class="n">u</span><span class="p">[</span><span class="s">&#39;label&#39;</span><span class="p">]])</span>
+                       <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">render_json</span><span class="p">[</span><span class="s">&#39;classBreakInfos&#39;</span><span class="p">]</span> <span class="p">]</span>
+        <span class="n">symb</span><span class="p">[</span><span class="s">&#39;rangeMaps&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">range_maps</span>
+    <span class="k">return</span> <span class="n">symb</span>
+</div>
+<div class="viewcode-block" id="make_node"><a class="viewcode-back" href="../../dev/parsers.html#regparse.esri_feature.make_node">[docs]</a><span class="k">def</span> <span class="nf">make_node</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="nb">id</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a RAMP layer entry for an ESRI feature service.</span>
+
+<span class="sd">    :param data: The initial payload to RCS (should contain a &#39;service_url&#39; entry)</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :param id: An identifier for the layer (as this is unique it is generally supplied from :module:rcs )</span>
+<span class="sd">    :type id: str</span>
+<span class="sd">    :returns: dict -- a RAMP configuration fragment representing the ESRI layer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span> <span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;service_url&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;?f=json&#39;</span> <span class="p">)</span>
+    <span class="n">svc_data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span> <span class="n">svc_data</span>  <span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span> <span class="n">svc_data</span><span class="p">[</span><span class="s">&#39;displayField&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">node</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;service_url&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;service_name&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">node</span><span class="p">[</span><span class="s">&#39;displayName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">svc_data</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;display_field&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">node</span><span class="p">[</span><span class="s">&#39;nameField&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">svc_data</span><span class="p">[</span><span class="s">&#39;displayField&#39;</span><span class="p">]</span>
+    <span class="n">node</span><span class="p">[</span><span class="s">&#39;datagrid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_data_grid</span><span class="p">(</span> <span class="n">svc_data</span> <span class="p">)</span>
+    <span class="n">node</span><span class="p">[</span><span class="s">&#39;layerExtent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_extent</span><span class="p">(</span> <span class="n">svc_data</span> <span class="p">)</span>
+    <span class="n">node</span><span class="p">[</span><span class="s">&#39;symbology&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_symbology</span><span class="p">(</span> <span class="n">svc_data</span><span class="p">,</span> <span class="n">data</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">node</span>
+</pre></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">RAMP Configuration Service 1.5.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
