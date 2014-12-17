@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RCS Architecture &mdash; RAMP Configuration Service 1.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.6.0 documentation" href="../index.html" />
+    <link rel="up" title="Developer Docs" href="index.html" />
+    <link rel="next" title="Building RCS" href="building.html" />
+    <link rel="prev" title="Development Setup" href="setup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="building.html" title="Building RCS"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="setup.html" title="Development Setup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.6.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rcs-architecture">
+<h1>RCS Architecture<a class="headerlink" href="#rcs-architecture" title="Permalink to this headline">¶</a></h1>
+<p>RCS serves as a prefetch and caching tool for RAMP layers.  All regsitration
+and lookup calls are handled via a REST API with JSON payloads.  Data storage
+is handled by a JSON document store.</p>
+<div class="section" id="design-principles">
+<h2>Design Principles<a class="headerlink" href="#design-principles" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Fast: a slow cache is pointless</li>
+<li>Scalable: it should run easily in a distributed environment</li>
+<li>Robust: where possible allow for multiple fallbacks; when errors do occur do
+not let them pass silently</li>
+</ol>
+</div>
+<div class="section" id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<p>RCS uses CouchDB as a backend for document storage.  At its core RCS avoids
+keeping any state within the application and instead tries to favour the
+document store for maintaining state.  CouchDB was chosen for its master-master
+replication which allows for easy scaling of multiple nodes and easy partition
+recovery.  <a class="reference external" href="https://github.com/niwibe/py-couchdb">pycouchdb</a> is the Python
+driver used for interacting with the data store.</p>
+<p>Documents stored in CouchDB should be stored in a structure which closely
+follows the RAMP configuration format.  Since the value of the cache is on the
+read performance preprocessing during writes is preferred.</p>
+</div>
+<div class="section" id="rest-endpoints">
+<h2>REST Endpoints<a class="headerlink" href="#rest-endpoints" title="Permalink to this headline">¶</a></h2>
+<p>The full API for RCS is described in <a class="reference internal" href="../service/contract.html#contract"><em>RCS Service Contract</em></a>, this section merely
+addresses a few design decisions.</p>
+<p>RCS leverages <a class="reference external" href="http://flask.pocoo.org/">Flask</a> and the <a class="reference external" href="https://github.com/flask-restful/flask-restful">Flask-RESTful</a> extension for the majority
+of its web service functionality.</p>
+<p>RAMP prefers to serve layers in a unilingual manner, prefering to allow
+bilingual access via multiple services.  RCS accomodates this by having layer
+lookups to be unilingual but requiring layer registration to be bilingual (i.e.
+layer registration for all languages should be done in a single request).  This
+avoids the case of missing entries for a particular language.</p>
+<p>All endpoints encode a key in the URL.  This key may be any unique identifier,
+but ideally it should be short and avoid using characters which need special
+URL encoding.</p>
+<p>The API is split into two write operations <em>register</em> and <em>delete</em>, and two
+read operations <em>doc</em> and <em>docs</em>.  The two read operations fetch either a
+single document or multiple documents respectively.  Write operations should be
+authorized (they are not at the moment).</p>
+<p>Validation of <em>register</em> requests is done via a JSON schema.  This allows for
+more complex validation and avoids having a lot of code for the validation
+task.  The <a class="reference external" href="https://github.com/Julian/jsonschema">jsonschema</a> library is used
+for validation.</p>
+</div>
+<div class="section" id="parsers">
+<h2>Parsers<a class="headerlink" href="#parsers" title="Permalink to this headline">¶</a></h2>
+<p>RCS currently accepts ESRI feature layers and WMS layers in its cache.</p>
+<p>ESRI feature layers trigger a lot of prefetching, the payload from the catalog
+can be fairly minor (just a URL is a valid request).  Prefetching is performed
+for the symbology and feature attributes, images used for symbology are encoded
+in data URLs and cached in RCS to avoid RAMP having to make multiple image
+requests later.  The <a class="reference external" href="https://github.com/kennethreitz/requests">requests</a>
+library is used for performing web requests.</p>
+<p>WMS layers are much simpler from a processing point of view.  The registration
+payload encodes most of the data and RCS merely translates it into a RAMP
+readable configuration fragment.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RCS Architecture</a><ul>
+<li><a class="reference internal" href="#design-principles">Design Principles</a></li>
+<li><a class="reference internal" href="#storage">Storage</a></li>
+<li><a class="reference internal" href="#rest-endpoints">REST Endpoints</a></li>
+<li><a class="reference internal" href="#parsers">Parsers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="setup.html"
+                        title="previous chapter">Development Setup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="building.html"
+                        title="next chapter">Building RCS</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/dev/architecture.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="building.html" title="Building RCS"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="setup.html" title="Development Setup"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.6.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

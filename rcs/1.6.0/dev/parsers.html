@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Parsers &mdash; RAMP Configuration Service 1.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.6.0 documentation" href="../index.html" />
+    <link rel="up" title="Module and Package Docs" href="api.html" />
+    <link rel="next" title="Administrator’s Guide" href="../admin/index.html" />
+    <link rel="prev" title="RCS" href="rcs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../admin/index.html" title="Administrator’s Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rcs.html" title="RCS"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.6.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer Docs</a> &raquo;</li>
+          <li><a href="api.html" accesskey="U">Module and Package Docs</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="parsers">
+<h1>Parsers<a class="headerlink" href="#parsers" title="Permalink to this headline">¶</a></h1>
+<p>The <cite>regparse</cite> package.  Contains parsers for ESRI feature services and WMSes.</p>
+<span class="target" id="module-regparse.esri_feature"></span><p>An ESRI feature &#8220;parser&#8221; (really the  requests library does most of the actual parsing).</p>
+<p>Most of the utility functions are exposed but most applications won&#8217;t use them
+:func:make_node is generally the only point of interest here.</p>
+<dl class="function">
+<dt id="regparse.esri_feature.get_legend_mapping">
+<tt class="descclassname">regparse.esri_feature.</tt><tt class="descname">get_legend_mapping</tt><big>(</big><em>data</em>, <em>layer_id</em><big>)</big><a class="reference internal" href="../_modules/regparse/esri_feature.html#get_legend_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.esri_feature.get_legend_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a mapping of layer labels to image data URLs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>dict</em>) &#8211; The initial payload to RCS (should contain a &#8216;service_url&#8217; entry)</li>
+<li><strong>layer_id</strong> &#8211; The id of the layer to create the mapping for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict &#8211; a mapping of &#8216;label&#8217; =&gt; &#8216;data URI encoded image&#8217;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regparse.esri_feature.get_legend_url">
+<tt class="descclassname">regparse.esri_feature.</tt><tt class="descname">get_legend_url</tt><big>(</big><em>feature_service_url</em><big>)</big><a class="reference internal" href="../_modules/regparse/esri_feature.html#get_legend_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.esri_feature.get_legend_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a feature service URL into a legend request.  Handles the optional &#8216;/&#8217; at the end of requests.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_service_url</strong> (<em>str</em>) &#8211; A URL pointing to an ESRI feature service</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">str &#8211; A URL pointing to a legend request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regparse.esri_feature.make_data_grid">
+<tt class="descclassname">regparse.esri_feature.</tt><tt class="descname">make_data_grid</tt><big>(</big><em>json_data</em><big>)</big><a class="reference internal" href="../_modules/regparse/esri_feature.html#make_data_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.esri_feature.make_data_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a RAMP datagrid by walking through the attributes.
+Iterates over all entries in <em>fields</em> that do not have a type of <em>esriFieldGeometry</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>json_data</strong> (<em>dict</em>) &#8211; A dictionary containing scraped data from an ESRI feature service endpoint</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict &#8211; A dictionary with a single entry <em>gridColumns</em> containing an array of datagrid objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regparse.esri_feature.make_extent">
+<tt class="descclassname">regparse.esri_feature.</tt><tt class="descname">make_extent</tt><big>(</big><em>json_data</em><big>)</big><a class="reference internal" href="../_modules/regparse/esri_feature.html#make_extent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.esri_feature.make_extent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the extent for the layer from ESRI&#8217;s JSON config.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>json_data</strong> (<em>dict</em>) &#8211; A dictionary containing scraped data from an ESRI feature service endpoint</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict &#8211; A dictionary with the same data as the ESRI layerExtent node</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regparse.esri_feature.make_grid_col">
+<tt class="descclassname">regparse.esri_feature.</tt><tt class="descname">make_grid_col</tt><big>(</big><em>**kw</em><big>)</big><a class="reference internal" href="../_modules/regparse/esri_feature.html#make_grid_col"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.esri_feature.make_grid_col" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Generate a RAMP compliant datagrid column object with the following defaults:</dt>
+<dd>fieldName &#8216;&#8217;
+isSortable False
+sortType &#8216;string&#8217;
+alignment 0</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>kw</strong> &#8211; Takes keyword arguments and just fills in the defaults</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict &#8211; a dictionary with the defaults applied</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regparse.esri_feature.make_node">
+<tt class="descclassname">regparse.esri_feature.</tt><tt class="descname">make_node</tt><big>(</big><em>data</em>, <em>id</em>, <em>config</em><big>)</big><a class="reference internal" href="../_modules/regparse/esri_feature.html#make_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.esri_feature.make_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a RAMP layer entry for an ESRI feature service.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>dict</em>) &#8211; The initial payload to RCS (should contain a &#8216;service_url&#8217; entry)</li>
+<li><strong>id</strong> (<em>str</em>) &#8211; An identifier for the layer (as this is unique it is generally supplied from :module:rcs )</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict &#8211; a RAMP configuration fragment representing the ESRI layer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regparse.esri_feature.make_symbology">
+<tt class="descclassname">regparse.esri_feature.</tt><tt class="descname">make_symbology</tt><big>(</big><em>json_data</em>, <em>data</em><big>)</big><a class="reference internal" href="../_modules/regparse/esri_feature.html#make_symbology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.esri_feature.make_symbology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a symbology node for the RAMP configuration.  Handles simple,
+unique value and class break renders; prefetches all symbology images.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>json_data</strong> (<em>dict</em>) &#8211; A dictionary containing scraped data from an ESRI feature service endpoint</li>
+<li><strong>data</strong> (<em>dict</em>) &#8211; The initial payload to RCS (should contain a &#8216;service_url&#8217; entry)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict &#8211; a symbology node</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-regparse.wms"></span><p>A WMS &#8220;parser&#8221; (barely does any parsing at the moment).</p>
+<dl class="function">
+<dt id="regparse.wms.make_feature_info">
+<tt class="descclassname">regparse.wms.</tt><tt class="descname">make_feature_info</tt><big>(</big><em>data</em><big>)</big><a class="reference internal" href="../_modules/regparse/wms.html#make_feature_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.wms.make_feature_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a RAMP feature info node, identifying the correct default parser to be
+used based on the MIME type of the feature info request.</p>
+<dl class="docutils">
+<dt>Currently accepted MIME types (in order of preference):</dt>
+<dd>&#8216;text/html&#8217;
+&#8216;text/plain&#8217;
+&#8216;application/json&#8217;</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>dict</em>) &#8211; The initial payload to RCS</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict &#8211; A feature info configuration fragment; None if no valid mimeType was set</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regparse.wms.make_node">
+<tt class="descclassname">regparse.wms.</tt><tt class="descname">make_node</tt><big>(</big><em>data</em>, <em>id</em>, <em>config=None</em><big>)</big><a class="reference internal" href="../_modules/regparse/wms.html#make_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regparse.wms.make_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a RAMP layer entry for a WMS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>dict</em>) &#8211; The initial payload to RCS</li>
+<li><strong>id</strong> (<em>str</em>) &#8211; An identifier for the layer (as this is unique it is generally supplied from :module:rcs )</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict &#8211; a RAMP configuration fragment representing the WMS layer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rcs.html"
+                        title="previous chapter">RCS</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../admin/index.html"
+                        title="next chapter">Administrator&#8217;s Guide</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/dev/parsers.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../admin/index.html" title="Administrator’s Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="rcs.html" title="RCS"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.6.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer Docs</a> &raquo;</li>
+          <li><a href="api.html" >Module and Package Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

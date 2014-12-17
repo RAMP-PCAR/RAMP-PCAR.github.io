@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development Setup &mdash; RAMP Configuration Service 1.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.6.0 documentation" href="../index.html" />
+    <link rel="up" title="Developer Docs" href="index.html" />
+    <link rel="next" title="RCS Architecture" href="architecture.html" />
+    <link rel="prev" title="Developer Docs" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="architecture.html" title="RCS Architecture"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Developer Docs"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.6.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="development-setup">
+<h1>Development Setup<a class="headerlink" href="#development-setup" title="Permalink to this headline">¶</a></h1>
+<p>For development we will be using the built in Flask server, no separate web server
+required.  CouchDB will also be installed in admin party mode (every connection
+has admin rights).</p>
+<div class="section" id="install-couchdb">
+<h2>Install <a class="reference external" href="http://couchdb.apache.org/">CouchDB</a><a class="headerlink" href="#install-couchdb" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Run the installer</li>
+<li>Open a web browser and navigate to <a class="reference external" href="http://127.0.0.1:5984/_utils">http://127.0.0.1:5984/_utils</a></li>
+<li>Create a database <tt class="docutils literal"><span class="pre">rcs_cache</span></tt> (navigate to Overview | Create Database)</li>
+<li>Create a second database <tt class="docutils literal"><span class="pre">rcs_auth</span></tt></li>
+</ol>
+</div>
+<div class="section" id="configure-python-environment">
+<h2>Configure Python Environment<a class="headerlink" href="#configure-python-environment" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Ensure python is a 2.7.x release</li>
+<li>Install pip (<a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a>)</li>
+<li>Install virtualenv <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">virtualenv</span></tt></li>
+<li>Clone the repo <tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:RAMP-PCAR/RCS.git</span> <span class="pre">rcs</span></tt></li>
+<li>Create python virtual environment <tt class="docutils literal"><span class="pre">virtualenv</span> <span class="pre">rcs</span></tt></li>
+<li>Switch to the project directory <tt class="docutils literal"><span class="pre">cd</span> <span class="pre">rcs</span></tt></li>
+<li>Activate the virtualenv <tt class="docutils literal"><span class="pre">scripts\activate</span></tt></li>
+<li>Install the project dependencies <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></tt></li>
+<li>Make any path changes necessary to <tt class="docutils literal"><span class="pre">config.py</span></tt> (if you followed the above there should be none)</li>
+<li>Test the installation <tt class="docutils literal"><span class="pre">python</span> <span class="pre">rcs.py</span></tt> (this will run a test server on localhost)</li>
+<li>Seed the database <tt class="docutils literal"><span class="pre">python</span> <span class="pre">seed_qa_keys.py</span></tt></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development Setup</a><ul>
+<li><a class="reference internal" href="#install-couchdb">Install CouchDB</a></li>
+<li><a class="reference internal" href="#configure-python-environment">Configure Python Environment</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Developer Docs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="architecture.html"
+                        title="next chapter">RCS Architecture</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/dev/setup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="architecture.html" title="RCS Architecture"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Developer Docs"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.6.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
