@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The RCS JSON Schema &mdash; RAMP Configuration Service 1.7.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.7.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.7.0 documentation" href="../index.html" />
+    <link rel="up" title="RCS Service Contract" href="contract.html" />
+    <link rel="next" title="RCS Service Contract" href="endpoint_09.html" />
+    <link rel="prev" title="RCS Service Contract" href="contract.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="endpoint_09.html" title="RCS Service Contract"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="contract.html" title="RCS Service Contract"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.7.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Using RCS Endpoints</a> &raquo;</li>
+          <li><a href="contract.html" accesskey="U">RCS Service Contract</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-rcs-json-schema">
+<span id="jsonschema"></span><h1>The RCS JSON Schema<a class="headerlink" href="#the-rcs-json-schema" title="Permalink to this headline">¶</a></h1>
+<p>RCS uses a JSON schema to validate registration requests (see <a class="reference internal" href="contract.html#contract"><em>RCS Service Contract</em></a>).
+The schema is written against draft 04 of <a class="reference external" href="http://json-schema.org/">JSON Schema</a> and is reproduced below:</p>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;$schema&quot;</span><span class="o">:</span> <span class="s2">&quot;http://json-schema.org/draft-04/schema#&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;RCS Schema&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;An RCS request object&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;defs&quot;</span><span class="o">:</span> <span class="p">{</span>
+
+        <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;oneOf&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span> <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;uuid&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">}</span> <span class="p">},</span> <span class="s2">&quot;additionalProperties&quot;</span><span class="o">:</span> <span class="kc">false</span> <span class="p">},</span>
+                <span class="p">{</span> <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;metadata_url&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span> <span class="s2">&quot;catalogue_url&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">}</span> <span class="p">},</span> <span class="s2">&quot;additionalProperties&quot;</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;featureNode&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;service_url&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span>
+                <span class="s2">&quot;service_name&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span>
+                <span class="s2">&quot;display_field&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span>
+                <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/metadata&quot;</span> <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;service_url&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;additionalProperties&quot;</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;wmsNode&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;service_url&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span>
+                <span class="s2">&quot;layer&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span>
+                <span class="s2">&quot;legend_format&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span>
+                <span class="s2">&quot;feature_info_type&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span>
+                <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/metadata&quot;</span> <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;service_url&quot;</span><span class="p">,</span> <span class="s2">&quot;layer&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;additionalProperties&quot;</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;f&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;payload_type&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;feature&quot;</span> <span class="p">]</span> <span class="p">},</span>
+                <span class="s2">&quot;en&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/featureNode&quot;</span><span class="p">},</span>
+                <span class="s2">&quot;fr&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/featureNode&quot;</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;w&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;payload_type&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;wms&quot;</span> <span class="p">]</span> <span class="p">},</span>
+                <span class="s2">&quot;en&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/wmsNode&quot;</span><span class="p">},</span>
+                <span class="s2">&quot;fr&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/wmsNode&quot;</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+    <span class="p">},</span>
+
+    <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span> <span class="s2">&quot;1.1&quot;</span> <span class="p">]</span> <span class="p">},</span>
+        <span class="s2">&quot;payload_type&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="s2">&quot;wms&quot;</span><span class="p">]</span> <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;oneOf&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/f&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="s2">&quot;$ref&quot;</span><span class="o">:</span> <span class="s2">&quot;#/defs/w&quot;</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>A sample request:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload_type&quot;</span><span class="o">:</span> <span class="s2">&quot;wms&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;service_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layer&quot;</span><span class="o">:</span> <span class="s2">&quot;limits&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;uuid&quot;</span><span class="o">:</span> <span class="s2">&quot;7&quot;</span> <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;fr&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;service_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_fr&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layer&quot;</span><span class="o">:</span> <span class="s2">&quot;limits&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;uuid&quot;</span><span class="o">:</span> <span class="s2">&quot;7&quot;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="contract.html"
+                        title="previous chapter">RCS Service Contract</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="endpoint_09.html"
+                        title="next chapter">RCS Service Contract</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/service/jsonschema.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="endpoint_09.html" title="RCS Service Contract"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="contract.html" title="RCS Service Contract"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.7.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Using RCS Endpoints</a> &raquo;</li>
+          <li><a href="contract.html" >RCS Service Contract</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

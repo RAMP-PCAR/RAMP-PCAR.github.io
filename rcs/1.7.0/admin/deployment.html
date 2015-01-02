@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Deployment &mdash; RAMP Configuration Service 1.7.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.7.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.7.0 documentation" href="../index.html" />
+    <link rel="up" title="Administrator’s Guide" href="index.html" />
+    <link rel="next" title="RAMP Deployment with RCS" href="connecting-to-ramp.html" />
+    <link rel="prev" title="Administrator’s Guide" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="connecting-to-ramp.html" title="RAMP Deployment with RCS"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Administrator’s Guide"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.7.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Administrator&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="deployment">
+<h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h1>
+<p>RCS uses Python and CouchDB and should be deployable on any platform that
+supports both.  Currently deployment notes are provided only for Windows (and
+tested with 2008r2 and 2012).</p>
+<div class="section" id="installation-on-windows-iis-fastcgi">
+<h2>Installation on Windows (IIS + FastCGI)<a class="headerlink" href="#installation-on-windows-iis-fastcgi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-couchdb">
+<h3>Install <a class="reference external" href="http://couchdb.apache.org/">CouchDB</a><a class="headerlink" href="#install-couchdb" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Run the installer</p>
+</li>
+<li><p class="first">Open a web browser and navigate to <a class="reference external" href="http://127.0.0.1:5984/_utils">http://127.0.0.1:5984/_utils</a></p>
+</li>
+<li><p class="first">Setup the admin account (see link in bottom left of the window)</p>
+</li>
+<li><p class="first">Update the configuration to listen on the correct network address (Tools | Configuration | bind_addr)</p>
+</li>
+<li><p class="first">Create a database <tt class="docutils literal"><span class="pre">rcs_cache</span></tt> (navigate to Overview | Create Database)</p>
+</li>
+<li><p class="first">Update the security for the <tt class="docutils literal"><span class="pre">rcs_cache</span></tt> database set Admin Roles: <tt class="docutils literal"><span class="pre">[&quot;rcs&quot;]</span></tt> and Member Roles: <tt class="docutils literal"><span class="pre">[&quot;rcs&quot;]</span></tt></p>
+</li>
+<li><p class="first">Create a second database <tt class="docutils literal"><span class="pre">rcs_auth</span></tt> with the same permissions</p>
+</li>
+<li><p class="first">Add a new user to the <tt class="docutils literal"><span class="pre">_users</span></tt> database (Overview | _users | Create Document)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Select source and enter the following then save document</dt>
+<dd><div class="first last highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="s2">&quot;org.couchdb.user:rcs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;rcs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roles&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;rcs&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="o">:</span> <span class="s2">&quot;changeme&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Logout and attempt to login as user <tt class="docutils literal"><span class="pre">rcs</span></tt> to test the setup</p>
+</li>
+<li><p class="first">Confirm that access to <tt class="docutils literal"><span class="pre">_users</span></tt> is restricted and access to <tt class="docutils literal"><span class="pre">rcs_cache</span></tt> and <tt class="docutils literal"><span class="pre">rcs_auth</span></tt> is enabled</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-python-environment">
+<span id="pyvenvconfig"></span><h3>Configure Python Environment<a class="headerlink" href="#configure-python-environment" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Ensure python is a 2.7.x release</p>
+</li>
+<li><p class="first">Get an RCS release package <tt class="docutils literal"><span class="pre">rcs-X.Y.Z.zip</span></tt></p>
+</li>
+<li><p class="first">Extract the release package, it should be somewhere IIS can be configured to read from <tt class="docutils literal"><span class="pre">c:\inetpub\rcs-X.Y.Z</span></tt></p>
+</li>
+<li><p class="first">[Optional] Get prepackaged dependencies (should be a directory full of <tt class="docutils literal"><span class="pre">.whl</span></tt> files)</p>
+</li>
+<li><p class="first">Install pip (<a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a>)</p>
+</li>
+<li><p class="first">Install virtualenv <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">virtualenv</span></tt></p>
+</li>
+<li><dl class="first docutils">
+<dt>Create python virtual environment in the release location and activate it</dt>
+<dd><div class="first last highlight-bat"><div class="highlight"><pre><span class="k">cd</span> c:\inetpub\rcs-X.Y.Z
+virtualenv .
+scripts\activate
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Install the project dependencies (perform only one of the following steps):</p>
+<blockquote>
+<div><ul class="simple">
+<li>via internet <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></tt></li>
+<li>via local wheel cache <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--use-wheel</span> <span class="pre">--no-index</span> <span class="pre">--find-links=c:\path\to\wheel\dir</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></tt></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Update the configuration in <tt class="docutils literal"><span class="pre">config.py</span></tt> or set the environment variable <tt class="docutils literal"><span class="pre">RCS_CONFIG</span></tt>
+to point to a config which overrides the defaults set in <tt class="docutils literal"><span class="pre">config.py</span></tt>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>DB_CONN</strong> should match the account, password and host settings from the CouchDB installation</li>
+<li><strong>REG_SCHEMA</strong> should point to an absolute path (e.g. <tt class="docutils literal"><span class="pre">c:\\inetpub\\rcs\\rcs_schema_v1.json</span></tt>
+&#8211; use double backslashes to avoid string escape codes)</li>
+<li><strong>LOG_FILE</strong> should point to an absolute path (e.g. <tt class="docutils literal"><span class="pre">c:\\inetpub\\rcs\\rcs.log</span></tt>)
+this file should be writable by IIS</li>
+<li><strong>LOG_LEVEL</strong> set the log level to something appropriate (e.g. 20 for QC, 30 for Prod)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Test the installation <tt class="docutils literal"><span class="pre">python</span> <span class="pre">rcs.py</span></tt> (this will run a test server on localhost)</p>
+</li>
+<li><p class="first">Seed the database <tt class="docutils literal"><span class="pre">python</span> <span class="pre">seed_qa_keys.py</span></tt> (<strong>do not perform this in pproduction</strong>)</p>
+</li>
+</ol>
+</div>
+<div class="section" id="iis-integration">
+<h3>IIS Integration<a class="headerlink" href="#iis-integration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Ensure IIS has CGI support (<a class="reference external" href="http://www.iis.net/configreference/system.webserver/cgi">http://www.iis.net/configreference/system.webserver/cgi</a>)</p>
+</li>
+<li><p class="first">Create a website in IIS and point it to the Python virtual environment</p>
+</li>
+<li><dl class="first docutils">
+<dt>Go to the website | Handler Mappings | Add Module Mapping ...</dt>
+<dd><div class="first last highlight-yaml"><div class="highlight"><pre>Request Path: *
+Module: FastCgiModule
+Executable: C:\inetpub\rcs-X.Y.Z\Scripts\python.exe|C:\inetpub\rcs-X.Y.Z\wfastcgi.py
+Name: (name)
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">If <strong>URL_PREFIX</strong> was set in the configuration it should be applied to the
+<tt class="docutils literal"><span class="pre">Request</span> <span class="pre">Path</span></tt> setting (e.g. <tt class="docutils literal"><span class="pre">/rcs1/*</span></tt> for a prefix of <tt class="docutils literal"><span class="pre">/rcs1</span></tt>).</p>
+</li>
+<li><p class="first">Go back to the server settings | FastCgi Settings | Right click Edit</p>
+</li>
+<li><dl class="first docutils">
+<dt>Select Environment variables and add the following:</dt>
+<dd><div class="first last highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">PYTHONPATH</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">C:\inetpub\rcs\</span>
+<span class="l-Scalar-Plain">WSGI_HANDLER</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rcs.app</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="upgrading-from-1-x-on-windows-iis-fastcgi">
+<h2>Upgrading from 1.x on Windows (IIS + FastCgi)<a class="headerlink" href="#upgrading-from-1-x-on-windows-iis-fastcgi" title="Permalink to this headline">¶</a></h2>
+<p>Upgrading RCS can be performed in place wihtout the need to change the IIS
+configuration.  If you are upgrading from a post 1.5 release then there is
+no need to reinstall or reconfigure CouchDB either.</p>
+<p>The following steps can be used in lieu of <a class="reference internal" href="#pyvenvconfig"><em>Configure Python Environment</em></a> :</p>
+<ol class="arabic">
+<li><p class="first">Get an RCS release package <tt class="docutils literal"><span class="pre">rcs-X.Y.Z.zip</span></tt></p>
+</li>
+<li><p class="first">In the existing RCS directory (e.g. <tt class="docutils literal"><span class="pre">c:\inetpub\rcs</span></tt>) remove all folders
+except <tt class="docutils literal"><span class="pre">Lib</span></tt>, <tt class="docutils literal"><span class="pre">Scripts</span></tt> and <tt class="docutils literal"><span class="pre">Include</span></tt>.  By keeping those folders the
+virtualenv will remain intact.  Remove all files except <tt class="docutils literal"><span class="pre">wfastcgi.py</span></tt> and
+<tt class="docutils literal"><span class="pre">config.py</span></tt>.</p>
+</li>
+<li><p class="first">If <tt class="docutils literal"><span class="pre">wfastcgi.py</span></tt> was removed please recreate the module mapping as
+described in <a class="reference internal" href="#iis-integration">IIS Integration</a> .</p>
+</li>
+<li><p class="first">Extract the release package into the existing directory, by default it will
+extract into a subdirectory <tt class="docutils literal"><span class="pre">rcs-X.Y.Z</span></tt> and those files should be moved to
+the top level directory.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Go into the RCS directory and activate the virtualenv:</dt>
+<dd><div class="first last highlight-bat"><div class="highlight"><pre><span class="k">cd</span> c:\inetpub\rcs
+scripts\activate
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Install any new dependencies (do either one of the following):</p>
+<blockquote>
+<div><ul class="simple">
+<li>via internet <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></tt></li>
+<li>via local wheel cache <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--use-wheel</span> <span class="pre">--no-index</span> <span class="pre">--find-links=c:\path\to\wheel\dir</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></tt></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Update the following in <tt class="docutils literal"><span class="pre">config.py</span></tt> or the file pointed to by the enviornment variable <tt class="docutils literal"><span class="pre">RCS_CONFIG</span></tt>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>DB_CONN</strong> should match the account, password and host settings from the CouchDB installation</li>
+<li><strong>REG_SCHEMA</strong> should point to an absolute path (e.g. <tt class="docutils literal"><span class="pre">c:\\inetpub\\rcs\\rcs_schema_v1.json</span></tt>
+&#8211; use double backslashes to avoid string escape codes)</li>
+<li><strong>LOG_FILE</strong> should point to an absolute path (e.g. <tt class="docutils literal"><span class="pre">c:\\inetpub\\rcs\\rcs.log</span></tt>)
+this file should be writable by IIS</li>
+<li><strong>LOG_LEVEL</strong> set the log level to something appropriate (e.g. 20 for QC, 30 for Prod)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Test the installation <tt class="docutils literal"><span class="pre">python</span> <span class="pre">rcs.py</span></tt> (this will run a test server on localhost)</p>
+</li>
+<li><p class="first">Follow any other version specific upgrade notes in this section.</p>
+</li>
+</ol>
+<div class="section" id="upgrading-from-1-6">
+<h3>Upgrading from 1.6<a class="headerlink" href="#upgrading-from-1-6" title="Permalink to this headline">¶</a></h3>
+<p>Version 1.7 of RCS adds the capability to use a URL prefix for an RCS
+installation.  This makes it possible to deploy multiple copies of RCS side by
+side in IIS.  To prefix an existing RCS install please follow the steps.</p>
+<ol class="arabic simple">
+<li>Select a common directory for the various RCS installations to share (this
+is only necessary if IIS needs to serve up static files)</li>
+<li>Create or copy RCS installations into various subfolders (e.g. <tt class="docutils literal"><span class="pre">rcs1</span></tt> and
+<tt class="docutils literal"><span class="pre">rcs2</span></tt>)</li>
+<li>In IIS create or modify a website to be the root for the various RCS installations</li>
+<li>(Optional) The root directory should point to the common directory for the
+RCS installations</li>
+<li>For each RCS installation add a handler as described above using a Request
+Path of <tt class="docutils literal"><span class="pre">/&lt;subfolder</span> <span class="pre">name&gt;/*</span></tt> (if static files are not needed the prefix
+may be any prefix identifying the RCS installation)</li>
+<li>In the RCS installation set the configuration parameter <strong>URL_PREFIX</strong> (e.g.
+<tt class="docutils literal"><span class="pre">/rcs1</span></tt> for a request path of <tt class="docutils literal"><span class="pre">/rcs1/*</span></tt>)</li>
+</ol>
+</div>
+</div>
+<div class="section" id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Permalink to this headline">¶</a></h2>
+<p>This is a small test that can verify if all the major components have been installed.</p>
+<ol class="arabic simple">
+<li>RCS comes pre-packaged with a testing interface, where you can test the
+GET, PUT, REGISTER, and DELETE requests. The full service contract is
+available at <a class="reference internal" href="../service/contract.html#contract"><em>RCS Service Contract</em></a></li>
+<li>In a browser, load up <a class="reference external" href="http://rcs.localhost/static/test.html">http://rcs.localhost/static/test.html</a> (replacing the
+hostname with the correct path to rcs)</li>
+<li>Enter a smallkey value (e.g. “test”)</li>
+<li>Press the <em>Feature</em> button in the second row of buttons</li>
+<li>Press <em>PUT</em></li>
+<li>If successful you will see a <tt class="docutils literal"><span class="pre">201</span></tt> code that the service was properly added to the database</li>
+<li>Press <em>GET</em></li>
+<li>It should return a JSON object with a status code of <tt class="docutils literal"><span class="pre">200</span></tt></li>
+<li>If a version of RAMP is configured alongside the RCS install the test can be
+extended by visiting the following RAMP URL:
+<tt class="docutils literal"><span class="pre">http://ramp.localhost/ramp-en.html?keys=test</span></tt> (replacing the hostname
+with the correct value)</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Deployment</a><ul>
+<li><a class="reference internal" href="#installation-on-windows-iis-fastcgi">Installation on Windows (IIS + FastCGI)</a><ul>
+<li><a class="reference internal" href="#install-couchdb">Install CouchDB</a></li>
+<li><a class="reference internal" href="#configure-python-environment">Configure Python Environment</a></li>
+<li><a class="reference internal" href="#iis-integration">IIS Integration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#upgrading-from-1-x-on-windows-iis-fastcgi">Upgrading from 1.x on Windows (IIS + FastCgi)</a><ul>
+<li><a class="reference internal" href="#upgrading-from-1-6">Upgrading from 1.6</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#verification">Verification</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Administrator&#8217;s Guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="connecting-to-ramp.html"
+                        title="next chapter">RAMP Deployment with RCS</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/admin/deployment.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="connecting-to-ramp.html" title="RAMP Deployment with RCS"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Administrator’s Guide"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.7.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Administrator&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
