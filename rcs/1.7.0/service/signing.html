@@ -23,21 +23,18 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="RAMP Configuration Service 1.7.0 documentation" href="../index.html" />
     <link rel="up" title="Using RCS Endpoints" href="index.html" />
     <link rel="prev" title="RCS Service Contract" href="endpoint_09.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="endpoint_09.html" title="RCS Service Contract"
              accesskey="P">previous</a> |</li>
@@ -49,7 +46,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="request-signing">
 <span id="signing"></span><h1>Request Signing<a class="headerlink" href="#request-signing" title="Permalink to this headline">¶</a></h1>
@@ -66,7 +63,7 @@ REQUEST_BODY := JSON fragment | &quot;&quot;
 </pre></div>
 </div>
 <p>Once the signature has been computed it should be encoded in modified base64 (
-<a class="reference external" href="http://tools.ietf.org/html/rfc4648#section-5">http://tools.ietf.org/html/rfc4648#section-5</a> ) with any padding <tt class="docutils literal"><span class="pre">=</span></tt>
+<a class="reference external" href="http://tools.ietf.org/html/rfc4648#section-5">http://tools.ietf.org/html/rfc4648#section-5</a> ) with any padding <code class="docutils literal"><span class="pre">=</span></code>
 characters stripped from the end.  The encoded signature should be attached to the
 HTTP request along with the following custom HTTP headers</p>
 <div class="highlight-python"><div class="highlight"><pre>Authorization: &lt;signature as encoded above&gt;
@@ -107,14 +104,14 @@ unavailable.</p>
 </dl>
 </li>
 <li><p class="first">GeoCat computes the message string by concatenating the fragments specified in the <a class="reference internal" href="#protocol">Protocol</a> section</p>
-<div class="highlight-python"><div class="highlight"><pre>REQUEST_PATH = /register/23ax5t
+<div class="highlight-python"><div class="highlight"><pre>REQUEST_PATH = /v1/register/23ax5t
 SENDER_ID = jstest
 TIME_STAMP = 2014-12-05T18:28:56.714Z
 REQUEST_BODY =  {&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:&quot;wms&quot;,&quot;en&quot;:{&quot;service_url&quot;:&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,&quot;layer&quot;:&quot;limits&quot;},&quot;fr&quot;:{&quot;service_url&quot;:&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,&quot;layer&quot;:&quot;limits&quot;}}
 </pre></div>
 </div>
 <p>resulting in</p>
-<div class="highlight-python"><div class="highlight"><pre>MSG = /register/23ax5tjstest2014-12-05T18:28:56.714Z{&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:&quot;wms&quot;,&quot;en&quot;:{&quot;service_url&quot;:&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,&quot;layer&quot;:&quot;limits&quot;},&quot;fr&quot;:{&quot;service_url&quot;:&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,&quot;layer&quot;:&quot;limits&quot;}}
+<div class="highlight-python"><div class="highlight"><pre>MSG = /v1/register/23ax5tjstest2014-12-05T18:28:56.714Z{&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:&quot;wms&quot;,&quot;en&quot;:{&quot;service_url&quot;:&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,&quot;layer&quot;:&quot;limits&quot;},&quot;fr&quot;:{&quot;service_url&quot;:&quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,&quot;layer&quot;:&quot;limits&quot;}}
 </pre></div>
 </div>
 </li>
@@ -137,7 +134,7 @@ REQUEST_BODY =  {&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:
 </pre></div>
 </div>
 <p>and sends the request (sample request escaped for the Windows command prompt)</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X PUT http://localhost:5000/register/23ax5t
+<div class="highlight-python"><div class="highlight"><pre>curl -X PUT http://localhost:5000/v1/register/23ax5t
     -H &quot;Authorization: v6XaQasyZzcm_Bz4W_p5fO1wbyJKCZnJFEspIXw9elY&quot;
     -H &quot;TimeStamp: 2014-12-05T18:28:56.714Z&quot;
     -H &quot;Sender: jstest&quot;
@@ -156,7 +153,7 @@ REQUEST_BODY =  {&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:
 </li>
 <li><p class="first">RCS performs the same signature compuation as GeoCat, generating a reference signature</p>
 </li>
-<li><p class="first">RCS tests that the reference signature matches the signature in the <tt class="docutils literal"><span class="pre">Authorization</span></tt> header</p>
+<li><p class="first">RCS tests that the reference signature matches the signature in the <code class="docutils literal"><span class="pre">Authorization</span></code> header</p>
 </li>
 <li><p class="first">RCS verifies that the time of request is valid</p>
 <div class="highlight-python"><div class="highlight"><pre>assert( -2 min &lt; UTC_NOW - TIME_STAMP &lt; 2 min )
@@ -167,19 +164,49 @@ REQUEST_BODY =  {&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:
 </li>
 </ol>
 </div>
+<div class="section" id="code-example">
+<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+<p>Here’s a sample code from our Python unit test</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">smallkey</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">))</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s">&#39;{&quot;version&quot;: &quot;1.0.0&quot;, &quot;payload_type&quot;: &quot;feature&quot;, &quot;en&quot;: { &quot;service_url&quot;: &quot;http://sncr01wbingsdv1.ncr.int.ec.gc.ca/arcgis/rest/services/RAMP/RAMP_ResearchCentres/MapServer/0&quot; }, &quot;fr&quot;: { &quot;service_url&quot;: &quot;http://sncr01wbingsdv1.ncr.int.ec.gc.ca/arcgis/rest/services/RAMP/RAMP_ResearchCentres/MapServer/0&quot; }}&#39;</span><span class="p">)</span>
+
+<span class="c">#add timeStamp to the put requeset</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span> <span class="n">iso8601</span><span class="o">.</span><span class="n">iso8601</span><span class="o">.</span><span class="n">Utc</span><span class="p">()</span> <span class="p">)</span>
+<span class="n">timeStamp</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">T%H:%M:%SZ&#39;</span><span class="p">)</span>
+
+<span class="c"># construct msg for signing</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;/v1/register/&#39;</span><span class="o">+</span><span class="n">smallkey</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">sender</span> <span class="o">+</span> <span class="n">timeStamp</span> <span class="o">+</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="c">#generate hash</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">),</span> <span class="n">msg</span><span class="p">,</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span> <span class="p">)</span>
+<span class="n">signature</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span> <span class="n">h</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;=&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+
+<span class="c"># add sender, authroization and timestamp.</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;contentType&quot;</span><span class="p">:</span> <span class="s">&quot;application/json; charset=utf-8&quot;</span><span class="p">,</span> <span class="s">&quot;dataType&quot;</span><span class="p">:</span> <span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="s">&quot;Sender&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="s">&quot;Authorization&quot;</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> <span class="s">&quot;TimeStamp&quot;</span><span class="p">:</span> <span class="n">timeStamp</span><span class="p">}</span>
+
+<span class="c"># run put and get response</span>
+<span class="n">putResponse</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span> <span class="o">+</span> <span class="s">&#39;v1/register/&#39;</span> <span class="o">+</span> <span class="n">smallkey</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c"># status code should be 201</span>
+<span class="k">assert</span> <span class="n">putResponse</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Request Signing</a><ul>
 <li><a class="reference internal" href="#protocol">Protocol</a></li>
 <li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#code-example">Code Example</a></li>
 </ul>
 </li>
 </ul>
@@ -187,12 +214,14 @@ REQUEST_BODY =  {&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:
   <h4>Previous topic</h4>
   <p class="topless"><a href="endpoint_09.html"
                         title="previous chapter">RCS Service Contract</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/service/signing.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/service/signing.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -209,15 +238,12 @@ REQUEST_BODY =  {&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="endpoint_09.html" title="RCS Service Contract"
              >previous</a> |</li>
@@ -225,9 +251,9 @@ REQUEST_BODY =  {&quot;version&quot;:&quot;1.0.0&quot;,&quot;payload_type&quot;:
           <li><a href="index.html" >Using RCS Endpoints</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Environment Canada.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
   </body>
 </html>
