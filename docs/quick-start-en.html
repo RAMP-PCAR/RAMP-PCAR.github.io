@@ -139,7 +139,7 @@
 </section>
 
 <p>Welcome to RAMP Quick Start Guide. In this guide, we will be showing you how to setup your own web map using RAMP by adjusting the configuration file.  No programming required!
-<a href="/demos/NRSTC/4.0/core/ramp-en.html">View live sample</a></p>
+<a href="/demos/NRSTC/core/ramp-en.html">View live sample</a></p>
 
 <div class="toc"></div>
 
@@ -173,7 +173,7 @@
 
 <h2 id="adding-a-basemap-layer">Adding a Basemap Layer</h2>
 
-<p>The basemaps configuration section defines what basemaps are available in the app.  You can delete all and add your own, or use any existing one.  Keep in mind that all basemaps must be in the same projection and have the same scale levels defined, otherwise a differing basemap will not draw.  Details on the basemap configuration objects can be found <a href="json-config-en.html#basemaps">here</a>.</p>
+<p>The basemaps configuration section defines what basemaps are available in the app.  You can delete all and add your own, or use any existing one.  Keep in mind that all basemaps with the same projection and same scale levels should have the same value defined in their tileSchema property.  Details on the basemap configuration objects can be found <a href="json-config-en.html#basemaps">here</a>.</p>
 
 <p><img src="../assets/images/qs_basemap_config.png" alt="Partial configuration file" /></p>
 
@@ -306,7 +306,7 @@ These templates are located in <strong>src\js\RAMP\Modules\templates</strong> fo
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-01-02</time>
+                        <time>2015-01-16</time>
                     </dd>
                 </dl>
             </main>

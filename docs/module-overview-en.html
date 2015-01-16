@@ -166,7 +166,7 @@
 
 <h2 id="basemapselector">ramp/basemapSelector</h2>
 
-<p>Manages the widget that allows the user to change the basemap. Utilizes the <a href="https://developers.arcgis.com/javascript/jsapi/basemap-amd.html">esri.dijit.Basemap</a> dijit.  Populates the widget with basemaps from the config.  All basemaps must be in the same projection.</p>
+<p>Manages the widget that allows the user to change the basemap. Utilizes the <a href="https://developers.arcgis.com/javascript/jsapi/basemap-amd.html">esri.dijit.Basemap</a> dijit.  Populates the widget with basemaps from the config.  If user changes to a basemap in a different projection or tile scheme, the site will reload to allow the map to re-initialize to the new scheme.</p>
 
 <p><strong>Relevant Sequence Diagrams</strong></p>
 
@@ -653,7 +653,7 @@ of the default behaviour.</p>
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-01-02</time>
+                        <time>2015-01-16</time>
                     </dd>
                 </dl>
             </main>

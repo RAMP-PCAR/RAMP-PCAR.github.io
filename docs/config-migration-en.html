@@ -131,72 +131,129 @@
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
                 <p><a name="top"></a></p>
 
-<h1 id="wb-cont">RAMP Configuration Migration Guide - Canada Goose to Dragonfly</h1>
+<h1 id="wb-cont">RAMP Configuration Migration Guide</h1>
 
 <div class="toc"></div>
+
+<h2 id="canada-goose-to-dragonfly">Canada Goose to Dragonfly</h2>
 
 <p>A number of schema changes were made to the config file in the Dragonfly release of RAMP.  Most of the changes were to facillitate a smaller config file, and to have data in more obvious locations.  </p>
 
 <p>Also note that a number of fields are now optional.  If they are not present in the config file, a default value will be used.  The <a href="json-config-en.html">config schema</a> will describe these fields.</p>
 
-<h2 id="changes-to-feature-layers">Changes to Feature Layers</h2>
+<h3 id="changes-to-feature-layers">Changes to Feature Layers</h3>
 
-<h3 id="feature-layer-collection">Feature Layer Collection</h3>
+<h4 id="feature-layer-collection">Feature Layer Collection</h4>
 
 <p>The <strong>featureLayers</strong> collection now resides under the <strong>layers</strong> node, and is called <strong>feature</strong>.</p>
 
 <p><img src="../assets/images/cfg_featlayer.png" alt="Config file differences - feature layer collection" /></p>
 
-<h3 id="feature-uuid">Feature UUID</h3>
+<h4 id="feature-uuid">Feature UUID</h4>
 
 <p>The <strong>uuid</strong> field has been removed.  If a RAMP application uses a uuid, the uuid should be used as the layer’s id field.</p>
 
-<h3 id="visibility-settings">Visibility Settings</h3>
+<h4 id="visibility-settings">Visibility Settings</h4>
 
 <p>Fields <strong>layerVisible</strong> and <strong>boundingBoxVisible</strong> have been moved to the <strong>settings</strong> node of the feature layer config object.  <strong>layerVisible</strong> has been renamed to <strong>visible</strong></p>
 
 <p><img src="../assets/images/cfg_featsettings.png" alt="Config file differences - feature layer settings" /></p>
 
-<h3 id="templates">Templates</h3>
+<h4 id="templates">Templates</h4>
 
 <p>All template values now reside under the <strong>template</strong> node.  Consequently the <strong>mapTipSettings</strong> node has been removed.  The properties that contain individual template names no longer have the word <strong>Template</strong> in their name.</p>
 
 <p><img src="../assets/images/cfg_template.png" alt="Config file differences - feature layer templates" /></p>
 
-<h3 id="symbology">Symbology</h3>
+<h4 id="symbology">Symbology</h4>
 
 <p>The symbology section has been restructured to support different types of renderers.  See <a href="symbology-en.html">the symbology guide</a> for details on how to format it.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
-<h2 id="changes-to-wms-layers">Changes to WMS Layers</h2>
+<h3 id="changes-to-wms-layers">Changes to WMS Layers</h3>
 
-<h3 id="wms-layer-collection">WMS Layer Collection</h3>
+<h4 id="wms-layer-collection">WMS Layer Collection</h4>
 
 <p>The <strong>wmsLayers</strong> collection now resides under the <strong>layers</strong> node, and is called <strong>wms</strong>.</p>
 
 <p><img src="../assets/images/cfg_wmslayer.png" alt="Config file differences - wms layer collection" /></p>
 
-<h3 id="visibility-settings-and-uuid">Visibility Settings and UUID</h3>
+<h4 id="visibility-settings-and-uuid">Visibility Settings and UUID</h4>
 
 <p>The changes to visibility settings and UUID that were applied to feature layers (see above) were also applied to WMS layers.</p>
 
-<h3 id="removed-wms-nodes">Removed WMS Nodes</h3>
+<h4 id="removed-wms-nodes">Removed WMS Nodes</h4>
 
 <p>Nodes <strong>legend</strong>, <strong>extent</strong> and <strong>layerInfo</strong> have been removed.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
-<h2 id="removed-nodes">Removed Nodes</h2>
+<h3 id="removed-nodes">Removed Nodes</h3>
 
 <p>the <strong>levelOfDetails.levels</strong> collection has been removed.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
+<h2 id="dragonfly-to-elk">Dragonfly to Elk</h2>
+
+<p>More schema changes were made to the config file in the Elk release of RAMP.  This included support for new features, more defaulting, and removal of state-specifc nodes.  </p>
+
+<p>As always, consult the <a href="json-config-en.html">config schema</a> for more granular details.</p>
+
+<h3 id="changes-to-top-level-nodes">Changes to Top-Level Nodes</h3>
+
+<p>Nodes <strong>lang</strong>, <strong>spatialReference</strong>, <strong>navWidget.locale</strong>, <strong>ui</strong> and <strong>globalFilter</strong> have been removed.</p>
+
+<p>Node <strong>geometryService</strong> has been renamed to <strong>geometryServiceUrl</strong></p>
+
+<h3 id="changes-to-support-multiple-spatial-references">Changes to Support Multiple Spatial References</h3>
+
+<p>There is no longer a notion of a map-level spatial reference.  Spatial reference is now determined by the active basemap.  To support all this switching, the following nodes now have <strong>spatialReference</strong> values to indicate the <a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html#spatialreference1">spatial reference</a> of the geometry they refer to:</p>
+
+<ul>
+  <li>objects in <strong>basemaps</strong> collection</li>
+  <li>any extents in the <strong>extent</strong> object</li>
+  <li>any <strong>layerExtent</strong> definition in a layers.feature object</li>
+</ul>
+
+<p>As well, the basemap objects have a new required node called <strong>tileSchema</strong>, which indicates which tiling schema this basemap belongs to.  See the <a href="basemap-support-en.html">basemap support</a> page for more details.</p>
+
+<h3 id="changes-to-basemap-selector">Changes to Basemap Selector</h3>
+
+<p>The basemap object property <strong>showOnInit</strong> has been removed, and replaced by a root level property called <strong>initialSelectedBasemap</strong>.  This property contains the integer index of the basemap that should be active when the site loads.  </p>
+
+<p>Basemap objects also now support showing multiple tile sets at once.  The <strong>url</strong> property has been replaced with an array property called <strong>layers</strong> that contains individual objects with their own <strong>url</strong> properties</p>
+
+<h3 id="changes-to-levelofdetails-node">Changes to levelOfDetails Node</h3>
+
+<p>The <strong>levelOfDetails</strong> node has been renamed to <strong>zoomLevels</strong>.  </p>
+
+<p>The <strong>levels</strong> child node has been removed.  </p>
+
+<p>Child nodes <strong>maxLevel</strong> and <strong>minLevel</strong> have been renamed to <strong>max</strong> and <strong>min</strong>.</p>
+
+<h3 id="changes-to-sitetemplate-node">Changes to siteTemplate Node</h3>
+
+<p>The <strong>siteTemplate</strong> node has been renamed to <strong>templates</strong>.  </p>
+
+<p>The <strong>filterGlobalRowTemplate</strong> and <strong>filterRowTemplate</strong> child nodes have been removed.  </p>
+
+<p>Child node <strong>basemapTemplate</strong> has been renamed to <strong>basemap</strong>.</p>
+
+<h3 id="changes-to-datagrid-node">Changes to datagrid Node</h3>
+
+<p>The <strong>datagrid</strong> node (at the root, not the node embedded in each feature layer object) has been removed.  Most of the values inside were not being used.  </p>
+
+<p>Value <strong>extendedDatagridExtentFilterEnabled</strong> has been moved to the configuration root.  </p>
+
+<p>Value <strong>globalGridRowsPerPage</strong> has also been moved to the root and has been renamed to <strong>rowsPerPage</strong>.</p>
+
+
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-01-02</time>
+                        <time>2015-01-16</time>
                     </dd>
                 </dl>
             </main>

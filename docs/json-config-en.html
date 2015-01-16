@@ -140,7 +140,7 @@
 
 <p>This page will walk you through the layout of the application configuration object and all of its properties.</p>
 
-<p>For details on migrating a config file from Canada Goose to Dragonfly, see the <a href="config-migration-en.html">Migration Guide</a>.</p>
+<p>For details on migrating a config file from Canada Goose to Dragonfly, or Dragonfly to Elk, see the <a href="config-migration-en.html">Migration Guide</a>.</p>
 
 <div class="toc"></div>
 
@@ -149,7 +149,6 @@
 <ul>
   <li>geometryServiceUrl</li>
   <li>proxyUrl</li>
-  <li>spatialReference</li>
   <li>extents
     <ul>
       <li>defaultExtent</li>
@@ -179,23 +178,30 @@
       </li>
     </ul>
   </li>
-  <li>levelOfDetails
+  <li>zoomLevels
     <ul>
-      <li>minLevel</li>
-      <li>maxLevel</li>
+      <li>min</li>
+      <li>max</li>
     </ul>
   </li>
   <li>initialSelectedBasemap</li>
   <li>basemaps (collection)
     <ul>
       <li>id</li>
-      <li>url</li>
+      <li>layers (collection)
+        <ul>
+          <li>url</li>
+          <li>visibleLayers</li>
+        </ul>
+      </li>
       <li>thumbnail</li>
       <li>scaleCssClass</li>
       <li>type</li>
       <li>name</li>
       <li>altText</li>
       <li>description</li>
+      <li>tileSchema</li>
+      <li>spatialReference</li>
     </ul>
   </li>
   <li>layers
@@ -306,13 +312,8 @@
       </li>
     </ul>
   </li>
-  <li>datagrid
-    <ul>
-      <li>globalGridRowsPerPage</li>
-      <li>summaryEnabled</li>
-      <li>extendedEnabled</li>
-    </ul>
-  </li>
+  <li>rowsPerPage</li>
+  <li>extendedDatagridExtentFilterEnabled</li>
   <li>templates
     <ul>
       <li>basemap</li>
@@ -354,14 +355,9 @@
       <td>Path to a proxy service (relative path).  Used for sending large requests to services.  No URL indicates no proxy is available.</td>
     </tr>
     <tr>
-      <td><a name="spatialreference"></a>spatialReference</td>
-      <td>object</td>
-      <td>A valid <a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html#spatialreference1">ESRI spatial reference object</a>.</td>
-    </tr>
-    <tr>
       <td><a name="extents"></a>extents</td>
       <td> </td>
-      <td>Note:  All extents should be in the same spatial reference as the basemap.</td>
+      <td>Note:  All extents should contain xmin, ymin, xmax, ymax values, and a <a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html#spatialreference1">spatial reference</a> for the co-ordinates.</td>
     </tr>
     <tr>
       <td>extents.defaultExtent</td>
@@ -444,24 +440,24 @@
       <td>Determines if the tool should be made available in the toolbar</td>
     </tr>
     <tr>
-      <td>levelOfDetails</td>
+      <td>zoomLevels</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><a name="levelofdetails_minlevel"></a>levelOfDetails.minLevel</td>
+      <td><a name="levelofdetails_minlevel"></a>zoomLevels.min</td>
       <td>numeric</td>
-      <td>Optional.  Minimum level of detail.  Default value is 1</td>
+      <td>Optional.  Minimum zoom level.  Default value is 1</td>
     </tr>
     <tr>
-      <td><a name="levelofdetails_maxlevel"></a>levelOfDetails.maxLevel</td>
+      <td><a name="levelofdetails_maxlevel"></a>zoomLevels.max</td>
       <td>numeric</td>
-      <td>Optional.  Maximum level of detail.  Default value is 17</td>
+      <td>Optional.  Maximum zoom level.  Default value is 17</td>
     </tr>
     <tr>
       <td><a name="initialSelectedBasemap"></a>initialSelectedBasemap</td>
       <td>numeric</td>
-      <td>Optional.  Index of the basemap to show at load time.  Index refers to the position in the basemaps collection.  Default value is 0</td>
+      <td>Optional.  Index of the basemap to show at load time.  Index refers to the position in the basemaps collection.  Default value is 0.</td>
     </tr>
     <tr>
       <td><a name="basemaps"></a> basemaps</td>
@@ -474,24 +470,34 @@
       <td>To identify basemap.  Unique across all map items.  No spaces!</td>
     </tr>
     <tr>
-      <td><a name="basemaps_url"></a> basemaps[].url</td>
+      <td><a name="basemaps_layers"></a> basemaps[].layers</td>
+      <td>collection of layers</td>
+      <td>The services that make up this basemap.  Facillitates having multiple tile sets act as one basemap.</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_url"></a> basemaps[].layers[].url</td>
       <td>string</td>
-      <td>REST url of the basemap</td>
+      <td>REST url of the basemap.</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_url"></a> basemaps[].layers[].visibleLayers</td>
+      <td>array of integers</td>
+      <td>Optional.  Allows you to specify specific layer ids from a map service.  If not provided, all layers are visible.</td>
     </tr>
     <tr>
       <td><a name="basemaps_thumbnail"></a>basemaps[].thumbnail</td>
       <td>string</td>
-      <td>Path to image file to display in the basemap selector</td>
+      <td>Path to image file to display in the basemap selector.</td>
     </tr>
     <tr>
       <td>basemaps[].scaleCssClass</td>
       <td>string</td>
-      <td>Optional.  Map scale style.  Use ‘map-scale-dark’ for light basemaps, ‘map-scale-light’ for dark basemaps.  Default value is “map-scale-dark”</td>
+      <td>Optional.  Map scale style.  Use ‘map-scale-dark’ for light basemaps, ‘map-scale-light’ for dark basemaps.  Default value is “map-scale-dark”.</td>
     </tr>
     <tr>
       <td><a name="basemaps_type"></a>basemaps[].type</td>
       <td>string</td>
-      <td>Optional.  Base map type.  This is descriptive only, and will be shown in the basemap selector.  Default value is “Topographic”</td>
+      <td>Optional.  Base map type.  This is descriptive only, and will be shown in the basemap selector.  Default value is “Topographic”.</td>
     </tr>
     <tr>
       <td><a name="basemaps_name"></a>basemaps[].name</td>
@@ -501,12 +507,22 @@
     <tr>
       <td>basemaps[].altText</td>
       <td>string</td>
-      <td>Alt text for the basemap thumbnail image</td>
+      <td>Alt text for the basemap thumbnail image.</td>
     </tr>
     <tr>
       <td><a name="basemaps_description"></a>basemaps[].description</td>
       <td>string</td>
       <td>Description of the basemap.  Will be visible when basemap selector is expanded.</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_tileschema"></a>basemaps[].tileSchema</td>
+      <td>string</td>
+      <td>A string that signifies what tile schema this basemap is in.  All basemaps in the same schema should have the same value in this field.</td>
+    </tr>
+    <tr>
+      <td><a name="basemaps_sr"></a>basemaps[].spatialReference</td>
+      <td>object</td>
+      <td>The <a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html#spatialreference1">spatial reference</a> of the basemap.</td>
     </tr>
     <tr>
       <td>layers</td>
@@ -829,27 +845,12 @@
       <td>The name of the plugin used to parse the response.  Plugins reside in the js\plugins directory.</td>
     </tr>
     <tr>
-      <td><a name="datagrid"></a>datagrid</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>datagrid.globalGridRowsPerPage</td>
+      <td>rowsPerPage</td>
       <td>numeric</td>
       <td>Optional.  Number of rows per page to be displayed in datagrid in summary view.  Default value is 50</td>
     </tr>
     <tr>
-      <td>datagrid.summaryEnabled</td>
-      <td>boolean</td>
-      <td>Flag indicate summary grid is enabled</td>
-    </tr>
-    <tr>
-      <td>datagrid.extendedEnabled</td>
-      <td>boolean</td>
-      <td>Flag indicate extended grid is enabled</td>
-    </tr>
-    <tr>
-      <td><a name="datagrid_extendedextentfilterenabled"></a> datagrid.extendedExtentFilterEnabled</td>
+      <td><a name="datagrid_extendedextentfilterenabled"></a> extendedDatagridExtentFilterEnabled</td>
       <td>boolean</td>
       <td>Flag to toggle the extent filter on or off for the extended grid</td>
     </tr>
@@ -921,7 +922,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-01-02</time>
+                        <time>2015-01-16</time>
                     </dd>
                 </dl>
             </main>
