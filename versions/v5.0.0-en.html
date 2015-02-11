@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
-    <title>v2.0.1 - Bobcat - Release Notes</title>
+    <title>v5.0.0 - Elk - Release Notes</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     
     <meta name="author" content="Environment Canada">
@@ -118,7 +118,7 @@
 
                     
 
-                    <li class="">v2.0.1 - Bobcat - Release Notes</li>
+                    <li class="">v5.0.0 - Elk - Release Notes</li>
                 </ol>
             </div>
         </div>
@@ -127,31 +127,40 @@
     <main role="main" property="mainContentOfPage" class="container">
 
         
-<h1 id="wb-cont">v2.0.1 - Bobcat - Release Notes</h1>
+<h1 id="wb-cont">v5.0.0 - Elk - Release Notes</h1>
 
 <div class="toc"></div>
 
 <ul>
-  <li><strong>Release Date:</strong> 2014-09-25</li>
+  <li><strong>Release Date:</strong> 2015-02-11</li>
 </ul>
 
 <h2 id="whats-new">What’s New</h2>
 
-<h3 id="changes">Changes</h3>
-
 <ul>
-  <li>Add option to deploy uncompressed code</li>
+  <li>Asynchronous layer loading</li>
+  <li>Ability to reload or remove failed layers</li>
+  <li>User can add layers to the map.  Support for ESRI REST Feature Layer, WMS, GeoJSON, CSV, and Shapefile</li>
+  <li>Support for basemaps in different projections</li>
+  <li>Support for layers with scale dependancies</li>
+  <li>Local projection library, reducing dependance on ESRI Geometry Service</li>
+  <li>Auto-hyperlinking of data with URLs or email addresses</li>
 </ul>
 
 <h3 id="fixes">Fixes</h3>
 
 <ul>
-  <li>Fix navigation widget freezing on load under some conditions (all browsers)</li>
+  <li>Layer Selector is now dynamically constructed and can easily be updated during runtime.</li>
+  <li>More efficient linkage between map layer objects and their config objects</li>
+  <li>Layer URL is no longer used as a key value for map layers.  Layer ID is now the standard key</li>
+  <li>URL parameters are now preserved when switching languages</li>
+  <li>Application runtime state is no longer stored in the configuration object</li>
+  <li>Navigation widget tooltips and scalebar now bilingual</li>
 </ul>
 
 <h2 id="details">Details</h2>
 
-<p><strong>Number of Commits:</strong> ?</p>
+<p><strong>Number of Commits:</strong> 636</p>
 
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>
