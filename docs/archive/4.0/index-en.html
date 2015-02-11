@@ -1,13 +1,10 @@
 
 ﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
-    <title>Feature Roadmap</title>
+    <title>v4.0 - Dragonfly</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     
     <meta name="author" content="Environment Canada">
@@ -42,7 +39,7 @@
             <div id="wb-bar">
                 <div class="container">
                     <div class="row">
-                        <section id="wb-lng" class="visible-md visible-lg">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
                             <h2>Language selection</h2>
                             <ul class="text-right">
                                 <li>
@@ -52,7 +49,7 @@
                                     English&#32;<span>(current)</span>
                                 </li>
                             </ul>
-                        </section>
+                        </section>-->
                         <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
                             <h2>Menu</h2>
                             <ul class="pnl-btn list-inline text-right">
@@ -69,8 +66,8 @@
                 <div class="row">
                     <div id="wb-sttl" class="col-md-8">
                         <a href="/index-en.html">
-                            <img src="/assets/themes/gc/assets/logo.png" alt="RAMP logo" /> <span>
-                                Reusable Accessible Mapping Platform (RAMP)<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
                             </span>
                         </a>
                     </div>
@@ -80,7 +77,7 @@
                             <div class="form-group">
                                 <label for="wb-srch-q">Search website</label>
                                 <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
-                                <input type="hidden" name="q" value="site:/ OR site:github.com/environment-canada/" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
                             </div>
                             <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
                         </form>
@@ -108,14 +105,26 @@
             <div class="row">
                 <ol class="breadcrumb">
                     
-                    <li><a href="/index-en.html">Home</a></li>
-                    
-                    <li><a href="/docs/index-en.html">Documentation</a></li>
-                    
-                    <li><a href=""></a></li>
+
+                        
+                        <li><a href="/index-en.html">Home</a></li>
+                        
+
                     
 
-                    <li class="">Feature Roadmap</li>
+                        
+                        <li><a href="/docs/index-en.html">Documentation</a></li>
+                        
+
+                    
+
+                        
+                        <li><a href="/docs/archive/index-en.html">Archive</a></li>
+                        
+
+                    
+
+                    <li class="">v4.0 - Dragonfly</li>
                 </ol>
             </div>
         </div>
@@ -124,39 +133,50 @@
     <main role="main" property="mainContentOfPage" class="container">
 
         
-<h1 id="wb-cont">Roadmap</h1>
+<h1 id="wb-cont">Documentation</h1>
 
-<h2 id="future-milestones">Future milestones</h2>
+<p>RAMP operates on the principle of progressive enhancement, and implements well-established techniques increasing the accessibility and usability of web content. If you are new to RAMP, please begin with our Getting Started section, which contains information on how to download, use or contribute.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date (estimated)</th>
-      <th>Milestones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2014-06-20</td>
-      <td>Initial Release</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>Setup GitHub Site</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>Publish Documentation</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="getting-startedstarted-enhtml"><a href="started-en.html">Getting Started</a></h2>
+<ul>
+  <li><a href="quick-start-en.html">Quick Start Guide</a></li>
+</ul>
 
-<h2 id="past-milestones">Past milestones</h2>
+<h2 id="customization-introductionramp-customization-intro-enhtml"><a href="ramp-customization-intro-en.html">Customization Introduction</a></h2>
+<ul>
+  <li><a href="json-config-en.html">JSON Config Definition</a></li>
+  <li><a href="template-guide-en.html">Templating Guide</a></li>
+  <li><a href="template-example-en.html">Template Example</a></li>
+  <li><a href="template-summary-en.html">Template Summary</a></li>
+  <li><a href="proxy.html">Proxy Configuration</a></li>
+  <li><a href="add-new-module.html">Add New Module</a></li>
+  <li><a href="locale-en.html">Localization</a></li>
+</ul>
+
+<h2 id="architecture-overviewarchitecture-overview-enhtml"><a href="architecture-overview-en.html">Architecture Overview</a></h2>
+<ul>
+  <li><a href="dojo-setup-en.html">Initialization</a></li>
+  <li><a href="namingconventions-en.html">Naming Conventions</a></li>
+  <li><a href="module-overview-en.html">Module Overview</a></li>
+  <li><a href="external-libraries-en.html">External Library Implementations</a></li>
+  <li><a href="build-tool-en.html">Build Tool</a></li>
+  <li><a href="configuration-flow-en.html">Configuration Workflow</a></li>
+  <li><a href="basemap-support-en.html">Basemap Support</a></li>
+  <li><a href="wms-support-en.html">WMS Support</a></li>
+  <li><a href="advanced-toolbar-en.html">Advanced Toolbar</a></li>
+  <li><a href="static-layer-support-en.html">Static Layer Support</a></li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+<ul>
+  <li><a href="/api/index-en.html">API Reference</a></li>
+  <li><a href="known-issues-en.html">Known Issues</a></li>
+</ul>
 
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>
             <dd>
-                <time>2014-07-07</time>
+                <time>2015-02-11</time>
             </dd>
         </dl>
     </main>
@@ -179,7 +199,7 @@
                 <h3>Contact us</h3>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://github.com/Environment-Canada/RAMP-AF/issues/new">Questions or comments?</a>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
                     </li>
                 </ul>
             </section>
@@ -187,13 +207,12 @@
                 <h3>News</h3>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://github.com/Environment-Canada/RAMP-AF/pulse">Recent project activity</a>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
                     </li>
                     <li>
-                        <a href="https://github.com/Environment-Canada/RAMP-AF/graphs">Project statistics</a>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
                     </li>
                 </ul>
-            </section>
             </section>
         </nav>
     </footer>
@@ -203,5 +222,19 @@
     <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
     <!--<![endif]-->
     <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg panel panel-default")
+                .toc({
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
 </body>
 </html>

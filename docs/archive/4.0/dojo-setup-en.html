@@ -1,0 +1,414 @@
+
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8" />
+    <title>Initialization</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>-->
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        
+        <nav role="navigation" id="wb-bc" property="breadcrumb">
+            <h2>You are here:</h2>
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        
+                        
+                        
+                        <li><a href="/index-en.html">Home</a></li>
+                        
+                                                
+                        
+                        
+                        
+                        <li><a href="/docs/index-en.html">Documentation</a></li>
+                        
+                                                
+                        
+                        
+                        
+                        <li><a href="/docs/archive/index-en.html">Archive</a></li>
+                        
+                                                
+                        
+                        
+                        
+                        <li><a href="/docs/archive/4.0/index-en.html">v4.0 - Dragonfly</a></li>
+                        
+                                                
+                        
+
+                        <li class="">Initialization</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                
+<p><a name="top"></a></p>
+
+<h1 id="wb-cont">Initialization</h1>
+
+<div class="toc"></div>
+
+<h2 id="loading-dojo-and-esri">Loading Dojo and ESRI</h2>
+
+<p>RAMP uses the <a href="http://dojotoolkit.org/">Dojo</a> and <a href="https://developers.arcgis.com/javascript/">ESRI</a> Javascript API, which can be loaded from your main html map page using:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./javascript/src/RAMP/RAMP-starter.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+	<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://js.arcgis.com/3.8/&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+<p>The latter load ESRI and Dojo, the former is a <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/config.html">configuration file</a> that Dojo needs in order to link up RAMP modules (Note: order matters, the configuration file must be loaded before Dojo). The configuration file contains an object called “dojoConfig” (it is a globalObject that needs to be named exactly like that, case-sensitive):</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">dojoConfig</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="nx">parseOnLoad</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="nx">locale</span><span class="o">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+		<span class="nx">async</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+		<span class="nx">packages</span><span class="o">:</span><span class="p">[{</span>
+			<span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ramp&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;location&quot;</span> <span class="o">:</span> <span class="s2">&quot;javascript/src/RAMP/Modules&quot;</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;utils&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;location&quot;</span> <span class="o">:</span> <span class="s2">&quot;javascript/src/RAMP/Utils&quot;</span>
+		<span class="p">}]</span>
+	<span class="p">};</span></code></pre></div>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="dojo-config-parameters">Dojo Config Parameters</h2>
+
+<p>The dojoConfig object contains many different parameters, the ones relevant for RAMP are outlined below, a description of the rest can be found <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/config.html">here</a>.</p>
+
+<p><em>parseOnLoad</em>: if true, Dojo will parse your HTML page for any Dojo markups and replace them with widgets. If false, you must manually tell Dojo to parse the page at a later time (Recommended: false, since we’re not using any Dojo markups in RAMP, and parsing creates some overhead during loading).</p>
+
+<p><em>locale</em>: the current locale, since the dojoConfig object is built in javascript, there can be logic to figure out the locale before creating this object. For example:</p>
+
+<p><em>async</em>: if true, Dojo will load all the modules asynchronously (Recommended: true)</p>
+
+<p><em>packages</em>: an array of objects, each object contains a “name” and “location” field, which is used to give alias to module locations. The location should be relative to your HTML map page. In the above example, “ramp” is an alias for “javascript/src/RAMP/Modules/”, thus if there is a module located at: “javascript/src/RAMP/Modules/map.js”, then using the alias, the module can simply be referenced with “ramp/map”.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="loading-the-bootstrapper">Loading the bootstrapper</h2>
+
+<p>The bootstrapper module is responsible for loading the JSON configuration file used by RAMP and for loading all the modules in the proper order.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./javascript/src/RAMP/bootstrapper.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2015-02-11</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/index-en.html">
+                API Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toc')
+                .addClass("mrgn-bttm-lg panel panel-default")
+                .toc({
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
+</body>
+</html>
