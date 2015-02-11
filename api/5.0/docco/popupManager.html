@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>popupManager.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>popupManager.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, window, $, document */</span>
+
+<span class="hljs-comment">/**
+* Utility module containint useful static classes.
+*
+* @module Utils
+*/</span>
+
+<span class="hljs-comment">/**
+* A static class to simplify the creation of UI popups, where a popup is a section of the page hidden and shown in
+* response to some user or system action. This class takes care of assigning aria-* attributes and keeping them updated.
+*
+* @class PopupManager
+* @static
+* @uses dojo/Deferred
+* @uses dojo/_base/lang
+* @uses Util
+*/</span>
+define([<span class="hljs-string">"dojo/Deferred"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"utils/util"</span>],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Deferred, lang, UtilMisc)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-comment">/**
+        * A class holding properties of the popup.
+        *
+        * @class PopupBaseSettings
+        * @for PopupBase
+        */</span>
+        <span class="hljs-keyword">var</span> popupBaseAttrTemplate = {
+            <span class="hljs-comment">/**
+             * The name of the event or events separated by a comma to trigger the closing of the popup.
+             *
+             * @property reverseEvent
+             * @type {String}
+             * @default null
+             * @for PopupBaseSettings
+             */</span>
+            reverseEvent: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+             * Indicates whether the popup should react on the closing event as well. The closing event is considered an event on the handle of the popup which is open.
+             *
+             * @property openOnly
+             * @type {Boolean}
+             * @default false
+             */</span>
+            openOnly: <span class="hljs-literal">false</span>,
+
+            <span class="hljs-comment">/**
+            * The initially supplied handle to the PopupManager; a {{#crossLink "jQuery"}}{{/crossLink}} to listen to events on.
+            *
+            * @property handle
+            * @type {JQuery}
+            * @default null
+            * @for PopupBaseSettings
+            */</span>
+            handle: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * The initially supplied handle selector to be used in conjunction with handle when listening to events. Useful if the real handle doesn't exist yet.
+            *
+            * @property handleSelector
+            * @type {String}
+            * @default null
+            */</span>
+            handleSelector: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * The initially supplied target node of the popup.
+            *
+            * @property target
+            * @type {JQuery}
+            * @default null
+            */</span>
+            target: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * The initially supplied target selector to be used in conjunction with target. Useful when the target of the popup doesn't exist yet.
+            *
+            * @property targetSelector
+            * @type {String}
+            * @default null
+            */</span>
+            targetSelector: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * Selector for the container housing both actual handle and actual target for one popup instance. Used to select the actual target that is relative to currently active handle. 
+            *
+            * @property containerSelector
+            * @type {String}
+            * @default null
+            */</span>
+            containerSelector: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * The function to execute when the popup opens.
+            *
+            * @property openHandler
+            * @type {Function}
+            * @default null
+            */</span>
+            openHandler: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * The function to execute when the popup closes. If the function is not supplied, `openHandler` is used instead.
+            *
+            * @property closeHandler
+            * @type {Function}
+            * @default null
+            */</span>
+            closeHandler: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * The delay before closing the popup; used with "hoverIntent" event type.
+            *
+            * @property timeout
+            * @type {Number}
+            * @default 0
+            */</span>
+            timeout: <span class="hljs-number">0</span>,
+
+            <span class="hljs-comment">/**
+            * The CSS class to be applied to the handle of the popup when the popup opens.
+            *
+            * @property activeClass
+            * @type {String}
+            * @default random guid
+            */</span>
+            activeClass: <span class="hljs-literal">null</span>,
+
+            <span class="hljs-comment">/**
+            * Indicates whether activeClass should be applied before openHandler function completes or after.
+            *
+            * @property setClassBefore
+            * @type {String}
+            * @default null
+            */</span>
+            setClassBefore: <span class="hljs-literal">false</span>,
+
+            <span class="hljs-comment">/**
+            * Indicates whether to apply aria-* attributes to DOM nodes.
+            *
+            * @property useAria
+            * @type {Boolean}
+            * @default true
+            */</span>
+            useAria: <span class="hljs-literal">true</span>,
+
+            <span class="hljs-comment">/**
+            * Indicates whether focus should be reset to the handle of the popup when the popup is closed by the internal close button if present.
+            *
+            * @property resetFocusOnClose
+            * @type {Boolean}
+            * @default false
+            */</span>
+            resetFocusOnClose: <span class="hljs-literal">false</span>
+        },
+
+        <span class="hljs-comment">/**
+        * An abstract representation of the popup definition that potentially references many Popup instances. Handle and target properties might use selectors.
+        *
+        * @class PopupBase
+        * @for PopupManager
+        */</span>
+            popupBaseTemplate = {
+                <span class="hljs-comment">/**
+                * Properties object of the PopupBase.
+                *
+                * @property  _attr
+                * @private
+                * @type {PopupBaseSettings}
+                * @for PopupBase
+                */</span>
+                _attr: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * Finds and returns actual DOM nodes of popup handles, one or more. Used selector
+                *
+                * @method _getActualHandle
+                * @private
+                * @param {JQuery} [selector] A {{#crossLink "jQuery"}}{{/crossLink}} of the actual handle.
+                * @return result An array of one or more jQuery objects that works as popup handles
+                */</span>
+                _getActualHandle: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector)</span> </span>{
+                    <span class="hljs-keyword">var</span> result;
+
+                    <span class="hljs-keyword">if</span> (selector) {
+                        result = $(selector);
+                    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._attr.handle) {
+                        result = <span class="hljs-keyword">this</span>._attr.handleSelector ? <span class="hljs-keyword">this</span>._attr.handle.find(<span class="hljs-keyword">this</span>._attr.handleSelector) : <span class="hljs-keyword">this</span>._attr.handle;
+                    }
+
+                    <span class="hljs-keyword">return</span> result;
+                },
+
+                <span class="hljs-comment">/**
+                * Finds and returns an array of {{#crossLink "Popup"}}{{/crossLink}} objects, one or more, identified in the PopupBase.
+                *
+                * @method _spawnPopups
+                * @private
+                * @param {JQuery} [selector] A {{#crossLink "jQuery"}}{{/crossLink}} of the actual handle.
+                * @return popups An array of one or more {{#crossLink "Popup"}}{{/crossLink}} objects
+                */</span>
+                _spawnPopups: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector)</span> </span>{
+                    <span class="hljs-keyword">var</span> popups = [],
+                        actualHandle = <span class="hljs-keyword">this</span>._getActualHandle(selector),
+                        actualTarget;
+
+                    actualHandle.each(lang.hitch(<span class="hljs-keyword">this</span>,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, ah)</span> </span>{
+                            ah = $(ah);
+
+                            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._attr.target) {
+                                actualTarget = <span class="hljs-keyword">this</span>._attr.targetSelector ? <span class="hljs-keyword">this</span>._attr.target.find(<span class="hljs-keyword">this</span>._attr.targetSelector) : <span class="hljs-keyword">this</span>._attr.target;
+                            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._attr.containerSelector &amp;&amp; <span class="hljs-keyword">this</span>._attr.targetSelector) {
+                                actualTarget = ah.parents(<span class="hljs-keyword">this</span>._attr.containerSelector).find(<span class="hljs-keyword">this</span>._attr.targetSelector);
+                            } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>if the target cannot be found, a handle its returned</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                actualTarget = <span class="hljs-keyword">this</span>._attr.targetSelector ? ah.find(<span class="hljs-keyword">this</span>._attr.targetSelector) : ah;
+                            }
+
+                            <span class="hljs-keyword">if</span> (actualTarget.length &gt; <span class="hljs-number">0</span>) {
+                                popups.push(
+                                    lang.mixin(<span class="hljs-built_in">Object</span>.create(popupTempate), {
+                                        openHandler: <span class="hljs-keyword">this</span>._attr.openHandler,
+                                        closeHandler: <span class="hljs-keyword">this</span>._attr.closeHandler || <span class="hljs-keyword">this</span>._attr.openHandler,
+
+                                        activeClass: <span class="hljs-keyword">this</span>._attr.activeClass,
+                                        setClassBefore: <span class="hljs-keyword">this</span>._attr.setClassBefore,
+                                        useAria: <span class="hljs-keyword">this</span>._attr.useAria,
+                                        resetFocusOnClose: <span class="hljs-keyword">this</span>._attr.resetFocusOnClose,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>handle: actualHandle,</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                        handle: ah, <span class="hljs-comment">// one actual handle per spawned popup</span>
+                                        target: actualTarget
+                                    })
+                                );
+                            }
+                        }));
+
+                    <span class="hljs-keyword">return</span> popups;
+                },
+
+                <span class="hljs-comment">/**
+                * Checks if any of the popups described by this PopupBase is closed.
+                *
+                * @method isOpen
+                * @param {JQuery} [selector] A {{#crossLink "jQuery"}}{{/crossLink}} of the actual handle.
+                * @return result True if any of the described popup are open; false otherwise
+                */</span>
+                isOpen: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector)</span> </span>{
+                    <span class="hljs-keyword">var</span> result = <span class="hljs-literal">true</span>;
+
+                    <span class="hljs-keyword">this</span>._spawnPopups(selector).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(p)</span> </span>{
+                        <span class="hljs-keyword">if</span> (!p.isOpen()) {
+                            result = <span class="hljs-literal">false</span>;
+                        }
+                    });
+
+                    <span class="hljs-keyword">return</span> result;
+                },
+
+                <span class="hljs-comment">/**
+                * Opens all the popups described by this PopupBase instance.
+                *
+                * @method open
+                * @param {JQuery} [selector] A {{#crossLink "jQuery"}}{{/crossLink}} of the actual handle.
+                */</span>
+                open: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector)</span> </span>{
+                    <span class="hljs-keyword">this</span>._spawnPopups(selector).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(p)</span> </span>{
+                        p.open();
+                    });
+                },
+
+                <span class="hljs-comment">/**
+                * Closes all the popups described by this PopupBase instance.
+                *
+                * @method close
+                * @param {JQuery} [selector] A {{#crossLink "jQuery"}}{{/crossLink}} of the actual handle.
+                */</span>
+                close: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector)</span> </span>{
+                    <span class="hljs-keyword">this</span>._spawnPopups(selector).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(p)</span> </span>{
+                        p.close();
+                    });
+                },
+
+                <span class="hljs-comment">/**
+                * Toggles all the popups described by this PopupBase instance.
+                *
+                * @method toggle
+                * @param {JQuery} [selector] A {{#crossLink "jQuery"}}{{/crossLink}} of the actual handle. Generally, selector is not needed if popup manages only one handle/target pair.
+                * @param {Boolean} [state] Indicates if the popup should be toggled on or off. true - open; false - close;
+                */</span>
+                toggle: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, state)</span> </span>{
+                    <span class="hljs-keyword">this</span>._spawnPopups(selector).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(p)</span> </span>{
+                        p.toggle(state);
+                    });
+                },
+
+                <span class="hljs-comment">/**
+                * Sets the appropriate aria-* attributes to the popup nodes according to the supplied `visible` parameter or with the internal state of the popup.
+                *
+                * @method setTargetAttr
+                * @param {Boolean} [visible] Indicating the internal state of the popup
+                */</span>
+                setTargetAttr: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(visible)</span> </span>{
+                    <span class="hljs-keyword">this</span>._spawnPopups().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(p)</span> </span>{
+                        p.setTargetAttr(visible);
+                    });
+                }
+            },
+
+        <span class="hljs-comment">/**
+        * A concrete instance of popup referencing actual DOM nodes as its handle and target.
+        *
+        * @class Popup
+        * @for PopupManager
+        */</span>
+            popupTempate = {
+                <span class="hljs-comment">/**
+                * Indicates if the Popup target is being animated.
+                *
+                * @property _isAnimating
+                * @type {Boolean}
+                * @for Popup
+                * @private
+                */</span>
+                _isAnimating: <span class="hljs-literal">false</span>,
+
+                <span class="hljs-comment">/**
+                * The function to execute when the popup opens.
+                *
+                * @property openHandler
+                * @type {Function}
+                * @default null
+                */</span>
+                openHandler: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * The function to execute when the popup closes.
+                *
+                * @property closeHandler
+                * @type {Function}
+                * @default null
+                */</span>
+                closeHandler: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * The CSS class to be applied to the handle of the popup when the popup opens.
+                *
+                * @property activeClass
+                * @type {String}
+                * @default null
+                */</span>
+                activeClass: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * Indicates whether activeClass should be applied before openHandler function completes or after.
+                *
+                * @property setClassBefore
+                * @type {Boolean}
+                * @default null
+                */</span>
+                setClassBefore: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * Indicates whether to apply aria-* attributes to DOM nodes.
+                *
+                * @property useAria
+                * @type {Boolean}
+                * @default true
+                */</span>
+                useAria: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * An actual {{#crossLink "jQuery"}}{{/crossLink}} of the handle's DOM node.
+                *
+                * @property handle
+                * @type {JQuery}
+                * @default null
+                */</span>
+                handle: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * An actual {{#crossLink "jQuery"}}{{/crossLink}} of the targets's DOM node.
+                *
+                * @property target
+                * @type {JQuery}
+                * @default null
+                */</span>
+                target: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * Checks if this Popup is open.
+                *
+                * @method isOpen
+                * @return {Boolean} True if open, false otherwise
+                */</span>
+                isOpen: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.handle.hasClass(<span class="hljs-keyword">this</span>.activeClass);
+                },
+
+                <span class="hljs-comment">/**
+                * Opens this Popup.
+                *
+                * @method open
+                */</span>
+                open: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">this</span>._performAction(
+                        <span class="hljs-keyword">this</span>.openHandler,
+
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            <span class="hljs-keyword">this</span>.handle.addClass(<span class="hljs-keyword">this</span>.activeClass);
+                        },
+
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            <span class="hljs-keyword">this</span>.setTargetAttr(<span class="hljs-literal">true</span>);
+                        }
+                    );
+                },
+
+                <span class="hljs-comment">/**
+                * Closes this Popup.
+                *
+                * @method close
+                */</span>
+                close: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">this</span>._performAction(
+                        <span class="hljs-keyword">this</span>.closeHandler,
+
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            <span class="hljs-keyword">this</span>.handle.removeClass(<span class="hljs-keyword">this</span>.activeClass);
+                        },
+
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            <span class="hljs-keyword">this</span>.setTargetAttr(<span class="hljs-literal">false</span>);
+                        }
+                    );
+                },
+
+                <span class="hljs-comment">/**
+                * Toggles this Popup.
+                *
+                * @method toggle
+                * @param {Boolean} [state] Indicates if the popup should be toggled on or off. true - open; false - close;
+                */</span>
+                toggle: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(state)</span> </span>{
+                    state = UtilMisc.isUndefined(state) ? <span class="hljs-keyword">this</span>.isOpen() : !state;
+                    <span class="hljs-keyword">if</span> (state) {
+                        <span class="hljs-keyword">this</span>.close();
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">this</span>.open();
+                    }
+                },
+
+                <span class="hljs-comment">/**
+                * Performs actions like closing and opening on this Popup.
+                *
+                * @method _performAction
+                * @private
+                * @param {Function} action Open or close action on this Popup
+                * @param {Function} cssAction Function setting style properties on this Popup
+                * @param {Function} callback The callback to be executed
+                */</span>
+                _performAction: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(action, cssAction, callback)</span> </span>{
+                    <span class="hljs-keyword">if</span> ($.isFunction(action) &amp;&amp; !<span class="hljs-keyword">this</span>._isAnimating) {
+                        <span class="hljs-keyword">var</span> deferred = <span class="hljs-keyword">new</span> Deferred();
+
+                        deferred.then(lang.hitch(<span class="hljs-keyword">this</span>,
+                            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">this</span>._isAnimating = <span class="hljs-literal">false</span>;
+
+                                <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.setClassBefore) {
+                                    cssAction.call(<span class="hljs-keyword">this</span>);
+                                }
+
+                                callback.call(<span class="hljs-keyword">this</span>);
+                            }));
+
+                        <span class="hljs-keyword">this</span>._isAnimating = <span class="hljs-literal">true</span>;
+
+                        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.setClassBefore) {
+                            cssAction.call(<span class="hljs-keyword">this</span>);
+                        }
+
+                        action.call(<span class="hljs-keyword">this</span>, deferred);
+                    }
+                },
+
+                <span class="hljs-comment">/**
+                * Sets the appropriate aria-* attributes to this popup nodes according to the supplied `visible` parameter or with the internal state of the popup.
+                *
+                * @method setTargetAttr
+                * @param {Boolean} [visible] Indicating the internal state of the popup
+                */</span>
+                setTargetAttr: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(visible)</span> </span>{
+                    <span class="hljs-keyword">if</span> (visible !== <span class="hljs-literal">true</span> &amp;&amp; visible !== <span class="hljs-literal">false</span>) {
+                        visible = <span class="hljs-keyword">this</span>.isOpen();
+                    }
+
+                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.useAria) {
+                        <span class="hljs-keyword">this</span>.handle.attr(<span class="hljs-string">"aria-pressed"</span>, visible);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>if handle and target are the same object, do not set aria attributes on target</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.handle[<span class="hljs-number">0</span>] !== <span class="hljs-keyword">this</span>.target[<span class="hljs-number">0</span>]) {
+                            <span class="hljs-keyword">this</span>.target.attr({
+                                <span class="hljs-string">"aria-expanded"</span>: visible,
+                                <span class="hljs-string">"aria-hidden"</span>: !visible
+                            });
+                        }
+                    }
+                }
+            };
+
+        <span class="hljs-comment">/**
+        * Create a new PopupBase object from the settings provided.
+        *
+        * @method newPopup
+        * @private
+        * @param {PopupBaseSettings} popupAttr Popup settings
+        * @return popup
+        * @for PopupManager
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">newPopup</span><span class="hljs-params">(popupAttr)</span> </span>{
+            <span class="hljs-keyword">var</span> popup = <span class="hljs-built_in">Object</span>.create(popupBaseTemplate, {
+                _attr: {
+                    value: popupAttr
+                }
+            });
+
+            popup._spawnPopups().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(p)</span> </span>{
+                <span class="hljs-keyword">if</span> (p.useAria) {
+                    p.handle.attr(<span class="hljs-string">"aria-pressed"</span>, <span class="hljs-literal">false</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>if handle and target are the same object, do not set aria attributes on target</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> (p.handle[<span class="hljs-number">0</span>] !== p.target[<span class="hljs-number">0</span>]) {
+                        p.handle.attr(<span class="hljs-string">"aria-haspopup"</span>, <span class="hljs-literal">true</span>);
+                    }
+
+                    p.setTargetAttr();
+                }
+
+                p.target.find(<span class="hljs-string">".button-close"</span>).on(<span class="hljs-string">"click"</span>,
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        p.close();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>reset the focus to the popup’s handle when the popup’s internal close button is clicked</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">if</span> (p.resetFocusOnClose) {
+                            p.handle.focus();
+                        }
+                    });
+            });
+
+            <span class="hljs-keyword">return</span> popup;
+        }
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * Register a PopupBase definition. By a popup here we mean a section of the page that reacts to the user's action on this or different section of the page.
+            * Can be used to register popups with already existing page nodes, or, using handle and target selectors with the nodes that will be created later.
+            *
+            * ####Example
+            *     popupManager.registerPopup(panelToggle, "click",
+            *         openPanel,
+            *             {
+            *                 activeClass: cssExpandedClass,
+            *                 closeHandler: closePanel
+            *             }
+            *         );
+            * Here we register a popup on the `panelToggle` node which will trigger `openPanel` function when the user clicks to open the popup and `closePanel` to close it;
+            * `cssExpandedClass` will be set on the `panelToggle` node when the popup is opened.
+            *
+            *      popupManager.registerPopup(sectionNode, "hover, focus",
+            *           openFunction,
+            *           {
+            *               handleSelector: "tr",
+            *
+            *               targetSelector: ".record-controls",
+            *
+            *               closeHandler: closeFunction,
+            *
+            *               activeClass: "bg-very-light",
+            *               useAria: false
+            *           }
+            *       );
+            * Here we define a set of virtual popups on the `sectionNode` node that would be triggered when the user hovers over or sets focus to any `tr` child node of `sectionNode`.
+            * Then the `openFunction` will be executed with `this.handle` pointing to the actual handle node which trigged the popup and  `this.target` pointing to the actual target node
+            * corresponding to a node or nodes found with the `targetSelector` inside the actual handle node.
+            *
+            * @method registerPopup
+            * @static
+            * @param {jQuery} handle A {{#crossLink "jQuery"}}{{/crossLink}} handle to listen to events on
+            * @param {String} event The name of the event or events separated by a comma to trigger the popup. There are several predefined event names to register hover popups:
+            * - `hoverIntent` uses the hoverIntent jQuery plugin to determine when the user intends to hover over something
+            * - `hover` is a combination of two events - `mouseleave` and `mouseenter` and unlike `hoverIntent` it is triggered immediatelly
+            * - `focus` is a combination of two events - `focusin` and `focusout`
+            * You can subscribe to a combination of event shortcuts like `focus,hover`
+            *
+            * Additionally, almost any other {{#crossLink "jQuery"}}{{/crossLink}} event can be specified like `click` or `keypress`.
+            * @param {Function} openHandler The function to run when the popup opens
+            * @param {PopupBaseSettings} [settings] additional setting to define the popup
+            * @return {PopupBase} Returns a PopupBase with the specified conditions
+            */</span>
+            registerPopup: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(handle, event, openHandler, settings)</span> </span>{
+                <span class="hljs-keyword">var</span> popup,
+                    popupAttr;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>splitting event names</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                event = event.split(<span class="hljs-string">","</span>).map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(a)</span> </span>{
+                    <span class="hljs-keyword">return</span> a.trim();
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>mixing default and user-provided settings</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                popupAttr = lang.mixin(<span class="hljs-built_in">Object</span>.create(popupBaseAttrTemplate),
+                    {
+                        activeClass: UtilMisc.guid()
+                    },
+                    settings,
+                    {
+                        handle: handle,
+                        openHandler: openHandler
+                    }
+                );
+
+                popup = newPopup(popupAttr);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>iterating over event array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                event.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
+                    <span class="hljs-keyword">switch</span> (e) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>hover intent uses a jQuery plugin: <a href="http://cherne.net/brian/resources/jquery.hoverIntent.html">http://cherne.net/brian/resources/jquery.hoverIntent.html</a>
+this plugin is loaded by WET, and sometimes it might not be loaded fast enough, so we use executeOnLoad to wait for the plugin to load</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">case</span> <span class="hljs-string">"hoverIntent"</span>:
+                            <span class="hljs-keyword">var</span> timeoutHandle,
+                                open = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                    <span class="hljs-built_in">window</span>.clearTimeout(timeoutHandle);
+                                    popup.open(event.currentTarget);
+                                },
+                                close = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                    <span class="hljs-keyword">var</span> t = event ? event.currentTarget : <span class="hljs-literal">null</span>;
+                                    popup.close(t);
+                                };
+
+                            UtilMisc.executeOnLoad($(<span class="hljs-built_in">document</span>), <span class="hljs-string">"hoverIntent"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                popup._attr.handle
+                                    .hoverIntent({
+                                        over: open,
+                                        out: close,
+                                        selector: popup._attr.handleSelector,
+                                        timeout: popup._attr.timeout
+                                    })
+                                    .on(<span class="hljs-string">"click focusin"</span>, popup._attr.handleSelector, open)
+                                    .on(<span class="hljs-string">"focusout"</span>, popup._attr.handleSelector, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        timeoutHandle = <span class="hljs-built_in">window</span>.setTimeout(close, popup._attr.timeout);
+                                    });
+                            });
+
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"hover"</span>:
+                            popup._attr.handle
+                                .on(<span class="hljs-string">"mouseenter"</span>, popup._attr.handleSelector,
+                                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        popup.open(event.currentTarget);
+                                    })
+                                .on(<span class="hljs-string">"mouseleave"</span>, popup._attr.handleSelector,
+                                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        popup.close(event.currentTarget);
+                                    });
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"focus"</span>:
+                            popup._attr.handle
+                                .on(<span class="hljs-string">"focusin"</span>, popup._attr.handleSelector,
+                                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        popup.open(event.currentTarget);
+                                    })
+                                .on(<span class="hljs-string">"focusout"</span>, popup._attr.handleSelector,
+                                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        popup.close(event.currentTarget);
+                                    });
+
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">default</span>:
+                            <span class="hljs-keyword">if</span> (popup._attr.reverseEvent) {
+                                handle
+                                    .on(e, popup._attr.handleSelector, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        popup.open(event.currentTarget);
+                                    })
+                                    .on(popup._attr.reverseEvent, popup._attr.handleSelector, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        popup.close(event.currentTarget);
+                                    });
+                            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (popup._attr.openOnly) {
+                                handle.on(e, popup._attr.handleSelector, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                    popup.open(event.currentTarget);
+                                });
+                            } <span class="hljs-keyword">else</span> {
+                                handle.on(e, popup._attr.handleSelector, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                    popup.toggle(event.currentTarget);
+                                });
+                            }
+
+                            <span class="hljs-keyword">break</span>;
+                    }
+                });
+
+                <span class="hljs-keyword">return</span> popup;
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

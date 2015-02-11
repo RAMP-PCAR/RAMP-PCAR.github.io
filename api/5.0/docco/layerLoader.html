@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>layerLoader.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>layerLoader.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, console, RAMP, $ */</span>
+
+<span class="hljs-comment">/**
+*
+*
+* @module RAMP
+* @submodule Map
+*/</span>
+
+<span class="hljs-comment">/**
+* Layer Loader class.
+*
+* Handles the asynchronous loading of map layers (excluding basemaps)
+* This includes dealing with errors, and raising appropriate events when the layer loads
+*
+* @class LayerLoader
+* @static
+* @uses dojo/topic
+* @uses dojo/_base/array
+* @uses esri/geometry/Extent
+* @uses esri/layers/GraphicsLayer
+* @uses esri/tasks/GeometryService
+* @uses esri/tasks/ProjectParameters
+* @uses EventManager
+* @uses FeatureClickHandler
+* @uses FilterManager
+* @uses GlobalStorage
+* @uses LayerItem
+* @uses Map
+* @uses MapClickHandler
+* @uses Ramp
+* @uses Util
+*/</span>
+
+define([
+<span class="hljs-comment">/* Dojo */</span>
+<span class="hljs-string">"dojo/topic"</span>, <span class="hljs-string">"dojo/_base/array"</span>,
+
+<span class="hljs-comment">/* ESRI */</span>
+<span class="hljs-string">"esri/layers/GraphicsLayer"</span>, <span class="hljs-string">"esri/tasks/GeometryService"</span>, <span class="hljs-string">"esri/tasks/ProjectParameters"</span>, <span class="hljs-string">"esri/geometry/Extent"</span>,
+
+<span class="hljs-comment">/* RAMP */</span>
+<span class="hljs-string">"ramp/eventManager"</span>, <span class="hljs-string">"ramp/map"</span>, <span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"ramp/featureClickHandler"</span>, <span class="hljs-string">"ramp/mapClickHandler"</span>, <span class="hljs-string">"ramp/ramp"</span>,
+<span class="hljs-string">"ramp/filterManager"</span>, <span class="hljs-string">"ramp/layerItem"</span>,
+
+<span class="hljs-comment">/* Util */</span>
+<span class="hljs-string">"utils/util"</span>],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* Dojo */</span>
+    topic, dojoArray,
+
+    <span class="hljs-comment">/* ESRI */</span>
+    GraphicsLayer, GeometryService, ProjectParameters, EsriExtent,
+
+    <span class="hljs-comment">/* RAMP */</span>
+    EventManager, RampMap, GlobalStorage, FeatureClickHandler, MapClickHandler, Ramp,
+    FilterManager, LayerItem,
+
+     <span class="hljs-comment">/* Util */</span>
+    UtilMisc)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">var</span> idCounter = <span class="hljs-number">0</span>;
+
+        <span class="hljs-comment">/**
+        * Get an auto-generated layer id.  This works because javascript is single threaded: if this gets called
+        * from a web-worker at some point it will need to be synchronized.
+        *
+        * @returns {String} an auto-generated layer id
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextId</span><span class="hljs-params">()</span> </span>{
+            idCounter += <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'rampAutoId_'</span> + idCounter;
+        }
+
+        <span class="hljs-comment">/**
+        * Will set a layerId's layer selector state to a new state.
+        *
+        * @method onLayerError
+        * @private
+        * @param  {String} layerId config id of the layer
+        * @param  {String} newState the state to set the layer to in the layer selector
+        * @param  {Boolean} abortIfError if true, don't update state if current state is an error state
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateLayerSelectorState</span><span class="hljs-params">(layerId, newState, abortIfError)</span> </span>{
+            <span class="hljs-keyword">if</span> (abortIfError) {
+                <span class="hljs-keyword">var</span> layerState;
+                layerState = FilterManager.getLayerState(layerId);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>check if this layer is in an error state.  if so, exit the function</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (layerState === LayerItem.state.ERROR) {
+                    <span class="hljs-keyword">return</span>;
+                }
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>set layer selector to new state</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            FilterManager.setLayerState(layerId, newState);
+        }
+
+        <span class="hljs-comment">/**
+        * Will remove a layer from the map, and adjust counts.
+        *
+        * @method onLayerError
+        * @private
+        * @param {String} layerId config id of the layer
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeFromMap</span><span class="hljs-params">(layerId)</span> </span>{
+            <span class="hljs-keyword">var</span> map = RampMap.getMap(),
+                bbLayer = RampMap.getBoundingBoxMapping()[layerId],
+                layer = map._layers[layerId];
+
+            <span class="hljs-keyword">if</span> (layer) {
+                map.removeLayer(layer);
+            } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>layer was kicked out of the map.  grab it from the registry</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                layer = RAMP.layerRegistry[layerId];
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>if bounding box exists, and is in the map, remove it too</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (bbLayer) {
+                <span class="hljs-keyword">if</span> (map._layers[bbLayer.id]) {
+                    map.removeLayer(bbLayer);
+                    RAMP.layerCounts.bb -= <span class="hljs-number">1</span>;
+                }
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>just incase its really weird and layer is not in the registry</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (layer) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>adjust layer counts</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">switch</span> (layer.ramp.type) {
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.wms:
+                        <span class="hljs-keyword">if</span> (layer.ramp.load.inCount) {
+                            RAMP.layerCounts.wms -= <span class="hljs-number">1</span>;
+                            layer.ramp.load.inCount = <span class="hljs-literal">false</span>;
+                        }
+                        <span class="hljs-keyword">break</span>;
+
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.feature:
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.Static:
+
+                        <span class="hljs-keyword">if</span> (layer.ramp.load.inCount) {
+                            RAMP.layerCounts.feature -= <span class="hljs-number">1</span>;
+                            layer.ramp.load.inCount = <span class="hljs-literal">false</span>;
+                        }
+                        <span class="hljs-keyword">break</span>;
+                }
+            }
+        }
+
+        <span class="hljs-comment">/**
+        * This function initiates the loading of an ESRI layer object to the map.
+        * Will add it to the map in the appropriate spot, wire up event handlers, and generate any bounding box layers
+        * Note: a point of confusion.  The layer objects "load" event may have already finished by the time this function is called.
+        *       This means the object's constructor has initialized itself with the layers data source.
+        * This functions is not event triggered to guarantee the order in which things are added.
+        *
+        * @method _loadLayer
+        * @private
+        * @param  {Object} layer an instantiated, unloaded ESRI layer object
+        * @param  {Integer} reloadIndex Optional.  If reloading a layer, supply the index it should reside at.  Do not set for new layers
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_loadLayer</span><span class="hljs-params">(layer, reloadIndex)</span> </span>{
+            <span class="hljs-keyword">var</span> insertIdx,
+                   layerSection,
+                   map = RampMap.getMap(),
+                   layerConfig = layer.ramp.config,
+                   lsState;
+
+            <span class="hljs-keyword">if</span> (!layer.ramp) {
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'you failed to supply a ramp.type to the layer!'</span>);
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>derive section</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">switch</span> (layer.ramp.type) {
+                <span class="hljs-keyword">case</span> GlobalStorage.layerType.wms:
+                    layerSection = GlobalStorage.layerType.wms;
+                    <span class="hljs-keyword">if</span> (UtilMisc.isUndefined(reloadIndex)) {
+                        insertIdx = RAMP.layerCounts.base + RAMP.layerCounts.wms;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>generate wms legend image url and store in the layer config</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">if</span> (layerConfig.legendMimeType) {
+                            layer.ramp.config.legend = {
+                                type: <span class="hljs-string">"wms"</span>,
+                                imageUrl: <span class="hljs-built_in">String</span>.format(<span class="hljs-string">"{0}?SERVICE=WMS&amp;REQUEST=GetLegendGraphic&amp;TRANSPARENT=true&amp;VERSION=1.1.1&amp;FORMAT={2}&amp;LAYER={3}"</span>,
+                                    layerConfig.url,
+                                    layer.version,
+                                    layerConfig.legendMimeType,
+                                    layerConfig.layerName
+                                )
+                            };
+                        }
+                    } <span class="hljs-keyword">else</span> {
+                        insertIdx = reloadIndex;
+                    }
+
+                    RAMP.layerCounts.wms += <span class="hljs-number">1</span>;
+                    layer.ramp.load.inCount = <span class="hljs-literal">true</span>;
+
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">case</span> GlobalStorage.layerType.feature:
+                <span class="hljs-keyword">case</span> GlobalStorage.layerType.Static:
+                    layerSection = GlobalStorage.layerType.feature;
+                    <span class="hljs-keyword">if</span> (UtilMisc.isUndefined(reloadIndex)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>NOTE: these static layers behave like features, in that they can be in any position and be re-ordered.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        insertIdx = RAMP.layerCounts.feature;
+                    } <span class="hljs-keyword">else</span> {
+                        insertIdx = reloadIndex;
+                    }
+                    RAMP.layerCounts.feature += <span class="hljs-number">1</span>;
+                    layer.ramp.load.inCount = <span class="hljs-literal">true</span>;
+
+                    <span class="hljs-keyword">break</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>derive initial state</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">switch</span> (layer.ramp.load.state) {
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"loaded"</span>:
+                    lsState = LayerItem.state.LOADED;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"loading"</span>:
+                    lsState = LayerItem.state.LOADING;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"error"</span>:
+                    lsState = LayerItem.state.ERROR;
+                    <span class="hljs-keyword">break</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>add entry to layer selector</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (UtilMisc.isUndefined(reloadIndex)) {
+                FilterManager.addLayer(layerSection, layer.ramp.config, lsState);
+            } <span class="hljs-keyword">else</span> {
+                updateLayerSelectorState(layerConfig.id, lsState);
+            }
+            layer.ramp.load.inLS = <span class="hljs-literal">true</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>sometimes the ESRI api will kick a layer out of the map if it errors after the add process.
+store a pointer here so we can find it (and it’s information)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            RAMP.layerRegistry[layer.id] = layer;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>add layer to map, triggering the loading process.  should add at correct position</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            map.addLayer(layer, insertIdx);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>this will force a recreation of the highlighting graphic group.
+if not done, can cause mouse interactions to get messy if adding more than
+one layer at one time</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            topic.publish(EventManager.Map.REORDER_END);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>wire up event handlers to the layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">switch</span> (layer.ramp.type) {
+                <span class="hljs-keyword">case</span> GlobalStorage.layerType.wms:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>WMS binding for getFeatureInfo calls</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> (!UtilMisc.isUndefined(layerConfig.featureInfo)) {
+                        MapClickHandler.registerWMSClick({ wmsLayer: layer, layerConfig: layerConfig });
+                    }
+
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">case</span> GlobalStorage.layerType.feature:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>TODO consider the case where a layer was loaded by the user, and we want to disable things like maptips?</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>wire up click handler</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    layer.on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        evt.stopImmediatePropagation();
+                        FeatureClickHandler.onFeatureSelect(evt);
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>wire up mouse over / mouse out handler</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    layer.on(<span class="hljs-string">"mouse-over"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        FeatureClickHandler.onFeatureMouseOver(evt);
+                    });
+
+                    layer.on(<span class="hljs-string">"mouse-out"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                        FeatureClickHandler.onFeatureMouseOut(evt);
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>generate bounding box
+if a reload, the bounding box still exists from the first load</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> (UtilMisc.isUndefined(reloadIndex)) {
+                        <span class="hljs-keyword">var</span> boundingBoxExtent,
+                            boundingBox = <span class="hljs-keyword">new</span> GraphicsLayer({
+                                id: <span class="hljs-built_in">String</span>.format(<span class="hljs-string">"boundingBoxLayer_{0}"</span>, layer.id),
+                                visible: layerConfig.settings.boundingBoxVisible
+                            });
+
+                        boundingBox.ramp = { type: GlobalStorage.layerType.BoundingBox };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>TODO test putting this IF before the layer creation, see what breaks.  ideally if there is no box, we should not make a layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">if</span> (!UtilMisc.isUndefined(layerConfig.layerExtent)) {
+                            boundingBoxExtent = <span class="hljs-keyword">new</span> EsriExtent(layerConfig.layerExtent);
+
+                            <span class="hljs-keyword">if</span> (UtilMisc.isSpatialRefEqual(boundingBoxExtent.spatialReference, map.spatialReference)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>layer is in same projection as basemap.  can directly use the extent</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                boundingBox.add(UtilMisc.createGraphic(boundingBoxExtent));
+                            } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>layer is in different projection.  reproject to basemap</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                <span class="hljs-keyword">var</span> box = RampMap.localProjectExtent(boundingBoxExtent, map.spatialReference);
+                                boundingBox.add(UtilMisc.createGraphic(box));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Geometry Service Version.  Makes a more accurate bounding box, but requires an arcserver</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                <span class="hljs-comment">/*
+                                var params = new ProjectParameters(),
+                                    gsvc = new GeometryService(RAMP.config.geometryServiceUrl);
+                                params.geometries = [boundingBoxExtent];
+                                params.outSR = map.spatialReference;
+
+                                gsvc.project(params, function (projectedExtents) {
+                                    console.log('esri says: ' + JSON.stringify(projectedExtents[0]));
+                                    console.log('proj4 says: ' + JSON.stringify(box));
+                                });
+                                */</span>
+                            }
+                        }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>add mapping to bounding box</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        RampMap.getBoundingBoxMapping()[layer.id] = boundingBox;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>bounding boxes are on top of feature layers</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        insertIdx = RAMP.layerCounts.feature + RAMP.layerCounts.bb;
+                        RAMP.layerCounts.bb += <span class="hljs-number">1</span>;
+
+                        map.addLayer(boundingBox, insertIdx);
+                    }
+                    <span class="hljs-keyword">break</span>;
+            }
+        }
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * Initializes properties.  Set up event listeners
+            *
+            * @method init
+            */</span>
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>counters for layers loaded, so we know where to insert things
+default basemap count to 1, as we always load 1 to begin with</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                RAMP.layerCounts = {
+                    feature: <span class="hljs-number">0</span>,
+                    bb: <span class="hljs-number">0</span>,
+                    wms: <span class="hljs-number">0</span>,
+                    base: <span class="hljs-number">1</span>
+                };
+
+                RAMP.layerRegistry = {};
+
+                topic.subscribe(EventManager.LayerLoader.LAYER_LOADED, <span class="hljs-keyword">this</span>.onLayerLoaded);
+                topic.subscribe(EventManager.LayerLoader.LAYER_UPDATED, <span class="hljs-keyword">this</span>.onLayerUpdateEnd);
+                topic.subscribe(EventManager.LayerLoader.LAYER_UPDATING, <span class="hljs-keyword">this</span>.onLayerUpdateStart);
+                topic.subscribe(EventManager.LayerLoader.LAYER_ERROR, <span class="hljs-keyword">this</span>.onLayerError);
+                topic.subscribe(EventManager.LayerLoader.REMOVE_LAYER, <span class="hljs-keyword">this</span>.onLayerRemove);
+                topic.subscribe(EventManager.LayerLoader.RELOAD_LAYER, <span class="hljs-keyword">this</span>.onLayerReload);
+            },
+
+            <span class="hljs-comment">/**
+            * Deals with a layer that had an error when it tried to load.
+            *
+            * @method onLayerError
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that failed
+            * @param  {Object} evt.error the error object
+            */</span>
+            onLayerError: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"failed to load layer "</span> + evt.layer.url);
+                <span class="hljs-built_in">console</span>.log(evt.error.message);
+
+                evt.layer.ramp.load.state = <span class="hljs-string">"error"</span>;
+
+                <span class="hljs-keyword">var</span> layerId = evt.layer.id;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>get that failed layer outta here</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                removeFromMap(layerId);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>if layer is in layer selector, update the status</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (evt.layer.ramp.load.inLS) {
+                    updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.ERROR, <span class="hljs-literal">false</span>);
+                }
+            },
+
+            <span class="hljs-comment">/**
+            * Reacts when a layer begins to update.  This happens when a feature layer starts to download its data.
+            * Data download doesn't start until points are made visible.  It also happens when a WMS requests a new picture.
+            *
+            * @method onLayerUpdateStart
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that loaded
+            */</span>
+            onLayerUpdateStart: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>console.log(“LAYER UPDATE START: “ + evt.layer.url);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.UPDATING, <span class="hljs-literal">true</span>);
+            },
+
+            <span class="hljs-comment">/**
+            * Reacts when a layer has updated successfully.  This means the layer has pulled its data and displayed it.
+            *
+            * @method onLayerUpdateEnd
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that loaded
+            */</span>
+            onLayerUpdateEnd: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.LOADED, <span class="hljs-literal">true</span>);
+            },
+
+            <span class="hljs-comment">/**
+            * Reacts when a layer has loaded successfully.  This means the site has shaken hands with the layer and it seems ok.
+            * This does not mean data has been downloaded
+            *
+            * @method onLayerLoaded
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that loaded
+            */</span>
+            onLayerLoaded: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>set state to loaded
+if we have a row in layer selector, update it to loaded (unless already in error)</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>set flags that we have loaded ok</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                evt.layer.ramp.load.state = <span class="hljs-string">"loaded"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>if a row already exists in selector, set it to LOADED state. (unless already in error state)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (evt.layer.ramp.load.inLS) {
+                    updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.LOADED, <span class="hljs-literal">true</span>);
+                }
+
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"layer loaded: "</span> + evt.layer.url);
+            },
+
+            <span class="hljs-comment">/**
+            * Reacts to a request for a layer to be removed.  Usually the case when a layer errors and the user clicks remove.
+            *
+            * @method onLayerRemove
+            * @param  {Object} evt
+            * @param  {Object} evt.layerId the layer id to be removed
+            */</span>
+            onLayerRemove: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                <span class="hljs-keyword">var</span> map = RampMap.getMap(),
+                    layer,
+                    configIdx,
+                    layerSection,
+                    configCollection;
+
+                layer = map._layers[evt.layerId];  <span class="hljs-comment">//map.getLayer is not reliable, so we use this</span>
+
+                <span class="hljs-keyword">if</span> (UtilMisc.isUndefined(layer)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>layer was kicked out of the map.  grab it from the registry</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    layer = RAMP.layerRegistry[evt.layerId];
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>derive section layer is in and the config collection it is in</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">switch</span> (layer.ramp.type) {
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.wms:
+                        layerSection = GlobalStorage.layerType.wms;
+                        configCollection = RAMP.config.layers.wms;
+                        <span class="hljs-keyword">break</span>;
+
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.feature:
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.Static:
+                        layerSection = GlobalStorage.layerType.feature;
+                        configCollection = RAMP.config.layers.feature;
+                        <span class="hljs-keyword">break</span>;
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>remove item from layer selector</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                FilterManager.removeLayer(layerSection, evt.layerId);
+
+                removeFromMap(evt.layerId);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>remove node from config</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                configIdx = configCollection.indexOf(layer.ramp.config);
+                configCollection.splice(configIdx, <span class="hljs-number">1</span>);
+
+                RAMP.layerRegistry[evt.layerId] = <span class="hljs-literal">undefined</span>;
+            },
+
+            <span class="hljs-comment">/**
+            * Reacts to a request for a layer to be reloaded.  Usually the case when a layer errors and user wants to try again
+            *
+            * @method onLayerRemove
+            * @param  {Object} evt
+            * @param  {Object} evt.layerId the layer id to be reloaded
+            */</span>
+            onLayerReload: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                <span class="hljs-keyword">var</span> map = RampMap.getMap(),
+                    layer,
+                    layerConfig,
+                    user,
+                    newLayer,
+                    layerIndex,
+                    inMap,
+                    layerList,
+                    idArray,
+                    cleanIdArray;
+
+                layer = map._layers[evt.layerId];  <span class="hljs-comment">//map.getLayer is not reliable, so we use this</span>
+
+                <span class="hljs-keyword">if</span> (layer) {
+                    inMap = <span class="hljs-literal">true</span>;
+                } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>layer was kicked out of the map.  grab it from the registry</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    inMap = <span class="hljs-literal">false</span>;
+                    layer = RAMP.layerRegistry[evt.layerId];
+                }
+
+                layerConfig = layer.ramp.config;
+                user = layer.ramp.user;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>figure out index of layer
+since the layer may not be in the map, we have to use some trickery to derive where it is sitting</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>get our list of layers</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                layerList = $(<span class="hljs-string">"#"</span> + RAMP.config.divNames.filter).find(<span class="hljs-string">"#layerList"</span>).find(<span class="hljs-string">"&gt; li &gt; ul"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>make an array of the ids in order of the list on the page</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                idArray = layerList
+                            .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, elm)</span> </span>{ <span class="hljs-keyword">return</span> $(elm).find(<span class="hljs-string">"&gt; li"</span>).toArray().reverse(); }) <span class="hljs-comment">// for each layer list, find its items and reverse their order</span>
+                            .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, elm)</span> </span>{ <span class="hljs-keyword">return</span> elm.id; });
+
+                cleanIdArray = idArray.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, elm)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>check if layer is in error state.  error layers should not be part of the count.  exception being the layer we are reloading</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">return</span> ((FilterManager.getLayerState(elm) !== LayerItem.state.ERROR) || (elm === evt.layerId));
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-44">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-44">&#182;</a>
+              </div>
+              <p>find where our index is</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                layerIndex = dojoArray.indexOf(cleanIdArray, evt.layerId);
+
+                <span class="hljs-keyword">if</span> (layer.ramp.type === GlobalStorage.layerType.wms) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-45">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-45">&#182;</a>
+              </div>
+              <p>adjust for wms, as it’s in a different layer list on the map</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    layerIndex = layerIndex + RAMP.layerCounts.base - RAMP.layerCounts.feature;
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-46">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-46">&#182;</a>
+              </div>
+              <p>remove layer from map</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (inMap) {
+                    map.removeLayer(layer);
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-47">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-47">&#182;</a>
+              </div>
+              <p>generate new layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">switch</span> (layer.ramp.type) {
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.wms:
+                        newLayer = RampMap.makeWmsLayer(layerConfig, user);
+                        <span class="hljs-keyword">break</span>;
+
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.feature:
+                        newLayer = RampMap.makeFeatureLayer(layerConfig, user);
+                        <span class="hljs-keyword">break</span>;
+
+                    <span class="hljs-keyword">case</span> GlobalStorage.layerType.Static:
+                        newLayer = RampMap.makeStaticLayer(layerConfig, user);
+                        <span class="hljs-keyword">break</span>;
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-48">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-48">&#182;</a>
+              </div>
+              <p>load the layer at the previous index</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Reloading Layer at index "</span> + layerIndex.toString());
+                _loadLayer(newLayer, layerIndex);
+            },
+
+            <span class="hljs-comment">/**
+            * Public endpoint to initiate the loading of an ESRI layer object to the map.
+            *
+            * @method loadLayer
+            * @param  {Object} layer an instantiated, unloaded ESRI layer object
+            * @param  {Integer} reloadIndex Optional.  If reloading a layer, supply the index it should reside at.  Do not set for new layers
+            */</span>
+            loadLayer: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer, reloadIndex)</span> </span>{
+                _loadLayer(layer, reloadIndex);
+            },
+
+            nextId: nextId
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>graphicExtension.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>graphicExtension.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, tmpl */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>the “use strict” forces the ECMA Script 5 interpretation of the code</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-comment">/**
+*
+*
+* @module RAMP
+* @submodule Map
+*/</span>
+
+<span class="hljs-comment">/**
+* GraphicExtension class containing helper functions for graphic objects.
+* Note this class requires the config object.
+*
+* @class GraphicExtension
+* @static
+* @uses RAMP
+* @uses Array
+* @uses Dictionary
+* @uses Util
+* @uses templates/point_details_list_Template.html
+* @uses templates/point_details_list_item_Template.html
+*/</span>
+
+define([</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>RAMP</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"ramp/ramp"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Utils</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"utils/array"</span>, <span class="hljs-string">"utils/dictionary"</span>, <span class="hljs-string">"utils/util"</span>, <span class="hljs-string">"utils/tmplHelper"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>details template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"dojo/text!./templates/feature_details_template.json"</span>],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>RAMP</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    Ramp,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Utils</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    UtilArray, UtilDict, UtilMisc, TmplHelper,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>json details template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    feature_details_template) {
+        <span class="hljs-string">"use strict"</span>;
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * Returns the oid of the given graphic object
+            *
+            * @param {esri/Graphic} graphic
+            * @method getOid
+            */</span>
+            getOid: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(graphic)</span> </span>{
+                <span class="hljs-keyword">var</span> objectIdField = graphic.getLayer().objectIdField;
+                <span class="hljs-keyword">return</span> graphic.attributes[objectIdField];
+            },
+
+            <span class="hljs-comment">/**
+            * Get popup content for a graphic (i.e. a point)
+            * This logic is customized per project
+            *
+            *
+            * @method getTextContent
+            * @private
+            * @param {Object} graphic
+            * @return {Object} found graphic object
+            */</span>
+            getTextContent: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(graphic)</span> </span>{
+                <span class="hljs-keyword">var</span> templateName = graphic.getLayer().ramp.config.templates.detail;
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fillTemplate</span><span class="hljs-params">(graphic)</span> </span>{
+                    tmpl.cache = {};
+                    tmpl.templates = <span class="hljs-built_in">JSON</span>.parse(
+                        TmplHelper.stringifyTemplate(feature_details_template));
+
+                    <span class="hljs-keyword">var</span> datawrapper = TmplHelper.dataBuilder(graphic, graphic.getLayer().ramp.config),
+                        result = tmpl(templateName, datawrapper);
+
+                    <span class="hljs-keyword">return</span> result;
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>return generateHtml(graphic.attributes);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">return</span> fillTemplate(graphic);
+            },
+
+            <span class="hljs-comment">/**
+            * Returns the content of the name field of the provided graphic object
+            *
+            * @method getGraphicTitle
+            * @param {esri/Graphic} graphic a graphic object or a feature object
+            * @return {}
+            */</span>
+            getGraphicTitle: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(graphic)</span> </span>{
+                <span class="hljs-keyword">return</span> graphic.attributes[graphic.getLayer().ramp.config.nameField];
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

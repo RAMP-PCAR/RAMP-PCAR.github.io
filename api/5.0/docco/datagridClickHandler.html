@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>datagridClickHandler.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>datagridClickHandler.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define, i18n */</span>
+
+<span class="hljs-comment">/**
+*
+*
+* @module RAMP
+* @submodule Datagrid
+*/</span>
+
+<span class="hljs-comment">/**
+* Datagridclick handler class.
+*
+* @class DatagridClickHandler
+* @static
+* @uses RAMP
+* @uses GraphicExtension
+* @uses EventManager
+* @uses dojo/topic
+* @uses dojo/dom-construct
+* @uses Util
+*/</span>
+
+define([
+<span class="hljs-comment">/* RAMP */</span>
+    <span class="hljs-string">"ramp/graphicExtension"</span>, <span class="hljs-string">"ramp/eventManager"</span>,
+
+<span class="hljs-comment">/* Dojo */</span>
+    <span class="hljs-string">"dojo/topic"</span>, <span class="hljs-string">"dojo/dom-construct"</span>,
+
+<span class="hljs-comment">/* Utils */</span>
+    <span class="hljs-string">"utils/util"</span>],
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-comment">/* RAMP */</span>
+    GraphicExtension, EventManager,
+
+    <span class="hljs-comment">/* Dojo */</span>
+    topic, domConstruct,
+
+    <span class="hljs-comment">/* Utils */</span>
+    UtilMisc)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+        <span class="hljs-keyword">var</span> zoomBackExtent;
+
+        <span class="hljs-comment">/**
+        * Publishes new events when zoomCancel event happens.  Following events are published:
+        * highlighter/zoomlight-hide
+        * datagrid/zoomlightrow-hide
+        *
+        * @method onZoomCancel
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onZoomCancel</span><span class="hljs-params">()</span> </span>{
+            topic.publish(EventManager.FeatureHighlighter.ZOOMLIGHT_HIDE);
+
+            topic.publish(<span class="hljs-string">"datagrid/zoomlightrow-hide"</span>);
+        }
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * This function is called whenever the "Details" button is clicked in the datagrid.
+            *
+            * @method onDetailSelect
+            * @param {JObject} buttonNode the "Details" button node
+            * @param {Object} selectedGraphic {esri/Graphic} the graphic object associated with the entry in the datagrid
+            */</span>
+            onDetailSelect: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(buttonNode, selectedGraphic, mode)</span> </span>{
+                <span class="hljs-keyword">var</span> guid = buttonNode.data(<span class="hljs-string">"guid"</span>) || buttonNode.data(<span class="hljs-string">"guid"</span>, UtilMisc.guid()).data(<span class="hljs-string">"guid"</span>),
+                    content = GraphicExtension.getTextContent(selectedGraphic),
+                    title = GraphicExtension.getGraphicTitle(selectedGraphic),
+                    node = buttonNode.parents(<span class="hljs-string">".record-row"</span>).parent();
+
+                <span class="hljs-keyword">if</span> (mode === <span class="hljs-string">"summary"</span>) {
+                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                        panelName: i18n.t(<span class="hljs-string">'datagrid.details'</span>),
+                        title: title,
+                        content: content,
+                        target: node.find(<span class="hljs-string">".record-controls"</span>),
+                        origin: <span class="hljs-string">"datagrid"</span>,
+                        consumeOrigin: <span class="hljs-string">"rampPopup"</span>,
+                        guid: guid,
+                        doOnOpen: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            UtilMisc.subscribeOnce(EventManager.Maptips.EXTENT_CHANGE, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+                                <span class="hljs-keyword">var</span> scroll = evt.scroll;
+                                topic.publish(EventManager.Datagrid.HIGHLIGHTROW_SHOW, {
+                                    graphic: selectedGraphic,
+                                    scroll: scroll
+                                });
+                            });
+
+                            topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_SHOW, {
+                                graphic: selectedGraphic
+                            });
+                        },
+                        doOnHide: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            topic.publish(EventManager.Datagrid.HIGHLIGHTROW_HIDE);
+                        },
+                        doOnDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            selectedGraphic = <span class="hljs-literal">null</span>;
+
+                            topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_HIDE);
+                        }
+                    });
+                } <span class="hljs-keyword">else</span> {
+                    node = buttonNode;
+
+                    topic.publish(EventManager.GUI.SUBPANEL_OPEN, {
+                        panelName: i18n.t(<span class="hljs-string">'datagrid.details'</span>),
+                        title: title,
+                        content: content,
+                        target: node,
+                        origin: <span class="hljs-string">"ex-datagrid"</span>,
+                        templateKey: <span class="hljs-string">"full_sub_panel_container"</span>,
+                        guid: guid,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>doOnOpen: function () {</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        doAfterUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            topic.publish(EventManager.Datagrid.HIGHLIGHTROW_SHOW, {
+                                graphic: selectedGraphic,
+                                scroll: <span class="hljs-literal">true</span>
+                            });
+                        },
+
+                        doOnHide: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            topic.publish(EventManager.Datagrid.HIGHLIGHTROW_HIDE);
+                        },
+
+                        doOnDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            selectedGraphic = <span class="hljs-literal">null</span>;
+
+                            topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_HIDE);
+                        }
+                    });
+                }
+            },
+
+            <span class="hljs-comment">/**
+            * This function is called whenever the "Details" button is deselected (either by the user click on
+            * another "Details" button, clicking on another point, or by clicking on an already highlighted
+            * "Details" button).
+            *
+            * @method onDetailDeselect
+            */</span>
+            onDetailDeselect: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(mode)</span> </span>{
+                <span class="hljs-keyword">if</span> (mode === <span class="hljs-string">"summary"</span>) {
+                    topic.publish(EventManager.GUI.SUBPANEL_CLOSE, {
+                        origin: <span class="hljs-string">"rampPopup,datagrid"</span>
+                    });
+                } <span class="hljs-keyword">else</span> {
+                    topic.publish(EventManager.GUI.SUBPANEL_CLOSE, {
+                        origin: <span class="hljs-string">"ex-datagrid"</span>
+                    });
+                }
+            },
+
+            <span class="hljs-comment">/**
+            * This function is called whenever the user clicks on the "Zoom To" button.
+            *
+            * @method onZoomTo
+            * @param {esri/geometry/Extent} currentExtent the current extent of the map
+            * @param {Object} zoomToGraphic graphic object of the feature to zoom to
+            */</span>
+            onZoomTo: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(currentExtent, zoomToGraphic)</span> </span>{
+                zoomBackExtent = currentExtent;
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callback</span><span class="hljs-params">()</span> </span>{
+                    topic.publish(EventManager.FeatureHighlighter.ZOOMLIGHT_SHOW, {
+                        graphic: zoomToGraphic
+                    });
+
+                    UtilMisc.subscribeOnceAny([<span class="hljs-string">"map/pan-start"</span>, <span class="hljs-string">"map/zoom-start"</span>], onZoomCancel);
+                }
+
+                <span class="hljs-keyword">switch</span> (zoomToGraphic.geometry.type) {
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">"point"</span>:
+                        topic.publish(EventManager.Map.CENTER_AND_ZOOM, {
+                            graphic: zoomToGraphic,
+                            level: <span class="hljs-number">9</span>,
+                            callback: callback
+                        });
+                        <span class="hljs-keyword">break</span>;
+
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">"polygon"</span>:
+
+                        topic.publish(EventManager.Map.SET_EXTENT, {
+                            extent: zoomToGraphic._extent.expand(<span class="hljs-number">1.5</span>),
+                            callback: callback
+                        });
+                        <span class="hljs-keyword">break</span>;
+
+                    <span class="hljs-keyword">default</span>:
+                        topic.publish(EventManager.Map.SET_EXTENT, {
+                            extent: zoomToGraphic._extent.expand(<span class="hljs-number">1.5</span>),
+                            callback: callback
+                        });
+                        <span class="hljs-keyword">break</span>;
+                }
+
+                topic.publish(EventManager.Datagrid.ZOOMLIGHTROW_SHOW, {
+                    graphic: zoomToGraphic
+                });
+            },
+
+            <span class="hljs-comment">/**
+            * This function is called whenever the user clicks on the "Zoom Back" button.
+            *
+            * @method onZoomBack
+            */</span>
+            onZoomBack: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                topic.publish(EventManager.Map.SET_EXTENT, {
+                    extent: zoomBackExtent
+                });
+
+                topic.publish(EventManager.FeatureHighlighter.ZOOMLIGHT_HIDE);
+
+                topic.publish(EventManager.Datagrid.ZOOMLIGHTROW_HIDE);
+            },
+
+            <span class="hljs-comment">/**
+            * This function is called whenever the user deselects the "Zoom To" button (either by the
+            * user clicking on another point on the map, or by clicking on another "Zoom To" button)
+            *
+            * @method onZoomCancel
+            */</span>
+            onZoomCancel: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                onZoomCancel();
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

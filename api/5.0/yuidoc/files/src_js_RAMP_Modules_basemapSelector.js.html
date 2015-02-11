@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Modules\basemapSelector.js - ramp-pcar</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-pcar">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 5.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/LayerGroup.html">LayerGroup</a></li>
+            
+                <li><a href="../classes/LayerItem.html">LayerItem</a></li>
+            
+                <li><a href="../classes/LayerLoader.html">LayerLoader</a></li>
+            
+                <li><a href="../classes/LayoutController.html">LayoutController</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Modules\basemapSelector.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*global define, $, esri, tmpl, RAMP, i18n, TimelineLite, window, console */
+/*jslint white: true */
+
+/**
+*
+* @module RAMP
+*/
+
+/**
+* Populates the BasemapGallery widget located in the maps toolbar with items found in the application configuration.
+* This module also handles all the event  needed to change the map basemap and update the UI
+*
+*
+* @class BaseMapSelector
+* @static
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+* @uses dojo/dom-attr
+* @uses dojo/query
+* @uses dojo/topic
+* @uses templates/basemap_selector_template.json
+* @uses GlobalStorage
+* @uses Map
+* @uses EventManager
+* @uses esri/dijit/BasemapGallery
+* @uses utils/popupManager
+* @uses utils/thmplHelper
+*/
+
+define([
+// Dojo
+    &quot;dojo/_base/array&quot;, &quot;dojo/_base/lang&quot;, &quot;dojo/dom-attr&quot;, &quot;dojo/query&quot;, &quot;dojo/topic&quot;,
+// Templates
+    &quot;dojo/text!./templates/basemap_selector_template.json&quot;,
+// Ramp
+    &quot;ramp/globalStorage&quot;, &quot;ramp/map&quot;, &quot;ramp/eventManager&quot;,
+// Esri
+    &quot;esri/dijit/BasemapGallery&quot;,
+// Util
+    &quot;utils/dictionary&quot;, &quot;utils/popupManager&quot;, &quot;utils/util&quot;, &quot;utils/tmplHelper&quot;],
+
+function (
+        // Dojo
+        dojoArray, dojoLang, domAttr, query, topic,
+        // Templates
+        basemapselectorTemplate,
+        // Ramp
+        GlobalStorage, RampMap, EventManager,
+        // Esri
+        BasemapGallery,
+        // Util
+        Dictionary, PopupManager, UtilMisc, TmplHelper) {
+    &quot;use strict&quot;;
+
+    var basemapGallery,
+
+        currentBasemapId,
+        currentTileSchema,
+        basemaps,
+
+        placementAnchorId = &quot;basemapGallery&quot;,
+
+        ui = (function () {
+            var baseMapControls,
+                baseMapToggle,
+
+                selectorSectionContainer,
+                selectorSection,
+
+                selectorPopup,
+                projectionPopup,
+                basemapPopup,
+
+                selectorOpenTimeline = new TimelineLite({ paused: true }),
+
+                transitionDuration = 0.4,
+
+                cssButtonPressedClass = &quot;button-pressed&quot;;
+
+            function createSelectorOpenTL() {
+                var time = selectorOpenTimeline.time();
+
+                selectorOpenTimeline
+                    .clear()
+                    //.set(selectorSectionContainer, { display: &quot;block&quot; }, 0)
+                    .fromTo(selectorSection, transitionDuration,
+                        { top: -selectorSectionContainer.find(&quot;.basemapselector-section&quot;).outerHeight() - 20 },
+                        { top: 0, ease: &quot;easeOutCirc&quot; }, 0)
+                    .seek(time);
+            }
+
+            function setTooltips() {
+                // set tooltips on the overflowing spans with basemap/projection names
+
+                if (selectorPopup.isOpen()) {
+                    selectorSection
+                        .find(&quot;span[title]:visible&quot;)
+                        .each(function () {
+                            var node = $(this);
+                            if (node.attr(&quot;title&quot;)) {
+                                if (node.isOverflowed()) {
+                                    node.tooltipster({ theme: &#x27;.tooltipster-shadow&#x27; });
+                                } else {
+                                    node.removeAttr(&quot;title&quot;);
+                                }
+                            }
+                        });
+                }
+            }
+
+            return {
+                /**
+                * Initiates additional UI components of the widget, setting listeners and registering the popup functionality
+                *
+                * @method init
+                * @private
+                * @return {object} itself
+                *
+                */
+                init: function (basemapId, tileSchema) {
+                    var data = [],
+                        pj = {},
+                        basemapControl,
+                        projectionControl;
+
+                    baseMapControls = $(&quot;#basemapControls&quot;);
+                    baseMapToggle = $(&quot;#baseMapToggle&quot;);
+
+                    // group basemaps by projection
+                    basemaps.forEach(function (m) {
+                        if (!pj[m.tileSchema]) {
+                            pj[m.tileSchema] = [];
+                        }
+                        pj[m.tileSchema].push(m);
+                    });
+                    Dictionary.forEachEntry(pj, function (k, p) {
+                        data.push(
+                            {
+                                isActive: k === tileSchema,
+                                id: k,
+                                tileShema: tileSchema,
+                                name: k,
+                                maps: p
+                            }
+                        );
+                    });
+
+                    // load JSON templates for basemap and skin every node under the basemap selector
+                    tmpl.templates = JSON.parse(TmplHelper.stringifyTemplate(basemapselectorTemplate));
+
+                    baseMapControls.append(tmpl(&quot;basemapselector&quot;, data));
+                    selectorSectionContainer = baseMapControls.find(&quot;#basemapselector-section-container&quot;);
+                    selectorSection = selectorSectionContainer.find(&quot;.basemapselector-section&quot;);
+
+                    // turn on the opening and closing of the basemap selector section
+                    selectorPopup = PopupManager.registerPopup(baseMapControls, &quot;hoverIntent&quot;,
+                        function (d) {
+                            baseMapToggle.addClass(&quot;button-pressed&quot;);
+                            createSelectorOpenTL();
+
+                            selectorOpenTimeline.eventCallback(&quot;onComplete&quot;, function () {
+                                d.resolve();
+                                setTooltips();
+                            });
+
+                            selectorSectionContainer.show();
+                            selectorOpenTimeline.play();
+                        },
+                        {
+                            activeClass: cssButtonPressedClass,
+                            target: selectorSectionContainer,
+                            closeHandler: function (d) {
+                                createSelectorOpenTL();
+
+                                selectorOpenTimeline.eventCallback(&quot;onReverseComplete&quot;, function () {
+                                    baseMapToggle.removeClass(&quot;button-pressed&quot;);
+                                    selectorSectionContainer.hide();
+                                    d.resolve();
+                                });
+
+                                selectorOpenTimeline.reverse();
+                            },
+                            timeout: 500
+                        }
+                    );
+
+                    // show/hide basemap lists based on what projection group is active
+                    projectionPopup = PopupManager.registerPopup(selectorSectionContainer, &quot;click&quot;,
+                        function (d) {
+                            var fromHeight,
+                                toHeight,
+                                heightTimeline;
+
+                            if (!this.isOpen()) {
+                                fromHeight = selectorSection.height();
+                                toHeight = this.target.height();
+                                heightTimeline = new TimelineLite({
+                                    onComplete: setTooltips
+                                });
+
+                                projectionPopup.close();
+
+                                // animate resizing of the selector when switching between projection groups
+                                heightTimeline
+                                    .set(this.target, { display: &quot;block&quot; }, 0)
+                                    .fromTo(this.target, transitionDuration, { height: fromHeight }, { height: toHeight }, 0)
+                                    .to(selectorSection, transitionDuration, { height: toHeight, ease: &quot;easeOutCirc&quot; }, 0);
+                            }
+
+                            d.resolve();
+                        },
+                        {
+                            closeHandler: function (d) {
+                                this.target.hide();
+                                d.resolve();
+                            },
+                            openOnly: true,
+                            activeClass: cssButtonPressedClass,
+                            handleSelector: &quot;.projection-button&quot;,
+                            containerSelector: &quot;.projection-list-item&quot;,
+                            targetSelector: &quot;.basemap-list-pane&quot;
+                        }
+                    );
+
+                    // listen to clicks on basemap list and switch basemap accordingly
+                    basemapPopup = PopupManager.registerPopup(selectorSectionContainer, &quot;click&quot;,
+                        function (d) {
+                            if (!this.isOpen()) {
+                                basemapPopup.close();
+                                selectBasemap(this.target.data(&quot;basemap-id&quot;), this.target.data(&quot;tileshema&quot;));
+                            }
+
+                            d.resolve();
+                        },
+                        {
+                            closeHandler: function (d) {
+                                d.resolve();
+                            },
+                            openOnly: true,
+                            handleSelector: &quot;.basemap-button&quot;,
+                            activeClass: cssButtonPressedClass
+                        }
+                    );
+
+                    basemapControl = selectorSectionContainer.find(&quot;button[data-basemap-id=&#x27;&quot; + basemapId + &quot;&#x27;]&quot;);
+                    projectionControl = selectorSectionContainer.find(&quot;button[data-projection-id=&#x27;&quot; + tileSchema + &quot;&#x27;]&quot;);
+
+                    basemapPopup.open(basemapControl);
+                    projectionPopup.open(projectionControl);
+
+                    selectorSectionContainer.hide(); // hide baseselector after it&#x27;s initiated
+
+                    topic.publish(EventManager.BasemapSelector.UI_COMPLETE);
+
+                    return this;
+                },
+                /*
+                 * Changes the text shown on the toolbar to match the currently selected basemap&#x27;s title
+                 * @method updateToggleLabel
+                 * @private
+                 *
+                 */
+                updateToggleLabel: function () {
+                    baseMapToggle.find(&quot;span:first&quot;).text(basemapGallery.getSelected().title);
+                }
+            };
+        }());
+
+    /**
+    * Initializes functions that publish events.
+    *
+    * @method initTopics
+    * @private
+    */
+    function initTopics() {
+        /* PUBLISH */
+        basemapGallery.on(&quot;selection-change&quot;, function () {
+            var basemap = basemapGallery.getSelected();
+
+            ui.updateToggleLabel();
+            topic.publish(EventManager.BasemapSelector.BASEMAP_CHANGED, {
+                id: basemap.id,
+                cssStyle: basemap.scaleCssClass
+            });
+        });
+    }
+
+    /**
+    * Initializes class listeners.
+    *
+    * @method initListeners
+    * @private
+    */
+    function initListeners() {
+        /* SUBSCRIBE */
+        topic.subscribe(EventManager.BasemapSelector.TOGGLE, function (eventArg) {
+            selectBasemap(eventArg.id);
+        });
+    }
+
+    /**
+    * Selects a basemap in the basemapgallery based on the supplied basemap id. If the tileShema is different from the current one, reload the page.
+    *
+    * @method selectBasemap
+    * @param {String} basemapId a basemap id used to select a basemap in the basemapgallery
+    * @param {String} tileSchema a tileShema of the selected basemap
+    * @private
+    */
+    function selectBasemap(basemapId, tileSchema) {
+        if (currentBasemapId !== basemapId) {
+            if (currentTileSchema === tileSchema) {
+                currentBasemapId = basemapId;
+                basemapGallery.select(currentBasemapId);
+            } else {
+                //we need to generate a bookmark and reload the page
+
+                //set listner for bookmark complete
+                topic.subscribe(EventManager.BookmarkLink.BOOKMARK_GENERATED, function (eventArg) {
+                    //run away, load new page
+                    window.location.href = eventArg.link;
+                });
+
+                // trigger bookmark generation.  don&#x27;t care about cssStyle as we are going to reload the site anyways
+                topic.publish(EventManager.BasemapSelector.BASEMAP_CHANGED, {
+                    id: basemapId,
+                    cssStyle: &quot;&quot;
+                });
+            }
+        }
+    }
+
+    return {
+        /*
+         * Adds all of the basemaps specified in the application configuration to the basemap selector widget and then calls function to initializes event handling
+         * @method init
+         * @constructor
+         *
+         */
+        init: function () {
+            var initialBasemap,
+                esriBasemaps = [],
+                basemapId;
+
+            basemaps = RAMP.config.basemaps;
+
+            RAMP.basemapIndex = {};
+
+            dojoArray.forEach(basemaps, function (basemap, i) {
+                var basemapDijit,
+                    basemapLayers = [];
+
+                // iterate over basemap layers and create layer objects for each;
+                // these objects can have any of the properties of the Basemap param constructor object here: https://developers.arcgis.com/javascript/jsapi/basemaplayer-amd.html#basemaplayer1
+                basemap.layers.forEach(function (layer) {
+                    //console.log(layer);
+                    basemapLayers.push(
+                        new esri.dijit.BasemapLayer(layer)
+                    );
+                });
+
+                basemapDijit = new esri.dijit.Basemap({
+                    id: basemap.id,
+                    layers: basemapLayers, // shovel all the layers into the basemap
+                    title: String.format(&quot;{0}, {1}&quot;, basemap.name, i18n.t(&#x27;config.tileSchema.&#x27; + basemap.tileSchema)),
+                    thumbnailUrl: basemap.thumbnail
+                });
+                basemapDijit.scaleCssClass = basemap.scaleCssClass;
+
+                esriBasemaps.push(basemapDijit);
+
+                //store index in lookup for bookmark module
+                RAMP.basemapIndex[basemap.id] = i;
+            });
+
+            //Create and start the selector
+            basemapGallery = new BasemapGallery({
+                showArcGISBasemaps: false,
+                basemaps: esriBasemaps,
+                map: RampMap.getMap()
+            }, placementAnchorId);
+
+            basemapGallery.on(&#x27;error&#x27;, function (evt) {
+                //TODO handle this in a nicer way
+                console.log(&#x27;Error occurred when loading basemap: &#x27; + evt.message);
+            });
+
+            basemapGallery.startup();
+
+            initialBasemap = basemaps[RAMP.config.initialBasemapIndex];
+            // currentBasemapId is not specified from the start because the basemap hasn&#x27;t been selected yet through the basemapgallery
+            basemapId = initialBasemap.id;
+            currentTileSchema = initialBasemap.tileSchema;
+
+            initTopics();
+            initListeners();
+
+            ui
+                .init(basemapId, currentTileSchema)
+                .updateToggleLabel();
+        }
+    };
+});
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

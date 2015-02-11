@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>dataLoader.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>dataLoader.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, console, Terraformer, shp, csv2geojson, RAMP, ArrayBuffer, Uint16Array */</span>
+
+<span class="hljs-comment">/**
+* A module for loading from web services and local files.  Fetches data via File API (IE9 is currently not supported) or
+* via XmlHttpRequest.  Handles GeoJSON, Shapefiles and CSV currently.  Includes utilities for parsing files into GeoJSON
+* (currently the selected intermediate format) and converting GeoJSON into FeatureLayers for consumption by the ESRI JS
+* API.
+*
+* @module RAMP
+* @submodule DataLoader
+* @uses dojo/Deferred 
+* @uses dojo/query
+* @uses dojo/_base/array
+* @uses esri/request
+* @uses esri/SpatialReference
+* @uses esri/layers/FeatureLayer
+* @uses esri/renderers/SimpleRenderer
+* @uses ramp/layerLoader
+* @uses ramp/globalStorage
+* @uses ramp/map
+* @uses utils/util
+*/</span>
+
+define([
+        <span class="hljs-string">"dojo/Deferred"</span>, <span class="hljs-string">"dojo/query"</span>, <span class="hljs-string">"dojo/_base/array"</span>,
+        <span class="hljs-string">"esri/request"</span>, <span class="hljs-string">"esri/SpatialReference"</span>, <span class="hljs-string">"esri/layers/FeatureLayer"</span>, <span class="hljs-string">"esri/renderers/SimpleRenderer"</span>,
+        <span class="hljs-string">"ramp/layerLoader"</span>, <span class="hljs-string">"ramp/globalStorage"</span>, <span class="hljs-string">"ramp/map"</span>,
+        <span class="hljs-string">"utils/util"</span>
+],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+            Deferred, query, dojoArray,
+            EsriRequest, SpatialReference, FeatureLayer, SimpleRenderer,
+            LayerLoader, GlobalStorage, RampMap,
+            Util
+        )</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-comment">/**
+        * Maps GeoJSON geometry types to a set of default renders defined in GlobalStorage.DefaultRenders
+        * @property featureTypeToRenderer {Object}
+        * @private
+        */</span>
+        <span class="hljs-keyword">var</span> featureTypeToRenderer = {
+            Point: <span class="hljs-string">"circlePoint"</span>, MultiPoint: <span class="hljs-string">"circlePoint"</span>,
+            LineString: <span class="hljs-string">"solidLine"</span>, MultiLineString: <span class="hljs-string">"solidLine"</span>,
+            Polygon: <span class="hljs-string">"outlinedPoly"</span>, MultiPolygon: <span class="hljs-string">"outlinedPoly"</span>
+        };
+
+        <span class="hljs-comment">/**
+        * Loads a dataset using async calls, returns a promise which resolves with the dataset requested.
+        * Datasets may be loaded from URLs or via the File API and depending on the options will be loaded
+        * into a string or an ArrayBuffer.
+        *
+        * @param {Object} args Arguments object, should contain either {string} url or {File} file and optionally
+        *                      {string} type as "text" or "binary" (text by default)
+        * @returns {Promise} a Promise object resolving with either a {string} or {ArrayBuffer}
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadDataSet</span><span class="hljs-params">(args)</span> </span>{
+            <span class="hljs-keyword">var</span> def = <span class="hljs-keyword">new</span> Deferred(), promise;
+
+            <span class="hljs-keyword">if</span> (args.file) {
+                <span class="hljs-keyword">if</span> (args.url) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Either url or file should be specified, not both"</span>);
+                }
+
+                <span class="hljs-keyword">if</span> (args.type === <span class="hljs-string">"binary"</span>) {
+                    promise = Util.readFileAsArrayBuffer(args.file);
+                } <span class="hljs-keyword">else</span> {
+                    promise = Util.readFileAsText(args.file);
+                }
+
+                promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{ def.resolve(data); }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{ def.reject(error); });
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (args.url) {
+                <span class="hljs-keyword">try</span> {
+                    promise = (<span class="hljs-keyword">new</span> EsriRequest({ url: args.url, handleAs: <span class="hljs-string">"text"</span> })).promise;
+                } <span class="hljs-keyword">catch</span> (e) {
+                    def.reject(e);
+                }
+
+                promise.then(
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><a href="http://updates.html5rocks.com/2012/06/How-to-convert-ArrayBuffer-to-and-from-String">http://updates.html5rocks.com/2012/06/How-to-convert-ArrayBuffer-to-and-from-String</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">str2ab</span><span class="hljs-params">(str)</span> </span>{
+                            <span class="hljs-keyword">var</span> buf = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ArrayBuffer</span>(str.length * <span class="hljs-number">2</span>), <span class="hljs-comment">// 2 bytes for each char</span>
+                                bufView = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint16Array</span>(buf),
+                                i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, strLen = str.length, code;
+
+                            <span class="hljs-keyword">while</span> (i &lt; strLen) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>jshint bitwise:false</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                code = str.charCodeAt(i++);
+                                <span class="hljs-keyword">if</span> (code &amp; <span class="hljs-number">0xff00</span>) {
+                                    bufView[j++] = (<span class="hljs-number">0xff00</span> &amp; code) &gt;&gt; <span class="hljs-number">8</span>;
+                                }
+                                bufView[j++] = <span class="hljs-number">0xff</span> &amp; code;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>jshint bitwise:true</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            }
+
+                            <span class="hljs-keyword">return</span> buf.slice(<span class="hljs-number">0</span>,j);
+                        }
+
+                        <span class="hljs-keyword">if</span> (args.type === <span class="hljs-string">'binary'</span>) {
+                            def.resolve(str2ab(data));
+                            <span class="hljs-keyword">return</span>;
+                        }
+                        def.resolve(data);
+                    },
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{ def.reject(error); }
+                );
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"One of url or file should be specified"</span>);
+            }
+
+            <span class="hljs-keyword">return</span> def.promise;
+        }
+
+        <span class="hljs-comment">/**
+        * Fetch relevant data from a single feature layer endpoint.  Returns a promise which
+        * resolves with a partial list of properties extracted from the endpoint.
+        *
+        * @param {string} featureLayerEndpoint a URL pointing to an ESRI Feature Layer
+        * @returns {Promise} a promise resolving with an object containing basic properties for the layer
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFeatureLayer</span><span class="hljs-params">(featureLayerEndpoint)</span> </span>{
+            <span class="hljs-keyword">var</span> def = <span class="hljs-keyword">new</span> Deferred(), promise;
+
+            <span class="hljs-keyword">try</span> {
+                promise = (<span class="hljs-keyword">new</span> EsriRequest({ url: featureLayerEndpoint + <span class="hljs-string">'?f=json'</span> })).promise;
+            } <span class="hljs-keyword">catch</span> (e) {
+                def.reject(e);
+            }
+
+            promise.then(
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
+                    <span class="hljs-keyword">var</span> res = {
+                        layerId: data.id,  <span class="hljs-comment">//TODO verifiy this.  i think this is the index.  we would want to use autoID?</span>
+                        layerName: data.name,
+                        layerUrl: featureLayerEndpoint,
+                        geometryType: data.geometryType,
+                        fields: dojoArray.map(data.fields, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x.name; }),
+                        renderer: data.drawingInfo.renderer
+                    };
+
+                    def.resolve(res);
+                },
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                    <span class="hljs-built_in">console</span>.log(error);
+                    def.reject(error);
+                }
+            );
+
+            <span class="hljs-keyword">return</span> def.promise;
+        }
+
+        <span class="hljs-comment">/**
+        * Fetch relevant data from a legend related to a feature layer endpoint.  Returns a promise which
+        * resolves with a partial list of properties extracted from the endpoint.
+        *
+        * @param {string} featureLayerEndpoint a URL pointing to an ESRI Feature Layer
+        * @returns {Promise} a promise resolving with an object mapping legend labels to data URLs for those labels
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFeatureLayerLegend</span><span class="hljs-params">(featureLayerEndpoint)</span> </span>{
+            <span class="hljs-keyword">var</span> def = <span class="hljs-keyword">new</span> Deferred(), promise, legendUrl, idx, layerIdx;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>snip off last slash if there</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            idx = featureLayerEndpoint.indexOf(<span class="hljs-string">'/'</span>, featureLayerEndpoint.length - <span class="hljs-number">1</span>);
+            <span class="hljs-keyword">if</span> (idx &gt; -<span class="hljs-number">1</span>) {
+                legendUrl = featureLayerEndpoint.substring(<span class="hljs-number">0</span>, idx - <span class="hljs-number">1</span>);
+            } <span class="hljs-keyword">else</span> {
+                legendUrl = featureLayerEndpoint;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>snip off &amp; store layer index, add legend to url</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            idx = legendUrl.lastIndexOf(<span class="hljs-string">'/'</span>);
+            layerIdx = <span class="hljs-built_in">parseInt</span>(legendUrl.substring(idx + <span class="hljs-number">1</span>));
+            legendUrl = legendUrl.substring(<span class="hljs-number">0</span>, idx) + <span class="hljs-string">'/legend?f=json'</span>;
+
+            <span class="hljs-keyword">try</span> {
+                promise = (<span class="hljs-keyword">new</span> EsriRequest({ url: legendUrl })).promise;
+            } <span class="hljs-keyword">catch</span> (e) {
+                def.reject(e);
+            }
+
+            promise.then(
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>find our layer in the legend</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">var</span> res = {};
+                    dojoArray.forEach(data.layers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                        <span class="hljs-keyword">if</span> (layer.layerId === layerIdx) {
+                            dojoArray.forEach(layer.legend, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(legendItem)</span> </span>{
+                                res[legendItem.label] = <span class="hljs-string">"data:"</span> + legendItem.contentType + <span class="hljs-string">';base64,'</span> + legendItem.imageData;
+                            });
+                        }
+                    });
+
+                    def.resolve(res);
+                },
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                    <span class="hljs-built_in">console</span>.log(error);
+                    def.reject(error);
+                }
+            );
+
+            <span class="hljs-keyword">return</span> def.promise;
+        }
+
+        <span class="hljs-comment">/**
+        * Fetch layer data from a WMS endpoint.  This method will execute a WMS GetCapabilities
+        * request against the specified URL, it requests WMS 1.3 and it is capable of parsing
+        * 1.3 or 1.1.1 responses.  It returns a promise which will resolve with basic layer
+        * metadata and querying information.
+        *
+        * metadata response format:
+        *   { queryTypes: [mimeType], layers: [{name, desc, queryable(bool)}] }
+        *
+        * @param {string} wmsEndpoint a URL pointing to a WMS server (it must not include a query string)
+        * @returns {Promise} a promise resolving with a metadata object (as specified above)
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getWmsLayerList</span><span class="hljs-params">(wmsEndpoint)</span> </span>{
+            <span class="hljs-keyword">var</span> def = <span class="hljs-keyword">new</span> Deferred(), promise;
+
+            <span class="hljs-keyword">try</span> {
+                promise = (<span class="hljs-keyword">new</span> EsriRequest({ url: wmsEndpoint + <span class="hljs-string">'?service=WMS&amp;version=1.3&amp;request=GetCapabilities'</span>, handleAs: <span class="hljs-string">'xml'</span> })).promise;
+            } <span class="hljs-keyword">catch</span> (e) {
+                def.reject(e);
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>there might already be a way to do this in the parsing API
+I don’t know XML parsing well enough (and I don’t want to)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getImmediateChild</span><span class="hljs-params">(node, childName)</span> </span>{
+                <span class="hljs-keyword">var</span> i;
+                <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; node.childNodes.length; ++i) {
+                    <span class="hljs-keyword">if</span> (node.childNodes[i].nodeName === childName) {
+                        <span class="hljs-keyword">return</span> node.childNodes[i];
+                    }
+                }
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+            }
+
+            promise.then(
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
+                    <span class="hljs-keyword">var</span> layers, res = {};
+
+                    <span class="hljs-keyword">try</span> {
+                        layers = dojoArray.map(query(<span class="hljs-string">'Layer &gt; Name'</span>, data), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(nameNode)</span> </span>{ <span class="hljs-keyword">return</span> nameNode.parentNode; });
+                        res.layers = dojoArray.map(layers, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+                            <span class="hljs-keyword">var</span> name = getImmediateChild(x, <span class="hljs-string">'Name'</span>).textContent,
+                                titleNode = getImmediateChild(x, <span class="hljs-string">'Title'</span>);
+                            <span class="hljs-keyword">return</span> {
+                                name: name,
+                                desc: titleNode ? titleNode.textContent : name,
+                                queryable: x.getAttribute(<span class="hljs-string">'queryable'</span>) === <span class="hljs-string">'1'</span>
+                            };
+                        });
+                        res.queryTypes = dojoArray.map(query(<span class="hljs-string">'GetFeatureInfo &gt; Format'</span>, data), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(node)</span> </span>{ <span class="hljs-keyword">return</span> node.textContent; });
+                    } <span class="hljs-keyword">catch</span> (e) {
+                        def.reject(e);
+                    }
+
+                    def.resolve(res);
+                },
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                    <span class="hljs-built_in">console</span>.log(error);
+                    def.reject(error);
+                }
+            );
+
+            <span class="hljs-keyword">return</span> def.promise;
+        }
+
+        <span class="hljs-comment">/**
+        * Performs in place assignment of integer ids for a GeoJSON FeatureCollection.
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">assignIds</span><span class="hljs-params">(geoJson)</span> </span>{
+            <span class="hljs-keyword">if</span> (geoJson.type !== <span class="hljs-string">'FeatureCollection'</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Assignment can only be performed on FeatureCollections"</span>);
+            }
+            dojoArray.forEach(geoJson.features, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(val, idx)</span> </span>{
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> val.id === <span class="hljs-string">"undefined"</span>) {
+                    val.id = idx;
+                }
+            });
+        }
+
+        <span class="hljs-comment">/**
+         * Extracts fields from the first feature in the feature collection, does no
+         * guesswork on property types and calls everything a string.
+         */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">extractFields</span><span class="hljs-params">(geoJson)</span> </span>{
+            <span class="hljs-keyword">if</span> (geoJson.features.length &lt; <span class="hljs-number">1</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Field extraction requires at least one feature"</span>);
+            }
+
+            <span class="hljs-keyword">return</span> dojoArray.map(<span class="hljs-built_in">Object</span>.keys(geoJson.features[<span class="hljs-number">0</span>].properties), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(prop)</span> </span>{
+                <span class="hljs-keyword">return</span> { name: prop, type: <span class="hljs-string">"esriFieldTypeString"</span> };
+            });
+        }
+
+        <span class="hljs-comment">/**
+        * Will generate a generic datagrid config node for a set of layer attributes.
+        *
+        * @param {Array} fields an array of attribute fields for a layer
+        * @returns {Object} an JSON config object for feature datagrid
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createDatagridConfig</span><span class="hljs-params">(fields)</span> </span>{
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">makeField</span><span class="hljs-params">(id, fn, wd, ttl, tp)</span> </span>{
+                <span class="hljs-keyword">return</span> {
+                    id: id,
+                    fieldName: fn,
+                    width: wd,
+                    orderable: <span class="hljs-literal">false</span>,
+                    type: <span class="hljs-string">'string'</span>,
+                    alignment: <span class="hljs-number">0</span>,
+                    title: ttl,
+                    columnTemplate: tp
+                };
+            }
+
+            <span class="hljs-keyword">var</span> dg = {
+                rowsPerPage: <span class="hljs-number">50</span>,
+                gridColumns: []
+            };
+
+            dg.gridColumns.push(makeField(<span class="hljs-string">'iconCol'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">'50px'</span>, <span class="hljs-string">'Icon'</span>, <span class="hljs-string">'graphic_icon'</span>));
+            dg.gridColumns.push(makeField(<span class="hljs-string">'detailsCol'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">'60px'</span>, <span class="hljs-string">'Details'</span>, <span class="hljs-string">'details_button'</span>));
+
+            dojoArray.forEach(fields, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(field, idx)</span> </span>{
+                dg.gridColumns.push(makeField(<span class="hljs-string">"col"</span> + idx.toString(), field, <span class="hljs-string">'100px'</span>, field, <span class="hljs-string">'title_span'</span>));
+            });
+
+            <span class="hljs-keyword">return</span> dg;
+        }
+
+        <span class="hljs-comment">/**
+        * Will generate a symbology config node for a ESRI feature service.
+        * Uses the information from the feature layers renderer JSON definition
+        *
+        * @param {Object} renderer renderer object from feature layer endpoint
+        * @param {Object} legendLookup object that maps legend label to data url of legend image
+        * @returns {Object} an JSON config object for feature symbology
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createSymbologyConfig</span><span class="hljs-params">(renderer, legendLookup)</span> </span>{
+            <span class="hljs-keyword">var</span> symb = {
+                type: renderer.type
+            };
+
+            <span class="hljs-keyword">switch</span> (symb.type) {
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"simple"</span>:
+                    symb.label = renderer.label;
+                    symb.imageUrl = legendLookup[renderer.label];
+
+                    <span class="hljs-keyword">break</span>;
+
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"uniqueValue"</span>:
+                    <span class="hljs-keyword">if</span> (renderer.defaultLabel) {
+                        symb.defaultImageUrl = legendLookup[renderer.defaultLabel];
+                    }
+                    symb.field1 = renderer.field1;
+                    symb.field2 = renderer.field2;
+                    symb.field3 = renderer.field3;
+                    symb.valueMaps = dojoArray.map(renderer.uniqueValueInfos, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(uvi)</span> </span>{
+                        <span class="hljs-keyword">return</span> {
+                            label: uvi.label,
+                            value: uvi.value,
+                            imageUrl: legendLookup[uvi.label]
+                        };
+                    });
+
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">"classBreaks"</span>:
+                    <span class="hljs-keyword">if</span> (renderer.defaultLabel) {
+                        symb.defaultImageUrl = legendLookup[renderer.defaultLabel];
+                    }
+                    symb.field = renderer.field;
+                    symb.minValue = renderer.minValue;
+                    symb.rangeMaps = dojoArray.map(renderer.classBreakInfos, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(cbi)</span> </span>{
+                        <span class="hljs-keyword">return</span> {
+                            label: cbi.label,
+                            maxValue: cbi.classMaxValue,
+                            imageUrl: legendLookup[cbi.label]
+                        };
+                    });
+
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Renderer we dont support</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'encountered unsupported renderer type: '</span> + symb.type);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>TODO make a stupid basic renderer to prevent things from breaking?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            }
+
+            <span class="hljs-keyword">return</span> symb;
+        }
+
+        <span class="hljs-comment">/**
+        * Peek at the CSV output (useful for checking headers).
+        *
+        * @param {string} data a string containing the CSV (or any DSV) data
+        * @param {string} delimiter the delimiter used by the data, unlike other functions this will not guess a delimiter and
+        * this parameter is required
+        * @returns {Array} an array of arrays containing the parsed CSV
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">csvPeek</span><span class="hljs-params">(data, delimiter)</span> </span>{
+            <span class="hljs-keyword">return</span> csv2geojson.dsv(delimiter).parseRows(data);
+        }
+
+        <span class="hljs-comment">/**
+        * Converts a GeoJSON object into a FeatureLayer.  Expects GeoJSON to be formed as a FeatureCollection
+        * containing a uniform feature type (FeatureLayer type will be set according to the type of the first
+        * feature entry).  Accepts the following options:
+        *   - renderer: a string identifying one of the properties in defaultRenders
+        *   - sourceProjection: a string matching a proj4.defs projection to be used for the source data (overrides
+        *     geoJson.crs)
+        *   - targetWkid: an integer for an ESRI wkid, defaults to map wkid if not specified
+        *   - fields: an array of fields to be appended to the FeatureLayer layerDefinition (OBJECTID is set by default)
+        *
+        * @method makeGeoJsonLayer
+        * @param {Object} geoJson An object following the GeoJSON specification, should be a FeatureCollection with
+        * Features of only one type
+        * @param {Object} opts An object for supplying additional parameters
+        * @returns {FeatureLayer} An ESRI FeatureLayer
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">makeGeoJsonLayer</span><span class="hljs-params">(geoJson, opts)</span> </span>{
+            <span class="hljs-keyword">var</span> esriJson, layerDefinition, layer, fs, targetWkid, srcProj,
+                defaultRenderers = GlobalStorage.DefaultRenderers,
+                layerID = LayerLoader.nextId();
+
+            layerDefinition = {
+                objectIdField: <span class="hljs-string">"OBJECTID"</span>,
+                fields: [{
+                    name: <span class="hljs-string">"OBJECTID"</span>,
+                    type: <span class="hljs-string">"esriFieldTypeOID"</span>
+                }]
+            };
+
+            targetWkid = RAMP.map.spatialReference.wkid;
+            assignIds(geoJson);
+            layerDefinition.drawingInfo = defaultRenderers[featureTypeToRenderer[geoJson.features[<span class="hljs-number">0</span>].geometry.type]];
+
+            <span class="hljs-keyword">if</span> (opts) {
+                <span class="hljs-keyword">if</span> (opts.sourceProjection) {
+                    srcProj = opts.sourceProjection;
+                }
+                <span class="hljs-keyword">if</span> (opts.targetWkid) {
+                    targetWkid = opts.targetWkid;
+                }
+                <span class="hljs-keyword">if</span> (opts.fields) {
+                    layerDefinition.fields = layerDefinition.fields.concat(opts.fields);
+                }
+            }
+
+            <span class="hljs-keyword">if</span> (layerDefinition.fields.length === <span class="hljs-number">1</span>) {
+                layerDefinition.fields = layerDefinition.fields.concat(extractFields(geoJson));
+            }
+
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'reprojecting '</span> + srcProj + <span class="hljs-string">' -&gt; EPSG:'</span> + targetWkid);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>console.log(geoJson);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            Terraformer.Proj.convert(geoJson, <span class="hljs-string">'EPSG:'</span> + targetWkid, srcProj);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>console.log(geoJson);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            esriJson = Terraformer.ArcGIS.convert(geoJson, { sr: targetWkid });
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'geojson -&gt; esrijson converted'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>console.log(esriJson);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            fs = { features: esriJson, geometryType: layerDefinition.drawingInfo.geometryType };
+
+            layer = <span class="hljs-keyword">new</span> FeatureLayer({ layerDefinition: layerDefinition, featureSet: fs }, { mode: FeatureLayer.MODE_SNAPSHOT, id: layerID });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>＼(｀O´)／ manually setting SR because it will come out as 4326</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            layer.spatialReference = <span class="hljs-keyword">new</span> SpatialReference({ wkid: targetWkid });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>TODO : refactor the hack
+SZ_HACK</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            layer.renderer._RAMP_rendererType = featureTypeToRenderer[geoJson.features[<span class="hljs-number">0</span>].geometry.type];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>SZ TESTING — this will be removed when the UI separates the layer creation an layer enhancement
+enhanceFileFeatureLayer(layer, opts);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            <span class="hljs-keyword">return</span> layer;
+        }
+
+        <span class="hljs-comment">/**
+        * Will take a feature layer built from user supplied data, and apply extra user options (such as symbology,
+        * display field), and generate a config node for the layer.  Accepts the following options:
+        *   - renderer: a string identifying one of the properties in defaultRenders
+        *   - color: color of the renderer
+        *   - icon: icon to display in grid and maptips
+        *   - nameField: descriptive name field for the layer
+        *   - datasetName: description of the name field
+        *
+        * @method enhanceFileFeatureLayer
+        * @param {Object} featureLayer a feature layer object generated by makeGeoJsonLayer
+        * @param {Object} opts An object for supplying additional parameters
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">enhanceFileFeatureLayer</span><span class="hljs-params">(featureLayer, opts)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>make a minimal config object for this layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> newConfig = {
+                    id: featureLayer.id,
+                    displayName: opts.datasetName,
+                    nameField: opts.nameField,
+                    symbology: {
+                        type: <span class="hljs-string">"simple"</span>,
+                        imageUrl: opts.icon
+                    },
+                    datagrid: createDatagridConfig(opts.fields)
+                },
+                defaultRenderers = GlobalStorage.DefaultRenderers;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>backfill the rest of the config object with default values</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            newConfig = GlobalStorage.applyFeatureDefaults(newConfig);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>add custom properties and event handlers to layer object</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            RampMap.enhanceLayer(featureLayer, newConfig, <span class="hljs-literal">true</span>);
+            featureLayer.ramp.type = GlobalStorage.layerType.feature; <span class="hljs-comment">//TODO revisit</span>
+            featureLayer.ramp.load.state = <span class="hljs-string">"loaded"</span>; <span class="hljs-comment">//because we made the feature layer by hand, it already has it's layer definition, so it begins in loaded state.  the load event never fires</span>
+            featureLayer.type = <span class="hljs-string">"Feature Layer"</span>; <span class="hljs-comment">//required to visible layer function</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>plop config in global config object so everyone can access it.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            RAMP.config.layers.feature.push(newConfig);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>apply new renderer if one is defined</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (opts.renderer &amp;&amp; defaultRenderers.hasOwnProperty(opts.renderer)) {
+                <span class="hljs-keyword">var</span> rend = defaultRenderers[opts.renderer].renderer;
+                <span class="hljs-keyword">if</span> (opts.colour) {
+                    rend.symbol.color = opts.colour;
+                }
+
+                featureLayer.renderer = <span class="hljs-keyword">new</span> SimpleRenderer(rend);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (opts.colour) { <span class="hljs-comment">// change only color of the renderer</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>SZ_HACK</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                featureLayer.renderer.symbol.color = opts.colour;
+            }
+        }
+
+        <span class="hljs-comment">/**
+        * Constructs a FeatureLayer from CSV data.
+        * @param {string} csvData the CSV data to be processed
+        * @param {object} opts options to be set for the parser {string} latfield, {string} lonfield, {string} delimiter
+        * @returns {Promise} a promise resolving with a {FeatureLayer}
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildCsv</span><span class="hljs-params">(csvData, opts)</span> </span>{
+            <span class="hljs-keyword">var</span> def = <span class="hljs-keyword">new</span> Deferred(), csvOpts = { latfield: <span class="hljs-string">'Lat'</span>, lonfield: <span class="hljs-string">'Long'</span>, delimiter: <span class="hljs-string">','</span> };
+
+            <span class="hljs-keyword">if</span> (opts) {
+                <span class="hljs-keyword">if</span> (opts.latfield) {
+                    csvOpts.latfield = opts.latfield;
+                }
+                <span class="hljs-keyword">if</span> (opts.lonfield) {
+                    csvOpts.lonfield = opts.lonfield;
+                }
+                <span class="hljs-keyword">if</span> (opts.delimiter) {
+                    csvOpts.delimiter = opts.delimiter;
+                }
+            }
+
+            <span class="hljs-keyword">try</span> {
+                csv2geojson.csv2geojson(csvData, csvOpts, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, data)</span> </span>{
+                    <span class="hljs-keyword">var</span> jsonLayer;
+
+                    <span class="hljs-keyword">if</span> (err) {
+                        def.reject(err);
+                        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"conversion error"</span>);
+                        <span class="hljs-built_in">console</span>.log(err);
+                        <span class="hljs-keyword">return</span>;
+                    }
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'csv parsed'</span>);
+                    <span class="hljs-built_in">console</span>.log(data);
+                    jsonLayer = makeGeoJsonLayer(data, opts);
+                    def.resolve(jsonLayer);
+                });
+            } <span class="hljs-keyword">catch</span> (e) {
+                def.reject(e);
+            }
+
+            <span class="hljs-keyword">return</span> def.promise;
+        }
+
+        <span class="hljs-comment">/**
+        * Constructs a FeatureLayer from a Shapefile.
+        * @param {ArrayBuffer} shpData an ArrayBuffer of the Shapefile in zip format
+        * @returns {Promise} a promise resolving with a {FeatureLayer}
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildShapefile</span><span class="hljs-params">(shpData)</span> </span>{
+            <span class="hljs-keyword">var</span> def = <span class="hljs-keyword">new</span> Deferred();
+
+            <span class="hljs-keyword">try</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>window.crypto.subtle.digest({ name: “SHA-256” }, shpData).then(function (h) { var u8 = new Uint16Array(h); console.log(u8); });</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                shp.getShapefile(shpData).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(geojson)</span> </span>{
+                    <span class="hljs-keyword">var</span> jsonLayer;
+                    <span class="hljs-keyword">try</span> {
+                        jsonLayer = makeGeoJsonLayer(geojson);
+                        def.resolve(jsonLayer);
+                    } <span class="hljs-keyword">catch</span> (e) {
+                        def.reject(e);
+                    }
+                }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+                    def.reject(error);
+                });
+            } <span class="hljs-keyword">catch</span> (e) {
+                def.reject(e);
+            }
+
+            <span class="hljs-keyword">return</span> def.promise;
+        }
+
+        <span class="hljs-comment">/**
+        * Constructs a FeatureLayer from a GeoJSON string.
+        * This wraps makeGeoJsonLayer in an async wrapper, this is unnecessary but provides a consistent API.
+        * @param {string} jsonData a string containing the GeoJSON
+        * @returns {Promise} a promise resolving with a {FeatureLayer}
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildGeoJson</span><span class="hljs-params">(jsonData)</span> </span>{
+            <span class="hljs-keyword">var</span> def = <span class="hljs-keyword">new</span> Deferred(), jsonLayer = <span class="hljs-literal">null</span>;
+
+            <span class="hljs-keyword">try</span> {
+                jsonLayer = makeGeoJsonLayer(<span class="hljs-built_in">JSON</span>.parse(jsonData));
+                def.resolve(jsonLayer);
+            } <span class="hljs-keyword">catch</span> (e) {
+                def.reject(e);
+            }
+
+            <span class="hljs-keyword">return</span> def.promise;
+        }
+
+        <span class="hljs-keyword">return</span> {
+            loadDataSet: loadDataSet,
+            getFeatureLayer: getFeatureLayer,
+            getFeatureLayerLegend: getFeatureLayerLegend,
+            getWmsLayerList: getWmsLayerList,
+            makeGeoJsonLayer: makeGeoJsonLayer,
+            csvPeek: csvPeek,
+            buildCsv: buildCsv,
+            buildShapefile: buildShapefile,
+            buildGeoJson: buildGeoJson,
+            enhanceFileFeatureLayer: enhanceFileFeatureLayer,
+            createDatagridConfig: createDatagridConfig,
+            createSymbologyConfig: createSymbologyConfig
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

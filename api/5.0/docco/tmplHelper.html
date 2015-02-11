@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>tmplHelper.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>tmplHelper.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, RAMP */</span>
+<span class="hljs-comment">/* jshint bitwise:false  */</span>
+
+<span class="hljs-comment">/**
+* Utility module containing useful static classes.
+*
+* @module Utils
+* @submodule TmplUtil
+*/</span>
+
+<span class="hljs-comment">/**
+* A set of functions used to support and standardize the use of templating.
+*
+*
+* @class TmplHelper
+* @static
+* @uses dojo/_base/lang
+* @uses GlobalStorage
+* @uses RAMP
+* @uses TmplUtil
+*/</span>
+
+define([
+        <span class="hljs-comment">/* Dojo */</span>
+        <span class="hljs-string">"dojo/_base/lang"</span>,
+
+        <span class="hljs-comment">/* Ramp Modules */</span>
+        <span class="hljs-string">"ramp/globalStorage"</span>,
+        <span class="hljs-string">"ramp/ramp"</span>,
+        <span class="hljs-string">"utils/tmplUtil"</span>
+
+],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(dojoLang, GlobalStorage, Ramp, TmplUtil)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/*
+             * Create a data wrapper with properties: data, config, str, lyr, fn
+             * @method dataBuilder
+             * @param {Object} data A json object passing over.
+             * @param {String} layerConfig config object for specific layer (optional)
+             * @returns {Object} Returns a JSON object with following properties
+             *      .data = {}
+             *      .config = &lt;global config object&gt;
+             *      .lyr = &lt;global config object . layers.feature [parameter index] &gt;
+             *      .fn = object with helper functions assigned to it.
+             *
+             */</span>
+            dataBuilder: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data, layerConfig)</span> </span>{
+                <span class="hljs-keyword">var</span> dataWrapperPrototype = {
+                    data: <span class="hljs-literal">null</span>,
+                    config: <span class="hljs-literal">null</span>,
+                    str: <span class="hljs-literal">null</span>,
+                    lyr: <span class="hljs-literal">null</span>,
+                    fn: <span class="hljs-literal">null</span>
+                },
+                    dataWrapper = <span class="hljs-built_in">Object</span>.create(dataWrapperPrototype);
+
+                dataWrapper.data = data;
+                dataWrapper.config = RAMP.config;
+
+                <span class="hljs-keyword">if</span> (layerConfig != <span class="hljs-literal">null</span>) {
+                    dataWrapper.lyr = layerConfig;
+                }
+
+                dataWrapper.fn = TmplUtil;
+                <span class="hljs-keyword">return</span> dataWrapper;
+            },
+
+            <span class="hljs-comment">/*
+             * Create a data wrapper with properties: data, config, str, fn
+             * @method genericDataBuilder
+             * @param {Object} data A json object passing over.
+             * @returns {Object} Returns a JSON object with following properties
+             *      .data = {}
+             *      .config = &lt;global config object&gt;
+             *      .lyr = &lt;global config object . featurelayers [parameter index] &gt;
+             *      .fn = object with helper functions assigned to it.
+             *
+             */</span>
+            genericDataBuilder: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
+                <span class="hljs-keyword">var</span> dataWrapperPrototype = {
+                    data: <span class="hljs-literal">null</span>,
+                    config: <span class="hljs-literal">null</span>,
+                    str: <span class="hljs-literal">null</span>,
+                    fn: <span class="hljs-literal">null</span>
+                },
+                    dataWrapper = <span class="hljs-built_in">Object</span>.create(dataWrapperPrototype);
+
+                dataWrapper.data = data;
+                dataWrapper.config = RAMP.config;
+
+                dataWrapper.fn = TmplUtil;
+                <span class="hljs-keyword">return</span> dataWrapper;
+            },
+
+            <span class="hljs-comment">/*
+             *  strips comments from json template
+             * @method stringifyTemplate
+             * @param {String} template A template in JSON format
+             * @returns {String} A JSON template without comments
+             *
+             */</span>
+            stringifyTemplate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(template)</span> </span>{
+                <span class="hljs-keyword">return</span> template</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>strip comments from the template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    .replace(<span class="hljs-regexp">/`(?:\\.|[^`])*`|'(?:\\.|[^'])*'|"(?:\\.|[^"])*"|\/\*[^]*?\*\/|\/\/.*\n?/g</span>,
+                                         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s)</span> </span>{
+                                             <span class="hljs-keyword">if</span> (s.charAt(<span class="hljs-number">0</span>) === <span class="hljs-string">'/'</span>) {
+                                                 <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
+                                             } <span class="hljs-keyword">else</span> {
+                                                 <span class="hljs-keyword">return</span> s;
+                                             }
+                                         })</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>remove hard breaks and tabs</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    .replace(<span class="hljs-regexp">/[\n\r\t]/g</span>, <span class="hljs-string">""</span>)
+                    .replace(<span class="hljs-regexp">/&gt;\s*?&lt;/g</span>, <span class="hljs-string">"&gt;&lt;"</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>strip spaces between html and other tags</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    .replace(<span class="hljs-regexp">/%}\s*?&lt;/g</span>, <span class="hljs-string">"%}&lt;"</span>)
+                    .replace(<span class="hljs-regexp">/&gt;\s*?{%/g</span>, <span class="hljs-string">"&gt;{%"</span>)
+
+                    .replace(<span class="hljs-regexp">/"\s*?&lt;/g</span>, <span class="hljs-string">'"&lt;'</span>)
+                    .replace(<span class="hljs-regexp">/&gt;\s*?"/g</span>, <span class="hljs-string">'&gt;"'</span>);
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>layerGroup.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>layerGroup.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, tmpl, $, console */</span>
+
+<span class="hljs-comment">/**
+* @module RAMP
+* @submodule FilterManager
+* @main FilterManager
+*/</span>
+
+<span class="hljs-comment">/**
+* 
+* ####Imports RAMP Modules:
+* {{#crossLink "TmplHelper"}}{{/crossLink}}  
+* {{#crossLink "Array"}}{{/crossLink}}  
+* {{#crossLink "LayerItem"}}{{/crossLink}}  
+*  
+* ####Uses RAMP Templates:
+* {{#crossLink "templates/layer_selector_template.json"}}{{/crossLink}}
+* 
+* @class LayerGroup
+* @constructor
+* @uses dojo/Evented
+* @uses dojo/_base/declare
+* @uses dojo/_base/lang
+* @uses dojo/_base/array
+*
+* @param {Array} layers an array of layer config definitions to be added to the group
+* @param {Object} [options] Additional options
+* 
+* @param {String} [options.groupType] Specifies type of this LayerGroup and the name of the layer group template to use
+* @param {String} [options.layerState] Specifies the initial state of any LyerItem added to this group; must be one of the `LayerItem.state` defaults
+* @param {String} [options.layerType] Specifies type of any LayerItem added to this group and the name of the layer item template to use
+* 
+* @param {Object} [options.stateMatrix] additional state matrix records to be mixed into the default
+* @param {Object} [options.transitionMatrix] additional state transition matrix records to be mixed into the default
+
+*
+* @return {LayerGroup} A control object representing a group of layers allowing to dynamically change their states.
+*/</span>
+
+define([
+    <span class="hljs-string">"dojo/Evented"</span>, <span class="hljs-string">"dojo/_base/declare"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/_base/array"</span>,
+
+    <span class="hljs-comment">/* Text */</span>
+    <span class="hljs-string">"dojo/text!./templates/layer_selector_template.json"</span>,
+
+    <span class="hljs-comment">/* Util */</span>
+    <span class="hljs-string">"utils/tmplHelper"</span>, <span class="hljs-string">"utils/array"</span>, <span class="hljs-string">"utils/dictionary"</span>,
+
+    <span class="hljs-comment">/* RAMP */</span>
+    <span class="hljs-string">"ramp/layerItem"</span>
+],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+        Evented, declare, lang, dojoArray,
+        layer_selector_template,
+        TmplHelper, UtilArray, UtilDict,
+        LayerItem)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">return</span> declare([Evented], {
+            constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layers, options)</span> </span>{
+                <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>declare individual properties inside the constructor: <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/declare.html#id6">http://dojotoolkit.org/reference-guide/1.9/dojo/_base/declare.html#id6</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                lang.mixin(<span class="hljs-keyword">this</span>,
+                    {
+                        <span class="hljs-comment">/**
+                         * A node of the LayerGroup.
+                         *
+                         * @property node
+                         * @type JObject
+                         * @default null
+                         */</span>
+                        node: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A node of the list in the LayerGroup.
+                         *
+                         * @property node
+                         * @private
+                         * @type JObject
+                         * @default null
+                         */</span>
+                        _listNode: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * Templates to be used in construction of the layer nodes.
+                         *
+                         * @property templates
+                         * @type Object
+                         * @default layer_selector_template.json
+                         */</span>
+                        templates: <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(layer_selector_template)),
+
+                        <span class="hljs-comment">/**
+                         * Specifies type of this LayerGroup and the name of the layer group template to use; is set by `groupType` value;
+                         *
+                         * @property groupType
+                         * @type String
+                         * @default "layer_group"
+                         */</span>
+                        groupType: <span class="hljs-string">"layer_group"</span>,
+
+                        <span class="hljs-comment">/**
+                         * Specifies type of any LayerItem added to this group during initialization and the name of the layer item template to use; is set by `layerType` value;; can be overwritten when adding individual layers by `options.type`.
+                         *
+                         * @property type
+                         * @type String
+                         * @default null
+                         */</span>
+                        layerType: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * State of any LayerItem added to this group during its initialization; is set by `layerSate` value; can be overwritten when adding individual layers by `options.state`.
+                         *
+                         * @property state
+                         * @type String
+                         * @default LayerItem.state.DEFAULT
+                         */</span>
+                        layerState: LayerItem.state.DEFAULT,
+
+                        <span class="hljs-comment">/**
+                         * An array of layer config definitions to be added to the group during initialization; is set to `layers` value.
+                         *
+                         * @property layers
+                         * @type Array
+                         * @default []
+                         */</span>
+                        layers: [],
+
+                        <span class="hljs-comment">/**
+                         * An array of resulting LayerItem objects.
+                         *
+                         * @property layerItems
+                         * @type Array
+                         * @default []
+                         */</span>
+                        layerItems: []
+                    },
+                    options,
+                    {
+                        layers: layers
+                    }
+                );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>create group node from the template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">this</span>.node = $(<span class="hljs-keyword">this</span>._template(<span class="hljs-keyword">this</span>.groupType));
+                <span class="hljs-keyword">this</span>._listNode = <span class="hljs-keyword">this</span>.node.find(<span class="hljs-string">"ul"</span>);
+
+                <span class="hljs-built_in">console</span>.debug(LayerItem.state);
+
+                <span class="hljs-keyword">this</span>.layers.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer)</span> </span>{
+                    that.addLayerItem(layer);
+                });
+            },
+
+            <span class="hljs-comment">/**
+             * Constructs and adds a LayerItem to the LayerGroup.
+             *
+             * @param {Object} layer config of the layer to be added
+             * @param {Object} options additional options allowing for customization
+             * @method addLayerItem
+             * @return {Object} the item that was added
+             */</span>
+            addLayerItem: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layer, options)</span> </span>{
+                <span class="hljs-keyword">var</span> layerItem,
+                    layerItemOptions = {
+                        stateMatrix: <span class="hljs-keyword">this</span>._constructStateMatrix(layer)
+                    };
+
+                lang.mixin(layerItemOptions,
+                    {
+                        state: <span class="hljs-keyword">this</span>.layerState,
+                        type: <span class="hljs-keyword">this</span>.layerType
+                    },
+                    options
+                );
+
+                layerItem = <span class="hljs-keyword">new</span> LayerItem(layer, layerItemOptions);
+
+                <span class="hljs-keyword">this</span>.layerItems.push(layerItem);
+                <span class="hljs-keyword">this</span>._listNode.prepend(layerItem.node);
+
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.layerItems.length === <span class="hljs-number">1</span>) {
+                    <span class="hljs-keyword">this</span>.node.show();
+                }
+
+                <span class="hljs-keyword">return</span> layerItem;
+            },
+
+            <span class="hljs-comment">/**
+             * Removes the specified LayerItem from the LayerGroup.
+             *
+             * @param {String} layerId id of the layer to be removed
+             * @method removeLayerItem
+             * @return {Object} this LayerGroup for chaining
+             */</span>
+            removeLayerItem: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerId)</span> </span>{
+                <span class="hljs-keyword">var</span> layerItem = <span class="hljs-keyword">this</span>.getLayerItem(layerId);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>remove layerItem from DOM</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                layerItem.node.remove();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>remove layerItem from the list</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                UtilArray.remove(<span class="hljs-keyword">this</span>.layerItems, layerItem, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(l)</span> </span>{
+                    <span class="hljs-keyword">return</span> l.id === layerItem.id;
+                });
+
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.layerItems.length === <span class="hljs-number">0</span>) {
+                    <span class="hljs-keyword">this</span>.node.hide();
+                }
+
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+            },
+
+            <span class="hljs-comment">/**
+             * Modifies the state matrix of the layer to accommodate types of layers that might not use/have all the default controls or have extra controls.
+             *
+             * @param {Object} layerConfig layer config
+             * @method _constructStateMatrix
+             * @private
+             * @return {Object} modified layer state matrix
+             */</span>
+            _constructStateMatrix: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerConfig)</span> </span>{
+                <span class="hljs-keyword">var</span> stateMatrix = lang.clone(LayerItem.stateMatrix);
+
+                <span class="hljs-keyword">if</span> (!layerConfig.settings.panelEnabled) {
+                    <span class="hljs-keyword">this</span>._removeStateMatrixPart(stateMatrix, <span class="hljs-string">"controls"</span>, LayerItem.controls.SETTINGS);
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>remove bounding box toggle if there is no layer extent property - layer is a wms layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (!layerConfig.layerExtent || layerConfig.isStatic) {
+                    <span class="hljs-keyword">this</span>._removeStateMatrixPart(stateMatrix, <span class="hljs-string">"toggles"</span>, LayerItem.toggles.BOX);
+                    <span class="hljs-keyword">this</span>._addStateMatrixPart(stateMatrix, <span class="hljs-string">"toggles"</span>, LayerItem.toggles.PLACEHOLDER);
+                }
+
+                <span class="hljs-keyword">return</span> stateMatrix;
+            },
+
+            <span class="hljs-comment">/**
+             * Modifies the state matrix by adding specified partKey to the specified partType collection
+             *
+             * @param {Object} stateMatrix matrix to modify
+             * @param {String} partType type of the parts to modify: `controls`, `toggles`, `notices`
+             * @param {String} partKey part key to be inserted into the collection
+             * @method _addStateMatrixPart
+             * @private
+             */</span>
+            _addStateMatrixPart: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(stateMatrix, partType, partKey)</span> </span>{
+                UtilDict.forEachEntry(stateMatrix, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(state, data)</span> </span>{
+                    data[partType].push(partKey);
+                });
+            },
+
+            <span class="hljs-comment">/**
+             * Modifies the state matrix by removing specified partKey to the specified partType collection
+             *
+             * @param {Object} stateMatrix matrix to modify
+             * @param {String} partType type of the parts to modify: `controls`, `toggles`, `notices`
+             * @param {String} partKey part key to be removed into the collection
+             * @method _addStateMatrixPart
+             * @private
+             */</span>
+            _removeStateMatrixPart: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(stateMatrix, partType, partKey)</span> </span>{
+                UtilDict.forEachEntry(stateMatrix, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(state, data)</span> </span>{
+                    UtilArray.remove(data[partType], partKey);
+                });
+            },
+
+            <span class="hljs-comment">/**
+             * Constructs and adds a LayerItem to the LayerGroup.
+             *
+             * @param {String} layerId an id of the LayerItem to set the state on
+             * @param {String} state state to be set; must be one of the `LayerItem.state` defaults
+             * @param {Object} options additional options allowing for customization
+             * @method setState
+             */</span>
+            setState: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerId, state, options)</span> </span>{
+                <span class="hljs-keyword">var</span> layerItem = <span class="hljs-keyword">this</span>.getLayerItem(layerId);
+
+                <span class="hljs-keyword">if</span> (layerItem) {
+                    layerItem.setState(state, options);
+                }
+            },
+
+            <span class="hljs-comment">/**
+             * Finds and returns a LayerItem object with the specified id. If none found, returns null.
+             *
+             * @param {String} layerId an id of the LayerItem to return
+             * @return {LayerItem} a LayerItem with the specified id
+             * @method getLayerItem
+             */</span>
+            getLayerItem: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(layerId)</span> </span>{
+                <span class="hljs-keyword">var</span> layerItem;
+
+                layerItem = UtilArray.find(<span class="hljs-keyword">this</span>.layerItems, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(li)</span> </span>{
+                    <span class="hljs-keyword">return</span> li.id === layerId;
+                });
+
+                <span class="hljs-keyword">return</span> layerItem;
+            },
+
+            <span class="hljs-comment">/**
+             * Populates a template specified by the key with the supplied data.
+             *
+             * @param {String} key template name
+             * @param {Object} data data to be inserted into the template
+             * @method _template
+             * @private
+             * @return {String} a string template filled with supplied data
+             */</span>
+            _template: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key, data)</span> </span>{
+                tmpl.cache = {};
+                tmpl.templates = <span class="hljs-keyword">this</span>.templates;
+
+                data = data || {};
+
+                <span class="hljs-keyword">return</span> tmpl(key, data);
+            }
+        });
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

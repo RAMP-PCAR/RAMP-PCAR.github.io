@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>layerItem.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>layerItem.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, tmpl, $, console */</span>
+
+<span class="hljs-comment">/**
+* @module RAMP
+* @submodule FilterManager
+* @main FilterManager
+*/</span>
+
+<span class="hljs-comment">/**
+* Create a layer item for each map layer to be displayed in the layer selector. Allows for dynamic changing of the layer item state. 
+* 
+* ####Imports RAMP Modules:
+* {{#crossLink "TmplHelper"}}{{/crossLink}}  
+* {{#crossLink "TmplUtil"}}{{/crossLink}}  
+* {{#crossLink "Array"}}{{/crossLink}}  
+* {{#crossLink "Dictionary"}}{{/crossLink}}  
+*  
+* 
+* ####Uses RAMP Templates:
+* {{#crossLink "templates/layer_selector_template.json"}}{{/crossLink}}
+* 
+* @class LayerItem
+* @constructor
+* @uses dojo/Evented
+* @uses dojo/_base/declare
+* @uses dojo/lang
+* 
+* @param {Object} config a config definition of the layer
+* @param {Object} [options] Additional options
+* 
+* @param {String} [options.state] Specifies the initial state of the LyerItem; must be one of the `LayerItem.state` defaults
+* @param {String} [options.type] Specifies type of this LayerItem and the name of the layer item template to use
+* 
+* @param {Object} [options.stateMatrix] additional state matrix records to be mixed into the default
+* @param {Object} [options.transitionMatrix] additional state transition matrix records to be mixed into the default
+* 
+* @return {LayerItem} A control object representing a layer allowing to dynamically change its state.
+*/</span>
+
+define([
+    <span class="hljs-string">"dojo/Evented"</span>, <span class="hljs-string">"dojo/_base/declare"</span>, <span class="hljs-string">"dojo/_base/lang"</span>,
+
+    <span class="hljs-comment">/* Text */</span>
+    <span class="hljs-string">"dojo/text!./templates/layer_selector_template.json"</span>,
+
+    <span class="hljs-comment">/* Util */</span>
+    <span class="hljs-string">"utils/tmplHelper"</span>, <span class="hljs-string">"utils/tmplUtil"</span>, <span class="hljs-string">"utils/array"</span>, <span class="hljs-string">"utils/dictionary"</span>
+],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+        Evented, declare, lang,
+        layer_selector_template,
+        TmplHelper, TmplUtil, UtilArray, UtilDict
+    )</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">var</span> LayerItem,
+            ALL_STATES_CLASS;
+
+        LayerItem = declare([Evented], {
+            constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(config, options)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>declare individual properties inside the constructor: <a href="http://dojotoolkit.org/reference-guide/1.9/dojo/_base/declare.html#id6">http://dojotoolkit.org/reference-guide/1.9/dojo/_base/declare.html#id6</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                lang.mixin(<span class="hljs-keyword">this</span>,
+                    {
+                        <span class="hljs-comment">/**
+                         * Layer id. Upon initialization, `id` can be overwritten by `config.id` value. 
+                         *
+                         * @property id
+                         * @type String
+                         * @default null
+                         */</span>
+                        id: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A node of the LayerItem.
+                         *
+                         * @property node
+                         * @type JObject
+                         * @default null
+                         */</span>
+                        node: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A copy of the layer config supplied during LayerItem creation; is set to `config` value.
+                         *
+                         * @property _config
+                         * @private
+                         * @type Object
+                         * @default null
+                         */</span>
+                        _config: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A node of the image container.
+                         *
+                         * @property _imageContainerNode
+                         * @private
+                         * @type JObject
+                         * @default null
+                         */</span>
+                        _imageContainerNode: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A node of the layer display name.
+                         *
+                         * @property _displayNameNode
+                         * @private
+                         * @type JObject
+                         * @default null
+                         */</span>
+                        _displayNameNode: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A node of the layer controls.
+                         *
+                         * @property _controlsNode
+                         * @private
+                         * @type JObject
+                         * @default null
+                         */</span>
+                        _controlsNode: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A node of the layer toggles.
+                         *
+                         * @property _togglesNode
+                         * @private
+                         * @type JObject
+                         * @default null
+                         */</span>
+                        _togglesNode: <span class="hljs-literal">null</span>,
+
+                        <span class="hljs-comment">/**
+                         * A dictionary of control nodes available for this layer.
+                         *
+                         * @property _controlStore
+                         * @private
+                         * @type Object
+                         * @default {}
+                         */</span>
+                        _controlStore: {},
+
+                        <span class="hljs-comment">/**
+                         * A dictionary of toggle nodes available for this layer.
+                         *
+                         * @property _toggleStore
+                         * @private
+                         * @type Object
+                         * @default {}
+                         */</span>
+                        _toggleStore: {},
+
+                        <span class="hljs-comment">/**
+                         * A dictionary of notice nodes available for this layer.
+                         *
+                         * @property _noticeStore
+                         * @private
+                         * @type Object
+                         * @default {}
+                         */</span>
+                        _noticeStore: {},
+
+                        <span class="hljs-comment">/**
+                         * Templates to be used in construction of the layer nodes.
+                         *
+                         * @property templates
+                         * @type Object
+                         * @default layer_selector_template.json
+                         */</span>
+                        templates: <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(layer_selector_template)),
+
+                        <span class="hljs-comment">/**
+                         * State of this LayerItem; can be overwritten by `options.state`.
+                         *
+                         * @property state
+                         * @type String
+                         * @default LayerItem.state.DEFAULT
+                         */</span>
+                        state: LayerItem.state.DEFAULT,
+
+                        <span class="hljs-comment">/**
+                         * Specifies type of this LayerItem and the name of the layer item template to use; can be overwritten by `options.type`.
+                         *
+                         * @property type
+                         * @type String
+                         * @default null
+                         */</span>
+                        type: <span class="hljs-literal">null</span>
+                    },
+                    options,
+                    {
+                        id: config.id,
+
+                        _config: config,
+
+                        <span class="hljs-comment">/**
+                         * Specifies a state matrix for this particular LayerItem. The default is mixed with `options.stateMatrix` upon initialization.
+                         * The state matrix prescribes what controls, toggles, and notices are present in specific states. 
+                         * 
+                         * @property stateMatrix
+                         * @type Object
+                         * @default LayerItem.stateMatrix
+                         */</span>
+                        stateMatrix: lang.mixin(
+                            lang.clone(LayerItem.stateMatrix),
+                            options.stateMatrix
+                        ),
+
+                        <span class="hljs-comment">/**
+                         * Specifies a state transition matrix for this particular LayerItem. The default is mixed with `options.transitionMatrix` upon initialization.
+                         * The state transition matrix prescribes the direction of state changes for specific states.
+                         *
+                         * @property transitionMatrix
+                         * @type Object
+                         * @default LayerItem.transitionMatrix
+                         */</span>
+                        transitionMatrix: lang.mixin(
+                            lang.clone(LayerItem.transitionMatrix),
+                            options.transitionMatrix
+                        )
+                    }
+                );
+
+                <span class="hljs-keyword">this</span>.node = $(<span class="hljs-keyword">this</span>._template(<span class="hljs-keyword">this</span>.type, <span class="hljs-keyword">this</span>._config));
+                <span class="hljs-keyword">this</span>._imageBoxNode = <span class="hljs-keyword">this</span>.node.find(<span class="hljs-string">".layer-details &gt; div:first"</span>);
+                <span class="hljs-keyword">this</span>._displayNameNode = <span class="hljs-keyword">this</span>.node.find(<span class="hljs-string">".layer-name &gt; span"</span>);
+                <span class="hljs-keyword">this</span>._controlsNode = <span class="hljs-keyword">this</span>.node.find(<span class="hljs-string">".layer-controls-group"</span>);
+                <span class="hljs-keyword">this</span>._togglesNode = <span class="hljs-keyword">this</span>.node.find(<span class="hljs-string">".layer-checkboxes"</span>);
+                <span class="hljs-keyword">this</span>._noticesNode = <span class="hljs-keyword">this</span>.node.find(<span class="hljs-string">".layer-notices"</span>);
+
+                <span class="hljs-keyword">this</span>._generateParts(<span class="hljs-string">"controls"</span>, <span class="hljs-string">"layer_control_"</span>, <span class="hljs-keyword">this</span>._controlStore);
+                <span class="hljs-keyword">this</span>._generateParts(<span class="hljs-string">"toggles"</span>, <span class="hljs-string">"layer_toggle_"</span>, <span class="hljs-keyword">this</span>._toggleStore);
+                <span class="hljs-keyword">this</span>._generateParts(<span class="hljs-string">"notices"</span>, <span class="hljs-string">"layer_notice_"</span>, <span class="hljs-keyword">this</span>._noticeStore);
+
+                <span class="hljs-keyword">this</span>.setState(<span class="hljs-keyword">this</span>.state, <span class="hljs-literal">null</span>, <span class="hljs-literal">true</span>);
+
+                <span class="hljs-built_in">console</span>.debug(<span class="hljs-string">"--&gt;"</span>, <span class="hljs-keyword">this</span>.state, options);
+            },
+
+            <span class="hljs-comment">/**
+             * Generates control, toggle, and notice nodes for the LayerItem object to be used in different states.
+             *
+             * @param {String} partType name of the part type - "controls", "toggles", or "notices"
+             * @param {String} templateKey a template name prefix for the template parts
+             * @param {Object} partStore a dictionary to store generated nodes
+             * @method _generateParts
+             * @private
+             */</span>
+            _generateParts: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(partType, templateKey, partStore)</span> </span>{
+                <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>,
+
+                    stateKey,
+                    partKeys = [],
+                    part;
+
+                <span class="hljs-built_in">Object</span>
+                    .getOwnPropertyNames(LayerItem.state)
+                    .forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s)</span> </span>{
+                        stateKey = LayerItem.state[s];
+                        partKeys = partKeys.concat(that.stateMatrix[stateKey][partType]);
+                    });
+
+                partKeys = UtilArray.unique(partKeys);
+
+                partKeys.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(pKey)</span> </span>{
+                    part = that._generatePart(templateKey, pKey);
+
+                    partStore[pKey] = (part);
+                });
+            },
+
+            <span class="hljs-comment">/**
+             * Generates a control given the template name and additional data object to pass to the template engine.
+             *
+             * @param {String} templateKey a template name prefix for the template parts
+             * @param {String} pKey name of the template to build
+             * @param {Object} [data] optional data to pass to template engine; used to update strings on notice objects
+             * @method _generatePart
+             * @private
+             * @return Created part node
+             */</span>
+            _generatePart: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(templateKey, pKey, data)</span> </span>{
+                <span class="hljs-keyword">var</span> part = $(<span class="hljs-keyword">this</span>._template(templateKey + pKey,
+                    {
+                        id: <span class="hljs-keyword">this</span>.id,
+                        config: <span class="hljs-keyword">this</span>._config,
+                        nameKey: pKey,
+                        data: data
+                    }
+                ));
+
+                <span class="hljs-keyword">return</span> part;
+            },
+
+            <span class="hljs-comment">/**
+             * Changes the state of the LayerItem and update its UI representation.
+             *
+             * @param {String} state name of the state to be set
+             * @param {Object} [options] additional options
+             * @param {Object} [options.notices] custom information to be displayed in a notice for the current state if needed; object structure is not set; look at the appropriate template; 
+             * @example
+             *      {
+             *          notices: {
+             *              error: {
+             *                  message: "I'm error"
+             *              },
+             *              scale: {
+             *                  message: "All your base are belong to us"
+             *              }
+             *          }
+             *      }
+             * @param {Boolean} force if `true`, forces the state change even if it's no allowed by the `transitionMatrix`
+             * @method setState
+             */</span>
+            setState: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(state, options, force)</span> </span>{
+                <span class="hljs-keyword">var</span> allowedStates = <span class="hljs-keyword">this</span>.transitionMatrix[<span class="hljs-keyword">this</span>.state],
+                    notice,
+
+                    that = <span class="hljs-keyword">this</span>;
+
+                <span class="hljs-keyword">if</span> (allowedStates.indexOf(state) !== -<span class="hljs-number">1</span> || force) {
+
+                    <span class="hljs-keyword">this</span>.state = state;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>lang.mixin(this, options);</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>set state class on the layerItem root node</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">this</span>.node
+                        .removeClass(ALL_STATES_CLASS)
+                        .addClass(<span class="hljs-keyword">this</span>.state);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>regenerate notice controls if extra data is provided</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> (options) {
+                        <span class="hljs-keyword">if</span> (options.notices) {
+
+                            UtilDict.forEachEntry(options.notices, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(pKey, data)</span> </span>{
+                                notice = that._generatePart(<span class="hljs-string">"layer_notice_"</span>, pKey, data);
+
+                                that._noticeStore[pKey] = (notice);
+                            });
+                        }
+                    }
+
+                    <span class="hljs-keyword">this</span>._setParts(<span class="hljs-string">"controls"</span>, <span class="hljs-keyword">this</span>._controlStore, <span class="hljs-keyword">this</span>._controlsNode);
+                    <span class="hljs-keyword">this</span>._setParts(<span class="hljs-string">"toggles"</span>, <span class="hljs-keyword">this</span>._toggleStore, <span class="hljs-keyword">this</span>._togglesNode);
+                    <span class="hljs-keyword">this</span>._setParts(<span class="hljs-string">"notices"</span>, <span class="hljs-keyword">this</span>._noticeStore, <span class="hljs-keyword">this</span>._noticesNode);
+
+                    <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">this</span>.state) {
+                        <span class="hljs-keyword">case</span> LayerItem.state.DEFAULT:
+                            <span class="hljs-built_in">console</span>.log(LayerItem.state.DEFAULT);
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> LayerItem.state.LOADING:
+                            <span class="hljs-keyword">this</span>.node.attr(<span class="hljs-string">"aria-busy"</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// indicates that the region is loading</span>
+
+                            <span class="hljs-built_in">console</span>.log(LayerItem.state.LOADING);
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> LayerItem.state.LOADED:
+                            <span class="hljs-keyword">this</span>.node.attr(<span class="hljs-string">"aria-busy"</span>, <span class="hljs-literal">false</span>); <span class="hljs-comment">// indicates that the loading is complete</span>
+                            <span class="hljs-keyword">this</span>.setState(LayerItem.state.DEFAULT);
+
+                            <span class="hljs-built_in">console</span>.log(LayerItem.state.LOADED);
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> LayerItem.state.ERROR:
+                            <span class="hljs-built_in">console</span>.log(LayerItem.state.ERROR);
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> LayerItem.state.OFF_SCALE:
+                            <span class="hljs-built_in">console</span>.log(LayerItem.state.OFF_SCALE);
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">default</span>:
+                            <span class="hljs-keyword">break</span>;
+                    }
+
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }
+            },
+
+            <span class="hljs-comment">/**
+             * Sets controls, toggles, and notices of the LayerItem according to its state.
+             *
+             * @param {String} partType name of the part type - "controls", "toggles", or "notices"
+             * @param {Object} partStore a dictionary to store generated nodes
+             * @param {JObject} target a jQuery node where the nodes should be appended
+             * @method _setParts
+             * @private
+             */</span>
+            _setParts: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(partType, partStore, target)</span> </span>{
+                <span class="hljs-keyword">var</span> controls = [];
+
+                <span class="hljs-keyword">this</span>.stateMatrix[<span class="hljs-keyword">this</span>.state][partType].forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(pKey)</span> </span>{
+                    controls.push(partStore[pKey]);
+                });
+
+                target
+                    .empty()
+                    .append(controls);
+            },
+
+            <span class="hljs-comment">/**
+             * Populates a template specified by the key with the supplied data.
+             *
+             * @param {String} key template name
+             * @param {Object} data data to be inserted into the template
+             * @method _template
+             * @private
+             * @return {String} a string template filled with supplied data
+             */</span>
+            _template: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key, data)</span> </span>{
+                tmpl.cache = {};
+                tmpl.templates = <span class="hljs-keyword">this</span>.templates;
+
+                data = data || {};
+                data.fn = TmplUtil;
+
+                <span class="hljs-keyword">return</span> tmpl(key, data);
+            }
+        });
+
+        lang.mixin(LayerItem,
+            {
+                <span class="hljs-comment">/**
+                * A default collection of possible LayerItem states.
+                *
+                * @property LayerItem.state
+                * @static
+                * @type Object
+                * @example 
+                *     state: {
+                *       DEFAULT: "layer-state-default",
+                *       LOADING: "layer-state-loading",
+                *       LOADED: "layer-state-loaded",
+                *       UPDATING: "layer-state-updating",
+                *       ERROR: "layer-state-error",
+                *       OFF_SCALE: "layer-state-off-scale"
+                *       }
+                */</span>
+                state: {
+                    DEFAULT: <span class="hljs-string">"layer-state-default"</span>,
+                    LOADING: <span class="hljs-string">"layer-state-loading"</span>,
+                    LOADED: <span class="hljs-string">"layer-state-loaded"</span>,
+                    UPDATING: <span class="hljs-string">"layer-state-updating"</span>,
+                    ERROR: <span class="hljs-string">"layer-state-error"</span>,
+                    OFF_SCALE: <span class="hljs-string">"layer-state-off-scale"</span>
+                },
+
+                <span class="hljs-comment">/**
+                * A default collection of possible LayerItem controls.
+                *
+                * @property LayerItem.controls
+                * @static
+                * @type Object
+                * @example 
+                *     controls: {
+                *            METADATA: "metadata",
+                *            SETTINGS: "settings",
+                *            LOADING: "loading",
+                *            REMOVE: "remove",
+                *            RELOAD: "reload",
+                *            ERROR: "error"
+                *           }
+                */</span>
+                controls: {
+                    METADATA: <span class="hljs-string">"metadata"</span>,
+                    SETTINGS: <span class="hljs-string">"settings"</span>,
+                    LOADING: <span class="hljs-string">"loading"</span>,
+                    REMOVE: <span class="hljs-string">"remove"</span>,
+                    RELOAD: <span class="hljs-string">"reload"</span>,
+                    ERROR: <span class="hljs-string">"error"</span>
+                },
+
+                <span class="hljs-comment">/**
+                * A default collection of possible LayerItem toggles.
+                *
+                * @property LayerItem.toggles
+                * @static
+                * @type Object
+                * @example 
+                *     toggles: {
+                *           EYE: "eye",
+                *           BOX: "box",
+                *            RELOAD: "reload",
+                *            HIDE: "hide",
+                *            ZOOM: "zoom",
+                *            PLACEHOLDER: "placeholder"
+                *        }
+                */</span>
+                toggles: {
+                    EYE: <span class="hljs-string">"eye"</span>,
+                    BOX: <span class="hljs-string">"box"</span>,
+                    RELOAD: <span class="hljs-string">"reload"</span>,
+                    HIDE: <span class="hljs-string">"hide"</span>,
+                    ZOOM: <span class="hljs-string">"zoom"</span>,
+                    PLACEHOLDER: <span class="hljs-string">"placeholder"</span>
+                },
+
+                <span class="hljs-comment">/**
+                * A default collection of possible LayerItem notices.
+                *
+                * @property LayerItem.notices
+                * @static
+                * @type Object
+                * @example 
+                *     notices: {
+                *            SCALE: "scale"
+                *            ERROR: "error",
+                *            UPDATE: "update"
+                *           }
+                */</span>
+                notices: {
+                    SCALE: <span class="hljs-string">"scale"</span>,
+                    ERROR: <span class="hljs-string">"error"</span>,
+                    UPDATE: <span class="hljs-string">"update"</span>
+                },
+
+                <span class="hljs-comment">/**
+                * A default state matrix specifying what controls are active in which state.
+                *
+                * @property LayerItem.stateMatrix
+                * @static
+                * @type Object
+                * @example 
+                *        DEFAULT: {
+                *            controls: [
+                *                LayerItem.controls.METADATA,
+                *                LayerItem.controls.SETTINGS
+                *            ],
+                *            toggles: [
+                *                LayerItem.toggles.EYE,
+                *                LayerItem.toggles.BOX
+                *            ],
+                *            notices: []
+                *        },
+                *
+                *        LOADING: {
+                *            controls: [
+                *                LayerItem.controls.LOADING
+                *            ],
+                *            toggles: [],
+                *            notices: []
+                *        },
+                * 
+                *        LOADED: {
+                *            controls: [],
+                *            toggles: [],
+                *            notices: []
+                *        },
+                *        DEFAULT: {
+                *            controls: [
+                *                LayerItem.controls.METADATA,
+                *                LayerItem.controls.SETTINGS
+                *            ],
+                *            toggles: [
+                *                LayerItem.toggles.EYE,
+                *                LayerItem.toggles.BOX
+                *            ],
+                *            notices: [
+                *                LayerItem.notices.UPDATE
+                *            ]
+                *        },
+                *
+                *        ERROR: {
+                *            controls: [
+                *                LayerItem.controls.RELOAD,
+                *                LayerItem.controls.REMOVE
+                *            ],
+                *            toggles: [],
+                *            notices: [
+                *                LayerItem.notices.ERROR
+                *            ]
+                *        },
+                *
+                *        OFF_SCALE: {
+                *            controls: [
+                *                LayerItem.controls.METADATA,
+                *                LayerItem.controls.SETTINGS
+                *            ],
+                *            toggles: [
+                *                LayerItem.toggles.ZOOM,
+                *                LayerItem.toggles.EYE,
+                *                LayerItem.toggles.BOX
+                *            ],
+                *            notices: [
+                *                LayerItem.notices.SCALE
+                *            ]
+                *        }
+                */</span>
+                stateMatrix: {},
+
+                <span class="hljs-comment">/**
+                * A default state transition matrix specifying to what state the LayerItem can transition.
+                *
+                * @property LayerItem.transitionMatrix
+                * @static
+                * @type Object
+                * @example 
+                *        DEFAULT: [
+                *            LayerItem.state.ERROR,
+                *            LayerItem.state.OFF_SCALE,
+                *            LayerItem.state.UPDATING
+                *        ],
+                *        LOADED: [
+                *            LayerItem.state.DEFAULT
+                *        ],
+                *        LOADING: [
+                *            LayerItem.state.LOADED
+                *        ],
+                *        UPDATING: [
+                *            LayerItem.state.ERROR,
+                *            LayerItem.state.OFF_SCALE,
+                *            LayerItem.state.DEFAULT
+                *        ],
+                *        ERROR: [
+                *            LayerItem.state.LOADING
+                *        ],
+                *        OFF_SCALE: [
+                *            LayerItem.state.ERROR,
+                *            LayerItem.state.DEFAULT,
+                *            LayerItem.state.UPDATING
+                *        ]
+                * 
+                */</span>
+                transitionMatrix: {}
+            }
+        );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>setting defaults for state matrix</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        LayerItem.stateMatrix[LayerItem.state.DEFAULT] = {
+            controls: [
+                LayerItem.controls.METADATA,
+                LayerItem.controls.SETTINGS
+            ],
+            toggles: [
+                LayerItem.toggles.EYE,
+                LayerItem.toggles.BOX
+            ],
+            notices: []
+        };
+
+        LayerItem.stateMatrix[LayerItem.state.LOADING] = {
+            controls: [
+                LayerItem.controls.LOADING
+            ],
+            toggles: [],
+            notices: []
+        };
+
+        LayerItem.stateMatrix[LayerItem.state.LOADED] = {
+            controls: [],
+            toggles: [],
+            notices: []
+        };
+
+        LayerItem.stateMatrix[LayerItem.state.UPDATING] = {
+            controls: [
+                LayerItem.controls.METADATA,
+                LayerItem.controls.SETTINGS
+            ],
+            toggles: [
+                LayerItem.toggles.EYE,
+                LayerItem.toggles.BOX
+            ],
+            notices: [
+                LayerItem.notices.UPDATE
+            ]
+        };
+
+        LayerItem.stateMatrix[LayerItem.state.ERROR] = {
+            controls: [
+                LayerItem.controls.RELOAD,
+                LayerItem.controls.REMOVE
+            ],
+            toggles: [],
+            notices: [
+                LayerItem.notices.ERROR
+            ]
+        };
+
+        LayerItem.stateMatrix[LayerItem.state.OFF_SCALE] = {
+            controls: [
+                LayerItem.controls.METADATA,
+                LayerItem.controls.SETTINGS
+            ],
+            toggles: [
+                LayerItem.toggles.ZOOM,
+                LayerItem.toggles.EYE,
+                LayerItem.toggles.BOX
+            ],
+            notices: [
+                LayerItem.notices.SCALE
+            ]
+        };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>setting defaults for transition matrix</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        LayerItem.transitionMatrix[LayerItem.state.DEFAULT] = [
+            LayerItem.state.ERROR,
+            LayerItem.state.OFF_SCALE,
+            LayerItem.state.UPDATING
+        ];
+
+        LayerItem.transitionMatrix[LayerItem.state.LOADING] = [
+            LayerItem.state.LOADED,
+            LayerItem.state.ERROR,
+            LayerItem.state.UPDATING
+        ];
+
+        LayerItem.transitionMatrix[LayerItem.state.LOADED] = [
+            LayerItem.state.DEFAULT
+        ];
+
+        LayerItem.transitionMatrix[LayerItem.state.UPDATING] = [
+            LayerItem.state.LOADED,
+            LayerItem.state.ERROR
+        ];
+
+        LayerItem.transitionMatrix[LayerItem.state.ERROR] = [
+            LayerItem.state.LOADING
+        ];
+
+        LayerItem.transitionMatrix[LayerItem.state.OFF_SCALE] = [
+            LayerItem.state.ERROR,
+            LayerItem.state.DEFAULT,
+            LayerItem.state.UPDATING
+        ];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>a string with all possible layerItem state CSS classes joined by “ “; used to clear any CSS state class from the node</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        ALL_STATES_CLASS =
+            <span class="hljs-built_in">Object</span>
+                .getOwnPropertyNames(LayerItem.state)
+                .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key)</span> </span>{ <span class="hljs-keyword">return</span> LayerItem.state[key]; })
+                .join(<span class="hljs-string">" "</span>);
+
+        <span class="hljs-keyword">return</span> LayerItem;
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

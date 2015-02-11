@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Modules\globalStorage.js - ramp-pcar</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-pcar">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 5.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/LayerGroup.html">LayerGroup</a></li>
+            
+                <li><a href="../classes/LayerItem.html">LayerItem</a></li>
+            
+                <li><a href="../classes/LayerLoader.html">LayerLoader</a></li>
+            
+                <li><a href="../classes/LayoutController.html">LayoutController</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Modules\globalStorage.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/*global define, $, console, RAMP */
+
+//the &quot;use strict&quot; forces the ECMA Script 5 interpretation of the code
+
+/**
+*
+*
+* @module RAMP
+* @submodule GlobalStorage
+*
+*/
+
+/**
+* GlobalStorage class is used to store variables and exchange them between different modules. Each module has the ability to add variables to the global storage and retrieve them as needed.
+*
+* @class GlobalStorage
+*/
+
+define([&quot;dojo/_base/array&quot;, &quot;utils/util&quot;],
+    function (dojoArray, util) {
+        &quot;use strict&quot;;
+
+        var featureLayerDefaults = {
+            layerAttributes: &#x27;*&#x27;,
+            minScale: 0,
+            maxScale: 0,
+            settings: { panelEnabled: true, opacity: { enabled: true, default: 1 }, visible: true, boundingBoxVisible: false },
+            datagrid: { rowsPerPage: 50 },
+            templates: { detail: &#x27;default_feature_details&#x27;, hover: &#x27;feature_hover_maptip_template&#x27;, anchor: &#x27;anchored_map_tip&#x27;, summary: &#x27;default_grid_summary_row&#x27; }
+        },
+
+            wmsLayerDefaults = {
+                settings: { panelEnabled: true, opacity: { enabled: true, default: 1 }, visible: true, boundingBoxVisible: true }
+            },
+
+            gridColumnDefaults = { orderable: true, type: &quot;string&quot;, alignment: 1 },
+
+            basemapDefaults = { scaleCssClass: &quot;map-scale-dark&quot;, type: &quot;Topographic&quot; },
+
+            configDefaults = {
+                initialBasemapIndex: 0,
+                extendedDatagridExtentFilterEnabled: false,
+                rowsPerPage: 50,
+                navWidget: { sliderMinVal: 3, sliderMaxVal: 15, debug: false, animate: &quot;fast&quot;, cssPath: &quot;ramp-theme/navigation&quot;, skin: &quot;white&quot; },
+                zoomLevels: { min: 1, max: 17 },
+                templates: { basemap: &quot;default_basemap&quot;, globalSelectorToggles: &quot;default_selector_toggles&quot; },
+                layers: { feature: [], wms: [] },
+                divNames: { map: &quot;mainMap&quot;, navigation: &quot;map-navigation&quot;, filter: &quot;searchMapSectionBody&quot;, datagrid: &quot;gridpane&quot; },
+                advancedToolbar: { enabled: false, tools: [] },
+                mapInitFailUrl: &quot;./error-en.html&quot;
+            },
+
+            defaultRenderers = {
+                circlePoint: {
+                    geometryType: &quot;esriGeometryPoint&quot;,
+                    renderer: {
+                        type: &quot;simple&quot;,
+                        symbol: {
+                            type: &quot;esriSMS&quot;,
+                            style: &quot;esriSMSCircle&quot;,
+                            color: [67, 100, 255, 200],
+                            size: 7
+                        }
+                    }
+                },
+                solidLine: {
+                    geometryType: &quot;esriGeometryPolyline&quot;,
+                    renderer: {
+                        type: &quot;simple&quot;,
+                        symbol: {
+                            type: &quot;esriSLS&quot;,
+                            style: &quot;esriSLSSolid&quot;,
+                            color: [90, 90, 90, 200],
+                            width: 2
+                        }
+                    }
+                },
+                outlinedPoly: {
+                    geometryType: &quot;esriGeometryPolygon&quot;,
+                    renderer: {
+                        type: &quot;simple&quot;,
+                        symbol: {
+                            type: &quot;esriSFS&quot;,
+                            style: &quot;esriSFSSolid&quot;,
+                            color: [76, 76, 125, 200],
+                            outline: {
+                                type: &quot;esriSLS&quot;,
+                                style: &quot;esriSLSSolid&quot;,
+                                color: [110, 110, 110, 255],
+                                width: 1
+                            }
+                        }
+                    }
+                }
+            };
+
+        function applyDefaults(defaults, srcObj) {
+            var defaultClone = $.extend(true, {}, defaults);
+            return util.mergeRecursive(defaultClone, srcObj);
+        }
+
+        function defineProjections(proj4) {
+            // wgs84 and aux mercator are built in, add Canada Lambert and Canada Atlas Lambert
+            proj4.defs(&quot;EPSG:3978&quot;, &quot;+proj=lcc +lat_1=49 +lat_2=77 +lat_0=49 +lon_0=-95 +x_0=0 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs&quot;);
+            proj4.defs(&quot;EPSG:3979&quot;, &quot;+proj=lcc +lat_1=49 +lat_2=77 +lat_0=49 +lon_0=-95 +x_0=0 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs&quot;);
+            proj4.defs(&quot;EPSG:102100&quot;, proj4.defs(&#x27;EPSG:3857&#x27;));
+            proj4.defs(&quot;EPSG:54004&quot;, &quot;+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;);
+        }
+
+        function applyConfigDefaults(configObj) {
+            var result;
+            console.log(configObj);
+            result = applyDefaults(configDefaults, configObj);
+            result.layers.wms = dojoArray.map(result.layers.wms, function (wms) {
+                return applyDefaults(wmsLayerDefaults, wms);
+            });
+            result.basemaps = dojoArray.map(result.basemaps, function (b) {
+                return applyDefaults(basemapDefaults, b);
+            });
+            result.layers.feature = dojoArray.map(result.layers.feature, applyFeatureDefaults);
+            console.log(result);
+            return result;
+        }
+
+        function applyFeatureDefaults(featureLayer) {
+            var layer = applyDefaults(featureLayerDefaults, featureLayer);
+            layer.datagrid.gridColumns = dojoArray.map(layer.datagrid.gridColumns, function (gc) {
+                return applyDefaults(gridColumnDefaults, gc);
+            });
+            return layer;
+        }
+
+        function applyWMSDefaults(wmsLayer) {
+            var layer = applyDefaults(wmsLayerDefaults, wmsLayer);
+
+            return layer;
+        }
+
+        return {
+            init: function (configObj) {
+                var config = applyConfigDefaults(configObj);
+                RAMP.config = config;
+
+                this.layerSelectorGroups = [
+                    this.layerType.wms,
+                    this.layerType.feature
+                ];
+            },
+
+            defineProjections: defineProjections,
+            DefaultRenderers: defaultRenderers,
+            applyFeatureDefaults: applyFeatureDefaults,
+            applyWMSDefaults: applyWMSDefaults,
+
+            layerType: {
+                Basemap: &quot;basemap&quot;,
+                wms: &quot;wms_layer&quot;,
+                BoundingBox: &quot;bounding_box&quot;,
+                feature: &quot;feature_layer&quot;,
+                Static: &quot;static_layer&quot;,
+                Highlight: &quot;highlight_layer&quot;,
+                Hoverlight: &quot;hoverlight_layer&quot;,
+                Zoomlight: &quot;zoomlight_layer&quot;
+            },
+
+            // specifies knows layer groups in the reversed order;
+            layerSelectorGroups: [
+            ]
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

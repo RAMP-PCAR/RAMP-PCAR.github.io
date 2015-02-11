@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>dataLoaderGui.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>dataLoaderGui.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, console, TweenLite, TimelineLite, $, window, tmpl, jscolor, RColor, i18n, RAMP */</span>
+
+define([
+    <span class="hljs-comment">/* Dojo */</span>
+    <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/Deferred"</span>,
+
+    <span class="hljs-comment">/* Text */</span>
+    <span class="hljs-string">"dojo/text!./templates/filter_manager_template.json"</span>,
+
+    <span class="hljs-comment">/* Ramp */</span>
+
+    <span class="hljs-string">"utils/PopupManager"</span>, <span class="hljs-string">"ramp/dataLoader"</span>, <span class="hljs-string">"ramp/theme"</span>, <span class="hljs-string">"ramp/map"</span>, <span class="hljs-string">"ramp/layerLoader"</span>, <span class="hljs-string">"ramp/globalStorage"</span>,
+
+    <span class="hljs-comment">/* Util */</span>
+    <span class="hljs-string">"utils/util"</span>, <span class="hljs-string">"utils/tmplHelper"</span>, <span class="hljs-string">"utils/tmplUtil"</span>, <span class="hljs-string">"utils/array"</span>, <span class="hljs-string">"utils/dictionary"</span>
+],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+        lang, Deferred,
+        filter_manager_template,
+        PopupManager, DataLoader, Theme, RampMap, LayerLoader, GlobalStorage,
+        UtilMisc, TmplHelper, TmplUtil, UtilArray, UtilDict
+    )</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+
+        <span class="hljs-keyword">var</span> rootNode = $(<span class="hljs-string">"#searchMapSectionBody"</span>),
+            mainPopup,
+
+            loadSteps = {
+                loadServiceStep: {
+                    typeUserSelected: <span class="hljs-literal">false</span>,
+                    serviceType: <span class="hljs-literal">null</span>,
+                    url: <span class="hljs-string">""</span>
+                },
+
+                loadFileStep: {
+                    typeUserSelected: <span class="hljs-literal">false</span>,
+                    fileType: <span class="hljs-literal">null</span>,
+                    url: <span class="hljs-string">""</span>,
+                    file: <span class="hljs-literal">null</span>
+                }
+            },
+
+            symbologyPreset = {},
+
+            transitionDuration = <span class="hljs-number">0.4</span>;
+
+        filter_manager_template = <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(filter_manager_template));
+
+        PopupManager.registerPopup(rootNode, <span class="hljs-string">"click"</span>,
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                <span class="hljs-keyword">var</span> step = <span class="hljs-keyword">this</span>.handle.parents(<span class="hljs-string">".step:first"</span>),
+                    stepId = step.attr(<span class="hljs-string">"id"</span>),
+                    group = <span class="hljs-keyword">this</span>.handle.parents(<span class="hljs-string">".choice-group:first"</span>);<span class="hljs-comment">//,</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>choiceId = group.data(“choice-id”);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                group
+                    .find(<span class="hljs-string">".button-pressed"</span>)
+                    .removeClass(<span class="hljs-string">"button-pressed"</span>);
+
+                loadSteps[stepId].setChoice(<span class="hljs-keyword">this</span>.handle.data(<span class="hljs-string">"option"</span>));
+
+                d.resolve();
+            },
+            {
+                containerSelector: <span class="hljs-string">".choice-group:first"</span>,
+                handleSelector: <span class="hljs-string">".btn-option:not(.button-pressed):not(.btn-action)"</span>,
+                activeClass: <span class="hljs-string">"button-pressed"</span>,
+                openOnly: <span class="hljs-literal">true</span>,
+                useAria: <span class="hljs-literal">false</span>
+            }
+        );
+
+        PopupManager.registerPopup(rootNode, <span class="hljs-string">"click"</span>,
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                <span class="hljs-keyword">var</span> optionsContainer = <span class="hljs-keyword">this</span>.target,
+                    optionsBackground = optionsContainer.find(<span class="hljs-string">"&gt; .options-bg"</span>),
+                    options = optionsContainer.find(<span class="hljs-string">"&gt; .step-options"</span>),
+                    option = options.find(<span class="hljs-string">"&gt; ."</span> + <span class="hljs-keyword">this</span>.handle.data(<span class="hljs-string">"option"</span>)),
+                    optionStepContent,
+
+                    otherOptionButtons = <span class="hljs-keyword">this</span>.handle.parent().find(<span class="hljs-string">".button-pressed"</span>),
+
+                    currentStepContent = optionsContainer.prev(),
+                    currentOptionsContainer = rootNode.find(<span class="hljs-string">".current-step"</span>),
+
+                    step = <span class="hljs-keyword">this</span>.handle.parents(<span class="hljs-string">".step:first"</span>),
+                    stepId = step.attr(<span class="hljs-string">"id"</span>),
+
+                    retreatOptionsContainers = [],
+
+                    advanceOptionsContainers = [],
+                    lastContainer = optionsContainer,
+
+                    optionsLeftShift,
+                    leftShiftStartAdjustment,
+
+                    tl = <span class="hljs-keyword">new</span> TimelineLite({ paused: <span class="hljs-literal">true</span> }),
+
+                    loadURLStep = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">var</span> inputControlGroup,
+                            inputControl,
+                            inputControlButtons;
+
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clearStep</span><span class="hljs-params">()</span> </span>{
+                            currentOptionsContainer.removeClass(<span class="hljs-string">"error"</span>);
+                            currentStepContent.removeClass(<span class="hljs-string">"loaded error"</span>);
+                            inputControlGroup.removeClass(<span class="hljs-string">"has-feedback has-success has-error"</span>);
+
+                            currentStepContent.find(<span class="hljs-string">".btn-action"</span>).removeClass(<span class="hljs-string">"button-pressed"</span>);
+                        }
+
+                        <span class="hljs-keyword">return</span> {
+                            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                inputControlGroup = currentStepContent.find(<span class="hljs-string">".input-group"</span>);
+                                inputControl = inputControlGroup.find(<span class="hljs-string">".load-url-control"</span>);
+                                inputControlButtons = inputControlGroup.find(<span class="hljs-string">".input-group-btn:not(.browse-files)"</span>);
+                            },
+
+                            beforeLoadUrlStep: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                currentOptionsContainer
+                                    .removeClass(<span class="hljs-string">"error"</span>)
+                                    .addClass(<span class="hljs-string">"loading"</span>);
+
+                                currentStepContent.removeClass(<span class="hljs-string">"error"</span>);
+
+                                inputControlGroup.removeClass(<span class="hljs-string">"has-feedback has-success has-error"</span>);
+                            },
+
+                            successLoadUrlStep: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                tl
+                                    .call(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        inputControl.attr(<span class="hljs-string">"readonly"</span>, <span class="hljs-literal">true</span>);
+
+                                        currentOptionsContainer.removeClass(<span class="hljs-string">"loading"</span>);
+                                        currentStepContent.addClass(<span class="hljs-string">"loaded"</span>);
+                                        inputControlGroup.addClass(<span class="hljs-string">"has-feedback has-success"</span>);
+
+                                        currentStepContent
+                                            .find(<span class="hljs-string">".btn-option:not(.btn-action), .browse-button"</span>)
+                                            .attr(<span class="hljs-string">"disabled"</span>, <span class="hljs-literal">true</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>.addClass(“disabled”)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                            .end().find(<span class="hljs-string">"input[type='file']"</span>).attr(<span class="hljs-string">"disabled"</span>, <span class="hljs-literal">true</span>);
+
+                                        currentStepContent
+                                            .find(<span class="hljs-string">".glyphicon"</span>)
+                                            .css({ right: inputControlButtons.width() });
+                                    }, [], <span class="hljs-literal">null</span>)
+                                ;
+
+                                resolveTreeTransitions();
+                                executeTransitions();
+                            },
+
+                            errorLoadUrlStep: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                tl
+                                    .call(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        currentOptionsContainer
+                                            .addClass(<span class="hljs-string">"error"</span>)
+                                            .removeClass(<span class="hljs-string">"loading"</span>);
+
+                                        currentStepContent.addClass(<span class="hljs-string">"error"</span>);
+
+                                        inputControlGroup.addClass(<span class="hljs-string">"has-feedback has-error"</span>);
+
+                                        currentStepContent
+                                            .find(<span class="hljs-string">".glyphicon"</span>)
+                                            .css({ right: inputControlButtons.width() });
+                                    }, [], <span class="hljs-literal">null</span>)
+                                ;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>no need to resolve transition since there shouldn’t be any transitions on error</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                executeTransitions();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Theme.tooltipster(rootNode, null, null, { position: “left” });</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                currentStepContent.on(<span class="hljs-string">"click"</span>, <span class="hljs-string">".btn-option:not(.btn-action)"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                    currentStepContent.off(<span class="hljs-string">"click"</span>, <span class="hljs-string">".btn-option:not(.btn-action)"</span>);
+
+                                    clearStep();
+                                });
+
+                                inputControl.on(<span class="hljs-string">"input"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                    inputControl.off(<span class="hljs-string">"input"</span>);
+
+                                    clearStep();
+                                });
+
+                                currentStepContent.on(<span class="hljs-string">"click"</span>, <span class="hljs-string">"input[type='file']"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                    currentStepContent.off(<span class="hljs-string">"click"</span>, <span class="hljs-string">"input[type='file']"</span>);
+
+                                    clearStep();
+                                });
+                            },
+
+                            cancelLoadUrlStep: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                retreatOptionsContainers.push(optionsContainer); <span class="hljs-comment">// add the current options container</span>
+                                lastContainer = optionsContainer.parents(<span class="hljs-string">".step-options-container:first"</span>);
+
+                                resolveTreeTransitions();
+
+                                tl
+                                    .call(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        inputControl</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>.val(“”)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                            .attr(<span class="hljs-string">"readonly"</span>, <span class="hljs-literal">false</span>);
+
+                                        clearStep();
+
+                                        currentStepContent
+                                            .find(<span class="hljs-string">".btn-option:not(.btn-action), .browse-button"</span>)
+                                            .attr(<span class="hljs-string">"disabled"</span>, <span class="hljs-literal">false</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>.removeClass(“disabled”)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                            .end().find(<span class="hljs-string">"input[type='file']"</span>).attr(<span class="hljs-string">"disabled"</span>, <span class="hljs-literal">false</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>disable all active options in the following steps</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                        optionsContainer
+                                            .find(<span class="hljs-string">".active-option"</span>).removeClass(<span class="hljs-string">"active-option"</span>)
+                                            .end()
+                                            .find(<span class="hljs-string">".button-pressed"</span>).removeClass(<span class="hljs-string">"button-pressed"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>loadUrlControlStatusCheck(inputControl);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                    }, [], <span class="hljs-literal">null</span>, <span class="hljs-number">0</span>)
+                                ;
+
+                                executeTransitions();
+                            }
+                        };
+                    }())
+                ;
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findContainers</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> node; <span class="hljs-comment">// temp variable</span>
+
+                    optionStepContent = option.find(<span class="hljs-string">"&gt; .step-content"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>find all downstream containers that have active options including the current container;
+they will be opened</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    node = option;
+                    <span class="hljs-keyword">while</span> (node.length) {
+                        advanceOptionsContainers.push(node.parents(<span class="hljs-string">".step-options-container:first"</span>));
+                        node = node.find(<span class="hljs-string">"&gt; .step-options-container &gt; .step-options &gt; .active-option:first"</span>);
+                    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>find all downstream containers that are visible;
+they will be closed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    retreatOptionsContainers = retreatOptionsContainers
+                        .concat(
+                            optionsContainer
+                                .find(<span class="hljs-string">".step-options-container:visible"</span>)
+                                .toArray()
+                        );
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">advance</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> advanceStagger = transitionDuration / <span class="hljs-number">2</span> / advanceOptionsContainers.length; <span class="hljs-comment">// calculate advance transition stagger</span>
+
+                    option.addClass(<span class="hljs-string">"active-option"</span>); <span class="hljs-comment">// mark selected option as active</span>
+
+                    tl.addLabel(<span class="hljs-string">"advanceStart"</span>); <span class="hljs-comment">// add time label</span>
+
+                    advanceOptionsContainers.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(aoc, i)</span> </span>{
+                        <span class="hljs-keyword">var</span> optionsBackground,
+                            options,
+                            optionStepContent;
+
+                        aoc = $(aoc);
+
+                        optionsBackground = aoc.find(<span class="hljs-string">"&gt; .options-bg"</span>);
+                        options = aoc.find(<span class="hljs-string">"&gt; .step-options"</span>);
+                        optionStepContent = options.find(<span class="hljs-string">"&gt; .active-option:first &gt; .step-content"</span>);
+
+                        TweenLite.set(aoc, { display: <span class="hljs-string">"block"</span> }); <span class="hljs-comment">// unhide options container</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>re-detect the left offset if the block has been hidden before; otherwise it will be zero;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        optionsLeftShift = optionStepContent.position().left;
+
+                        tl
+                            .to(optionsBackground, <span class="hljs-number">0</span>, { height: optionStepContent.outerHeight() }, <span class="hljs-string">"advanceStart+="</span> + advanceStagger * (i))
+
+                            .set(options, { left: <span class="hljs-number">0</span> }, <span class="hljs-string">"advanceStart+="</span> + advanceStagger * (i))</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>.set(options, { left: -optionsLeftShift }, “advanceStart+=” + advanceStagger * (i))</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            .set(options.find(<span class="hljs-string">"&gt; .active-option"</span>), { display: <span class="hljs-string">"inline-block"</span> }, <span class="hljs-string">"advanceStart+="</span> + advanceStagger * (i))
+                            .set(options.find(<span class="hljs-string">"&gt; .step:not(.active-option)"</span>), { display: <span class="hljs-string">"none"</span> }, <span class="hljs-string">"advanceStart+="</span> + advanceStagger * (i))
+
+                            .to(aoc, <span class="hljs-number">0</span>, { height: optionStepContent.outerHeight(), ease: <span class="hljs-string">"easeOutCirc"</span> }, <span class="hljs-string">"advanceStart+="</span> + advanceStagger * (i))
+                            .fromTo(aoc, transitionDuration,
+                                { top: -aoc.height() },
+                                { top: <span class="hljs-number">0</span>, ease: <span class="hljs-string">"easeOutCirc"</span> },
+                                <span class="hljs-string">"advanceStart+="</span> + advanceStagger * (i))
+                            .set(aoc, { height: <span class="hljs-string">"auto"</span> }, <span class="hljs-string">"advanceStart+="</span> + advanceStagger * (i))
+                        ;
+
+                        lastContainer = aoc;
+                    });
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">retreat</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> retreatStagger = transitionDuration / <span class="hljs-number">2</span> / retreatOptionsContainers.length;
+                    leftShiftStartAdjustment = retreatOptionsContainers.length &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">"-=0.1"</span> : <span class="hljs-string">""</span>;
+
+                    retreatOptionsContainers.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(doc, i)</span> </span>{
+                        <span class="hljs-keyword">var</span> docActiveOption,
+                            docActiveOptionContent;
+
+                        doc = $(doc);
+                        docActiveOption = doc.find(<span class="hljs-string">"&gt; .step-options &gt; .step.active-option"</span>);
+                        docActiveOptionContent = docActiveOption.find(<span class="hljs-string">"&gt; .step-content"</span>);
+
+                        tl
+                            .to(doc, transitionDuration,
+                                { top: -docActiveOptionContent.outerHeight(), ease: <span class="hljs-string">"easeOutCirc"</span> },
+                                retreatStagger * (retreatOptionsContainers.length - i - <span class="hljs-number">1</span>))
+                            .set(doc, { display: <span class="hljs-string">"none"</span> })
+                        ;
+                    });
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shift</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> optionsLeftShift;
+
+                    TweenLite.set(options.find(<span class="hljs-string">"&gt; .step"</span>), { display: <span class="hljs-string">"inline-block"</span> });
+                    TweenLite.set(options, { left: -options.find(<span class="hljs-string">"&gt; .active-option"</span>).position().left });
+
+                    optionsLeftShift = optionStepContent.length &gt; <span class="hljs-number">0</span> ? optionStepContent.position().left : -<span class="hljs-number">1</span>;
+
+                    <span class="hljs-keyword">if</span> (optionsLeftShift !== -<span class="hljs-number">1</span> &amp;&amp; optionsLeftShift !== options.position().left) {
+                        tl
+                            .addLabel(<span class="hljs-string">"leftShiftStart"</span>)
+
+                            .to(optionsBackground, transitionDuration, { height: optionStepContent.outerHeight(), ease: <span class="hljs-string">"easeOutCirc"</span> }, <span class="hljs-string">"leftShiftStart"</span> + leftShiftStartAdjustment)
+
+                            .to(options, transitionDuration,
+                                { left: -optionsLeftShift, ease: <span class="hljs-string">"easeOutCirc"</span> }, <span class="hljs-string">"leftShiftStart"</span> + leftShiftStartAdjustment)
+                            .set(options.find(<span class="hljs-string">"&gt; .step"</span>), { className: <span class="hljs-string">"-=active-option"</span> }) <span class="hljs-comment">// when shifting, active-option is changing</span>
+                            .set(option, { className: <span class="hljs-string">"+=active-option"</span> })
+
+                            .set(options, { left: <span class="hljs-number">0</span> })
+                            .set(options.find(<span class="hljs-string">"&gt; .step"</span>).not(option), { display: <span class="hljs-string">"none"</span> })
+                        ;
+                    }
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resolveTreeTransitions</span><span class="hljs-params">()</span> </span>{
+                    findContainers();
+
+                    <span class="hljs-keyword">if</span> (optionsContainer.is(<span class="hljs-string">":hidden"</span>)) {
+                        advance();
+                    } <span class="hljs-keyword">else</span> {
+                        retreat();
+
+                        shift();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>drop the first container since it shouldn’t be advanced</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        UtilArray.remove(advanceOptionsContainers, <span class="hljs-number">0</span>);
+                        advance();
+                    }
+
+                    tl
+                        .set(currentOptionsContainer, { height: <span class="hljs-string">"auto"</span>, className: <span class="hljs-string">"-=current-step"</span> }, <span class="hljs-number">0</span>)
+                        .set(lastContainer, { className: <span class="hljs-string">"+=current-step"</span> }, <span class="hljs-number">0</span>)
+                    ;
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeTransitions</span><span class="hljs-params">()</span> </span>{
+                    tl
+                        .set(otherOptionButtons, { className: <span class="hljs-string">"-=button-pressed"</span> }, <span class="hljs-number">0</span>)
+                        .play();
+
+                    d.resolve();
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">someFunction</span><span class="hljs-params">(action)</span> </span>{
+                    <span class="hljs-keyword">var</span> promise;
+
+                    <span class="hljs-keyword">switch</span> (action) {
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"serviceURLcancel"</span>:
+                            loadURLStep.init();
+                            loadURLStep.cancelLoadUrlStep();
+
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"serviceURL"</span>:
+                            <span class="hljs-keyword">var</span> serviceType = loadSteps[stepId].getServiceType(),
+                                optionStepContent,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>fieldOptions = {},</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                data; <span class="hljs-comment">// a complete feature or wms layer object which has not been added to map yet</span>
+
+                            option = options.find(<span class="hljs-string">"&gt; ."</span> + serviceType + <span class="hljs-string">":first"</span>);
+                            optionStepContent = option.find(<span class="hljs-string">"&gt; .step-content"</span>);
+
+                            loadURLStep.init();
+                            loadURLStep.beforeLoadUrlStep();
+
+                            <span class="hljs-keyword">switch</span> (serviceType) {
+                                <span class="hljs-keyword">case</span> <span class="hljs-string">"option-feature"</span>:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>get data from feature layer endpoint</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                    promise = DataLoader.getFeatureLayer(loadSteps[stepId].getUrl());
+
+                                    promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        data = event;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>get data from feature layer’s legend endpoint</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                        <span class="hljs-keyword">var</span> legendPromise = DataLoader.getFeatureLayerLegend(loadSteps[stepId].getUrl());
+                                        legendPromise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(legendLookup)</span> </span>{
+                                            data.legendLookup = legendLookup;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>event.fields.forEach(function (f) { fieldOptions[f.name] = f.name; });</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                            setSelectOptions(
+                                                optionStepContent.find(<span class="hljs-string">"#featurePrimaryAttrlist"</span>),
+                                                data.fields
+                                            );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#featureStyleAttrlist”),
+   symbologyPreset
+);</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#featureColourAttrlist”),
+   { selectOne: “Select One” }
+);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                            optionStepContent.find(<span class="hljs-string">".btn-add-dataset"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                                addFeatureDataset({
+                                                    data: data,
+                                                    primary: optionStepContent.find(<span class="hljs-string">"#featurePrimaryAttrlist"</span>).val()<span class="hljs-comment">//,</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>style: optionStepContent.find(“#featureStyleAttrlist”).val(),
+colour: optionStepContent.find(“#featureColourAttrpicker”).val()</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                                });
+                                            });
+                                            loadURLStep.successLoadUrlStep();
+                                        }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                            loadURLStep.errorLoadUrlStep();
+                                        });
+                                    }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        loadURLStep.errorLoadUrlStep();
+                                    });
+
+                                    <span class="hljs-keyword">break</span>;
+
+                                <span class="hljs-keyword">case</span> <span class="hljs-string">"option-wms"</span>:
+                                    promise = DataLoader.getWmsLayerList(loadSteps[stepId].getUrl());
+
+                                    promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                        <span class="hljs-keyword">var</span> layerOptions = {};
+
+                                        data = event;
+                                        event.layers.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(l)</span> </span>{ layerOptions[l.name] = l.desc; });
+
+                                        setSelectOptions(
+                                            optionStepContent.find(<span class="hljs-string">"#wmsLayerNameAttrlist"</span>),
+                                            layerOptions
+                                        );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#wmsParserAttrlist”),
+   { selectOne: “Select One” }
+);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                        optionStepContent.find(<span class="hljs-string">".btn-add-dataset"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                            addWMSDataset({
+                                                data: data,
+                                                url: loadSteps[stepId].getUrl(),
+                                                layerName: optionStepContent.find(<span class="hljs-string">"#wmsLayerNameAttrlist"</span>).val()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>parser: optionStepContent.find(“#wmsParserAttrlist”).val()</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                            });
+                                        });
+                                        loadURLStep.successLoadUrlStep();
+                                    }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        loadURLStep.errorLoadUrlStep();
+                                    });
+
+                                    <span class="hljs-keyword">break</span>;
+                            }
+
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"fileOrURLcancel"</span>:
+                            loadURLStep.init();
+                            loadURLStep.cancelLoadUrlStep();
+
+                            <span class="hljs-keyword">break</span>;
+
+                        <span class="hljs-keyword">case</span> <span class="hljs-string">"fileOrURL"</span>:
+                            <span class="hljs-keyword">var</span> fileName = loadSteps[stepId].getFile() ? loadSteps[stepId].getFile().name : loadSteps[stepId].getFileUrl().split(<span class="hljs-string">"/"</span>).pop();
+
+                            loadURLStep.init();
+                            loadURLStep.beforeLoadUrlStep();
+
+                            promise = DataLoader.loadDataSet({
+                                url: loadSteps[stepId].getFileUrl(),
+                                file: loadSteps[stepId].getFile(),
+                                type: loadSteps[stepId].getFileType() === <span class="hljs-string">"option-shapefile"</span> ? <span class="hljs-string">"binary"</span> : <span class="hljs-string">"text"</span>
+                            });
+
+                            promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                <span class="hljs-keyword">var</span> fileType = loadSteps[stepId].getFileType(),
+                                    optionStepContent,
+                                    fieldOptions = {},
+                                    pr,
+                                    featureLayer,
+                                    data = event; <span class="hljs-comment">// either a {string} or {ArrayBuffer}; string for CSV and GeoJSON;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>console.log(event);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                option = options.find(<span class="hljs-string">"&gt; ."</span> + fileType + <span class="hljs-string">":first"</span>);
+                                optionStepContent = option.find(<span class="hljs-string">"&gt; .step-content"</span>);
+
+                                <span class="hljs-keyword">switch</span> (fileType) {
+                                    <span class="hljs-keyword">case</span> <span class="hljs-string">"option-geojson"</span>:
+                                        pr = DataLoader.buildGeoJson(data);
+
+                                        pr.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>console.log(event);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                            featureLayer = event;
+
+                                            featureLayer.fields.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(f)</span> </span>{ fieldOptions[f.name] = f.name; });
+
+                                            optionStepContent.find(<span class="hljs-string">"#geojsonDatasetNameAttrtextField"</span>).val(fileName);
+
+                                            setSelectOptions(
+                                                optionStepContent.find(<span class="hljs-string">"#geojsonPrimaryAttrlist"</span>),
+                                                fieldOptions
+                                            );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#geojsonStyleAttrlist”),
+   symbologyPreset
+);</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#geojsonColourAttrlist”),
+   { selectOne: “Select One” }
+);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                            optionStepContent.find(<span class="hljs-string">".btn-add-dataset"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                                addGeoJSONDataset({
+                                                    data: data,
+                                                    featureLayer: featureLayer,
+                                                    datasetName: optionStepContent.find(<span class="hljs-string">"#geojsonDatasetNameAttrtextField"</span>).val(),
+                                                    primary: optionStepContent.find(<span class="hljs-string">"#geojsonPrimaryAttrlist"</span>).val(),</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>style: optionStepContent.find(“#geojsonStyleAttrlist”).val(),</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                                    colour: optionStepContent.find(<span class="hljs-string">"#geojsonColourAttrpicker"</span>).val()
+                                                });
+                                            });
+                                        });
+
+                                        <span class="hljs-keyword">break</span>;
+
+                                    <span class="hljs-keyword">case</span> <span class="hljs-string">"option-csv"</span>:
+                                        <span class="hljs-keyword">var</span> rows,
+                                            delimiter = UtilMisc.detectDelimiter(data),
+                                            headers = {};
+
+                                        rows = DataLoader.csvPeek(data, delimiter);
+
+                                        rows[<span class="hljs-number">0</span>].forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(row)</span> </span>{
+                                            headers[row] = row;
+                                        });
+
+                                        optionStepContent.find(<span class="hljs-string">"#csvDatasetNameAttrtextField"</span>).val(fileName);
+
+                                        setSelectOptions(
+                                            optionStepContent.find(<span class="hljs-string">"#csvPrimaryAttrlist"</span>),
+                                            headers
+                                        );
+
+                                        setSelectOptions(
+                                            optionStepContent.find(<span class="hljs-string">"#csvLatitudeAttrlist"</span>),
+                                            headers
+                                        );
+
+                                        setSelectOptions(
+                                            optionStepContent.find(<span class="hljs-string">"#csvLongitudeAttrlist"</span>),
+                                            headers
+                                        );
+
+                                        setSelectOptions(
+                                            optionStepContent.find(<span class="hljs-string">"#csvStyleAttrlist"</span>),
+                                            symbologyPreset
+                                        );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#csvColourAttrlist”),
+   { selectOne: “Select One” }
+);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                        optionStepContent.find(<span class="hljs-string">".btn-add-dataset"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                            addCSVDataset({
+                                                data: data,
+                                                fields: rows[<span class="hljs-number">0</span>],
+                                                delimiter: delimiter,
+                                                datasetName: optionStepContent.find(<span class="hljs-string">"#csvDatasetNameAttrtextField"</span>).val(),
+                                                primary: optionStepContent.find(<span class="hljs-string">"#csvPrimaryAttrlist"</span>).val(),
+                                                lat: optionStepContent.find(<span class="hljs-string">"#csvLatitudeAttrlist"</span>).val(),
+                                                lon: optionStepContent.find(<span class="hljs-string">"#csvLongitudeAttrlist"</span>).val(),
+                                                colour: optionStepContent.find(<span class="hljs-string">"#csvColourAttrpicker"</span>).val()
+                                            });
+                                        });
+
+                                        <span class="hljs-keyword">break</span>;
+
+                                    <span class="hljs-keyword">case</span> <span class="hljs-string">"option-shapefile"</span>:
+
+                                        pr = DataLoader.buildShapefile(data);
+
+                                        pr.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                                            featureLayer = event;
+
+                                            featureLayer.fields.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(f)</span> </span>{ fieldOptions[f.name] = f.name; });
+
+                                            optionStepContent.find(<span class="hljs-string">"#shapefileDatasetNameAttrtextField"</span>).val(fileName);
+
+                                            setSelectOptions(
+                                                optionStepContent.find(<span class="hljs-string">"#shapefilePrimaryAttrlist"</span>),
+                                                fieldOptions
+                                            );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#shapefileStyleAttrlist”),
+   symbologyPreset
+);</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>setSelectOptions(
+   optionStepContent.find(“#shapefileColourAttrlist”),
+   { selectOne: “Select One” }
+);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+                                            optionStepContent.find(<span class="hljs-string">".btn-add-dataset"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                                addShapefileDataset({
+                                                    data: data,
+                                                    featureLayer: featureLayer,
+                                                    datasetName: optionStepContent.find(<span class="hljs-string">"#shapefileDatasetNameAttrtextField"</span>).val(),
+                                                    primary: optionStepContent.find(<span class="hljs-string">"#shapefilePrimaryAttrlist"</span>).val(),</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>style: optionStepContent.find(“#shapefileStyleAttrlist”).val(),</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                                    colour: optionStepContent.find(<span class="hljs-string">"#shapefileColourAttrpicker"</span>).val()
+                                                });
+                                            });
+                                        });
+
+                                        <span class="hljs-keyword">break</span>;
+                                }
+
+                                loadURLStep.successLoadUrlStep();
+                            }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                loadURLStep.errorLoadUrlStep();
+                            });
+
+                            <span class="hljs-keyword">break</span>;
+                    }
+                }
+
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.handle.data(<span class="hljs-string">"action"</span>)) {
+                    someFunction(<span class="hljs-keyword">this</span>.handle.data(<span class="hljs-string">"action"</span>));
+                } <span class="hljs-keyword">else</span> {
+                    resolveTreeTransitions();
+                    executeTransitions();
+                }
+            },
+            {
+                containerSelector: <span class="hljs-string">".step:first"</span>,
+                handleSelector: <span class="hljs-string">".btn-action:not(.button-pressed)"</span>,
+                targetSelector: <span class="hljs-string">"&gt; .step-options-container"</span>,
+                activeClass: <span class="hljs-string">"button-pressed"</span>,
+                openOnly: <span class="hljs-literal">true</span>
+            }
+        );
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSelectOptions</span><span class="hljs-params">(select, options)</span> </span>{
+            select.empty(); <span class="hljs-comment">// remove old options</span>
+
+            UtilDict.forEachEntry(options, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key, value)</span> </span>{
+                select
+                    .append($(<span class="hljs-string">"&lt;option&gt;&lt;/option&gt;"</span>)
+                    .attr(<span class="hljs-string">"value"</span>, key).text(value))
+                ;
+            });
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addFeatureDataset</span><span class="hljs-params">(obj)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>TODO: set symbology and colour on feature layer (obj.data)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            <span class="hljs-built_in">console</span>.log(obj);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>make config.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            <span class="hljs-keyword">var</span> newConfig = {
+                id: LayerLoader.nextId(),
+                displayName: obj.data.layerName,
+                nameField: obj.data.fields[<span class="hljs-built_in">parseInt</span>(obj.primary)],
+                datagrid: DataLoader.createDatagridConfig(obj.data.fields),
+                symbology: DataLoader.createSymbologyConfig(obj.data.renderer, obj.data.legendLookup),                
+                url: obj.data.layerUrl
+            }, featureLayer;
+
+            newConfig = GlobalStorage.applyFeatureDefaults(newConfig);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>make layer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            featureLayer = RampMap.makeFeatureLayer(newConfig, <span class="hljs-literal">true</span>);
+            RAMP.config.layers.feature.push(newConfig);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>console.log(obj);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            LayerLoader.loadLayer(featureLayer);
+
+            mainPopup.close();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addWMSDataset</span><span class="hljs-params">(obj)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>TODO: set request parser for (obj.data)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> wmsConfig,
+                wmslayer,
+                layer;
+
+            layer = UtilArray.find(obj.data.layers,
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(l)</span> </span>{
+                    <span class="hljs-keyword">return</span> l.name === obj.layerName;
+                });
+
+            wmsConfig = {
+                id: LayerLoader.nextId(),
+                displayName: layer.desc,
+                format: <span class="hljs-string">"png"</span>,
+                layerName: obj.layerName,
+                imageUrl: <span class="hljs-string">"assets/images/wms.png"</span>,
+                url: obj.url,
+                legendMimeType: <span class="hljs-string">"image/jpeg"</span>
+            };
+
+            <span class="hljs-keyword">if</span> (layer.queryable) {
+                wmsConfig.featureInfo = {
+                    parser: <span class="hljs-string">"stringParse"</span>,
+                    mimeType: <span class="hljs-string">"text/plain"</span>
+                };
+            }
+
+            wmsConfig = GlobalStorage.applyWMSDefaults(wmsConfig);
+
+            wmslayer = RampMap.makeWmsLayer(wmsConfig, <span class="hljs-literal">true</span>);
+            RAMP.config.layers.wms.push(wmsConfig);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>console.log(obj);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            LayerLoader.loadLayer(wmslayer);
+
+            mainPopup.close();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_template</span><span class="hljs-params">(key, data)</span> </span>{
+            tmpl.cache = {};
+            tmpl.templates = filter_manager_template;
+
+            data = data || {};
+            data.fn = TmplUtil;
+
+            <span class="hljs-keyword">return</span> tmpl(key, data);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addCSVDataset</span><span class="hljs-params">(obj)</span> </span>{
+            <span class="hljs-keyword">var</span> promise,
+                rgbColour = UtilMisc.hexToRgb(obj.colour),
+                iconTemplate = _template(<span class="hljs-string">"a_d_icon_circlePoint"</span>, obj);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>console.log(iconTemplate);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            promise = DataLoader.buildCsv(obj.data, {
+                latfield: obj.lat,
+                lonfield: obj.lon,
+                delimiter: obj.delimiter,
+
+                fields: obj.fields
+            });
+
+            promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                <span class="hljs-keyword">var</span> fl = event;
+
+                DataLoader.enhanceFileFeatureLayer(fl, {
+                    renderer: <span class="hljs-string">"circlePoint"</span>,
+                    colour: [
+                        rgbColour.r,
+                        rgbColour.g,
+                        rgbColour.b,
+                        <span class="hljs-number">255</span>
+                    ],
+                    nameField: obj.primary,
+                    icon: iconTemplate,
+                    datasetName: obj.datasetName,
+                    fields: obj.fields
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>TODO: set symbology and colour on feature layer (obj.data)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                LayerLoader.loadLayer(fl);
+
+                mainPopup.close();
+            });
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addGeoJSONDataset</span><span class="hljs-params">(obj)</span> </span>{
+            <span class="hljs-keyword">var</span> rgbColour = UtilMisc.hexToRgb(obj.colour),
+                iconTemplate = _template(<span class="hljs-string">"a_d_icon_"</span> + obj.featureLayer.renderer._RAMP_rendererType, obj);
+
+            DataLoader.enhanceFileFeatureLayer(obj.featureLayer, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>renderer: obj.style,</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                colour: [
+                    rgbColour.r,
+                    rgbColour.g,
+                    rgbColour.b,
+                    <span class="hljs-number">255</span>
+                ],
+                nameField: obj.primary,
+                icon: iconTemplate,
+                datasetName: obj.datasetName
+            });
+
+            LayerLoader.loadLayer(obj.featureLayer);
+
+            mainPopup.close();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addShapefileDataset</span><span class="hljs-params">(obj)</span> </span>{
+            <span class="hljs-keyword">var</span> rgbColour = UtilMisc.hexToRgb(obj.colour),
+                iconTemplate = _template(<span class="hljs-string">"a_d_icon_"</span> + obj.featureLayer.renderer._RAMP_rendererType, obj);
+
+            DataLoader.enhanceFileFeatureLayer(obj.featureLayer, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>renderer: obj.style,</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                colour: [
+                    rgbColour.r,
+                    rgbColour.g,
+                    rgbColour.b,
+                    <span class="hljs-number">255</span>
+                ],
+                nameField: obj.primary,
+                icon: iconTemplate,
+                datasetName: obj.datasetName
+            });
+
+            LayerLoader.loadLayer(obj.featureLayer);
+
+            mainPopup.close();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reset</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">var</span> section;
+
+            tmpl.cache = {};
+            tmpl.templates = filter_manager_template;
+
+            section = tmpl(<span class="hljs-string">'add_dataset_content_template'</span>, {});
+
+            rootNode
+                .find(<span class="hljs-string">".add-dataset-content"</span>)
+                .replaceWith(section)
+            ;
+
+            rootNode
+                .find(<span class="hljs-string">"input.color"</span>)
+                .each(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, picker)</span> </span>{
+                    <span class="hljs-keyword">var</span> node = $(picker),
+                        swatch = node.parents(<span class="hljs-string">".color-picker-container:first"</span>).find(<span class="hljs-string">"&gt; .color-picker-swatch"</span>);
+
+                    picker = <span class="hljs-keyword">new</span> jscolor.color(picker, {
+                        pickerPosition: <span class="hljs-string">"top"</span>,
+                        styleElement: node.attr(<span class="hljs-string">"id"</span>) + <span class="hljs-string">"Swatch"</span>
+                    });
+
+                    picker.fromString((<span class="hljs-keyword">new</span> RColor()).get(<span class="hljs-literal">true</span>).slice(<span class="hljs-number">1</span>));
+
+                    swatch.on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        picker.showPicker();
+                    });
+                })
+            ;
+
+            UtilMisc.styleBrowseFilesButton(rootNode.find(<span class="hljs-string">".browse-files"</span>));
+
+            loadSteps.loadServiceStep = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> step = rootNode.find(<span class="hljs-string">"#loadServiceStep"</span>),
+                    stepContent = step.find(<span class="hljs-string">".step-content"</span>),
+                    choiceButtons = stepContent.find(<span class="hljs-string">".choice-group .btn-option"</span>),
+
+                    inputControl = stepContent.find(<span class="hljs-string">"#serviceURLinput"</span>),
+                    submitButton = stepContent.find(<span class="hljs-string">"#serviceURLinputSubmit"</span>),
+
+                    typeUserSelected = <span class="hljs-literal">false</span>,
+                    serviceType = <span class="hljs-literal">null</span>,
+                    serviceUrl = <span class="hljs-string">""</span>
+                ;
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkStepStatus</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">if</span> (serviceUrl !== <span class="hljs-string">""</span> &amp;&amp; !serviceType &amp;&amp; !typeUserSelected) {
+                        <span class="hljs-keyword">if</span> (serviceUrl.match(<span class="hljs-regexp">/ArcGIS\/rest\/services/ig</span>)) {
+                            choiceButtons
+                                .removeClass(<span class="hljs-string">"button-pressed"</span>)
+                                .filter(<span class="hljs-string">"button[data-option='option-feature']"</span>)
+                                .addClass(<span class="hljs-string">"button-pressed"</span>);
+
+                            serviceType = <span class="hljs-string">"option-feature"</span>;
+                        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (serviceUrl.match(<span class="hljs-regexp">/wms/ig</span>)) {
+                            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Z: wms?"</span>);
+                        }
+                    }
+
+                    submitButton.toggleClass(<span class="hljs-string">"disabled"</span>, (!serviceType || serviceUrl === <span class="hljs-string">""</span>));
+                    submitButton.attr(<span class="hljs-string">"disabled"</span>, (!serviceType || serviceUrl === <span class="hljs-string">""</span>));
+
+                    <span class="hljs-keyword">if</span> (serviceUrl === <span class="hljs-string">""</span> &amp;&amp; !typeUserSelected) {
+                        serviceType = <span class="hljs-literal">null</span>;
+                        choiceButtons
+                            .removeClass(<span class="hljs-string">"button-pressed"</span>);
+                    }
+                }
+
+                inputControl.on(<span class="hljs-string">"input"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                    serviceUrl = $(event.target).val();
+                    checkStepStatus();
+                });
+
+                <span class="hljs-keyword">return</span> {
+                    setChoice: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                        serviceType = value;
+                        typeUserSelected = <span class="hljs-literal">true</span>;
+
+                        checkStepStatus();
+                    },
+
+                    getServiceType: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">return</span> serviceType;
+                    },
+
+                    getUrl: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">return</span> serviceUrl;
+                    }
+                };
+            }());
+
+            loadSteps.loadFileStep = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> step = rootNode.find(<span class="hljs-string">"#loadFileStep"</span>),
+                    stepContent = step.find(<span class="hljs-string">".step-content"</span>),
+                    choiceButtons = stepContent.find(<span class="hljs-string">".choice-group .btn-option"</span>),
+
+                    inputControl = stepContent.find(<span class="hljs-string">"#fileOrURLinput"</span>),
+                    submitButton = stepContent.find(<span class="hljs-string">"#fileOrURLinputSubmit"</span>),
+
+                    browsefiles = stepContent.find(<span class="hljs-string">".browse-files"</span>),
+                    browseControl = stepContent.find(<span class="hljs-string">".browse-files input[type='file']"</span>),
+                    pseudoBrowseControl = stepContent.find(<span class="hljs-string">"#fileOrURLpseudoBrowse"</span>),
+
+                    typeUserSelected = <span class="hljs-literal">false</span>,
+                    fileType = <span class="hljs-literal">null</span>,
+                    file = <span class="hljs-literal">null</span>,
+                    fileUrl = <span class="hljs-string">""</span>
+                ;
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkStepStatus</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">var</span> fileName = fileUrl || (file ? file.name : <span class="hljs-literal">null</span>) || <span class="hljs-string">""</span>;
+
+                    <span class="hljs-keyword">if</span> (!typeUserSelected) {
+                        <span class="hljs-keyword">if</span> (fileName.endsWith(<span class="hljs-string">".csv"</span>)) {
+                            fileType = <span class="hljs-string">"option-csv"</span>;
+
+                            choiceButtons
+                                .removeClass(<span class="hljs-string">"button-pressed"</span>)
+                                .filter(<span class="hljs-string">"button[data-option='option-csv']"</span>)
+                                .addClass(<span class="hljs-string">"button-pressed"</span>);
+                        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (fileName.endsWith(<span class="hljs-string">".json"</span>)) {
+                            fileType = <span class="hljs-string">"option-geojson"</span>;
+
+                            choiceButtons
+                                .removeClass(<span class="hljs-string">"button-pressed"</span>)
+                                .filter(<span class="hljs-string">"button[data-option='option-geojson']"</span>)
+                                .addClass(<span class="hljs-string">"button-pressed"</span>);
+                        } <span class="hljs-keyword">else</span> {
+                            fileType = <span class="hljs-literal">null</span>;
+                            choiceButtons
+                                .removeClass(<span class="hljs-string">"button-pressed"</span>);
+                        }
+                    }
+
+                    submitButton.toggleClass(<span class="hljs-string">"disabled"</span>, (!fileType || (!file &amp;&amp; fileUrl === <span class="hljs-string">""</span>)));
+                    submitButton.attr(<span class="hljs-string">"disabled"</span>, (!fileType || (!file &amp;&amp; fileUrl === <span class="hljs-string">""</span>)));
+
+                    <span class="hljs-keyword">if</span> (fileUrl === <span class="hljs-string">""</span> &amp;&amp; !file &amp;&amp; !typeUserSelected) {
+                        fileType = <span class="hljs-literal">null</span>;
+                        choiceButtons
+                            .removeClass(<span class="hljs-string">"button-pressed"</span>);
+                    }
+                }
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resetFormElement</span><span class="hljs-params">(e)</span> </span>{
+                    e.wrap(<span class="hljs-string">'&lt;form&gt;'</span>).closest(<span class="hljs-string">'form'</span>).get(<span class="hljs-number">0</span>).reset();
+                    e.unwrap();
+                }
+
+                inputControl.on(<span class="hljs-string">"input"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                    fileUrl = $(event.target).val();
+                    file = <span class="hljs-literal">null</span>;
+                    resetFormElement(browseControl);
+                    pseudoBrowseControl.removeClass(<span class="hljs-string">"selected"</span>);
+                    checkStepStatus();
+                });
+
+                browseControl.on(<span class="hljs-string">"change"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+                    file = event.target.files[<span class="hljs-number">0</span>];
+                    inputControl.val(file.name);
+                    fileUrl = <span class="hljs-string">''</span>;
+                    pseudoBrowseControl.addClass(<span class="hljs-string">"selected"</span>);
+                    checkStepStatus();
+                });
+
+                <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">window</span>.FileReader) {
+                    browseControl.remove();
+                    pseudoBrowseControl.attr(<span class="hljs-string">"disabled"</span>, <span class="hljs-literal">true</span>);
+                    browsefiles
+                        .attr({
+                            title: <span class="hljs-string">"You have IE9"</span>
+                        })
+                        .addClass(<span class="hljs-string">"_tooltip"</span>);
+                    Theme.tooltipster(browsefiles.parent());
+                }
+
+                <span class="hljs-keyword">return</span> {
+                    setChoice: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                        fileType = value;
+                        typeUserSelected = <span class="hljs-literal">true</span>;
+
+                        checkStepStatus();
+                    },
+
+                    getFileType: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">return</span> fileType;
+                    },
+
+                    getFileUrl: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">return</span> fileUrl;
+                    },
+
+                    getFile: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">return</span> file;
+                    }
+                };
+            }());
+        }
+
+        <span class="hljs-keyword">return</span> {
+            init: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                reset();
+
+                mainPopup = PopupManager.registerPopup(rootNode.find(<span class="hljs-string">"#addDatasetToggle"</span>), <span class="hljs-string">"click"</span>,
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                        TweenLite.to(<span class="hljs-keyword">this</span>.target, transitionDuration / <span class="hljs-number">2</span>,
+                            {
+                                autoAlpha: <span class="hljs-number">1</span>, ease: <span class="hljs-string">"easeOutCirc"</span>,
+                                onComplete: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                    <span class="hljs-keyword">this</span>.target.focus();
+                                }
+                            });
+
+                        d.resolve();
+                    },
+                    {
+                        closeHandler: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                            TweenLite.to(<span class="hljs-keyword">this</span>.target, transitionDuration / <span class="hljs-number">2</span>, { autoAlpha: <span class="hljs-number">0</span>, ease: <span class="hljs-string">"easeInCirc"</span> });
+
+                            reset();
+                            d.resolve();
+                        },
+                        target: rootNode.find(<span class="hljs-string">"#add-dataset-section-container"</span>),
+                        activeClass: <span class="hljs-string">"button-pressed"</span>,
+                        resetFocusOnClose: <span class="hljs-literal">true</span>
+                    }
+                );
+
+                UtilDict.forEachEntry(GlobalStorage.DefaultRenderers,
+                    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key)</span> </span>{
+                        symbologyPreset[key] = i18n.t(<span class="hljs-string">"presets.defaultRenderers."</span> + key);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>symbologyPreset[key] = value.title;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    }
+                );
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

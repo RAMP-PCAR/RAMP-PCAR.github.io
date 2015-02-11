@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Modules\dataLoader.js - ramp-pcar</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-pcar">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 5.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/LayerGroup.html">LayerGroup</a></li>
+            
+                <li><a href="../classes/LayerItem.html">LayerItem</a></li>
+            
+                <li><a href="../classes/LayerLoader.html">LayerLoader</a></li>
+            
+                <li><a href="../classes/LayoutController.html">LayoutController</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Modules\dataLoader.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/* global define, console, Terraformer, shp, csv2geojson, RAMP, ArrayBuffer, Uint16Array */
+
+/**
+* A module for loading from web services and local files.  Fetches data via File API (IE9 is currently not supported) or
+* via XmlHttpRequest.  Handles GeoJSON, Shapefiles and CSV currently.  Includes utilities for parsing files into GeoJSON
+* (currently the selected intermediate format) and converting GeoJSON into FeatureLayers for consumption by the ESRI JS
+* API.
+*
+* @module RAMP
+* @submodule DataLoader
+* @uses dojo/Deferred 
+* @uses dojo/query
+* @uses dojo/_base/array
+* @uses esri/request
+* @uses esri/SpatialReference
+* @uses esri/layers/FeatureLayer
+* @uses esri/renderers/SimpleRenderer
+* @uses ramp/layerLoader
+* @uses ramp/globalStorage
+* @uses ramp/map
+* @uses utils/util
+*/
+
+define([
+        &quot;dojo/Deferred&quot;, &quot;dojo/query&quot;, &quot;dojo/_base/array&quot;,
+        &quot;esri/request&quot;, &quot;esri/SpatialReference&quot;, &quot;esri/layers/FeatureLayer&quot;, &quot;esri/renderers/SimpleRenderer&quot;,
+        &quot;ramp/layerLoader&quot;, &quot;ramp/globalStorage&quot;, &quot;ramp/map&quot;,
+        &quot;utils/util&quot;
+],
+    function (
+            Deferred, query, dojoArray,
+            EsriRequest, SpatialReference, FeatureLayer, SimpleRenderer,
+            LayerLoader, GlobalStorage, RampMap,
+            Util
+        ) {
+        &quot;use strict&quot;;
+
+        /**
+        * Maps GeoJSON geometry types to a set of default renders defined in GlobalStorage.DefaultRenders
+        * @property featureTypeToRenderer {Object}
+        * @private
+        */
+        var featureTypeToRenderer = {
+            Point: &quot;circlePoint&quot;, MultiPoint: &quot;circlePoint&quot;,
+            LineString: &quot;solidLine&quot;, MultiLineString: &quot;solidLine&quot;,
+            Polygon: &quot;outlinedPoly&quot;, MultiPolygon: &quot;outlinedPoly&quot;
+        };
+
+        /**
+        * Loads a dataset using async calls, returns a promise which resolves with the dataset requested.
+        * Datasets may be loaded from URLs or via the File API and depending on the options will be loaded
+        * into a string or an ArrayBuffer.
+        *
+        * @param {Object} args Arguments object, should contain either {string} url or {File} file and optionally
+        *                      {string} type as &quot;text&quot; or &quot;binary&quot; (text by default)
+        * @returns {Promise} a Promise object resolving with either a {string} or {ArrayBuffer}
+        */
+        function loadDataSet(args) {
+            var def = new Deferred(), promise;
+
+            if (args.file) {
+                if (args.url) {
+                    throw new Error(&quot;Either url or file should be specified, not both&quot;);
+                }
+
+                if (args.type === &quot;binary&quot;) {
+                    promise = Util.readFileAsArrayBuffer(args.file);
+                } else {
+                    promise = Util.readFileAsText(args.file);
+                }
+
+                promise.then(function (data) { def.resolve(data); }, function (error) { def.reject(error); });
+            } else if (args.url) {
+                try {
+                    promise = (new EsriRequest({ url: args.url, handleAs: &quot;text&quot; })).promise;
+                } catch (e) {
+                    def.reject(e);
+                }
+
+                promise.then(
+                    function (data) {
+                        // http://updates.html5rocks.com/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
+                        function str2ab(str) {
+                            var buf = new ArrayBuffer(str.length * 2), // 2 bytes for each char
+                                bufView = new Uint16Array(buf),
+                                i = 0, j = 0, strLen = str.length, code;
+
+                            while (i &lt; strLen) {
+                                // jshint bitwise:false
+                                code = str.charCodeAt(i++);
+                                if (code &amp; 0xff00) {
+                                    bufView[j++] = (0xff00 &amp; code) &gt;&gt; 8;
+                                }
+                                bufView[j++] = 0xff &amp; code;
+                                // jshint bitwise:true
+                            }
+
+                            return buf.slice(0,j);
+                        }
+
+                        if (args.type === &#x27;binary&#x27;) {
+                            def.resolve(str2ab(data));
+                            return;
+                        }
+                        def.resolve(data);
+                    },
+                    function (error) { def.reject(error); }
+                );
+            } else {
+                throw new Error(&quot;One of url or file should be specified&quot;);
+            }
+
+            return def.promise;
+        }
+
+        /**
+        * Fetch relevant data from a single feature layer endpoint.  Returns a promise which
+        * resolves with a partial list of properties extracted from the endpoint.
+        *
+        * @param {string} featureLayerEndpoint a URL pointing to an ESRI Feature Layer
+        * @returns {Promise} a promise resolving with an object containing basic properties for the layer
+        */
+        function getFeatureLayer(featureLayerEndpoint) {
+            var def = new Deferred(), promise;
+
+            try {
+                promise = (new EsriRequest({ url: featureLayerEndpoint + &#x27;?f=json&#x27; })).promise;
+            } catch (e) {
+                def.reject(e);
+            }
+
+            promise.then(
+                function (data) {
+                    var res = {
+                        layerId: data.id,  //TODO verifiy this.  i think this is the index.  we would want to use autoID?
+                        layerName: data.name,
+                        layerUrl: featureLayerEndpoint,
+                        geometryType: data.geometryType,
+                        fields: dojoArray.map(data.fields, function (x) { return x.name; }),
+                        renderer: data.drawingInfo.renderer
+                    };
+
+                    def.resolve(res);
+                },
+                function (error) {
+                    console.log(error);
+                    def.reject(error);
+                }
+            );
+
+            return def.promise;
+        }
+
+        /**
+        * Fetch relevant data from a legend related to a feature layer endpoint.  Returns a promise which
+        * resolves with a partial list of properties extracted from the endpoint.
+        *
+        * @param {string} featureLayerEndpoint a URL pointing to an ESRI Feature Layer
+        * @returns {Promise} a promise resolving with an object mapping legend labels to data URLs for those labels
+        */
+        function getFeatureLayerLegend(featureLayerEndpoint) {
+            var def = new Deferred(), promise, legendUrl, idx, layerIdx;
+
+            //snip off last slash if there
+            idx = featureLayerEndpoint.indexOf(&#x27;/&#x27;, featureLayerEndpoint.length - 1);
+            if (idx &gt; -1) {
+                legendUrl = featureLayerEndpoint.substring(0, idx - 1);
+            } else {
+                legendUrl = featureLayerEndpoint;
+            }
+
+            //snip off &amp; store layer index, add legend to url
+            idx = legendUrl.lastIndexOf(&#x27;/&#x27;);
+            layerIdx = parseInt(legendUrl.substring(idx + 1));
+            legendUrl = legendUrl.substring(0, idx) + &#x27;/legend?f=json&#x27;;
+
+            try {
+                promise = (new EsriRequest({ url: legendUrl })).promise;
+            } catch (e) {
+                def.reject(e);
+            }
+
+            promise.then(
+                function (data) {
+                    //find our layer in the legend
+                    var res = {};
+                    dojoArray.forEach(data.layers, function (layer) {
+                        if (layer.layerId === layerIdx) {
+                            dojoArray.forEach(layer.legend, function (legendItem) {
+                                res[legendItem.label] = &quot;data:&quot; + legendItem.contentType + &#x27;;base64,&#x27; + legendItem.imageData;
+                            });
+                        }
+                    });
+
+                    def.resolve(res);
+                },
+                function (error) {
+                    console.log(error);
+                    def.reject(error);
+                }
+            );
+
+            return def.promise;
+        }
+
+        /**
+        * Fetch layer data from a WMS endpoint.  This method will execute a WMS GetCapabilities
+        * request against the specified URL, it requests WMS 1.3 and it is capable of parsing
+        * 1.3 or 1.1.1 responses.  It returns a promise which will resolve with basic layer
+        * metadata and querying information.
+        *
+        * metadata response format:
+        *   { queryTypes: [mimeType], layers: [{name, desc, queryable(bool)}] }
+        *
+        * @param {string} wmsEndpoint a URL pointing to a WMS server (it must not include a query string)
+        * @returns {Promise} a promise resolving with a metadata object (as specified above)
+        */
+        function getWmsLayerList(wmsEndpoint) {
+            var def = new Deferred(), promise;
+
+            try {
+                promise = (new EsriRequest({ url: wmsEndpoint + &#x27;?service=WMS&amp;version=1.3&amp;request=GetCapabilities&#x27;, handleAs: &#x27;xml&#x27; })).promise;
+            } catch (e) {
+                def.reject(e);
+            }
+
+            // there might already be a way to do this in the parsing API
+            // I don&#x27;t know XML parsing well enough (and I don&#x27;t want to)
+            function getImmediateChild(node, childName) {
+                var i;
+                for (i = 0; i &lt; node.childNodes.length; ++i) {
+                    if (node.childNodes[i].nodeName === childName) {
+                        return node.childNodes[i];
+                    }
+                }
+                return undefined;
+            }
+
+            promise.then(
+                function (data) {
+                    var layers, res = {};
+
+                    try {
+                        layers = dojoArray.map(query(&#x27;Layer &gt; Name&#x27;, data), function (nameNode) { return nameNode.parentNode; });
+                        res.layers = dojoArray.map(layers, function (x) {
+                            var name = getImmediateChild(x, &#x27;Name&#x27;).textContent,
+                                titleNode = getImmediateChild(x, &#x27;Title&#x27;);
+                            return {
+                                name: name,
+                                desc: titleNode ? titleNode.textContent : name,
+                                queryable: x.getAttribute(&#x27;queryable&#x27;) === &#x27;1&#x27;
+                            };
+                        });
+                        res.queryTypes = dojoArray.map(query(&#x27;GetFeatureInfo &gt; Format&#x27;, data), function (node) { return node.textContent; });
+                    } catch (e) {
+                        def.reject(e);
+                    }
+
+                    def.resolve(res);
+                },
+                function (error) {
+                    console.log(error);
+                    def.reject(error);
+                }
+            );
+
+            return def.promise;
+        }
+
+        /**
+        * Performs in place assignment of integer ids for a GeoJSON FeatureCollection.
+        */
+        function assignIds(geoJson) {
+            if (geoJson.type !== &#x27;FeatureCollection&#x27;) {
+                throw new Error(&quot;Assignment can only be performed on FeatureCollections&quot;);
+            }
+            dojoArray.forEach(geoJson.features, function (val, idx) {
+                if (typeof val.id === &quot;undefined&quot;) {
+                    val.id = idx;
+                }
+            });
+        }
+
+        /**
+         * Extracts fields from the first feature in the feature collection, does no
+         * guesswork on property types and calls everything a string.
+         */
+        function extractFields(geoJson) {
+            if (geoJson.features.length &lt; 1) {
+                throw new Error(&quot;Field extraction requires at least one feature&quot;);
+            }
+
+            return dojoArray.map(Object.keys(geoJson.features[0].properties), function (prop) {
+                return { name: prop, type: &quot;esriFieldTypeString&quot; };
+            });
+        }
+
+        /**
+        * Will generate a generic datagrid config node for a set of layer attributes.
+        *
+        * @param {Array} fields an array of attribute fields for a layer
+        * @returns {Object} an JSON config object for feature datagrid
+        */
+        function createDatagridConfig(fields) {
+            function makeField(id, fn, wd, ttl, tp) {
+                return {
+                    id: id,
+                    fieldName: fn,
+                    width: wd,
+                    orderable: false,
+                    type: &#x27;string&#x27;,
+                    alignment: 0,
+                    title: ttl,
+                    columnTemplate: tp
+                };
+            }
+
+            var dg = {
+                rowsPerPage: 50,
+                gridColumns: []
+            };
+
+            dg.gridColumns.push(makeField(&#x27;iconCol&#x27;, &#x27;&#x27;, &#x27;50px&#x27;, &#x27;Icon&#x27;, &#x27;graphic_icon&#x27;));
+            dg.gridColumns.push(makeField(&#x27;detailsCol&#x27;, &#x27;&#x27;, &#x27;60px&#x27;, &#x27;Details&#x27;, &#x27;details_button&#x27;));
+
+            dojoArray.forEach(fields, function (field, idx) {
+                dg.gridColumns.push(makeField(&quot;col&quot; + idx.toString(), field, &#x27;100px&#x27;, field, &#x27;title_span&#x27;));
+            });
+
+            return dg;
+        }
+
+        /**
+        * Will generate a symbology config node for a ESRI feature service.
+        * Uses the information from the feature layers renderer JSON definition
+        *
+        * @param {Object} renderer renderer object from feature layer endpoint
+        * @param {Object} legendLookup object that maps legend label to data url of legend image
+        * @returns {Object} an JSON config object for feature symbology
+        */
+        function createSymbologyConfig(renderer, legendLookup) {
+            var symb = {
+                type: renderer.type
+            };
+
+            switch (symb.type) {
+                case &quot;simple&quot;:
+                    symb.label = renderer.label;
+                    symb.imageUrl = legendLookup[renderer.label];
+
+                    break;
+
+                case &quot;uniqueValue&quot;:
+                    if (renderer.defaultLabel) {
+                        symb.defaultImageUrl = legendLookup[renderer.defaultLabel];
+                    }
+                    symb.field1 = renderer.field1;
+                    symb.field2 = renderer.field2;
+                    symb.field3 = renderer.field3;
+                    symb.valueMaps = dojoArray.map(renderer.uniqueValueInfos, function (uvi) {
+                        return {
+                            label: uvi.label,
+                            value: uvi.value,
+                            imageUrl: legendLookup[uvi.label]
+                        };
+                    });
+
+                    break;
+                case &quot;classBreaks&quot;:
+                    if (renderer.defaultLabel) {
+                        symb.defaultImageUrl = legendLookup[renderer.defaultLabel];
+                    }
+                    symb.field = renderer.field;
+                    symb.minValue = renderer.minValue;
+                    symb.rangeMaps = dojoArray.map(renderer.classBreakInfos, function (cbi) {
+                        return {
+                            label: cbi.label,
+                            maxValue: cbi.classMaxValue,
+                            imageUrl: legendLookup[cbi.label]
+                        };
+                    });
+
+                    break;
+                default:
+                    //Renderer we dont support
+                    console.log(&#x27;encountered unsupported renderer type: &#x27; + symb.type);
+                    //TODO make a stupid basic renderer to prevent things from breaking?
+            }
+
+            return symb;
+        }
+
+        /**
+        * Peek at the CSV output (useful for checking headers).
+        *
+        * @param {string} data a string containing the CSV (or any DSV) data
+        * @param {string} delimiter the delimiter used by the data, unlike other functions this will not guess a delimiter and
+        * this parameter is required
+        * @returns {Array} an array of arrays containing the parsed CSV
+        */
+        function csvPeek(data, delimiter) {
+            return csv2geojson.dsv(delimiter).parseRows(data);
+        }
+
+        /**
+        * Converts a GeoJSON object into a FeatureLayer.  Expects GeoJSON to be formed as a FeatureCollection
+        * containing a uniform feature type (FeatureLayer type will be set according to the type of the first
+        * feature entry).  Accepts the following options:
+        *   - renderer: a string identifying one of the properties in defaultRenders
+        *   - sourceProjection: a string matching a proj4.defs projection to be used for the source data (overrides
+        *     geoJson.crs)
+        *   - targetWkid: an integer for an ESRI wkid, defaults to map wkid if not specified
+        *   - fields: an array of fields to be appended to the FeatureLayer layerDefinition (OBJECTID is set by default)
+        *
+        * @method makeGeoJsonLayer
+        * @param {Object} geoJson An object following the GeoJSON specification, should be a FeatureCollection with
+        * Features of only one type
+        * @param {Object} opts An object for supplying additional parameters
+        * @returns {FeatureLayer} An ESRI FeatureLayer
+        */
+        function makeGeoJsonLayer(geoJson, opts) {
+            var esriJson, layerDefinition, layer, fs, targetWkid, srcProj,
+                defaultRenderers = GlobalStorage.DefaultRenderers,
+                layerID = LayerLoader.nextId();
+
+            layerDefinition = {
+                objectIdField: &quot;OBJECTID&quot;,
+                fields: [{
+                    name: &quot;OBJECTID&quot;,
+                    type: &quot;esriFieldTypeOID&quot;
+                }]
+            };
+
+            targetWkid = RAMP.map.spatialReference.wkid;
+            assignIds(geoJson);
+            layerDefinition.drawingInfo = defaultRenderers[featureTypeToRenderer[geoJson.features[0].geometry.type]];
+
+            if (opts) {
+                if (opts.sourceProjection) {
+                    srcProj = opts.sourceProjection;
+                }
+                if (opts.targetWkid) {
+                    targetWkid = opts.targetWkid;
+                }
+                if (opts.fields) {
+                    layerDefinition.fields = layerDefinition.fields.concat(opts.fields);
+                }
+            }
+
+            if (layerDefinition.fields.length === 1) {
+                layerDefinition.fields = layerDefinition.fields.concat(extractFields(geoJson));
+            }
+
+            console.log(&#x27;reprojecting &#x27; + srcProj + &#x27; -&gt; EPSG:&#x27; + targetWkid);
+            //console.log(geoJson);
+            Terraformer.Proj.convert(geoJson, &#x27;EPSG:&#x27; + targetWkid, srcProj);
+            //console.log(geoJson);
+            esriJson = Terraformer.ArcGIS.convert(geoJson, { sr: targetWkid });
+            console.log(&#x27;geojson -&gt; esrijson converted&#x27;);
+            //console.log(esriJson);
+            fs = { features: esriJson, geometryType: layerDefinition.drawingInfo.geometryType };
+
+            layer = new FeatureLayer({ layerDefinition: layerDefinition, featureSet: fs }, { mode: FeatureLayer.MODE_SNAPSHOT, id: layerID });
+            // ＼(｀O´)／ manually setting SR because it will come out as 4326
+            layer.spatialReference = new SpatialReference({ wkid: targetWkid });
+
+            // TODO : refactor the hack
+            // SZ_HACK
+            layer.renderer._RAMP_rendererType = featureTypeToRenderer[geoJson.features[0].geometry.type];
+
+            //SZ TESTING -- this will be removed when the UI separates the layer creation an layer enhancement
+            //enhanceFileFeatureLayer(layer, opts);
+
+            return layer;
+        }
+
+        /**
+        * Will take a feature layer built from user supplied data, and apply extra user options (such as symbology,
+        * display field), and generate a config node for the layer.  Accepts the following options:
+        *   - renderer: a string identifying one of the properties in defaultRenders
+        *   - color: color of the renderer
+        *   - icon: icon to display in grid and maptips
+        *   - nameField: descriptive name field for the layer
+        *   - datasetName: description of the name field
+        *
+        * @method enhanceFileFeatureLayer
+        * @param {Object} featureLayer a feature layer object generated by makeGeoJsonLayer
+        * @param {Object} opts An object for supplying additional parameters
+        */
+        function enhanceFileFeatureLayer(featureLayer, opts) {
+            //make a minimal config object for this layer
+            var newConfig = {
+                    id: featureLayer.id,
+                    displayName: opts.datasetName,
+                    nameField: opts.nameField,
+                    symbology: {
+                        type: &quot;simple&quot;,
+                        imageUrl: opts.icon
+                    },
+                    datagrid: createDatagridConfig(opts.fields)
+                },
+                defaultRenderers = GlobalStorage.DefaultRenderers;
+
+            //backfill the rest of the config object with default values
+            newConfig = GlobalStorage.applyFeatureDefaults(newConfig);
+
+            //add custom properties and event handlers to layer object
+            RampMap.enhanceLayer(featureLayer, newConfig, true);
+            featureLayer.ramp.type = GlobalStorage.layerType.feature; //TODO revisit
+            featureLayer.ramp.load.state = &quot;loaded&quot;; //because we made the feature layer by hand, it already has it&#x27;s layer definition, so it begins in loaded state.  the load event never fires
+            featureLayer.type = &quot;Feature Layer&quot;; //required to visible layer function
+
+            //plop config in global config object so everyone can access it.
+            RAMP.config.layers.feature.push(newConfig);
+
+            //apply new renderer if one is defined
+            if (opts.renderer &amp;&amp; defaultRenderers.hasOwnProperty(opts.renderer)) {
+                var rend = defaultRenderers[opts.renderer].renderer;
+                if (opts.colour) {
+                    rend.symbol.color = opts.colour;
+                }
+
+                featureLayer.renderer = new SimpleRenderer(rend);
+            } else if (opts.colour) { // change only color of the renderer
+                // SZ_HACK
+                featureLayer.renderer.symbol.color = opts.colour;
+            }
+        }
+
+        /**
+        * Constructs a FeatureLayer from CSV data.
+        * @param {string} csvData the CSV data to be processed
+        * @param {object} opts options to be set for the parser {string} latfield, {string} lonfield, {string} delimiter
+        * @returns {Promise} a promise resolving with a {FeatureLayer}
+        */
+        function buildCsv(csvData, opts) {
+            var def = new Deferred(), csvOpts = { latfield: &#x27;Lat&#x27;, lonfield: &#x27;Long&#x27;, delimiter: &#x27;,&#x27; };
+
+            if (opts) {
+                if (opts.latfield) {
+                    csvOpts.latfield = opts.latfield;
+                }
+                if (opts.lonfield) {
+                    csvOpts.lonfield = opts.lonfield;
+                }
+                if (opts.delimiter) {
+                    csvOpts.delimiter = opts.delimiter;
+                }
+            }
+
+            try {
+                csv2geojson.csv2geojson(csvData, csvOpts, function (err, data) {
+                    var jsonLayer;
+
+                    if (err) {
+                        def.reject(err);
+                        console.log(&quot;conversion error&quot;);
+                        console.log(err);
+                        return;
+                    }
+                    console.log(&#x27;csv parsed&#x27;);
+                    console.log(data);
+                    jsonLayer = makeGeoJsonLayer(data, opts);
+                    def.resolve(jsonLayer);
+                });
+            } catch (e) {
+                def.reject(e);
+            }
+
+            return def.promise;
+        }
+
+        /**
+        * Constructs a FeatureLayer from a Shapefile.
+        * @param {ArrayBuffer} shpData an ArrayBuffer of the Shapefile in zip format
+        * @returns {Promise} a promise resolving with a {FeatureLayer}
+        */
+        function buildShapefile(shpData) {
+            var def = new Deferred();
+
+            try {
+                // window.crypto.subtle.digest({ name: &quot;SHA-256&quot; }, shpData).then(function (h) { var u8 = new Uint16Array(h); console.log(u8); });
+                shp.getShapefile(shpData).then(function (geojson) {
+                    var jsonLayer;
+                    try {
+                        jsonLayer = makeGeoJsonLayer(geojson);
+                        def.resolve(jsonLayer);
+                    } catch (e) {
+                        def.reject(e);
+                    }
+                }, function (error) {
+                    def.reject(error);
+                });
+            } catch (e) {
+                def.reject(e);
+            }
+
+            return def.promise;
+        }
+
+        /**
+        * Constructs a FeatureLayer from a GeoJSON string.
+        * This wraps makeGeoJsonLayer in an async wrapper, this is unnecessary but provides a consistent API.
+        * @param {string} jsonData a string containing the GeoJSON
+        * @returns {Promise} a promise resolving with a {FeatureLayer}
+        */
+        function buildGeoJson(jsonData) {
+            var def = new Deferred(), jsonLayer = null;
+
+            try {
+                jsonLayer = makeGeoJsonLayer(JSON.parse(jsonData));
+                def.resolve(jsonLayer);
+            } catch (e) {
+                def.reject(e);
+            }
+
+            return def.promise;
+        }
+
+        return {
+            loadDataSet: loadDataSet,
+            getFeatureLayer: getFeatureLayer,
+            getFeatureLayerLegend: getFeatureLayerLegend,
+            getWmsLayerList: getWmsLayerList,
+            makeGeoJsonLayer: makeGeoJsonLayer,
+            csvPeek: csvPeek,
+            buildCsv: buildCsv,
+            buildShapefile: buildShapefile,
+            buildGeoJson: buildGeoJson,
+            enhanceFileFeatureLayer: enhanceFileFeatureLayer,
+            createDatagridConfig: createDatagridConfig,
+            createSymbologyConfig: createSymbologyConfig
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

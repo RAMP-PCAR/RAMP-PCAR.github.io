@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>array.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>array.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global define */</span>
+<span class="hljs-comment">/*jshint bitwise: false*/</span>
+
+<span class="hljs-comment">/**
+* @module Utils
+*/</span>
+
+<span class="hljs-comment">/**
+* Set of functions that deal with arrays.
+*
+* @class Array
+* @static
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+*/</span>
+define([<span class="hljs-string">"dojo/_base/array"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"utils/util"</span>],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(dojoArray, dojoLang, Util)</span> </span>{<span class="hljs-pi">
+        "use strict"</span>;
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-comment">/**
+            * Returns an array that has only unique values (only the first element is kept).
+            *
+            * @method unique
+            * @static
+            * @param {Array} array Array to be searched
+            * @return {Array} array that has only unique values
+            */</span>
+            unique: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(array)</span> </span>{
+                <span class="hljs-keyword">return</span> array.reverse().filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e, i, array)</span> </span>{
+                    <span class="hljs-keyword">return</span> array.indexOf(e, i + <span class="hljs-number">1</span>) === -<span class="hljs-number">1</span>;
+                }).reverse();
+            },
+
+            <span class="hljs-comment">/**
+            * Returns the first element in the given array that satisfies the given
+            * predicate. Returns null if no element in the given array satisfies
+            * the given predicate.
+            *
+            * #####EXAMPLE
+            *     var array = [1, 2, 3, 4]
+            *     find(array, function(a_number) { return a_number === 2 }); -&gt; 2
+            *     find(array, function(a_number) { return a_number === 5 }); -&gt; null
+            *
+            *
+            * @method find
+            * @static
+            * @param {Array} arr Array to be searched
+            * @param {Function} predicate a function that takes one argument and returns true if the
+            * argument satisfies some condition, and false otherwise.
+            * @param {Object} scope ???
+            * @return {Object} first element that satisfies the given predicate; `null` if no such element is found
+            */</span>
+            find: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr, predicate, scope)</span> </span>{
+                <span class="hljs-keyword">var</span> index = <span class="hljs-keyword">this</span>.indexOf(arr, predicate, scope);
+                <span class="hljs-keyword">if</span> (index === -<span class="hljs-number">1</span>) {
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">return</span> arr[index];
+                }
+            },
+
+            <span class="hljs-comment">/**
+            * Returns the index of the first element in the given array that satisfies the given
+            * predicate. Returns -1 if no element in the given array satisfies the predicate.
+            *
+            *
+            * @method indexOf
+            * @static
+            * @param {Array} arr Array to be searched
+            * @param {Function} predicate a function that takes one argument and returns true if the
+            * argument satisfies some condition, and false otherwise.
+            * @param {Object} scope ???
+            * @return {Number} index of the first element that satisfied the predicate; `-1` if no such element is found
+            */</span>
+            indexOf: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr, predicate, scope)</span> </span>{
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> scope !== <span class="hljs-string">'undefined'</span>) {
+                    predicate = dojoLang.hitch(scope, predicate);
+                }
+                <span class="hljs-keyword">var</span> i;
+                <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+                    <span class="hljs-keyword">if</span> (predicate(arr[i])) {
+                        <span class="hljs-keyword">return</span> i;
+                    }
+                }
+                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+            },
+
+            <span class="hljs-comment">/**
+            * Given a function which takes one argument and returns 1, 0, or -1, returns the first element
+            * which causes the given function to return 0.
+            *
+            * @method binaryIndexOf
+            * @static
+            * @param {Array} arr Array to be searched
+            * @param {Function} compareFcn ???
+            * @return {Number} the index of the element that causes the given function to return 0, returns -1 if no such element exists
+            */</span>
+            binaryIndexOf: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr, compareFcn)</span> </span>{
+                <span class="hljs-keyword">var</span> minIndex = <span class="hljs-number">0</span>,
+                    maxIndex = arr.length - <span class="hljs-number">1</span>,
+                    currentIndex,
+                    currentElement;
+
+                <span class="hljs-keyword">while</span> (minIndex &lt;= maxIndex) {
+                    currentIndex = (minIndex + maxIndex) / <span class="hljs-number">2</span> | <span class="hljs-number">0</span>;
+                    currentElement = arr[currentIndex];
+
+                    <span class="hljs-keyword">if</span> (compareFcn(currentElement) &lt; <span class="hljs-number">0</span>) {
+                        minIndex = currentIndex + <span class="hljs-number">1</span>;
+                    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (compareFcn(currentElement) &gt; <span class="hljs-number">0</span>) {
+                        maxIndex = currentIndex - <span class="hljs-number">1</span>;
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">return</span> currentIndex;
+                    }
+                }
+
+                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+            },
+
+            <span class="hljs-comment">/**
+            * Given a function which takes one argument and returns 1, 0, or -1, returns the first element
+            * which causes the given function to return 0.
+            *
+            * @method binaryFind
+            * @static
+            * @param {Array} arr Array to be searched
+            * @param {Function} compareFcn ???
+            * @return {Number} the index of the element that causes the given function to return 0, returns -1 if no such element exists&lt;/returns&gt;
+            */</span>
+            binaryFind: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr, compareFcn)</span> </span>{
+                <span class="hljs-keyword">var</span> index = <span class="hljs-keyword">this</span>.binaryIndexOf(arr, compareFcn);
+                <span class="hljs-keyword">return</span> arr[index];
+            },
+
+            <span class="hljs-comment">/**
+            * Removes an item from the specified array.
+            *
+            * @method remove
+            * @static
+            * @param {Array} array Array to have the item removed from
+            * @param {Number|String|Object} obj can be either an index of the item to be removed, a String to be removed from the array of strings, or an actual Object to be removed; if obj is an Object, you need to provide a predicate function
+            * @param {Function} [predicate] a function that takes one argument and returns true if the argument satisfies some condition, and false otherwise.
+            */</span>
+            remove: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(array, obj, predicate)</span> </span>{
+                <span class="hljs-keyword">var</span> index;
+
+                <span class="hljs-keyword">if</span> (!Util.isNumber(obj)) {
+                    <span class="hljs-keyword">if</span> (predicate) {
+                        index = <span class="hljs-keyword">this</span>.indexOf(array, predicate);
+                    } <span class="hljs-keyword">else</span> {
+                        index = array.indexOf(obj);
+                    }
+                } <span class="hljs-keyword">else</span> {
+                    index = obj;
+                }
+
+                <span class="hljs-keyword">if</span> (index !== -<span class="hljs-number">1</span>) {
+                    array.splice(index, <span class="hljs-number">1</span>);
+                }
+            }
+        };
+    });</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

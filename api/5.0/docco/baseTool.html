@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>baseTool.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>baseTool.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/* global define, tmpl, i18n, require, console, $ */</span>
+
+<span class="hljs-comment">/**
+* @module Tools
+*/</span>
+
+<span class="hljs-comment">/**
+* BaseTool provides essential functionality for Tools including handling of the activate toggle, setting `busy` state, injecting output float into the page,
+* and templating the output. It's not required to mixin BaseTool, but it's really helpful; and of course any of the BaseTool methods/properties can be overwritten
+* after mixining it in.
+*
+* Call `initToggle` to initialize the tool.
+*
+* @class BaseTool
+* @static
+* @constructor
+* @uses dojo/Evented
+* @uses dojo/_base/lang
+* @uses dojo/Deferred
+* @uses dojo/text!./templates/tools_template.json
+* @uses GlobalStorage
+* @uses TmplHelper
+* @uses PopupManager
+* @uses Util
+*/</span>
+
+define([</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"dojo/Evented"</span>, <span class="hljs-string">"dojo/_base/lang"</span>, <span class="hljs-string">"dojo/Deferred"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Text</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"dojo/text!./templates/tools_template.json"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"ramp/globalStorage"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Utils</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-string">"utils/tmplHelper"</span>, <span class="hljs-string">"utils/popupManager"</span>, <span class="hljs-string">"utils/util"</span>
+],
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Dojo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        Evented, dojoLang, Deferred,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Text</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        tools_template_json,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Ramp</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        GlobalStorage,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Utils</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        TmplHelper, PopupManager, Util
+    ) {
+        <span class="hljs-string">"use strict"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>mixin the Evented functions (on, emit) into the BaseTool</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> dojoLang.mixin(<span class="hljs-keyword">new</span> Evented(),
+            {
+                <span class="hljs-comment">/**
+                 * Stored options passed to the BaseTool.
+                 *
+                 * @property options
+                 * @type Object
+                 * @default null
+                 * @private
+                 */</span>
+                options: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                 * Handle (popup handle) that triggers opening/closing of the tool.
+                 *
+                 * @property handle
+                 * @type JObject
+                 * @default null
+                 *
+                 */</span>
+                handle: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                 * Node (button) the handle is attached too.
+                 * 
+                 * @property node
+                 * @type JObject
+                 * @default null
+                 */</span>
+                node: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                 * Node representing the tool output float container.
+                 *
+                 * @property outputFloat
+                 * @type JObject
+                 * @default templates/tools_template.json:base_tool_float
+                 * @example
+                 *      &lt;div class='advanced-output-section-container'&gt;
+                 *          &lt;div class='advanced-output-section'&gt;
+                 *              &lt;section class='float-content'&gt;&lt;/section&gt;
+                 *              &lt;button class='button button-none float-default-button' &gt;
+                 *                  &lt;i class='fa fa-trash-o'&gt;&lt;/i&gt;&lt;span class='on-right'&gt;{%= o.clearMapButton %}&lt;/span&gt;
+                 *              &lt;/button&gt;
+                 *              &lt;div class='clear'&gt;&lt;/div&gt;
+                 *          &lt;/div&gt;
+                 *      &lt;/div&gt;
+                 */</span>
+                outputFloat: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                 * Template string representing `working` label shown when the tool is in `busy` state.
+                 *
+                 * @property workingLabel
+                 * @type String
+                 * @default templates/tools_template.json:working_label
+                 * @example     &lt;span class='tool-tooltip'&gt;&lt;i class='fa fa-cog fa-spin'&gt;&lt;/i&gt;{%= o.workingLabel %}&lt;/span&gt;
+                 */</span>
+                workingLabel: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                 * Tooltip node that appears by the mouse cursor when tools is activated.
+                 *
+                 * @property tooltip
+                 * @type JObject
+                 * @default $("#mainMap.map &gt; .tooltip")
+                 *
+                 */</span>
+                tooltip: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                 * Stringified and parsed templates
+                 *
+                 * @property template
+                 * @type Object
+                 * @default templates/tools_template.json
+                 *
+                 */</span>
+                templates: <span class="hljs-literal">null</span>,
+
+                <span class="hljs-comment">/**
+                * Event names published by the BaseTool
+                *
+                * @property event
+                * @type Object
+                * @default null
+                * @example
+                *      {
+                *          ACTIVATE: "basetool-activate",
+                *          DEACTIVATE: "basetool-deactivate"
+                *      }
+                */</span>
+                event: {
+                    <span class="hljs-comment">/**
+                    * Published whenever a Tool is activated.
+                    *
+                    * @event ACTIVATE
+                    * @param event {Object}
+                    * @param event.tool {BaseTool} Tool that was activated
+                    */</span>
+                    ACTIVATE: <span class="hljs-string">"basetool-activate"</span>,
+
+                    <span class="hljs-comment">/**
+                    * Published whenever a Tool is deactivated.
+                    *
+                    * @event DEACTIVATE
+                    * @param event {Object}
+                    * @param event.tool {BaseTool} Tool that was deactivated
+                    */</span>
+                    DEACTIVATE: <span class="hljs-string">"basetool-deactivate"</span>
+                },
+
+                ns: <span class="hljs-string">"tools/"</span>,
+
+                <span class="hljs-comment">/**
+                 * Name of the tool so AdvancedToolbar can distinguish between them.
+                 *
+                 * @property name
+                 * @type String
+                 * @default BaseTool
+                 */</span>
+                name: <span class="hljs-string">"BaseTool"</span>,
+
+                <span class="hljs-comment">/**
+                 * Initializes the tool and sets up popup to handle activating/deactivating of the tool. Tools should call this function on `init`,
+                 * unless they employ a different workflow and then need to handle all function activation/deactivation/working themselves.
+                 *
+                 * @method initToggle
+                 * @param {JObject} selector a target selector that serves as a toggle for the tool
+                 * @param {JObject} d a Deferred object to be resolved after tool initiates
+                 * @param {Object} [options] Additional options
+                 * @param {JObject} [options.target] Target where the tool's float should be appended to
+                 * @param {String} [options.outputFloatTemplate] Template name to generate the float container with
+                 * @param {Object} [options.outputFloatData] Data payload to be passed to the template engine when generate the float container
+                 * @param {String} [options.workingLabelTemplate] Template name to generate the `busy` label
+                 * @param {Object} [options.workingLabelData] Data payload to be passed to the template engine when generate the `busy` label
+                 * @param {Function} [options.activate] an activate function to be called when the toggle is clicked
+                 * @param {Function} [options.deactivate] a deactivate function to be called when the toggle is clicked
+                 * @param {Function} [options.defaultAction] Function to be executed when the `float-default-button` is clicked
+                 * @chainable
+                 * @return this tool
+                 */</span>
+                initToggle: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, d, options)</span> </span>{
+                    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>,
+                        toolTemplate,
+                        deferrList = [
+                            <span class="hljs-keyword">new</span> Deferred(),
+                            <span class="hljs-keyword">new</span> Deferred()
+                        ];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>wait for translation and template to load</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    Util.afterAll(deferrList,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            tmpl.cache = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>mixin base tools template with individual tool’s template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            tmpl.templates = that.templates = dojoLang.mixin(
+                                <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(tools_template_json)),
+                                <span class="hljs-built_in">JSON</span>.parse(TmplHelper.stringifyTemplate(toolTemplate)));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>create tool button, outputfloat, and working label</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            <span class="hljs-keyword">this</span>.node = $(tmpl(<span class="hljs-keyword">this</span>.options.toolButtonTemplate, <span class="hljs-keyword">this</span>.options.toolButtonData));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>creating the float to display output on</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            <span class="hljs-keyword">this</span>.outputFloat = $(tmpl(<span class="hljs-keyword">this</span>.options.outputFloatTemplate, <span class="hljs-keyword">this</span>.options.outputFloatData));
+                            <span class="hljs-keyword">this</span>.workingLabel = tmpl(<span class="hljs-keyword">this</span>.options.workingLabelTemplate, <span class="hljs-keyword">this</span>.options.workingLabelData);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>initializing tools’ toggle button</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                            <span class="hljs-keyword">this</span>.handle = PopupManager.registerPopup(<span class="hljs-keyword">this</span>.node.find(selector), <span class="hljs-string">"click"</span>,
+                                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                                    that.emit(that.event.ACTIVATE, {
+                                        tool: that
+                                    });
+
+                                    <span class="hljs-built_in">console</span>.log(that.name, <span class="hljs-string">": tool opens"</span>);
+
+                                    that.options.activate.call(that);
+                                    that.options.target.append(that.outputFloat);
+
+                                    that.outputFloat.on(<span class="hljs-string">"click"</span>, <span class="hljs-string">".float-default-button"</span>, that.options.defaultAction);
+
+                                    that.tooltip = $(<span class="hljs-string">"#mainMap.map &gt; .tooltip"</span>)
+                                        .wrapInner(<span class="hljs-string">"&lt;span class='esri-tooltip'&gt;&lt;/span"</span>)
+                                        .append(that.workingLabel);
+
+                                    d.resolve();
+                                }, {
+                                    closeHandler: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+                                        that.emit(that.event.DEACTIVATE, {
+                                            tool: that
+                                        });
+
+                                        <span class="hljs-built_in">console</span>.log(that.name, <span class="hljs-string">": tool closes"</span>);
+
+                                        that.options.deactivate.call(that);
+                                        that.outputFloat.detach();
+
+                                        that.outputFloat.off(<span class="hljs-string">"click"</span>, <span class="hljs-string">".float-default-button"</span>, that.options.defaultAction);
+
+                                        d.resolve();
+                                    },
+
+                                    activeClass: <span class="hljs-string">"button-pressed"</span>,
+                                    useAria: <span class="hljs-literal">false</span>
+                                }
+                            );
+
+                            d.resolve(<span class="hljs-keyword">this</span>);
+                        },
+                        <span class="hljs-keyword">this</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>load tool’s i18n namespace</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    that.ns += that.name;
+                    i18n.loadNamespace(that.ns, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(that.name, <span class="hljs-string">": translation is loaded"</span>);
+                        deferrList[<span class="hljs-number">0</span>].resolve();
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>load toll’s template</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-built_in">require</span>([<span class="hljs-string">"dojo/text!tools/templates/"</span> + that.name + <span class="hljs-string">".json"</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(tt)</span> </span>{
+                        <span class="hljs-built_in">console</span>.log(that.name, <span class="hljs-string">": template is loaded"</span>);
+                        toolTemplate = tt;
+
+                        deferrList[<span class="hljs-number">1</span>].resolve();
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>BaseTool default options</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">this</span>.options = dojoLang.mixin(
+                        {
+                            target: $(<span class="hljs-string">"#mainMap"</span>),
+
+                            outputFloatTemplate: <span class="hljs-string">"base_tool_float"</span>,
+                            outputFloatData: {
+                                clearMapButton: i18n.t(<span class="hljs-string">"tools.basetool.clearmap"</span>)
+                            },
+
+                            workingLabelTemplate: <span class="hljs-string">"working_label"</span>,
+                            workingLabelData: {
+                                workingLabel: i18n.t(<span class="hljs-string">"tools.basetool.working"</span>)
+                            },
+
+                            toolButtonTemplate: <span class="hljs-string">"base_tool_button"</span>,
+                            toolButtonData: {
+                                ns: that.ns
+                            },
+
+                            toolOutputTemplate: <span class="hljs-string">"base_tool_output"</span>,
+
+                            activate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'activate action'</span>); },
+                            deactivate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'deactivate action'</span>); },
+                            defaultAction: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'default action'</span>); }
+                        },
+                        options);
+
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+                },
+
+                <span class="hljs-comment">/**
+                 * Generates output to be injected into the tool's float given a template's name and data object.
+                 *
+                 * @method displayTemplateOutput
+                 * @param {Object} templateData data to be put inside the specified template
+                 * @param {String} [templateName] template name to be completed with provided data; if not supplied, "toolOutputTemplate" property of the options object will be used
+                 * @chainable
+                 * @return this tool
+                 */</span>
+                displayTemplateOutput: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(templateData, templateName)</span> </span>{
+                    <span class="hljs-keyword">var</span> output;
+
+                    templateName = templateName || <span class="hljs-keyword">this</span>.options.toolOutputTemplate;
+
+                    tmpl.cache = {};
+                    tmpl.templates = <span class="hljs-keyword">this</span>.templates;
+
+                    output = tmpl(templateName, templateData);
+
+                    <span class="hljs-keyword">this</span>.displayOutput(output);
+
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+                },
+
+                <span class="hljs-comment">/**
+                 * Injects given tool output into the tool's float.
+                 *
+                 * @method displayOutput
+                 * @param {String | JObject} output String or node collection to be injected into the tool output float.
+                 * @chainable
+                 * @return this tool
+                 */</span>
+                displayOutput: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(output)</span> </span>{
+                    <span class="hljs-keyword">this</span>.outputFloat.find(<span class="hljs-string">".float-content"</span>)
+                        .empty()
+                        .append(output);
+
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+                },
+
+                <span class="hljs-comment">/**
+                * Sets the tool into a specified state; if the tool is `working`, a `working` label is placed beside the cursor and injected into the tool output float.
+                *
+                * @method working
+                * @param {Boolean} state indicates the state of the tool: working, idle
+                * @chainable
+                * @return This tool
+                */</span>
+                working: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(state)</span> </span>{
+                    <span class="hljs-keyword">if</span> (state) {
+                        <span class="hljs-keyword">this</span>.tooltip.addClass(<span class="hljs-string">"working"</span>);
+                        <span class="hljs-keyword">this</span>.outputFloat
+                            .find(<span class="hljs-string">".working-placeholder"</span>)
+                            .replaceWith(<span class="hljs-keyword">this</span>.workingLabel);
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">this</span>.tooltip.removeClass(<span class="hljs-string">"working"</span>);
+                        <span class="hljs-keyword">this</span>.outputFloat
+                            .find(<span class="hljs-string">".working-placeholder"</span>).empty();
+                    }
+
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+                },
+
+                <span class="hljs-comment">/**
+                * Activate the tool by triggering `open` method on the tool's popup handle.
+                * @method activate
+                * @chainable
+                * @return This tool
+                */</span>
+                activate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>console.log(“base activate; nothing to see here;”);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.handle) {
+                        <span class="hljs-keyword">this</span>.handle.open();
+                    }
+
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+                },
+
+                <span class="hljs-comment">/**
+                * Deactivate the tool by triggering `close` method on the tool's popup handle.
+                * @method deactivate
+                * @chainable
+                * @return This tool
+                */</span>
+                deactivate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>console.log(“base deactivate; nothing to see here;”);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.handle &amp;&amp; <span class="hljs-keyword">this</span>.handle.isOpen()) {
+                        <span class="hljs-keyword">this</span>.handle.close();
+                    }
+
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+                }
+            }
+        );
+    }
+);</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

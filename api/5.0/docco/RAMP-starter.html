@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>RAMP-starter.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="advancedToolbar.html">
+                advancedToolbar.js
+              </a>
+            
+              
+              <a class="source" href="basemapSelector.html">
+                basemapSelector.js
+              </a>
+            
+              
+              <a class="source" href="bookmarkLink.html">
+                bookmarkLink.js
+              </a>
+            
+              
+              <a class="source" href="dataLoader.html">
+                dataLoader.js
+              </a>
+            
+              
+              <a class="source" href="dataLoaderGui.html">
+                dataLoaderGui.js
+              </a>
+            
+              
+              <a class="source" href="datagrid.html">
+                datagrid.js
+              </a>
+            
+              
+              <a class="source" href="datagridClickHandler.html">
+                datagridClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="eventManager.html">
+                eventManager.js
+              </a>
+            
+              
+              <a class="source" href="featureClickHandler.html">
+                featureClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="featureHighlighter.html">
+                featureHighlighter.js
+              </a>
+            
+              
+              <a class="source" href="filterManager.html">
+                filterManager.js
+              </a>
+            
+              
+              <a class="source" href="globalStorage.html">
+                globalStorage.js
+              </a>
+            
+              
+              <a class="source" href="graphicExtension.html">
+                graphicExtension.js
+              </a>
+            
+              
+              <a class="source" href="gui.html">
+                gui.js
+              </a>
+            
+              
+              <a class="source" href="layerGroup.html">
+                layerGroup.js
+              </a>
+            
+              
+              <a class="source" href="layerItem.html">
+                layerItem.js
+              </a>
+            
+              
+              <a class="source" href="layerLoader.html">
+                layerLoader.js
+              </a>
+            
+              
+              <a class="source" href="map.html">
+                map.js
+              </a>
+            
+              
+              <a class="source" href="mapClickHandler.html">
+                mapClickHandler.js
+              </a>
+            
+              
+              <a class="source" href="maptips.html">
+                maptips.js
+              </a>
+            
+              
+              <a class="source" href="navigation.html">
+                navigation.js
+              </a>
+            
+              
+              <a class="source" href="quickzoom.html">
+                quickzoom.js
+              </a>
+            
+              
+              <a class="source" href="ramp.html">
+                ramp.js
+              </a>
+            
+              
+              <a class="source" href="theme.html">
+                theme.js
+              </a>
+            
+              
+              <a class="source" href="RAMP-starter.html">
+                RAMP-starter.js
+              </a>
+            
+              
+              <a class="source" href="areaTool.html">
+                areaTool.js
+              </a>
+            
+              
+              <a class="source" href="baseTool.html">
+                baseTool.js
+              </a>
+            
+              
+              <a class="source" href="bufferTool.html">
+                bufferTool.js
+              </a>
+            
+              
+              <a class="source" href="distanceTool.html">
+                distanceTool.js
+              </a>
+            
+              
+              <a class="source" href="populationTool.html">
+                populationTool.js
+              </a>
+            
+              
+              <a class="source" href="array.html">
+                array.js
+              </a>
+            
+              
+              <a class="source" href="checkbox.html">
+                checkbox.js
+              </a>
+            
+              
+              <a class="source" href="checkboxGroup.html">
+                checkboxGroup.js
+              </a>
+            
+              
+              <a class="source" href="decorator.html">
+                decorator.js
+              </a>
+            
+              
+              <a class="source" href="dictionary.html">
+                dictionary.js
+              </a>
+            
+              
+              <a class="source" href="functionMangler.html">
+                functionMangler.js
+              </a>
+            
+              
+              <a class="source" href="popupManager.html">
+                popupManager.js
+              </a>
+            
+              
+              <a class="source" href="prototype.html">
+                prototype.js
+              </a>
+            
+              
+              <a class="source" href="tmplHelper.html">
+                tmplHelper.js
+              </a>
+            
+              
+              <a class="source" href="tmplUtil.html">
+                tmplUtil.js
+              </a>
+            
+              
+              <a class="source" href="url.html">
+                url.js
+              </a>
+            
+              
+              <a class="source" href="util.html">
+                util.js
+              </a>
+            
+              
+              <a class="source" href="bootstrapper.html">
+                bootstrapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>RAMP-starter.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="hljs-comment">/*global location, $, document */</span>
+
+<span class="hljs-comment">/**
+*
+*
+* @module RAMP
+*/</span>
+
+<span class="hljs-comment">/**
+* RAMPStarter class.
+* Performs initial configuration of the dojo config object specifying path to the RAMP modules, detecting locale, and loading the {{#crossLink "Bootstrapper"}}{{/crossLink}} module.
+* pipe the locale to dojo.
+*
+* @class RAMPStarter
+* @static
+*/</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>required to get draw bar to show in French</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> RAMP,
+    jsFolderPath = <span class="hljs-string">"js/"</span>,
+    pathname = location.pathname.replace(<span class="hljs-regexp">/\/[^/]+$/</span>, <span class="hljs-string">""</span>) + <span class="hljs-string">"/"</span>,
+    htmlNode = $(<span class="hljs-string">"html"</span>),
+    dojoConfig;
+
+<span class="hljs-comment">/**
+* RAMP global class.
+* A general globally available class to hold any RAMP global data. Currently houses any plugins which are not loaded via AMD.
+*
+* @class RAMP
+*/</span>
+RAMP = {
+    <span class="hljs-comment">/**
+     * Contains a URL that points to the application configuration (JSON format) if it's hosted on a web service.
+     * This is not required if the application has a JSON config file in the website's folder
+     * @property configServiceURL
+     * @type String
+     */</span>
+    configServiceURL: <span class="hljs-string">"http://localhost:5000/"</span>,
+
+    <span class="hljs-comment">/**
+     * The RAMP application config, it should be treated as read only by all modules other than globalStorage and bootstrapper
+     *
+     * @property config
+     * @type Object
+     */</span>
+    config: {},
+
+    <span class="hljs-comment">/**
+     * A registry of plugins for RAMP code to reference, these should be loaded and registered by bootstrapper.js
+     *
+     * @property plugins
+     * @type Object
+     */</span>
+    plugins: {
+        featureInfoParser: {}
+    },
+
+    <span class="hljs-comment">/**
+    * A temporary solution to state management.  Will be changed
+    *
+    * @property state
+    * @type Object
+    */</span>
+    state: {
+        ui: {
+            sidePanelOpened: <span class="hljs-literal">true</span>,
+            fullscreen: <span class="hljs-literal">false</span>
+        }
+    }
+};
+
+dojoConfig = {
+    parseOnLoad: <span class="hljs-literal">false</span>,
+    locale: htmlNode.attr(<span class="hljs-string">"lang"</span>),
+    async: <span class="hljs-literal">true</span>,
+    packages: [
+        {
+            name: <span class="hljs-string">"ramp"</span>,
+            location: pathname + jsFolderPath + <span class="hljs-string">"RAMP/Modules"</span>
+        },
+        {
+            name: <span class="hljs-string">"utils"</span>,
+            location: pathname + jsFolderPath + <span class="hljs-string">"RAMP/Utils"</span>
+        },
+        {
+            name: <span class="hljs-string">"tools"</span>,
+            location: pathname + jsFolderPath + <span class="hljs-string">"RAMP/Tools/"</span>
+        }
+    ],
+    fullPluginPath: pathname + jsFolderPath + <span class="hljs-string">'plugins/'</span>
+};
+
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{<span class="hljs-pi">
+    "use strict"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>when loading js file this way, it will NOT show up in the debug panel in Firebug</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-comment">/*$.getScript(pathname + jsFolderPath + state + "RAMP/bootstrapper.js",
+        function( data, textStatus, jqxhr ) {
+            console.log( jqxhr.status ); // 200
+    });*/</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>when loading js file this way, it will show up in the debug panel in Firebug</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> head = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'head'</span>)[<span class="hljs-number">0</span>],
+        script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
+    script.type = <span class="hljs-string">'text/javascript'</span>;
+    script.src = pathname + jsFolderPath + <span class="hljs-string">"RAMP/bootstrapper.js"</span>;
+    head.appendChild(script);
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

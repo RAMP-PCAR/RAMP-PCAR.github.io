@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\js\RAMP\Modules\quickzoom.js - ramp-pcar</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..\..\..\assets\images\bobcat_logo_sharp_smaller_s.png" title="ramp-pcar">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 5.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/LayerGroup.html">LayerGroup</a></li>
+            
+                <li><a href="../classes/LayerItem.html">LayerItem</a></li>
+            
+                <li><a href="../classes/LayerLoader.html">LayerLoader</a></li>
+            
+                <li><a href="../classes/LayoutController.html">LayoutController</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/MeasureTool.html">MeasureTool</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\js\RAMP\Modules\quickzoom.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/*global define, console, $, RAMP */
+
+//the &quot;use strict&quot; forces the ECMA Script 5 interpretation of the code
+
+/**
+* QuickZoom submodule
+*
+* @module RAMP
+* @submodule QuickZoom
+* @main QuickZoom
+*/
+
+/**
+* The QuickZoom class handles zooming in the map based on province, city, or postal code.
+* These zoom in services rely on web services which return extent values based the user-entered province, city, or postal code
+*
+* @class QuickZoom
+* @uses dojo/_base/declare
+* @uses dojo/_base/array
+* @uses dojo/_base/lang
+* @uses dojo/dom
+* @uses dojo/dom-construct
+* @uses dijit/form/Form
+* @uses dijit/form/TextBox
+* @uses dijit/form/Select
+* @uses dijit/form/Button
+* @uses esri/geometry/Extent
+* @uses esri/tasks/QueryTask
+* @uses esri/tasks/query
+* @uses GlobalStorage
+* @uses Map
+* @uses Util
+*/
+
+define([
+/* Dojo */
+&quot;dojo/_base/declare&quot;, &quot;dojo/_base/array&quot;, &quot;dojo/_base/lang&quot;, &quot;dojo/dom&quot;, &quot;dojo/dom-construct&quot;, &quot;dijit/form/Form&quot;,
+&quot;dijit/form/TextBox&quot;, &quot;dijit/form/Select&quot;, &quot;dijit/form/Button&quot;,
+/* Esri */
+&quot;esri/geometry/Extent&quot;, &quot;esri/tasks/QueryTask&quot;, &quot;esri/tasks/query&quot;,
+/* Ramp */
+&quot;ramp/globalStorage&quot;, &quot;ramp/map&quot;,
+/* Util */
+&quot;utils/util&quot;],
+
+    function (
+    /* Dojo */
+    declare, dojoArray, dojoLang, dom, domConstruct, Form, TextBox, Select, Button,
+    Extent, QueryTask, Query,
+    /* Ramp */
+    GlobalStorage, RampMap,
+    /* Util */
+    UtilMisc) {
+        &quot;use strict&quot;;
+        return declare(null, {
+            /*
+             * Defines the UI controls for the province, city, and postal code selections
+             * @method constructor
+             * @constructor
+             *
+             */
+            constructor: function () {
+                this.config = RAMP.config;
+
+                this.form = new Form({
+                    style: &quot;overflow:hidden; clear:none;&quot;
+                });
+
+                var className = &quot;quickZoom&quot;; // used for CSS styling
+
+                this.provinceSelect = new Select({
+                    id: &quot;quickZoomProvince&quot;,
+                    class: className,
+                    options: []
+                });
+
+                this.citySelect = new Select({
+                    id: &quot;quickZoomCity&quot;,
+                    class: className,
+                    options: []
+                });
+
+                this.postalCodeTextbox = new TextBox({
+                    id: &quot;quickZoomPostalCode&quot;,
+                    class: className,
+                    style: &quot;width : 30%&quot;
+                });
+
+                this.button = new Button({
+                    label: &quot;Find&quot;,
+                    id: &quot;quickZoomButton&quot;,
+                    class: className
+                });
+
+                var that = this; // for local access to &quot;this&quot;
+                function _addNode(domNode) {
+                    that.form.domNode.appendChild(domNode);
+                }
+
+                function _addLabel(text) {
+                    var node = domConstruct.create(&quot;label&quot;, {
+                        class: className,
+                        innerHTML: text
+                    });
+                    _addNode(node);
+                    return node;
+                }
+
+                _addLabel(&quot;Choose province:&quot;);
+                _addNode(this.provinceSelect.domNode);
+
+                _addLabel(&quot;City:&quot;);
+                _addNode(this.citySelect.domNode);
+
+                _addLabel(&quot;or enter postal code (e.g. A1A):&quot;);
+                _addNode(this.postalCodeTextbox.domNode);
+
+                _addNode(this.button.domNode);
+                this.errorText = _addLabel(&quot;&quot;);
+            },
+
+            _setError: function (errorMsg) {
+                console.log(errorMsg);
+                $(this.errorText).text(errorMsg);
+            },
+            /*
+             * This adds the search tools to the UI and populates the UI controls: Province dropdown, city drop down, postal code text box
+             *
+             * @method init
+             * @param {Object} where A DOM object where the dropdowns will be placed
+             * @constructor
+             */
+            init: function (where) {
+                var provinceSelect = this.provinceSelect,
+                    citySelect = this.citySelect,
+                    config = this.config,
+                    that = this; // for local access to &quot;this&quot;
+
+                /**
+                * Change the extent of the map based on the extent data
+                * retrieved from the given url
+                *
+                * @method changeExtent
+                * @private
+                * @param {String} url
+                * @param {Object} query
+                */
+                function changeExtent(url, query) {
+                    query.returnGeometry = true;
+
+                    var queryTask = new QueryTask(url);
+                    queryTask.execute(query,
+                        function (featureSet) {
+                            if (featureSet.features.isEmpty()) {
+                                that._setError(&quot;invalid query&quot;);
+                                return;
+                            }
+                            var extent = featureSet.features[0].geometry.getExtent();
+                            if (RampMap.getMaxExtent().contains(extent)) {
+                                RampMap.getMap().setExtent(extent);
+                                that._setError(&quot;&quot;);
+                            } else {
+                                that._setError(&quot;beyond max extent&quot;);
+                            }
+                        },
+                        function (error) {
+                            console.log(&quot;Could not load extent from service&quot;);
+                            console.log(error);
+                        });
+                }
+
+                /**
+                * Populate the given dropdown with data from the given url.
+                *
+                * @method populateDropDown
+                * @param {String} url the url to the service containing the data to populate the dropdown
+                * @param {DObject} select the dojo Select object to populate
+                * @param {Object} query to execute
+                * @param {Function} mapFunc the function to convert each element in the retrieved data to a label that can be added to the dropdown menu
+                */
+                function populateDropDown(url, select, query, mapFunc) {
+                    // Clear the dropdown
+                    select.removeOption(select.getOptions());
+
+                    var queryTask = new QueryTask(url);
+                    queryTask.execute(query,
+                        function (featureSet) {
+                            // Populate the dropdown from a list retrieved
+                            // from service
+                            select.addOption(dojoArray.map(featureSet.features, mapFunc));
+                        },
+                        function (error) {
+                            console.log(&quot;Could not populate dropdown&quot;);
+                            console.log(error);
+                        });
+                }
+
+                // Populate the province dropdown from a list retrieved
+                // from service
+                provinceSelect.loadDropDown(function () {
+                    var provinceConfig = config.quickzoom.province,
+                        query = new Query();
+
+                    query.where = &quot;OBJECTID&gt;0&quot;;
+                    query.outFields = [provinceConfig.shortName, provinceConfig.name];
+
+                    populateDropDown(provinceConfig.url, provinceSelect, query,
+                        function (feature) {
+                            var shortName = feature.attributes[provinceConfig.shortName];
+                            return {
+                                label: feature.attributes[provinceConfig.name],
+                                value: shortName,
+                                selected: shortName === provinceConfig.selectedProv
+                            };
+                        });
+                });
+
+                /**
+                * Populates the city dropdown menu with the cities in the
+                * selected province.
+                *
+                * @method populateCityDropDown
+                * @private
+                * @param {String} prov
+                */
+                function populateCityDropDown(prov) {
+                    var cityConfig = config.quickzoom.city,
+                        query = new Query();
+
+                    query.where = UtilMisc.getWhereClause(cityConfig.province, prov);
+                    query.outFields = [cityConfig.name, cityConfig.id];
+                    populateDropDown(cityConfig.url, citySelect, query,
+                    function (feature) {
+                        return {
+                            label: feature.attributes[cityConfig.name],
+                            value: feature.attributes[cityConfig.id],
+                            selected: false
+                        };
+                    });
+                }
+
+                citySelect.loadDropDown(function () {
+                    // Populate with the cities of the default province first
+                    populateCityDropDown(config.quickzoom.province.selectedProv);
+                });
+
+                provinceSelect.on(&quot;change&quot;, function () {
+                    // Change the extent, then populate the city with the cities in the province
+                    var provConfig = config.quickzoom.province,
+                        prov = provinceSelect.get(&quot;value&quot;),
+                        query = new Query();
+                    query.where = UtilMisc.getWhereClause(provConfig.shortName, prov);
+
+                    changeExtent(provConfig.url, query);
+                    populateCityDropDown(prov);
+                });
+
+                citySelect.on(&quot;change&quot;, function () {
+                    var cityConfig = config.quickzoom.city,
+                        city = citySelect.get(&quot;value&quot;),
+                        query = new Query();
+                    query.where = UtilMisc.getWhereClause(cityConfig.id, city);
+
+                    changeExtent(cityConfig.url, query);
+                });
+
+                /**
+                * Returns true if the given postal code is valid, false otherwise.
+                *
+                * @method validatePostalCode
+                * @private
+                * @param {String} fsa fsa
+                */
+                function validatePostalCode(fsa) {
+                    //Perform case insensitive matching
+                    var regexp = /[abcdefghijklmnopqrstuvwxyz]\d[abcdefghijklmnopqrstuvwxyz]/i;
+
+                    //Remove space from the input FSA
+                    fsa = dojoLang.trim(fsa);
+
+                    //Detect if the user has entered the postal code in correct format
+                    if (fsa) {
+                        var result = fsa.match(regexp);
+                        return (result &amp;&amp; result.length === 1);
+                    }
+                    return false;
+                }
+
+                this.button.on(&quot;click&quot;, dojoLang.hitch(this, function () {
+                    var postalCode = this.postalCodeTextbox.get(&quot;value&quot;);
+                    if (validatePostalCode(postalCode)) {
+                        var postalConfig = config.quickzoom.postalCode,
+                            query = new Query();
+                        query.where = UtilMisc.getWhereClause(postalConfig.id, postalCode);
+                        changeExtent(postalConfig.url, query);
+                    } else {
+                        console.log(&quot;invalid postal code!&quot;);
+                        that._setError(&quot;invalid postal code&quot;);
+                    }
+                }));
+
+                var whereNode = dom.byId(where);
+                domConstruct.place(this.form.domNode, whereNode, &quot;replace&quot;);
+            }
+        });
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
