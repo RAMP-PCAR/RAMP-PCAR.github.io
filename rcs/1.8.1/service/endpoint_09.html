@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RCS Service Contract &mdash; RAMP Configuration Service 1.8.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.8.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.8.1 documentation" href="../index.html" />
+    <link rel="up" title="RCS Service Contract" href="contract.html" />
+    <link rel="next" title="Request Signing" href="signing.html" />
+    <link rel="prev" title="The RCS JSON Schema" href="jsonschema.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="signing.html" title="Request Signing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jsonschema.html" title="The RCS JSON Schema"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.8.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Using RCS Endpoints</a> &raquo;</li>
+          <li><a href="contract.html" accesskey="U">RCS Service Contract</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rcs-service-contract">
+<span id="contract-09"></span><h1>RCS Service Contract<a class="headerlink" href="#rcs-service-contract" title="Permalink to this headline">¶</a></h1>
+<p>RCS publishes a set of endpoints at <tt class="docutils literal"><span class="pre">/v0.9</span></tt>, these only support read
+operations for RAMP prior to RAMP configuration schema version 1.0 .  This
+should be compatible with RAMP 4.0.x (Dragonfly) releases.</p>
+<div class="section" id="get-v0-9-doc-lang-smallkey">
+<h2>GET <tt class="docutils literal"><span class="pre">/v0.9/doc/[lang]/[smallkey]</span></tt><a class="headerlink" href="#get-v0-9-doc-lang-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 200</p>
+<p>Request Body: Empty</p>
+<p>Response Body: JSON Object</p>
+<p>The response will have a JSON configuration fragment to be merged into the RAMP
+configuration.</p>
+<p>Error conditions:</p>
+<ul class="simple">
+<li>invalid language code: 400 Bad Request, response body empty</li>
+<li>smallkey not found: 404 Not Found, response body empty</li>
+</ul>
+</div>
+<div class="section" id="get-v0-9-docs-lang-smallkey-smallkey">
+<h2>GET <tt class="docutils literal"><span class="pre">/v0.9/docs/[lang]/[smallkey]{,[smallkey]}</span></tt><a class="headerlink" href="#get-v0-9-docs-lang-smallkey-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 200</p>
+<p>Request Body: Empty</p>
+<p>Response Body: JSON Array</p>
+<p>The response will be an array of JSON objects, each object will be a JSON
+configuration fragment to be merged into the RAMP config.</p>
+<p>Error conditions:</p>
+<ul class="simple">
+<li>invalid language code: 400 Bad Request, response body empty</li>
+<li>smallkey not found: 200 normal response, the corresponding fragment will be
+structured as:
+<tt class="docutils literal"><span class="pre">{&quot;error_code&quot;:404,&quot;smallkey&quot;:&quot;[smallkey]&quot;}</span></tt></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RCS Service Contract</a><ul>
+<li><a class="reference internal" href="#get-v0-9-doc-lang-smallkey">GET <tt class="docutils literal"><span class="pre">/v0.9/doc/[lang]/[smallkey]</span></tt></a></li>
+<li><a class="reference internal" href="#get-v0-9-docs-lang-smallkey-smallkey">GET <tt class="docutils literal"><span class="pre">/v0.9/docs/[lang]/[smallkey]{,[smallkey]}</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jsonschema.html"
+                        title="previous chapter">The RCS JSON Schema</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="signing.html"
+                        title="next chapter">Request Signing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/service/endpoint_09.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="signing.html" title="Request Signing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jsonschema.html" title="The RCS JSON Schema"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.8.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Using RCS Endpoints</a> &raquo;</li>
+          <li><a href="contract.html" >RCS Service Contract</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

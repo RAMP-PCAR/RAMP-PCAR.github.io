@@ -1,0 +1,6 @@
+How to Test RCS
+===============
+
+Until we have some proper docs, we can use the VEERR testing philosophy:
+
+.. image:: http://i.imgur.com/y7Hm9.jpg

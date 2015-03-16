@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RCS Service Contract &mdash; RAMP Configuration Service 1.8.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.8.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.8.1 documentation" href="../index.html" />
+    <link rel="up" title="Using RCS Endpoints" href="index.html" />
+    <link rel="next" title="The RCS JSON Schema" href="jsonschema.html" />
+    <link rel="prev" title="Service Quick Reference" href="quickref.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="jsonschema.html" title="The RCS JSON Schema"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="quickref.html" title="Service Quick Reference"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.8.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Using RCS Endpoints</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rcs-service-contract">
+<span id="contract"></span><h1>RCS Service Contract<a class="headerlink" href="#rcs-service-contract" title="Permalink to this headline">¶</a></h1>
+<p>This release of RCS publishes endpoints at <tt class="docutils literal"><span class="pre">/v1</span></tt> and <tt class="docutils literal"><span class="pre">/v0.9</span></tt>.  The
+endpoints at <tt class="docutils literal"><span class="pre">/v1</span></tt> are compatible with registration requests for schemas 1.0
+and 1.1 and document requests for RAMP schema 1.0 .</p>
+<p>The current JSON schema is used to validate registration requests is at:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jsonschema.html">The RCS JSON Schema</a></li>
+</ul>
+</div>
+<p>An older schema for RAMP versions prior to schema 1.0 is documented at:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="endpoint_09.html">RCS Service Contract</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="endpoint_09.html#get-v0-9-doc-lang-smallkey">GET <tt class="docutils literal"><span class="pre">/v0.9/doc/[lang]/[smallkey]</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoint_09.html#get-v0-9-docs-lang-smallkey-smallkey">GET <tt class="docutils literal"><span class="pre">/v0.9/docs/[lang]/[smallkey]{,[smallkey]}</span></tt></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-v1-doc-lang-smallkey">
+<h2>GET <tt class="docutils literal"><span class="pre">/v1/doc/[lang]/[smallkey]</span></tt><a class="headerlink" href="#get-v1-doc-lang-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 200</p>
+<p>Request Body: Empty</p>
+<p>Response Body: JSON Object</p>
+<p>The response will have a JSON configuration fragment to be merged into the RAMP
+configuration.  It will be compatible with RAMP schema 1.0, although as it is a
+fragment it will not validate against the schema without additional
+configuration being supplied.</p>
+<p>Error conditions:</p>
+<ul class="simple">
+<li>invalid language code: 400 Bad Request, response body empty</li>
+<li>smallkey not found: 404 Not Found, response body empty</li>
+</ul>
+</div>
+<div class="section" id="get-v1-docs-lang-smallkey-smallkey">
+<h2>GET <tt class="docutils literal"><span class="pre">/v1/docs/[lang]/[smallkey]{,[smallkey]}</span></tt><a class="headerlink" href="#get-v1-docs-lang-smallkey-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 200</p>
+<p>Request Body: Empty</p>
+<p>Response Body: JSON Array</p>
+<p>The response will be an array of JSON objects, each object will be a JSON
+configuration fragment to be merged into the RAMP config.  It will be
+compatible with RAMP schema 1.0, although as it is a fragment it will not
+validate against the schema without additional configuration being supplied.</p>
+<p>Error conditions:</p>
+<ul class="simple">
+<li>invalid language code: 400 Bad Request, response body empty</li>
+<li>smallkey not found: 200 normal response, the corresponding fragment will be
+structured as:
+<tt class="docutils literal"><span class="pre">{&quot;error_code&quot;:404,&quot;smallkey&quot;:&quot;[smallkey]&quot;}</span></tt></li>
+</ul>
+</div>
+<div class="section" id="put-v1-register-smallkey">
+<h2>PUT <tt class="docutils literal"><span class="pre">/v1/register/[smallkey]</span></tt><a class="headerlink" href="#put-v1-register-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 201</p>
+<p>Request Body: JSON Object</p>
+<p>Request Headers: Implement the <a class="reference internal" href="signing.html#signing"><em>Request Signing</em></a> protocol</p>
+<p>Response Body: Empty</p>
+<p>Error Conditions:</p>
+<ul class="simple">
+<li>payload does not conform to schema: 400 Bad Request, body contains
+<tt class="docutils literal"><span class="pre">{&quot;errors&quot;:[&quot;message</span> <span class="pre">1&quot;,&quot;message</span> <span class="pre">2&quot;]}</span></tt></li>
+<li>invalid timestamp format: 400 Bad Request</li>
+<li>unable to verify metadata surce: 400 Bad Request</li>
+<li>missing headers / unretrivable key: 401 Not Authorized</li>
+<li>exception in processing: 500 Internal Server Error, empty body</li>
+</ul>
+<p>Registration requests are validated against
+The body of the request should conform to:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1.1.0&quot;</span><span class="p">,</span><span class="s2">&quot;payload_type&quot;</span><span class="o">:</span><span class="p">(</span><span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="s2">&quot;wms&quot;</span><span class="p">),</span><span class="s2">&quot;en&quot;</span><span class="o">:</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span><span class="s2">&quot;fr&quot;</span><span class="o">:</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>RCS currently accepts 1.0.0 and 1.1.0 requests</li>
+</ul>
+<div class="section" id="payload-type-feature">
+<h3>Payload Type <tt class="docutils literal"><span class="pre">feature</span></tt><a class="headerlink" href="#payload-type-feature" title="Permalink to this headline">¶</a></h3>
+<p>The feature payload should conform to:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;service_url&quot;</span><span class="o">:</span> <span class="p">(</span><span class="nx">str</span><span class="o">:</span> <span class="nx">URL</span> <span class="nx">to</span> <span class="nx">ESRI</span> <span class="nx">REST</span> <span class="nx">Feature</span> <span class="nx">Layer</span> <span class="nx">Endpoint</span><span class="p">),</span>
+    <span class="s2">&quot;service_name&quot;</span><span class="o">:</span> <span class="p">(</span><span class="nx">str</span><span class="o">:</span> <span class="nx">Layer</span> <span class="nx">Name</span><span class="p">),</span>
+    <span class="s2">&quot;display_field&quot;</span><span class="o">:</span> <span class="p">(</span><span class="nx">str</span><span class="o">:</span> <span class="nx">Layer</span> <span class="nx">Attribute</span><span class="p">),</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;uuid&quot;</span><span class="o">:</span> <span class="p">(</span><span class="nx">str</span><span class="o">:</span> <span class="nx">a</span> <span class="nx">unique</span> <span class="nx">identifier</span><span class="p">),</span>
+        <span class="s2">&quot;catalogue_url&quot;</span><span class="o">:</span> <span class="p">(</span><span class="nx">str</span><span class="o">:</span> <span class="nx">URL</span> <span class="nx">describing</span> <span class="nx">the</span> <span class="nx">layer</span> <span class="k">in</span> <span class="nx">full</span> <span class="nx">detail</span><span class="p">)</span>
+        <span class="s2">&quot;metadata_url&quot;</span><span class="o">:</span> <span class="p">(</span><span class="nx">str</span><span class="o">:</span> <span class="nx">direct</span> <span class="nx">URL</span> <span class="nx">to</span> <span class="nx">metadata</span> <span class="k">for</span> <span class="nx">that</span> <span class="nx">layer</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>the service URL should not have any query string component</li>
+<li><tt class="docutils literal"><span class="pre">metadata</span></tt>, <tt class="docutils literal"><span class="pre">display_field</span></tt>, <tt class="docutils literal"><span class="pre">service_name</span></tt> are optional</li>
+<li>where <tt class="docutils literal"><span class="pre">service_url</span></tt> specifies Feature Layer endpoint, this may be an
+endpoint from a <em>Feature Service</em> or a <em>Map Service</em>; what is important is
+that the URL should reference the layer id within it</li>
+<li><em>NOTE metadata should be present for most layers, it is left as optional
+only for exceptional cases</em></li>
+<li>one of <tt class="docutils literal"><span class="pre">uuid</span></tt> or <tt class="docutils literal"><span class="pre">*_url</span></tt> should be specified</li>
+<li><tt class="docutils literal"><span class="pre">metadata_url</span></tt> should be direct URL to the layer&#8217;s metadata which should be in XML format</li>
+<li><tt class="docutils literal"><span class="pre">catalogue_url</span></tt> should be a URL linking back to the catalogue&#8217;s page describing the layer</li>
+<li><tt class="docutils literal"><span class="pre">uuid</span></tt> should be a unique identifier which can be prefixed with a
+preconfigured metadata URL to retrieve specific metadata for that layer</li>
+</ul>
+</div>
+<div class="section" id="payload-type-wms">
+<h3>Payload Type <tt class="docutils literal"><span class="pre">wms</span></tt><a class="headerlink" href="#payload-type-wms" title="Permalink to this headline">¶</a></h3>
+<p>The wms payload should conform to:</p>
+<div class="highlight-javascript"><div class="highlight"><pre>{
+    &quot;service_url&quot;: (str: URL to WMS Service),
+    &quot;layer&quot;: (str: Layer Identifier),
+    &quot;legend_format&quot;: (str: MIME type)&quot;,
+    &quot;feature_info_type&quot;: (str: MIME type),
+    &quot;metadata&quot;: {
+        &quot;uuid&quot;: (str: a unique identifier),
+        &quot;catalogue_url&quot;: (str: URL describing the layer in full detail)
+        &quot;metadata_url&quot;: (str: direct URL to metadata for that layer)
+    }
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li>the service URL should not have any query string component</li>
+<li><tt class="docutils literal"><span class="pre">layer</span></tt> is required and must match the a layer identifier specified in the WMS</li>
+<li><tt class="docutils literal"><span class="pre">legend_format</span></tt> is an optional string, if present it indicates legend support
+on the WMS and specifies the image MIME type to request from the server</li>
+<li><tt class="docutils literal"><span class="pre">feature_info_type</span></tt> is an optional field, if present it indicates feature info support on the WMS, default parsers are available for <tt class="docutils literal"><span class="pre">text/html</span></tt> (direct HTML code which can be inserted into a RAMP panel), <tt class="docutils literal"><span class="pre">text/plain</span></tt> (plain text which will be wrapped in a paragraph tag and then inserted into a RAMP panel <em>NOTE: all formatting will be lost</em>), and <tt class="docutils literal"><span class="pre">application/json</span></tt> (a JSON fragment which will have its top level properties displayed in a tabular format in a RAMP panel)</li>
+<li><em>NOTE metadata should be present for most layers, it is left as optional
+only for exceptional cases</em></li>
+<li>one of <tt class="docutils literal"><span class="pre">uuid</span></tt> or <tt class="docutils literal"><span class="pre">*_url</span></tt> should be specified</li>
+<li><tt class="docutils literal"><span class="pre">metadata_url</span></tt> should be direct URL to the layer&#8217;s metadata which should be in XML format</li>
+<li><tt class="docutils literal"><span class="pre">catalogue_url</span></tt> should be a URL linking back to the catalogue&#8217;s page describing the layer</li>
+<li><tt class="docutils literal"><span class="pre">uuid</span></tt> should be a unique identifier which can be prefixed with a
+preconfigured metadata URL to retrieve specific metadata for that layer</li>
+</ul>
+</div>
+</div>
+<div class="section" id="delete-v1-register-smallkey">
+<h2>DELETE <tt class="docutils literal"><span class="pre">/v1/register/[smallkey]</span></tt><a class="headerlink" href="#delete-v1-register-smallkey" title="Permalink to this headline">¶</a></h2>
+<p>Success Code: 204</p>
+<p>Request Body: Empty</p>
+<p>Request Headers: Implement the <a class="reference internal" href="signing.html#signing"><em>Request Signing</em></a> protocol</p>
+<p>Response Body: Empty</p>
+<p>Error Conditions:</p>
+<ul class="simple">
+<li>smallkey not found: 404 Not Found</li>
+<li>invalid timestamp format: 400 Bad Request</li>
+<li>missing headers / unretrivable key: 401 Not Authorized</li>
+<li>exception in processing: 500 Internal Server Error, empty body</li>
+</ul>
+</div>
+<div class="section" id="post-v1-update-age">
+<h2>POST <tt class="docutils literal"><span class="pre">/v1/update/[age]</span></tt><a class="headerlink" href="#post-v1-update-age" title="Permalink to this headline">¶</a></h2>
+<p><em>added in RCS 1.8.0</em></p>
+<p>Success Code: 200</p>
+<p>Request Body: Empty</p>
+<p>Request Headers: Implement the <a class="reference internal" href="signing.html#signing"><em>Request Signing</em></a> protocol</p>
+<p>Request Params: <strong>age</strong> should be either &#8220;all&#8221; or a positive integer indicating
+the minimum age in days that a record should be before it is updated</p>
+<p>Response Body: <tt class="docutils literal"><span class="pre">{</span> <span class="pre">&quot;success&quot;:</span> <span class="pre">[&quot;smallkey&quot;,</span> <span class="pre">…],</span> <span class="pre">&quot;errors&quot;:</span> <span class="pre">{&quot;smallkey&quot;:</span> <span class="pre">&quot;message&quot;,</span> <span class="pre">…}</span> <span class="pre">}</span></tt></p>
+<p>Error conditions:</p>
+<ul class="simple">
+<li>Age is invalid, error code 400, body {&#8220;error&#8221;:&#8221;argument should be either &#8216;all&#8217; or a positive integer&#8221;}</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RCS Service Contract</a><ul>
+<li><a class="reference internal" href="#get-v1-doc-lang-smallkey">GET <tt class="docutils literal"><span class="pre">/v1/doc/[lang]/[smallkey]</span></tt></a></li>
+<li><a class="reference internal" href="#get-v1-docs-lang-smallkey-smallkey">GET <tt class="docutils literal"><span class="pre">/v1/docs/[lang]/[smallkey]{,[smallkey]}</span></tt></a></li>
+<li><a class="reference internal" href="#put-v1-register-smallkey">PUT <tt class="docutils literal"><span class="pre">/v1/register/[smallkey]</span></tt></a><ul>
+<li><a class="reference internal" href="#payload-type-feature">Payload Type <tt class="docutils literal"><span class="pre">feature</span></tt></a></li>
+<li><a class="reference internal" href="#payload-type-wms">Payload Type <tt class="docutils literal"><span class="pre">wms</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delete-v1-register-smallkey">DELETE <tt class="docutils literal"><span class="pre">/v1/register/[smallkey]</span></tt></a></li>
+<li><a class="reference internal" href="#post-v1-update-age">POST <tt class="docutils literal"><span class="pre">/v1/update/[age]</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quickref.html"
+                        title="previous chapter">Service Quick Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jsonschema.html"
+                        title="next chapter">The RCS JSON Schema</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/service/contract.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="jsonschema.html" title="The RCS JSON Schema"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="quickref.html" title="Service Quick Reference"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.8.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Using RCS Endpoints</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
