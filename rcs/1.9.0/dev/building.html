@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Building RCS &mdash; RAMP Configuration Service 1.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.9.0 documentation" href="../index.html" />
+    <link rel="up" title="Developer Docs" href="index.html" />
+    <link rel="next" title="Preparing a Release" href="release.html" />
+    <link rel="prev" title="RCS Architecture" href="architecture.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="release.html" title="Preparing a Release"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="architecture.html" title="RCS Architecture"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.9.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="building-rcs">
+<span id="building"></span><h1>Building RCS<a class="headerlink" href="#building-rcs" title="Permalink to this headline">¶</a></h1>
+<p>RCS uses standard packaging tools as much as possible.  The current recommendation
+for Python appears to be <a class="reference external" href="http://pythonwheels.com/">wheel</a>.</p>
+<div class="section" id="packaging-rcs-only">
+<h2>Packaging RCS Only<a class="headerlink" href="#packaging-rcs-only" title="Permalink to this headline">¶</a></h2>
+<p>If addtional dependencies are not required a source distribution will likely be sufficient.</p>
+<ol class="arabic simple">
+<li>Initialize the virtual environment <tt class="docutils literal"><span class="pre">scripts\activate</span></tt></li>
+<li>Edit <tt class="docutils literal"><span class="pre">setup.py</span></tt> if version or packaged dependencies have changed</li>
+<li>Edit <tt class="docutils literal"><span class="pre">MANIFEST.in</span></tt> if any other dependencies (e.g. docs, static test files) have changed</li>
+<li>Execute <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">--formats=bztar,zip</span></tt></li>
+<li>A distributable source package should be available in the <tt class="docutils literal"><span class="pre">dist</span></tt> folder</li>
+</ol>
+</div>
+<div class="section" id="packaging-rcs-and-dependencies">
+<h2>Packaging RCS and Dependencies<a class="headerlink" href="#packaging-rcs-and-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>If you want to prefetch and build all the dependencies (e.g. avoiding tedious
+downloads on a server) then execute <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">wheel</span> <span class="pre">.</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></tt>.
+Output should be in <tt class="docutils literal"><span class="pre">./wheelhouse</span></tt> as a set of <tt class="docutils literal"><span class="pre">.whl</span></tt> files.  This
+directory can be used as the installation source for a server deployment.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Building RCS</a><ul>
+<li><a class="reference internal" href="#packaging-rcs-only">Packaging RCS Only</a></li>
+<li><a class="reference internal" href="#packaging-rcs-and-dependencies">Packaging RCS and Dependencies</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="architecture.html"
+                        title="previous chapter">RCS Architecture</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="release.html"
+                        title="next chapter">Preparing a Release</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/dev/building.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="release.html" title="Preparing a Release"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="architecture.html" title="RCS Architecture"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.9.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

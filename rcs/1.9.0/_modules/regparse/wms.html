@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>regparse.wms &mdash; RAMP Configuration Service 1.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.9.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">RAMP Configuration Service 1.9.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for regparse.wms</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A WMS &quot;parser&quot; (barely does any parsing at the moment).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">metadata</span>
+
+<div class="viewcode-block" id="make_feature_info"><a class="viewcode-back" href="../../dev/parsers.html#regparse.wms.make_feature_info">[docs]</a><span class="k">def</span> <span class="nf">make_feature_info</span><span class="p">(</span> <span class="n">data</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make a RAMP feature info node, identifying the correct default parser to be</span>
+<span class="sd">    used based on the MIME type of the feature info request.</span>
+
+<span class="sd">    Currently accepted MIME types (in order of preference):</span>
+<span class="sd">        &#39;text/html&#39;</span>
+<span class="sd">        &#39;text/plain&#39;</span>
+<span class="sd">        &#39;application/json&#39;</span>
+
+<span class="sd">    :param data: The initial payload to RCS</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :returns: dict -- A feature info configuration fragment; None if no valid mimeType was set</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fi_type</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;feature_info_type&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span> 
+    <span class="k">if</span> <span class="n">fi_type</span> <span class="o">==</span> <span class="s">&#39;text/html&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="s">&#39;mimeType&#39;</span><span class="p">:</span><span class="n">fi_type</span><span class="p">,</span> <span class="s">&#39;parser&#39;</span><span class="p">:</span><span class="s">&#39;htmlRawParse&#39;</span> <span class="p">}</span>
+    <span class="k">if</span> <span class="n">fi_type</span> <span class="o">==</span> <span class="s">&#39;text/plain&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="s">&#39;mimeType&#39;</span><span class="p">:</span><span class="n">fi_type</span><span class="p">,</span> <span class="s">&#39;parser&#39;</span><span class="p">:</span><span class="s">&#39;stringParse&#39;</span> <span class="p">}</span>
+    <span class="k">if</span> <span class="n">fi_type</span> <span class="o">==</span> <span class="s">&#39;application/json&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="s">&#39;mimeType&#39;</span><span class="p">:</span><span class="n">fi_type</span><span class="p">,</span> <span class="s">&#39;parser&#39;</span><span class="p">:</span><span class="s">&#39;jsonRawParse&#39;</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</div>
+<div class="viewcode-block" id="make_node"><a class="viewcode-back" href="../../dev/parsers.html#regparse.wms.make_node">[docs]</a><span class="k">def</span> <span class="nf">make_node</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">None</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a RAMP layer entry for a WMS.</span>
+
+<span class="sd">    :param data: The initial payload to RCS</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :param id: An identifier for the layer (as this is unique it is generally supplied from :module:rcs )</span>
+<span class="sd">    :type id: str</span>
+<span class="sd">    :returns: dict -- a RAMP configuration fragment representing the WMS layer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">wms_node</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span> <span class="p">}</span>
+    <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;service_url&#39;</span><span class="p">]</span>
+    <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;layerName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;layer&#39;</span><span class="p">]</span>
+    <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;displayName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;layer&#39;</span><span class="p">]</span>
+    <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;image/png&#39;</span>
+    <span class="n">metadata_url</span><span class="p">,</span> <span class="n">catalogue_url</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get_url</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">config</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">metadata_url</span><span class="p">:</span>
+        <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;metadataUrl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metadata_url</span>
+        <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;catalogueUrl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">catalogue_url</span>
+    <span class="k">if</span> <span class="s">&#39;legend_format&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;legendMimeType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;legend_format&#39;</span><span class="p">]</span>
+    <span class="n">fi_node</span> <span class="o">=</span> <span class="n">make_feature_info</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">fi_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">wms_node</span><span class="p">[</span><span class="s">&#39;featureInfo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fi_node</span>
+    <span class="k">return</span> <span class="n">wms_node</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">RAMP Configuration Service 1.9.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

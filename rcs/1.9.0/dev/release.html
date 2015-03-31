@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Preparing a Release &mdash; RAMP Configuration Service 1.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="RAMP Configuration Service 1.9.0 documentation" href="../index.html" />
+    <link rel="up" title="Developer Docs" href="index.html" />
+    <link rel="next" title="Module and Package Docs" href="api.html" />
+    <link rel="prev" title="Building RCS" href="building.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="Module and Package Docs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="building.html" title="Building RCS"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.9.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="preparing-a-release">
+<h1>Preparing a Release<a class="headerlink" href="#preparing-a-release" title="Permalink to this headline">¶</a></h1>
+<p>How to release a new version of RCS in N easy steps.</p>
+<ol class="arabic">
+<li><p class="first">Update the version in <tt class="docutils literal"><span class="pre">/setup.py</span></tt> and <tt class="docutils literal"><span class="pre">/docs/conf.py</span></tt></p>
+</li>
+<li><p class="first">Update <tt class="docutils literal"><span class="pre">/docs/admin/deployment.rst</span></tt> to describe the upgrade process</p>
+</li>
+<li><p class="first">Build the docs:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd docs
+make clean
+make html
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build RCS as described in <a class="reference internal" href="building.html#building"><em>Building RCS</em></a></p>
+</li>
+<li><p class="first">If possible have someone else test the newly packaged version, if that is
+not possible try create a new virtual environment locally and setting up the
+package in there, and barring either of those get your &#8220;works on my machine&#8221;
+excuses ready</p>
+</li>
+<li><p class="first">In particular watch for missing dependencies, or newly added packages and
+resources (update <tt class="docutils literal"><span class="pre">requirements.txt</span></tt>, or <tt class="docutils literal"><span class="pre">setup.py</span></tt> and <tt class="docutils literal"><span class="pre">MANIFEST.in</span></tt>
+respectively)</p>
+</li>
+<li><p class="first">Tag the release <tt class="docutils literal"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">vX.Y.Z</span></tt></p>
+</li>
+<li><p class="first">Merge the release into master</p>
+</li>
+<li><p class="first">Copy the docs to rampdocs, there is an RCS folder copy the output from
+<tt class="docutils literal"><span class="pre">/docs/_build/html</span></tt> to a new directory in rampdocs which should be named
+to match the release version</p>
+</li>
+<li><p class="first">Update rampdocs <tt class="docutils literal"><span class="pre">/rcs/index-en.md</span></tt> to include a link to the new RCS docs</p>
+</li>
+<li><p class="first">Build rampdocs <tt class="docutils literal"><span class="pre">jekyll</span> <span class="pre">build</span></tt></p>
+</li>
+<li><p class="first">Copy the generated output (<tt class="docutils literal"><span class="pre">/_site</span></tt>) to the github repo</p>
+</li>
+<li><p class="first">Push the RCS master branch to github</p>
+</li>
+<li><p class="first">Push the new tags to github</p>
+</li>
+<li><p class="first">In the github web admin UI go to releases (github should detect the new tag
+and prompt to you edit the release)</p>
+</li>
+<li><p class="first">Select the tag and add a description (cover which RAMP versions the RCS
+release is compatible with)</p>
+</li>
+<li><p class="first">Upload the dist files</p>
+</li>
+<li><p class="first">Hope that no one finds a bug 5 minutes after you post the release</p>
+</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="building.html"
+                        title="previous chapter">Building RCS</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api.html"
+                        title="next chapter">Module and Package Docs</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/dev/release.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="Module and Package Docs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="building.html" title="Building RCS"
+             >previous</a> |</li>
+        <li><a href="../index.html">RAMP Configuration Service 1.9.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Environment Canada.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
