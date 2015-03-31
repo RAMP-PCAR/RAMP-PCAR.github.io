@@ -107,7 +107,7 @@
                     
 
                         
-                        <li><a href="/index-en.html">Home</a></li>
+                            <li><a href="/index-en.html">Home</a></li>
                         
 
                     
@@ -128,7 +128,7 @@
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>
             <dd>
-                <time>2015-03-16</time>
+                <time>2015-03-31</time>
             </dd>
         </dl>
     </main>
@@ -178,6 +178,10 @@
     <script src="/assets/themes/gc/js/toc.js"> </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
             $('.toc')
                 .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({

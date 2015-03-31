@@ -107,7 +107,7 @@
                     
 
                         
-                        <li><a href="/index-en.html">Home</a></li>
+                            <li><a href="/index-en.html">Home</a></li>
                         
 
                     
@@ -126,6 +126,42 @@
 <div class="toc"></div>
 
 <h2 id="version-50---elk">Version 5.0 - Elk</h2>
+
+<h3 id="v520">v5.2.0</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RAMP Core Theme</td>
+      <td><a href="/demos/NRSTC/v5.2.0/ramp-pcar/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Core Theme</td>
+    </tr>
+    <tr>
+      <td>RAMP Usability Theme</td>
+      <td><a href="/demos/NRSTC/v5.2.0/ramp-theme-intranet/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Usability Theme</td>
+    </tr>
+    <tr>
+      <td>RAMP Intranet Theme</td>
+      <td><a href="/demos/NRSTC/v5.2.0/ramp-theme-intranet/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Intranet Theme</td>
+    </tr>
+    <tr>
+      <td>RAMP Canada.ca Theme</td>
+      <td><a href="/demos/NRSTC/v5.2.0/ramp-theme-canada/ramp-en.html">Link</a></td>
+      <td>A Simple Implementation of RAMP using Canada.ca Theme</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="v500">v5.0.0</h3>
 
 <table class="table">
   <thead>
@@ -230,7 +266,7 @@
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>
             <dd>
-                <time>2015-03-16</time>
+                <time>2015-03-31</time>
             </dd>
         </dl>
     </main>
@@ -280,6 +316,10 @@
     <script src="/assets/themes/gc/js/toc.js"> </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
             $('.toc')
                 .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({

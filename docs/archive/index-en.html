@@ -107,13 +107,13 @@
                     
 
                         
-                        <li><a href="/index-en.html">Home</a></li>
+                            <li><a href="/index-en.html">Home</a></li>
                         
 
                     
 
                         
-                        <li><a href="/docs/index-en.html">Documentation</a></li>
+                            <li><a href="/docs/index-en.html">Documentation</a></li>
                         
 
                     
@@ -148,13 +148,18 @@
       <td><a href="4.0/index-en.html">Link</a></td>
       <td><a href="/api/4.0/yuidoc/">Link</a></td>
     </tr>
+    <tr>
+      <td>v5.0.0 - Elk</td>
+      <td><a href="5.0/index-en.html">Link</a></td>
+      <td><a href="/api/5.0/yuidoc/">Link</a></td>
+    </tr>
   </tbody>
 </table>
 
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>
             <dd>
-                <time>2015-03-16</time>
+                <time>2015-03-31</time>
             </dd>
         </dl>
     </main>
@@ -204,6 +209,10 @@
     <script src="/assets/themes/gc/js/toc.js"> </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
             $('.toc')
                 .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({

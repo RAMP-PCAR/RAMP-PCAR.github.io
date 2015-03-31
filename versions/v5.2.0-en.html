@@ -1,0 +1,284 @@
+
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8" />
+    <title>v5.2.0 - Elk - Release Notes</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>-->
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <nav role="navigation" id="wb-bc" property="breadcrumb">
+        <h2>You are here:</h2>
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    
+
+                        
+                            <li><a href="/index-en.html">Home</a></li>
+                        
+
+                    
+
+                        
+                            <li><a href="/versions/index-en.html">Version History</a></li>
+                        
+
+                    
+
+                    <li class="">v5.2.0 - Elk - Release Notes</li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+    
+    <main role="main" property="mainContentOfPage" class="container">
+
+        
+<h1 id="wb-cont">v5.2.0 - Elk - Release Notes</h1>
+
+<div class="toc"></div>
+
+<ul>
+  <li><strong>Release Date:</strong> 2015-03-31</li>
+</ul>
+
+<h2 id="bug-fixes">Bug Fixes</h2>
+
+<ul>
+  <li><strong>add-dataset:</strong>
+    <ul>
+      <li>ignore shape field for grid columns (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/cbe1bd02">cbe1bd02</a>)</li>
+      <li>attributes for GeoJSON and ShapeFile appear in extended grid (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/7930fce5">7930fce5</a>)</li>
+      <li>add French (google) translation (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/702be1d4">702be1d4</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8137">8137</a>)</li>
+    </ul>
+  </li>
+  <li><strong>add-dataset-ui:</strong>
+    <ul>
+      <li>remove min-width from choice button (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/796cf924">796cf924</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8750">8750</a>)</li>
+      <li>user feature aliases appear in extended grid (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/dcfab83a">dcfab83a</a>)</li>
+    </ul>
+  </li>
+  <li><strong>ascii-art:</strong>
+    <ul>
+      <li>append ascii art to minified lib.js (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/4c3ad985">4c3ad985</a>, <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/047c6497">047c6497</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8763">8763</a>)</li>
+    </ul>
+  </li>
+  <li><strong>bricks:</strong> change DropDownBrick event listener from “click” to “change” (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/9f0e8243">9f0e8243</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8160">8160</a>)</li>
+  <li><strong>grunt:</strong> merge commit did not remove merge markers (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/2b854d71">2b854d71</a>)</li>
+  <li><strong>config:</strong> remove hardcoded language reference (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/d46d73ca">d46d73ca</a>)</li>
+  <li><strong>datagrid:</strong>
+    <ul>
+      <li>remove default sort icon (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/b3571928">b3571928</a>)</li>
+      <li>apply config column sorting (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/2799e618">2799e618</a>)</li>
+    </ul>
+  </li>
+  <li><strong>export:</strong> allow IE9 to use a CORS proxy to a CORS print service (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/c38ebd94">c38ebd94</a>)</li>
+  <li><strong>full-data:</strong> fix full-data transition in IE* (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/db53793a">db53793a</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8149">8149</a>)</li>
+  <li><strong>help:</strong> fix typo (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/eb653d04">eb653d04</a>)</li>
+  <li><strong>layer-loader:</strong> handles IE10 failure to raise loaded event (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/c8b01990">c8b01990</a>)</li>
+  <li><strong>layer-selector-ui:</strong>
+    <ul>
+      <li>update aria attribute on popup opening/closing (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/2844753d">2844753d</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8250">8250</a>)</li>
+      <li>display appropriate error messages for failed layers (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/afd2601d">afd2601d</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/7724">7724</a>)</li>
+    </ul>
+  </li>
+  <li><strong>map-export:</strong> turn off file based user layers when exporting (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/a06318e8">a06318e8</a>)</li>
+  <li><strong>query-toggle:</strong> remove duplicate toggle code (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/60cdc727">60cdc727</a>)</li>
+  <li><strong>site-templates:</strong>
+    <ul>
+      <li>fix duplicate ids on mega-menu sections (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/99c10a04">99c10a04</a>)</li>
+      <li>fixes for HTML validation (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/ce4f7a9e">ce4f7a9e</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8777">8777</a>)</li>
+    </ul>
+  </li>
+  <li><strong>startup:</strong> add delay for IE10 (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/00086e59">00086e59</a>)</li>
+  <li><strong>theme-ui:</strong> update theme branding (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/cd5ffd05">cd5ffd05</a>)</li>
+</ul>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li><strong>ascii-art:</strong> update ascii art to flying fat elk (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/072c6750">072c6750</a>)</li>
+  <li><strong>data-loader:</strong> extended projection support (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/a6c0e71b">a6c0e71b</a>)</li>
+  <li><strong>layer-selector-ui:</strong>
+    <ul>
+      <li>allow passing state and notices on layer item creation (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/de21ce11">de21ce11</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8212">8212</a>)</li>
+      <li>remove metadata control from user-added layers (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/de8973ba">de8973ba</a>)</li>
+    </ul>
+  </li>
+  <li><strong>map:</strong> add WKT bbox support (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/2f5e4d80">2f5e4d80</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8195">8195</a>)</li>
+  <li><strong>popup-manager:</strong> allow rejecting closing/opening of popups (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/00713a96">00713a96</a>)</li>
+  <li><strong>query-toggle:</strong> toggle button config (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/cbae37c8">cbae37c8</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8208">8208</a>)</li>
+  <li><strong>text:</strong> 
+    <ul>
+      <li>add French translations for 5.2.0 (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/cf739166">cf739166</a>)</li>
+      <li>update instructional text (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/6b4de02a">6b4de02a</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8315">8315</a>)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="details">Details</h2>
+
+<p><strong>Number of Commits:</strong> 471</p>
+
+        <dl id="wb-dtmd" property="dateModified">
+            <dt>Date modified:&#32;</dt>
+            <dd>
+                <time>2015-03-31</time>
+            </dd>
+        </dl>
+    </main>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
+            $('.toc')
+                .addClass("mrgn-bttm-lg panel panel-default")
+                .toc({
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
+</body>
+</html>

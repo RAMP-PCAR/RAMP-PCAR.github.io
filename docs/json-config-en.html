@@ -108,15 +108,15 @@
                     <ol class="breadcrumb">
                         
                         
-                        
-                        <li><a href="/index-en.html">Home</a></li>
-                        
+                            
+                                <li><a href="/index-en.html">Home</a></li>
+                            
                                                 
                         
                         
-                        
-                        <li><a href="/docs/index-en.html">Documentation</a></li>
-                        
+                            
+                                <li><a href="/docs/index-en.html">Documentation</a></li>
+                            
                                                 
                         
 
@@ -266,6 +266,7 @@
           </li>
           <li>nameField</li>
           <li>layerExtent</li>
+          <li>maxAllowableOffset</li>
           <li>settings
             <ul>
               <li>panelEnabled</li>
@@ -280,6 +281,7 @@
             </ul>
           </li>
           <li>isStatic</li>
+          <li>aliasMap</li>
         </ul>
       </li>
       <li>wmsLayers (collection)
@@ -730,6 +732,11 @@
       <td>Defines the boundary of the layers data (using a rectangle).  Should contain xmin, ymin, xmax, ymax values, and a valid <a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html#spatialreference1">spatial reference</a> for the co-ordinates.  Used to generate the bounding box in RAMP.</td>
     </tr>
     <tr>
+      <td>layers.feature[].maxAllowableOffset</td>
+      <td>numeric</td>
+      <td>Simplification factor.  Two points closer than the factor will be converted to one.  A value of 0 turns off the simplification.</td>
+    </tr>
+    <tr>
       <td><a name="featurelayers_settings"></a>layers.feature[].settings</td>
       <td>object</td>
       <td>Optional. Object to store layer settings.  If missing, default values will be used.</td>
@@ -768,6 +775,11 @@
       <td>layers.feature[].isStatic</td>
       <td>boolean</td>
       <td>Optional.  Specifies the current layer is a static layer.  Default value is False.</td>
+    </tr>
+    <tr>
+      <td>layers.feature[].aliasMap</td>
+      <td>object</td>
+      <td>Optional.  Defines a mapping of field names to field aliases (strings).</td>
     </tr>
     <tr>
       <td><a name="wmsLayers"></a> layers.wmsLayers</td>
@@ -922,7 +934,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-03-16</time>
+                        <time>2015-03-31</time>
                     </dd>
                 </dl>
             </main>
@@ -1069,7 +1081,7 @@
                         Symbology Support
                     </a>
                 </li>
-				<li>
+                <li>
                     <a class="list-group-item" href="layer-load-en.html">
                         Layer Loading
                     </a>
@@ -1146,6 +1158,10 @@
     <script src="/assets/themes/gc/js/toc.js"> </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
             $('.toc')
                 .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({

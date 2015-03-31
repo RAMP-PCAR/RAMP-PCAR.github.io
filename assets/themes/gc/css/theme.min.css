@@ -20,3 +20,9 @@
     border-right: 0 !important;
     border-left: 0 !important;
 }
+
+.ribbon {
+    position: absolute; 
+    top: 0; 
+    right: 0;
+}

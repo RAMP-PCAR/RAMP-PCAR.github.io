@@ -108,15 +108,15 @@
                     <ol class="breadcrumb">
                         
                         
-                        
-                        <li><a href="/index-en.html">Home</a></li>
-                        
+                            
+                                <li><a href="/index-en.html">Home</a></li>
+                            
                                                 
                         
                         
-                        
-                        <li><a href="/docs/index-en.html">Documentation</a></li>
-                        
+                            
+                                <li><a href="/docs/index-en.html">Documentation</a></li>
+                            
                                                 
                         
 
@@ -275,6 +275,12 @@ These templates are located in <strong>src\js\RAMP\Modules\templates</strong> fo
 
 <p>For further customization of grids, please refer to <a href="http://www.datatables.net/">DataTables</a> documentation.</p>
 
+<h3 id="aliases">Aliases</h3>
+
+<p>Field name aliases can be used to display user-friendly text instead of system field names in the details pane.  The aliasMap config object maps field names to alias names, and the alias will be used if the mapping is present.</p>
+
+<p><img src="../assets/images/qs_json_alias.png" alt="Image of configuration file for aliases" /></p>
+
 <h2 id="adding-a-wms-layer">Adding a WMS Layer</h2>
 
 <p>Similar to Feature layers, WMS layers are added to the map by adding a configuration object to the <a href="json-config-en.html#wmsLayers">layers.wms configuration section</a>.  WMS layers are shown on the map as image overlays, so they do not have as many UI components as a Feature layer.</p>
@@ -306,7 +312,7 @@ These templates are located in <strong>src\js\RAMP\Modules\templates</strong> fo
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-03-16</time>
+                        <time>2015-03-31</time>
                     </dd>
                 </dl>
             </main>
@@ -453,7 +459,7 @@ These templates are located in <strong>src\js\RAMP\Modules\templates</strong> fo
                         Symbology Support
                     </a>
                 </li>
-				<li>
+                <li>
                     <a class="list-group-item" href="layer-load-en.html">
                         Layer Loading
                     </a>
@@ -530,6 +536,10 @@ These templates are located in <strong>src\js\RAMP\Modules\templates</strong> fo
     <script src="/assets/themes/gc/js/toc.js"> </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
             $('.toc')
                 .addClass("mrgn-bttm-lg panel panel-default")
                 .toc({

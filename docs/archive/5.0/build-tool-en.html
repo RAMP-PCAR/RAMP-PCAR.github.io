@@ -1,0 +1,585 @@
+
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8" />
+    <title>Build Tool</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>-->
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        
+        <nav role="navigation" id="wb-bc" property="breadcrumb">
+            <h2>You are here:</h2>
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        
+                        
+                            
+                                <li><a href="/index-en.html">Home</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/index-en.html">Documentation</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/index-en.html">Archive</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/5.0/index-en.html">v5.0 - Elk</a></li>
+                            
+                                                
+                        
+
+                        <li class="">Build Tool</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                
+<p><a name="top"></a></p>
+
+<h1 id="wb-cont">Build Tool Setup</h1>
+
+<section class="alert alert-info">
+    <h2 class="h3">Work in progress</h2>
+    <p>This page is a work in progress and requires review. Please <a href="https://github.com/ramp-pcar/RAMP-PCAR.github.io/issues/new" target="_blank">file an issue</a> if information or coding is missing, incorrect or out of sync with the main repository <a href="https://github.com/ramp-pcar/ramp-pcar" target="_blank">(ramp-pcar/ramp-pcar)</a>.</p>
+</section>
+
+<div class="toc"></div>
+
+<h2 id="dependencies">Dependencies</h2>
+<p>If you haven’t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins.</p>
+
+<p>To install Grunt on Windows, you first need to install <a href="http://nodejs.org/">Node.js</a> and <a href="http://msysgit.github.io/">Git</a> binary, and then you can use the command prompt or PowerShell to run Grunt tasks. You also need to have Java installed.</p>
+
+<ul>
+  <li>Node.js <a href="http://nodejs.org/#download">installer</a></li>
+  <li>msysGit <a href="http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git">installer</a></li>
+  <li>msysGit <a href="https://github.com/msysgit/msysgit/releases">mirror</a></li>
+  <li>Java SDK <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">installer</a></li>
+</ul>
+
+<p>After installing the dependencies, run the following in your command shell as Administrator</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>npm install -g grunt-cli
+<span class="nv">$ </span>npm install -g bower</code></pre></div>
+
+<p>This will add the grunt and bower commands to your system path, allowing it to be run from any directory. You might want to restart your machine, just in case.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>To run the build tool do the following:</p>
+
+<ol>
+  <li>Open Command Prompt or PowerShell</li>
+  <li>Change to the project’s root directory</li>
+  <li>Use <strong>npm install</strong> to install project dependencies (need to run only once or when adding new modules)</li>
+  <li>Use the following to run the default build task:</li>
+</ol>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt</code></pre></div>
+
+<p>if you get an error that something is not found, try running <strong>npm install</strong> again.</p>
+
+<h2 id="default-task">Default Task</h2>
+<p>Unless you specify a task to run, <strong>grunt</strong> command creates an unminified development, minified and tarballed distribution packages. They are located in <strong>build</strong>, <strong>dist</strong>, and <strong>tarball</strong> folders respectivelly.</p>
+
+<h2 id="other-tasks">Other Tasks</h2>
+
+<h3 id="api">api</h3>
+<p>Generate API documentation using YUIDoc and annotated source code documents using Docco and save them in “<strong>docs/docco</strong>” and “<strong>docs/yuidoc</strong>” folder. Use the following to run this task:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt api</code></pre></div>
+
+<h3 id="build">build</h3>
+<p>Creates an unminified development package. Use the following to run this task:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt build</code></pre></div>
+
+<h3 id="clean">clean</h3>
+<p>Removes all temporary and build folders:</p>
+
+<ul>
+  <li>./build/</li>
+  <li>./dist/</li>
+  <li>./tarball</li>
+</ul>
+
+<p>Use the following to run this task:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt cleanAll</code></pre></div>
+
+<h3 id="deploy">deploy</h3>
+<p>Creates a minified distribution package and copies it into to a specified location. This task <em>will</em> fail if there are any JS errors present. Use the following to run this task:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt deploy</code></pre></div>
+
+<p>Note: The target folder is cleaned prior to copying files.</p>
+
+<h3 id="dist">dist</h3>
+<p>Identical to the default task. Use the following to run this task:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt dist</code></pre></div>
+
+<h3 id="servebuild">serve:build</h3>
+<p>Creates an unminified development package, starts a node server on port 3002, watches for modified JS, CSS and other files, and reloads HTML page on change.</p>
+
+<p>Use the following to run this task:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt serve:build</code></pre></div>
+
+<p>Access RAMP pages:
+http://localhost:3002/ramp-en.html
+http://localhost:3002/ramp-fr.html</p>
+
+<h3 id="servedist">serve:dist</h3>
+<p>Creates a minified distribution package and starts a node server on port 3002.</p>
+
+<p>Use the following to run this task:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>grunt serve:dist</code></pre></div>
+
+<p>Access RAMP pages:
+http://localhost:3002/ramp-en.html
+http://localhost:3002/ramp-fr.html</p>
+
+<p>Note: This task does not monitor files and will not rebuild the package or reload the pages.</p>
+
+<h2 id="config-file---packagejson">Config File - package.json</h2>
+
+<p>package.json contains the metadata about the build tool project, grunt dependencies to be installed and some of the variables used by the build tool such as various paths, folders, and file names. package.json is a pure JSON file (no comments, no unquoted strings, no multiline values allowed). All the variables related to the build tool stored in <strong>ramp</strong> object.</p>
+
+<h3 id="rampconcatjslib">ramp.concat.jsLib</h3>
+<p>A list of JS libraries’ files to be concatenated together for use in RAMP.</p>
+
+<h3 id="rampconcatcsslib">ramp.concat.cssLib</h3>
+<p>A list of CSS libraries’ files to be concatenated together for use in RAMP.</p>
+
+<h3 id="rampdeploytofolder">ramp.deployToFolder</h3>
+<p>A path to the deploy folder.</p>
+
+<h3 id="rampdoccopath">ramp.docco.path</h3>
+<p>A path to the JavaScript folder to be parsed.</p>
+
+<h3 id="rampdoccooutdir">ramp.docco.outdir</h3>
+<p>A path where to put generated documents.</p>
+
+<h3 id="yuidocconfig">yuidocconfig</h3>
+<p>The Config object for YUIDoc is located in yuidoc.json file. You can read about its structure here: <a href="http://yui.github.io/yuidoc/args/index.html">http://yui.github.io/yuidoc/args/index.html</a></p>
+
+<h2 id="grunt-modules">Grunt Modules</h2>
+<p>The build tool uses a number of Grunt-specific and general <a href="https://www.npmjs.org/">NPM</a> modules. They are:</p>
+
+<ul>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-concat">grunt-contrib-concat</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-cssmin">grunt-contrib-cssmin</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-watch">grunt-contrib-watch</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-copy">grunt-contrib-copy</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-clean">grunt-contrib-clean</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-less">grunt-contrib-less</a></li>
+  <li><a href="https://github.com/outaTiME/grunt-replace">grunt-replace</a></li>
+  <li><a href="https://github.com/nDmitry/grunt-autoprefixer">grunt-autoprefixer</a></li>
+  <li><a href="https://github.com/mikeal/request">request</a></li>
+  <li><a href="https://github.com/DavidSouther/grunt-docco">grunt-docco</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-yuidoc">grunt-contrib-yuidoc</a></li>
+  <li><a href="https://github.com/dylang/grunt-notify">grunt-notify</a></li>
+  <li><a href="https://github.com/AleksueiR/jshint-stylish-plain">jshint-stylish-plain</a></li>
+  <li><a href="https://github.com/vigetlabs/grunt-complexity">grunt-complexity</a></li>
+  <li><a href="https://www.npmjs.org/package/grunt-bump">grunt-bump</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-htmlmin">grunt-contrib-htmlmin</a></li>
+  <li><a href="https://github.com/gustavohenke/grunt-jscs-checker">grunt-jscs-checker</a></li>
+  <li><a href="https://github.com/spatools/grunt-html-build">grunt-html-build</a></li>
+  <li><a href="https://github.com/gruntjs/grunt-contrib-compress">grunt-contrib-compress</a></li>
+  <li><a href="https://www.npmjs.org/package/grunt-json-minify">grunt-json-minify</a></li>
+</ul>
+
+<h2 id="other">Other</h2>
+
+<h3 id="making-your-grunt-snarl">Making your Grunt Snarl</h3>
+<p>To see sweet notification balloons when your Grunt wants to tell you that your task has failed (or when JS has been JShinted successfully, or when LESS has been converted to proper CSS), install <a href="http://snarl.fullphat.net/">Snarl</a> from here: <a href="http://sourceforge.net/projects/snarlwin/files/latest/download?source=files">http://sourceforge.net/projects/snarlwin/files/latest/download?source=files</a></p>
+
+<p>You don’t need to do anything else.</p>
+
+<h3 id="adding-javascript-library">Adding JavaScript Library</h3>
+<p>To add a JavaScript library, do the following:</p>
+
+<ol>
+  <li>create a folder in <strong>RAMP/src/js/lib/{library name}.{ library  version}</strong>, and copy the library files into this folder;</li>
+  <li>add the main uglified library file name(s) to the <em>jsLibToConcat</em> property in <strong>package.json</strong> file making sure the path is relative to the <em>jsFolder</em> property; if the library doesn’t have an uglified version, do <strong>step 3</strong> even if you didn’t modify the library’s source;</li>
+  <li>if you made changes to the library’s source file(s), add their names to the <em>jsLibToUglify</em> property of  the <strong>package.json</strong> file; the build tool will create an uglified version with <strong>*.min.js</strong> extension;</li>
+  <li>include the reference to the library’s source file(s) if you modified them and to main uglified file(s) if you didn’t in <strong>ramp-src.html</strong> between the <!-- JS LIB --> comment tags:</li>
+  <li>run the tool;</li>
+</ol>
+
+<h3 id="adding-css-library">Adding CSS Library</h3>
+<p>To add a CSS library, do the following:</p>
+
+<ol>
+  <li>create a folder in <strong>RAMP/src/css/lib/{library name}.{ library  version}</strong>, and copy the library files into this folder;</li>
+  <li>add the main minified library file name(s) to the <em>cssLibToConcat</em> property in <strong>package.json</strong> file making sure the path is relative to the <em>cssFolder</em> property; if the library doesn’t have an minified version, do <strong>step 3</strong> even if you didn’t modify the library’s source;</li>
+  <li>if you made changes to the library’s source file(s), add their names to the <em>cssLibToMinify</em> property of  the <strong>package.json</strong> file; the build tool will create an minified version with <strong>*.min.css</strong> extension;</li>
+  <li>include the reference to the library’s source file(s) if you modified them and to main minified file(s) if you didn’t in <strong>ramp-src.html</strong> between the <!-- CSS LIB --> comment tags:</li>
+  <li>run the tool;</li>
+</ol>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="task-not-found">Task Not Found</h3>
+<p>If you get a “Task not found” error like this one:</p>
+
+<pre><code>Warning: Task "***" not found.  Use --force to continue.
+Aborted due to warnings.
+</code></pre>
+
+<p>Run the <em>npm install</em> command again (you may want to delete the <strong>node_modules</strong> folder from the root, if it didn’t work after the first try, just in case):</p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2015-03-31</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wet-customization-en.html">
+                        WET Template Customization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="symbology-en.html">
+                        Symbology Support
+                    </a>
+                </li>
+				<li>
+                    <a class="list-group-item" href="layer-load-en.html">
+                        Layer Loading
+                    </a>
+                </li>				
+                <li><a class="list-group-item" href="user-added-data.html">User Added Data</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/index-en.html">
+                API Reference
+            </a>
+        </li>
+        <li>
+            <a class="list-group-item" href="/rcs/index-en.html">
+                RCS Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
+            $('.toc')
+                .addClass("mrgn-bttm-lg panel panel-default")
+                .toc({
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
+</body>
+</html>
