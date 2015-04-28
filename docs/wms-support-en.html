@@ -143,7 +143,7 @@
 
 <h2 id="supported-features-in-ramp">Supported Features in RAMP</h2>
 
-<p>RAMP can display a layer from a WMS.  It will display as an image on the map and will appear in the layer selector.  Layer visibility and opacity can be adjusted.  WMS layers can be re-ordered amongst themselves, but must always remain underneath any feature layers on the map.  The WMS must support a projection that is compatible with the basemap being used.</p>
+<p>WMS layers can be added to RAMP provided they support either 1.1.0, 1.1.1 or 1.3 of the WMS standard.  It will display as an image on the map and will appear in the layer selector.  Layer visibility and opacity can be adjusted.  WMS layers can be re-ordered amongst themselves, but must always remain underneath any feature layers on the map.  The WMS must support a projection that is compatible with the basemap being used.</p>
 
 <p>Legend support is available if configured in RAMP and provided that the WMS source implements the GetLegendGraphic request.  In the RAMP configuration an entry should be made in <code>legendMimeType</code>, if this entry is not present then no legend will be displayed.</p>
 
@@ -203,7 +203,7 @@ RAMP.plugins.featureInfoParser .  The plugin itself should define a function whi
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-03-31</time>
+                        <time>2015-04-28</time>
                     </dd>
                 </dl>
             </main>
@@ -328,6 +328,11 @@ RAMP.plugins.featureInfoParser .  The plugin itself should define a function whi
                 <li>
                     <a class="list-group-item" href="basemap-support-en.html">
                         Basemap Support
+                    </a>
+                </li>
+				<li>
+                    <a class="list-group-item" href="feature-support-en.html">
+                        Feature Layer Support
                     </a>
                 </li>
                 <li>

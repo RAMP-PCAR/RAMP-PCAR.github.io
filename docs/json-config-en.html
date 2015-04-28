@@ -149,6 +149,10 @@
 <ul>
   <li>geometryServiceUrl</li>
   <li>proxyUrl</li>
+  <li>exportMapUrl</li>
+  <li>exportProxyUrl</li>
+  <li>geonameUrl</li>
+  <li>geolocationUrl</li>
   <li>extents
     <ul>
       <li>defaultExtent</li>
@@ -184,7 +188,7 @@
       <li>max</li>
     </ul>
   </li>
-  <li>initialSelectedBasemap</li>
+  <li>initialBasemapIndex</li>
   <li>basemaps (collection)
     <ul>
       <li>id</li>
@@ -357,6 +361,26 @@
       <td>Path to a proxy service (relative path).  Used for sending large requests to services.  No URL indicates no proxy is available.</td>
     </tr>
     <tr>
+      <td>exportMapUrl</td>
+      <td>string</td>
+      <td>URL to a map export service. Should point directly to an endpoint that can be consumed by ESRI PrintTask.</td>
+    </tr>
+    <tr>
+      <td>exportProxyUrl</td>
+      <td>string</td>
+      <td>Path to a proxy service for map export requests. Required for IE9 to support map export.</td>
+    </tr>
+    <tr>
+      <td>geonameUrl</td>
+      <td>string</td>
+      <td>URL to geonames service root. Supplies detailed info on geonames. Service should conform to geogratis geoname request and return value schemas.</td>
+    </tr>
+    <tr>
+      <td>geolocationUrl</td>
+      <td>string</td>
+      <td>URL to geolocations service root. Supplies basic information but supports more location types. Service should conform to geogratis geolocation request and return value schemas.</td>
+    </tr>
+    <tr>
       <td><a name="extents"></a>extents</td>
       <td> </td>
       <td>Note:  All extents should contain xmin, ymin, xmax, ymax values, and a <a href="https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html#spatialreference1">spatial reference</a> for the co-ordinates.</td>
@@ -457,7 +481,7 @@
       <td>Optional.  Maximum zoom level.  Default value is 17</td>
     </tr>
     <tr>
-      <td><a name="initialSelectedBasemap"></a>initialSelectedBasemap</td>
+      <td><a name="initialSelectedBasemap"></a>initialBasemapIndex</td>
       <td>numeric</td>
       <td>Optional.  Index of the basemap to show at load time.  Index refers to the position in the basemaps collection.  Default value is 0.</td>
     </tr>
@@ -934,7 +958,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-03-31</time>
+                        <time>2015-04-28</time>
                     </dd>
                 </dl>
             </main>
@@ -1059,6 +1083,11 @@
                 <li>
                     <a class="list-group-item" href="basemap-support-en.html">
                         Basemap Support
+                    </a>
+                </li>
+				<li>
+                    <a class="list-group-item" href="feature-support-en.html">
+                        Feature Layer Support
                     </a>
                 </li>
                 <li>

@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
-    <title>v5.0.0 - Elk - Release Notes</title>
+    <title>v5.3.0 - Elk - Release Notes</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     
     <meta name="author" content="Environment Canada">
@@ -118,7 +118,7 @@
 
                     
 
-                    <li class="">v5.0.0 - Elk - Release Notes</li>
+                    <li class="">v5.3.0 - Elk - Release Notes</li>
                 </ol>
             </div>
         </div>
@@ -127,40 +127,94 @@
     <main role="main" property="mainContentOfPage" class="container">
 
         
-<h1 id="wb-cont">v5.0.0 - Elk - Release Notes</h1>
+<h1 id="wb-cont">v5.3.0 - Elk - Release Notes</h1>
 
 <div class="toc"></div>
 
 <ul>
-  <li><strong>Release Date:</strong> 2015-02-11</li>
+  <li><strong>Release Date:</strong> 2015-04-28</li>
 </ul>
 
-<h2 id="whats-new">What’s New</h2>
+<h4 id="bug-fixes">Bug Fixes</h4>
 
 <ul>
-  <li>Asynchronous layer loading</li>
-  <li>Ability to reload or remove failed layers</li>
-  <li>User can add layers to the map.  Support for ESRI REST Feature Layer, WMS, GeoJSON, CSV, and Shapefile</li>
-  <li>Support for basemaps in different projections</li>
-  <li>Support for layers with scale dependancies</li>
-  <li>Local projection library, reducing dependance on ESRI Geometry Service</li>
-  <li>Auto-hyperlinking of data with URLs or email addresses</li>
+  <li><strong>add-dataset-ui:</strong> remove min-width from choice button (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/796cf924">796cf924</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8750">8750</a>)</li>
+  <li><strong>ascii-art:</strong> append ascii art to minified lib.js (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/4c3ad985">4c3ad985</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8763">8763</a>)</li>
+  <li><strong>bookmark-link:</strong> RCS layer language switch (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/d238fb29">d238fb29</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8992">8992</a>)</li>
+  <li><strong>config:</strong> remove hardcoded language reference (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/d46d73ca">d46d73ca</a>)</li>
+  <li><strong>datagrid-ui:</strong> kill key events to stop tab switching when the other tab is hidden (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/be4b70c8">be4b70c8</a>)</li>
+  <li><strong>grunt-locale:</strong> early termination bug (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/fadbb3a9">fadbb3a9</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/9405">9405</a>)</li>
+  <li><strong>layer-selector-ui:</strong> layer is correctly set to invisible when its opacity set to 0 (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/d1bc831c">d1bc831c</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/9616">9616</a>)</li>
+  <li><strong>map-export-ui:</strong> close button overlapping popup header (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/e894857d">e894857d</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8824">8824</a>)</li>
+  <li><strong>plugin:</strong> remove unused arg (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/f7b47a9f">f7b47a9f</a>)</li>
+  <li><strong>query-results:</strong>
+    <ul>
+      <li>test for failed layers (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/9e070a82">9e070a82</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/9572">9572</a>)</li>
+      <li>move expand link (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/5dee8f47">5dee8f47</a>)</li>
+      <li>use screenPoint for IE (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/2b790e64">2b790e64</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/9575">9575</a>)</li>
+      <li>check for removed layers (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/58819f6c">58819f6c</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/9402">9402</a>)</li>
+    </ul>
+  </li>
+  <li><strong>query-results-ui:</strong> set max-height on query results modal popup container (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/d44d0851">d44d0851</a>)</li>
+  <li><strong>side-panel-ui:</strong> hide data tab if no feature layers are present in layer selector (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/2051d6ca">2051d6ca</a>)</li>
+  <li><strong>site-templates:</strong> fix duplicate ids on mega-menu sections (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/99c10a04">99c10a04</a>)</li>
+  <li><strong>ui:</strong>
+    <ul>
+      <li>unify loading animations in layer item (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/7cc87a2e">7cc87a2e</a>)</li>
+      <li>unify loading animations in map export panel (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/0b8d23c3">0b8d23c3</a>)</li>
+      <li>unify loading animations in details panel (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/33e2b4ba">33e2b4ba</a>)</li>
+      <li>unify loading animations in side panel (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/64e9632b">64e9632b</a>)</li>
+    </ul>
+  </li>
+  <li><strong>util:</strong> use XDR for metadata XML in IE9 (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/8a13a2e5">8a13a2e5</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/7148">7148</a>)</li>
 </ul>
 
-<h3 id="fixes">Fixes</h3>
+<h4 id="features">Features</h4>
 
 <ul>
-  <li>Layer Selector is now dynamically constructed and can easily be updated during runtime.</li>
-  <li>More efficient linkage between map layer objects and their config objects</li>
-  <li>Layer URL is no longer used as a key value for map layers.  Layer ID is now the standard key</li>
-  <li>URL parameters are now preserved when switching languages</li>
-  <li>Application runtime state is no longer stored in the configuration object</li>
-  <li>Navigation widget tooltips and scalebar now bilingual</li>
+  <li><strong>config:</strong>
+    <ul>
+      <li>add loading mode to feature config (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/7911113e">7911113e</a>)</li>
+      <li>add query autohide option (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/b6255bbd">b6255bbd</a>)</li>
+    </ul>
+  </li>
+  <li><strong>data-loader:</strong> extended projection support (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/a6c0e71b">a6c0e71b</a>)</li>
+  <li><strong>event-manager:</strong> add LAYER_ADDED event (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/b4977c15">b4977c15</a>)</li>
+  <li><strong>geosearch:</strong>
+    <ul>
+      <li>extent filter (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/0a123d4a">0a123d4a</a>)</li>
+      <li>concise search, wildcard search, results limit (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/d94b5c6b">d94b5c6b</a>)</li>
+      <li>province search (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/47e946ae">47e946ae</a>)</li>
+      <li>supply UI with value lists (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/55a35975">55a35975</a>)</li>
+      <li>province and concise code utils (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/fda2160e">fda2160e</a>)</li>
+      <li>search for standard string (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/4b9b5a09">4b9b5a09</a>)</li>
+      <li>search for lat long (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/fcb4a65c">fcb4a65c</a>)</li>
+      <li>search for FSA and radius (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/717cfeb4">717cfeb4</a>)</li>
+      <li>user input parser (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/726f7378">726f7378</a>)</li>
+    </ul>
+  </li>
+  <li><strong>map:</strong> add WKT bbox support (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/2f5e4d80">2f5e4d80</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8195">8195</a>)</li>
+  <li><strong>map-toolbar-ui:</strong> respond to autohide option (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/79416e41">79416e41</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8618">8618</a>)</li>
+  <li><strong>plugin:</strong>
+    <ul>
+      <li>full JSON visible in modal popup (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/6a72a737">6a72a737</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/5729">5729</a>)</li>
+      <li>full text of JSON results (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/00718b88">00718b88</a>)</li>
+      <li>tabular JSON query output (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/88deeec3">88deeec3</a>)</li>
+      <li>better json parsing support (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/1b937888">1b937888</a>)</li>
+    </ul>
+  </li>
+  <li><strong>query-results:</strong>
+    <ul>
+      <li>remove extra close button (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/b078556c">b078556c</a>)</li>
+      <li>link to expand results (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/ec50e0ed">ec50e0ed</a>, closes <a href="http://tfs.int.ec.gc.ca:8080/tfs/DC/RAMP/_workitems/edit/8628">8628</a>)</li>
+      <li>add lightbox to results (<a href="https://github.com/RAMP-PCAR/RAMP-PCAR/commit/a47d04e2">a47d04e2</a>)</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="details">Details</h2>
 
-<p><strong>Number of Commits:</strong> 636</p>
+<p><strong>Number of Commits:</strong> 168</p>
 
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>

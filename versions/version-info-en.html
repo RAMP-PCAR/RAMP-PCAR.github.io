@@ -140,15 +140,17 @@
     <ul>
       <li>Major framework changes (including major breaking changes)</li>
       <li>Major markup changes (including major breaking changes)</li>
+      <li>Backwards incompatible config file changes</li>
+      <li>Breaking API changes (ex: plugin API or templating)</li>
       <li>New features and enhancements</li>
       <li>Bug fixes</li>
     </ul>
   </li>
   <li>Typical actions required to upgrade:
     <ul>
-      <li>Modify existing content and code new content differently</li>
-      <li>Major markup changes</li>
-      <li>Add and replace JS, CSS and image files</li>
+      <li>Update or rewrite templates</li>
+      <li>Update or rewrite plugins</li>
+      <li>Significant config file changes</li>
     </ul>
   </li>
 </ul>
@@ -156,20 +158,21 @@
 <h2 id="minor-version-eg-v30x-to-v310">Minor version (e.g., v3.0.x to v3.1.0)</h2>
 
 <ul>
-  <li>Typical risk of things breaking: Moderate</li>
+  <li>Typical risk of things breaking: Low</li>
   <li>Typical effort to upgrade: Moderate</li>
   <li>Typical changes:
     <ul>
-      <li>Minor framework changes (possibility of minor breaking changes)</li>
+      <li>Minor framework changes</li>
       <li>Minor markup changes (possibility of minor breaking changes)</li>
       <li>New features and enhancements</li>
+      <li>Backwards compatible config and API changes</li>
       <li>Bug fixes</li>
     </ul>
   </li>
   <li>Typical actions required to upgrade:
     <ul>
-      <li>Minor markup changes</li>
-      <li>Add and replace JS, CSS and image files</li>
+      <li>Update config (to use new features)</li>
+      <li>Small updates to templates</li>
     </ul>
   </li>
 </ul>
@@ -177,26 +180,24 @@
 <h2 id="maintenance-version-eg-v310-to-v311">Maintenance version (e.g., v3.1.0 to v3.1.1)</h2>
 
 <ul>
-  <li>Typical risk of things breaking: Low</li>
+  <li>Typical risk of things breaking: Minimal</li>
   <li>Typical effort to upgrade: Low</li>
   <li>Typical changes:
     <ul>
-      <li>Minor enhancements</li>
       <li>Bug fixes</li>
     </ul>
   </li>
   <li>Typical actions required to upgrade:
     <ul>
-      <li>Add and replace JS, CSS and image files</li>
+      <li>None, maintenance versions should be drop in replacements</li>
     </ul>
   </li>
 </ul>
 
-
         <dl id="wb-dtmd" property="dateModified">
             <dt>Date modified:&#32;</dt>
             <dd>
-                <time>2015-03-31</time>
+                <time>2015-04-28</time>
             </dd>
         </dl>
     </main>

@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
     <meta charset="utf-8" />
-    <title>RAMP Quick Start Guide</title>
+    <title>Feature Layer Support</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     
     <meta name="author" content="Environment Canada">
@@ -119,20 +119,8 @@
                             
                                                 
                         
-                        
-                            
-                                <li><a href="/docs/archive/index-en.html">Archive</a></li>
-                            
-                                                
-                        
-                        
-                            
-                                <li><a href="/docs/archive/5.0/index-en.html">v5.0 - Elk</a></li>
-                            
-                                                
-                        
 
-                        <li class="">RAMP Quick Start Guide</li>
+                        <li class="">Feature Layer Support</li>
                     </ol>
                 </div>
             </div>
@@ -141,183 +129,25 @@
         <div class="row">
 
             <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
-                <p><a name="top"></a></p>
+                
+<p><a name="top"></a></p>
 
-<h1 id="wb-cont">RAMP Quick Start Guide</h1>
+<h1 id="wb-cont">Feature Layer Support</h1>
 
 <section class="alert alert-info">
     <h2 class="h3">Work in progress</h2>
     <p>This page is a work in progress and requires review. Please <a href="https://github.com/ramp-pcar/RAMP-PCAR.github.io/issues/new" target="_blank">file an issue</a> if information or coding is missing, incorrect or out of sync with the main repository <a href="https://github.com/ramp-pcar/ramp-pcar" target="_blank">(ramp-pcar/ramp-pcar)</a>.</p>
 </section>
 
-<p>Welcome to RAMP Quick Start Guide. In this guide, we will be showing you how to setup your own web map using RAMP by adjusting the configuration file.  No programming required!
-<a href="/demos/index-en.html">View live samples</a></p>
-
 <div class="toc"></div>
 
-<h2 id="requirements">Requirements</h2>
+<h2 id="supported-features-in-ramp">Supported Features in RAMP</h2>
 
-<p>This guide assumes you have downloaded the RAMP source from Github, and have run the Grunt build script. If not, please visit the <a href="started-en.html">Getting Started</a> page to get your environment setup.</p>
+<p>RAMP will support Feature Layers supplied by a REST endpoint from a <a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/Map_Service/02r3000000w2000000/">Map Service</a> on an ESRI ArcGIS Server v10.0 or greater.  </p>
 
-<h3 id="map-resources">Map resources</h3>
+<p>Feature Layers hosted in a <a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/Feature_Service/02r3000000z2000000/">Feature Service</a> will also work, but will have no support for dynamically extracted legends (this mainly impacts layers added by the user at runtime, or layers registered via the Ramp Configuration Service).  Feature Service Layers defined in the config file can easily have a legend encoded there by hand.</p>
 
-<p>In this guide, examples will be provided using existing web services.  We will be using the <a href="http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT3978/MapServer">Natural Resources Canada</a>’s basemap in our example. As for the feature layers, we will be using a snapshot of the dataset from Science.gc.ca’s <a href="http://maps-cartes.ec.gc.ca/ArcGIS/rest/services/RAMP_NRSTC/MapServer/">Research Centres map layer</a>.</p>
-
-<p>Layer 0 - Environment Canada Research Centres</p>
-
-<p>Layer 1 - Agriculture and Agri-Food Canada Research Centres</p>
-
-<p>Layer 2 - Fisheries and Oceans Canada Research Centres</p>
-
-<p>Layer 3 - Natural Resources Canada</p>
-
-<p>Layer 4 - National Research Council</p>
-
-<p>Layer 5 - Other Centres</p>
-
-<p class="text-right"><a href="#top">Back To Top</a></p>
-
-<h3 id="json-editor">JSON Editor</h3>
-
-<p>RAMP is designed so that data layers and common settings can be set via a configuration file or service.  Of course, more complex customizations can be made to the RAMP code, but a standard “here is my data on a map” website can be set up simply by adjusting the configuration file.  The configuration files are located in the root of build folder, there is one for both languages.  The file can be updated using a text editor or a <a href="http://www.jsoneditoronline.org">json editor</a>.</p>
-
-<p>A full layout of the configuration file can be found <a href="json-config-en.html">here</a>.</p>
-
-<h2 id="adding-a-basemap-layer">Adding a Basemap Layer</h2>
-
-<p>The basemaps configuration section defines what basemaps are available in the app.  You can delete all and add your own, or use any existing one.  Keep in mind that all basemaps with the same projection and same scale levels should have the same value defined in their tileSchema property.  Details on the basemap configuration objects can be found <a href="json-config-en.html#basemaps">here</a>.</p>
-
-<p><img src="assets/images/qs_basemap_config.png" alt="Partial configuration file" /></p>
-
-<h2 id="adding-an-esri-feature-layer">Adding an ESRI Feature Layer</h2>
-
-<p>ESRI feature layers allow the display of feature data on the map, along with attribute data shown in grids and interactive elements such as hovertips and feature highlighting.</p>
-
-<p>Feature layers to be included in the map are defined in the “layers.feature” section of the configuration file.  The feature configuration objects are the most complex in the app, and are fully defined <a href="json-config-en.html#featurelayers_id">here</a>.  Note that many of the configuration items are optional, allowing for smaller nodes if the default values are acceptable.</p>
-
-<p>The main attributes of a Feature layer config node are:</p>
-
-<ul>
-  <li>id: Should be unique to the application.</li>
-  <li>displayName: An appropriate name for the layer.  It will be displayed in the layer selector.</li>
-  <li>url: A rest endpoint to the ESRI feature service for this layer.</li>
-  <li>nameField: The attribute field that best describes each feature.  This will be displayed in maptips and the summary data grid</li>
-</ul>
-
-<p><img src="assets/images/qs_json_feature_main.png" alt="Image of configuration file for main feature attributes" /></p>
-
-<p class="text-right"><a href="#top">Back To Top</a></p>
-
-<h3 id="symbology-configuration">Symbology Configuration</h3>
-
-<p>Feature layers also need to have a legend / symbology structure to inform the app how to create a legend, and how to derive appropriate icons for each feature.  RAMP currently supports the three most common renderer types from an ESRI feature service: <a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/Renderer_objects/02r30000019t000000/">Simple renderers, Unique Value renderers, and Class Breaks renderers</a>.  This information is used to display icons in maptips, datagrids, the layer selector, and the view legend function.</p>
-
-<p><img src="assets/images/qs_symbology.png" alt="Image of symbology displayed on the site" /></p>
-
-<p>The symbology details are defined in the symbology node of the feature layer’s config object.  The content of the symbology node can differ based on the renderer type.  A simple renderer defines one symbol for the entire layer.</p>
-
-<p><img src="assets/images/qs_json_feature_simplerend.png" alt="Image of configuration file for simple symbology attributes" /></p>
-
-<p>Unique Value symbology definitions contain a mapping of values to icon images.</p>
-
-<p><img src="assets/images/qs_json_feature_uvrend.png" alt="Image of configuration file for unique value symbology attributes" /></p>
-
-<p>Class Breaks symbology definitions contain a mapping of ranges of values to icon images.</p>
-
-<p><img src="assets/images/qs_json_feature_cbrend.png" alt="Image of configuration file for class breaks symbology attributes" /></p>
-
-<p>Detailed renderer structures can be found in the <a href="json-config-en.html#featurelayers_symbology">config page</a>	</p>
-
-<p><img src="assets/images/qs_filter.png" alt="Image of datasets section of the web map application" /></p>
-
-<p class="text-right"><a href="#top">Back To Top</a></p>
-
-<h3 id="map-tip-configuration">Map Tip Configuration</h3>
-
-<p>Maptips can quickly display information about a feature.  RAMP implements two types of maptips.  Hover Maptips show when the user mouses over a feature, and disappears when the mouse goes elsewhere.  Anchor Maptips show when the user is viewing the details of a feature, giving a visual cue to what item on the map the details panel is referring to.  Anchor Maptips remain on the map until the detail panel is closed.</p>
-
-<p>The contents of the maptips are driven by templates.  By default, hover map tip and anchor map tip use generic RAMP templates called <strong>feature_hover_maptip_template.json</strong> and <strong>anchored_map_tip.json</strong> template.
-These templates are located in <strong>src\js\RAMP\Modules\templates</strong> folder.  These templates display a basic “icon and name” for a feature.  The name data is derived from the “nameField” in the layer’s configuration.  If a custom template is desired, new templates can be added to the above JSON files.  To instruct the layer to use a different template, update the values in the templates.hover or templates.anchor configuration nodes to reflect the name of the custom template.  As the template names are optional, you may need to add the nodes in your JSON editor.</p>
-
-<p><img src="assets/images/qs_json_tip_template.png" alt="Image of configuration file for maptip templates" /></p>
-
-<p><img src="assets/images/qs_hover_map_tip.png" alt="Hover maptip on a map feature" /></p>
-
-<p>To create custom templates, please refer to the <a href="template-guide-en.html">template guide</a>.</p>
-
-<p class="text-right"><a href="#top">Back To Top</a></p>
-
-<h3 id="setting-up-the-datagrids">Setting up the Datagrids</h3>
-
-<p>RAMP displays tabular data in two different ways.  The Summary datagrid shows contains basic, feature identifying information, and provides links to get more details on an individual item.  The grid collates all features currently visible on the map across all feature layers.  It’s small size allows the grid and map to both be visible at the same time.</p>
-
-<p><img src="assets/images/qs_summary_datagrid.png" alt="Summary datagrid in data tab section of the web map application" /></p>
-
-<p>Summary datagrid uses templates in file <strong>datagrid_template.json</strong> to define the content of each row.  The default template is “default_grid_summary_row”, which will display the standard layout of icon, feature name, and layer name, along with Zoom To and Details links.  To instruct the grid to use a different template for a layer, update the values in the templates.summary configuration nodes to reflect the name of the custom template.  As the template names are optional, you may need to add the node in your JSON editor.  Keep in mind that rows from your layer will be mixed in the grid with other layers; from a presentation point of view, you may wish to ensure that all layers on a map use templates that harmonize visually.</p>
-
-<p>The Extended datagrid shows a more traditional attribute table.  Given the variability of columns between layers, only one layer’s rows are displayed at one time.  A drop down is provided to all the user to change which layer is displayed.  The large size of the Extended grid results in the map not being visible when it is open.  The Extended grid is opened via the “Full data” link button on the Data tab.</p>
-
-<p><img src="assets/images/qs_full_gridview.png" alt="Sample extended datagrid view" /></p>
-
-<p>The configuration associated with a layer’s Extended grid is located in the datagrid node of the layer config object.  Each grid column is defined here, and the order in the gridColumns array will dictate the order they appear in.   The following attributes are available for each grid column:</p>
-
-<ul>
-  <li>id: Unique id to identify the column</li>
-  <li>fieldName: Field name to access the data value. If using a default grid cell template, this field name will be used to supply data</li>
-  <li>width: Column width (e.g. 50px)</li>
-  <li>isSortable: A flag to determine if the given column can be sortable</li>
-  <li>sortType: Type of sorting for the given column.  ‘numeric’, ‘string’, ‘date’, or ‘html’</li>
-  <li>alignment: Column alignment (1 for centered, 0 for left aligned)</li>
-  <li>title: Column heading</li>
-  <li>columnTemplate: The template used to generate content for the given column.</li>
-</ul>
-
-<p>The columnTemplate is used in RAMP to generate the in-cell content for each column. There are four default templates available with RAMP:</p>
-
-<ul>
-  <li>unformatted_grid_value: Generate content based on the column index and field name.  Will display the raw value</li>
-  <li>title_span: Same as unformatted_grid_value, but if the value is large, it will be shortened and the full value will be displayed on mouse-hover via a tooltip.</li>
-  <li>graphic_icon: Will generate an icon based on the current feature and the layer’s symbology.</li>
-  <li>details_button: Will generate a button that will open the detail panel for a given feature.</li>
-</ul>
-
-<p>You can add additional templates to file <strong>extended_datagrid_template.json</strong> and use them in the Extended datagrid. For more information on customizing template, please refer to the <a href="template-guide-en.html">Template Guide</a></p>
-
-<p><img src="assets/images/qs_json_feature_datagrid.png" alt="Image of configuration file for extended datagrid" /></p>
-
-<p>For further customization of grids, please refer to <a href="http://www.datatables.net/">DataTables</a> documentation.</p>
-
-<h3 id="aliases">Aliases</h3>
-
-<p>Field name aliases can be used to display user-friendly text instead of system field names in the details pane.  The aliasMap config object maps field names to alias names, and the alias will be used if the mapping is present.</p>
-
-<p><img src="assets/images/qs_json_alias.png" alt="Image of configuration file for aliases" /></p>
-
-<h2 id="adding-a-wms-layer">Adding a WMS Layer</h2>
-
-<p>Similar to Feature layers, WMS layers are added to the map by adding a configuration object to the <a href="json-config-en.html#wmsLayers">layers.wms configuration section</a>.  WMS layers are shown on the map as image overlays, so they do not have as many UI components as a Feature layer.</p>
-
-<p>The main attributes of a Feature layer config node are:</p>
-
-<ul>
-  <li>id: Should be unique to the application.</li>
-  <li>displayName: An appropriate name for the layer.  It will be displayed in the layer selector.</li>
-  <li>url: An endpoint to the WMS service hosting the layer.</li>
-  <li>layerName: The name of the layer in the WMS service to display.</li>
-  <li>format: The mime type of the image the WMS will return.</li>
-</ul>
-
-<p><img src="assets/images/qs_json_wms.png" alt="Image of configuration file for WMS layers" /></p>
-
-<h3 id="wms-legend-configuration">WMS Legend Configuration</h3>
-
-<p>If the WMS layer supports the GetLegendGraphic request, it can be enabled in RAMP by defining the legendMimeType property in the WMS configuration node.  The mime type should be compatible with the GetLegendGraphic request.  In the application, the legend will be available via the Layer Selector.</p>
-
-<h3 id="wms-get-feature-info-configuration">WMS Get Feature Info Configuration</h3>
-
-<p>If the WMS layer supports the GetFeatureInfo request, it can be enabled in RAMP by defining the featureInfo property in the WMS configuration node.  The mime type should describe the values being returned from the request.  RAMP supports text, html, and json.  Any other formats will be displayed as text.  The parser value points to a plugin that will process and format the output.  Details on parser plugins can be found <a href="wms-support-en.html">here</a>.  In the application, clicking the map will trigger the request, and the result will be displayed in the Details pane.</p>
-
-<p><img src="assets/images/qs_json_wms_gfi.png" alt="Image of configuration file for WMS Get Feature request" /></p>
+<p>Only layers with Simple, Class Breaks, or Unique Value renderes are supported.  See the <a href="symbology-en.html">Symbology Support</a> page for more details.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
@@ -451,6 +281,11 @@ These templates are located in <strong>src\js\RAMP\Modules\templates</strong> fo
                         Basemap Support
                     </a>
                 </li>
+				<li>
+                    <a class="list-group-item" href="feature-support-en.html">
+                        Feature Layer Support
+                    </a>
+                </li>
                 <li>
                     <a class="list-group-item" href="wms-support-en.html">
                         WMS Support
@@ -471,7 +306,7 @@ These templates are located in <strong>src\js\RAMP\Modules\templates</strong> fo
                         Symbology Support
                     </a>
                 </li>
-				<li>
+                <li>
                     <a class="list-group-item" href="layer-load-en.html">
                         Layer Loading
                     </a>
