@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/js/RAMP/Modules/imageExport.js - ramp-pcar</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../../../assets/images/bobcat_logo_sharp_smaller_s.png" title="ramp-pcar">Reusable Accessible Mapping Platform</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 5.3.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/AreaTool.html">AreaTool</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/Brick.html">Brick</a></li>
+            
+                <li><a href="../classes/Bricks.html">Bricks</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/ButtonBrick.html">ButtonBrick</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/ChoiceBrick.html">ChoiceBrick</a></li>
+            
+                <li><a href="../classes/ColorPickerBrick.html">ColorPickerBrick</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../classes/DataLoaderGui.html">DataLoaderGui</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/DistanceTool.html">DistanceTool</a></li>
+            
+                <li><a href="../classes/DropDownBrick.html">DropDownBrick</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FileInputBrick.html">FileInputBrick</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/ImageExport.html">ImageExport</a></li>
+            
+                <li><a href="../classes/LayerGroup.html">LayerGroup</a></li>
+            
+                <li><a href="../classes/LayerItem.html">LayerItem</a></li>
+            
+                <li><a href="../classes/LayerLoader.html">LayerLoader</a></li>
+            
+                <li><a href="../classes/LayoutController.html">LayoutController</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MultiBrick.html">MultiBrick</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/OkCancelButtonBrick.html">OkCancelButtonBrick</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SimpleInputBrick.html">SimpleInputBrick</a></li>
+            
+                <li><a href="../classes/StepItem.html">StepItem</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Bricks.html">Bricks</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GeoSearch.html">GeoSearch</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src/js/RAMP/Modules/imageExport.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/* global define, console, RAMP, $, TimelineLite, window */
+
+/**
+*
+*
+* @module RAMP
+* @submodule Map
+*/
+
+/**
+* Handles the generation of an image file from the map (and possibly other extra elements)
+*
+* ####Imports RAMP Modules:
+* {{#crossLink &quot;EventManager&quot;}}{{/crossLink}}
+* {{#crossLink &quot;Map&quot;}}{{/crossLink}}
+*
+* @class ImageExport
+* @static
+* @uses dojo/topic
+* @uses dojo/_base/array
+* @uses esri/tasks/PrintTemplate
+* @uses esri/tasks/PrintParameters
+* @uses esri/tasks/PrintTask
+*/
+
+define([
+/* Dojo */
+&quot;dojo/topic&quot;, &quot;dojo/_base/array&quot;, &quot;dojo/Deferred&quot;,
+
+/* ESRI */
+&quot;esri/tasks/PrintTemplate&quot;, &quot;esri/tasks/PrintParameters&quot;, &quot;esri/tasks/PrintTask&quot;,
+
+/* RAMP */
+&quot;ramp/eventManager&quot;, &quot;ramp/map&quot;],
+
+    function (
+    /* Dojo */
+    topic, dojoArray, Deferred,
+
+    /* ESRI */
+    PrintTemplate, PrintParameters, PrintTask,
+
+    /* RAMP */
+    EventManager, RampMap) {
+        &quot;use strict&quot;;
+
+        var ui = (function () {
+            var mapExportToggle,
+                mapExportStretcher,
+                mapExportImg,
+                mapExportSpinner,
+                mapExportNotice,
+                downloadButton,
+
+                promise,
+
+                jWindow,
+                transitionDuration = 0.4;
+
+            /**
+             * Handles click event on the export image toggle.
+             *
+             * @private
+             * @method ui.generateExportIamge
+             */
+            function generateExportImage() {
+                // get the export image url
+                var tl = new TimelineLite(),
+                    result = submitServiceImageRequest(),
+                    imageSize = result.exportOptions,
+                    stretcherWidth = Math.min(jWindow.width() - 350, imageSize.width),
+                    stretcherHeight = Math.ceil(imageSize.height / imageSize.width * stretcherWidth);
+
+                if (promise) {
+                    promise.cancel();
+                }
+                promise = result.promise;
+
+                tl
+                    .call(function () { downloadButton.attr({ disabled: true, href: &quot;&quot; }); }) // disabled download button
+                    .set(mapExportNotice, { display: &quot;none&quot; }) // hide error notice
+                    .set(mapExportSpinner, { display: &quot;inline-block&quot; }) // show loading animation
+                    .set(mapExportImg, { display: &quot;none&quot; }) // hide image
+                    .call(function () { mapExportImg.attr(&quot;src&quot;, &quot;&quot;); })
+                    .set(mapExportStretcher, { clearProps: &quot;all&quot; })
+                ;
+
+                promise.then(
+                    function (event) {
+                        tl
+                            .call(function () { downloadButton.attr({ disabled: false, href: event.result.url }); }) // enabled download button
+                            .set(mapExportSpinner, { display: &quot;none&quot; }) // hide loading animation
+                            .set(mapExportImg, { display: &quot;block&quot; }) // show image
+                            .call(function () { mapExportImg.attr(&quot;src&quot;, event.result.url); })
+                            .to(mapExportStretcher, transitionDuration, { height: stretcherHeight + 2, width: stretcherWidth + 2, ease: &quot;easeOutCirc&quot; }) // animate popup; 2 needed to account for the border
+                        ;
+
+                        console.log(event);
+                    },
+                    function (error) {
+                        // show error notice
+                        tl
+                            .set(mapExportSpinner, { display: &quot;none&quot; })
+                            .set(mapExportNotice, { display: &quot;inline-block&quot;, width: mapExportStretcher.width() })
+                        ;
+
+                        console.log(error);
+                    }
+                );
+            }
+
+            return {
+                /**
+                 * Initializes ui and listeners.
+                 *
+                 * @private
+                 * @method ui.init
+                 */
+                init: function () {
+                    jWindow = $(window);
+
+                    mapExportToggle = $(&quot;#map-export-toggle&quot;);
+                    mapExportStretcher = $(&quot;.map-export-stretcher&quot;);
+                    mapExportImg = $(&quot;.map-export-image &gt; img&quot;);
+                    mapExportSpinner = mapExportStretcher.find(&quot;.sk-spinner&quot;);
+                    mapExportNotice = mapExportStretcher.find(&quot;.map-export-notice&quot;);
+                    downloadButton = $(&quot;.map-export-controls .download-buttons &gt; .btn&quot;);
+
+                    mapExportToggle
+                        .removeClass(&#x27;disabled&#x27;)
+                        .attr(&#x27;aria-disabled&#x27;, false)
+                        .on(&#x27;click&#x27;, generateExportImage);
+                }
+            };
+        }()),
+             //this is a variable declaration, hiding after a very long ui variable
+             visState = { empty: true, layers: [] };
+
+        /**
+        * Find any visible file-based user-added layers.  Set them to invisible. Store the change.
+        *
+        * @method hideFileLayers
+        * @private
+        */
+        function hideFileLayers() {
+            //safety check.  if state is not empty, we may still have a previous call running, so dont mess with layers a second time
+            if (visState.empty) {
+                visState.empty = false;
+
+                //go through feature layer config
+                dojoArray.forEach(RAMP.config.layers.feature, function (fl) {
+                    var flObj = RAMP.layerRegistry[fl.id];
+
+                    //find if feature layer, user added, visible, and has no URL
+                    if (flObj.ramp.user &amp;&amp; flObj.visible &amp;&amp; !(flObj.url)) {
+                        //turn off visibility.  remember the layer
+                        flObj.setVisibility(false);
+                        visState.layers.push(flObj);
+                    }
+                });
+            }
+        }
+
+        /**
+        * Restore visibility to any layers that were temporarily turned off.
+        *
+        * @method restoreFileLayers
+        * @private
+        */
+        function restoreFileLayers() {
+            if (!visState.empty) {
+                //go through feature layer config
+                dojoArray.forEach(visState.layers, function (flObj) {
+                    flObj.setVisibility(true);
+                });
+
+                visState.empty = true;
+                visState.layers = [];
+            }
+        }
+
+        /**
+        * Will initiate a request for an image of all service-based layers.
+        *
+        * @method submitServiceImageRequest
+        * @return {Promise} Returns a promise that is resolved when the image comes down or not.
+        * @private
+        */
+        function submitServiceImageRequest() {
+            var mappy, printTask, params, template, mapDom,
+                def = new Deferred();
+
+            try {
+                mappy = RampMap.getMap();
+                //turn off any user-added file based layers, as they will kill the print service
+                hideFileLayers();
+                printTask = new PrintTask(RAMP.config.exportMapUrl);
+
+                printTask.on(&#x27;complete&#x27;, function (event) {
+                    //console.log(&#x27;PRINT RESULT: &#x27; + event.result.url);
+                    //turn hidden layers back on
+                    restoreFileLayers();
+                    def.resolve(event);
+                });
+
+                printTask.on(&#x27;error&#x27;, function (event) {
+                    //console.log(&#x27;PRINT FAILED: &#x27; + event.error.message);
+                    //turn hidden layers back on
+                    restoreFileLayers();
+                    def.reject(event);
+                });
+
+                mapDom = $(&#x27;#mainMap_root&#x27;)[0];
+
+                template = new PrintTemplate();
+                template.exportOptions = {
+                    width: mapDom.clientWidth,
+                    height: mapDom.clientHeight,
+                    dpi: 96
+                };
+                template.format = &quot;JPG&quot;;
+                template.layout = &quot;MAP_ONLY&quot;;
+                template.showAttribution = false;
+
+                params = new PrintParameters();
+                params.map = mappy;
+                params.template = template;
+                console.log(&quot;submitting print job.  please wait&quot;);
+                printTask.execute(params);
+            } catch (event) {
+                def.reject(event);
+            }
+
+            return {
+                promise: def.promise,
+                exportOptions: template.exportOptions
+            };
+        }
+
+        return {
+            submitServiceImageRequest: submitServiceImageRequest,
+
+            /**
+            * Initializes UI triggers.
+            *
+            * @method init
+            */
+            init: ui.init
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
