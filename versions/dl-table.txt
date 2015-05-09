@@ -1,0 +1,10 @@
+#### v{VER} {#v{LINKVER}}
+
+| Repo | Source Code | Production Files | Release Notes |
+|---|---|---|---|
+| RAMP Core | [Download](https://github.com/RAMP-PCAR/RAMP-PCAR/archive/v{VER}.zip) | [Download](https://github.com/RAMP-PCAR/RAMP-PCAR/releases/download/v{VER}/ramp-pcar-dist-{VER}.zip) | [Release Notes]({{ BASE_PATH }}/versions/v{VER}-en.html) |
+| RAMP Usability Theme | [Download](https://github.com/RAMP-PCAR/ramp-theme-usability/archive/v{VER}.zip) | [Download](https://github.com/RAMP-PCAR/ramp-theme-usability/releases/download/v{VER}/ramp-theme-usability-dist-{VER}.zip) |  |
+| RAMP Intranet Theme | [Download](https://github.com/RAMP-PCAR/ramp-theme-intranet/archive/v{VER}.zip) | [Download](https://github.com/RAMP-PCAR/ramp-theme-intranet/releases/download/v{VER}/ramp-theme-intranet-dist-{VER}.zip) |  |
+| RAMP Canada.ca Theme | [Download](https://github.com/RAMP-PCAR/ramp-theme-canada/archive/v{VER}.zip) | [Download](https://github.com/RAMP-PCAR/ramp-theme-canada/releases/download/v{VER}/ramp-theme-canada-dist-{VER}.zip) |  |
+{: .table}
+
