@@ -1,0 +1,659 @@
+
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8" />
+    <title>External Library Implementations</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>-->
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        
+        <nav role="navigation" id="wb-bc" property="breadcrumb">
+            <h2>You are here:</h2>
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        
+                        
+                            
+                                <li><a href="/index-en.html">Home</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/index-en.html">Documentation</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/index-en.html">Archive</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/5.3.1/index-en.html">Documentation</a></li>
+                            
+                                                
+                        
+
+                        <li class="">External Library Implementations</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                
+<p><a name="top"></a></p>
+
+<h1 id="wb-cont">External Library Implementations</h1>
+
+<section class="alert alert-info">
+    <h2 class="h3">Work in progress</h2>
+    <p>This page is a work in progress and requires review. Please <a href="https://github.com/ramp-pcar/RAMP-PCAR.github.io/issues/new" target="_blank">file an issue</a> if information or coding is missing, incorrect or out of sync with the main repository <a href="https://github.com/ramp-pcar/ramp-pcar" target="_blank">(ramp-pcar/ramp-pcar)</a>.</p>
+</section>
+
+<div class="toc"></div>
+
+<h2 id="animatecss">Animate.css</h2>
+<p>v 3.7.1</p>
+
+<p><a href="https://github.com/daneden/animate.css">https://github.com/daneden/animate.css</a></p>
+
+<p>A library supporting CSS animation.</p>
+
+<p>Used for various animation effects.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="csv-2-geojsib">CSV 2 GeoJSIB</h2>
+<p>v 3.7.1</p>
+
+<p><a href="https://github.com/mapbox/csv2geojson">https://github.com/mapbox/csv2geojson</a></p>
+
+<p>A library to convert CSV files to GeoJSON format.</p>
+
+<p>Used for the Add CSV File function.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<p><a name="datatables"></a></p>
+
+<h2 id="datatables">Datatables</h2>
+<p>v 1.10.1</p>
+
+<p><a href="http://www.datatables.net">http://www.datatables.net</a></p>
+
+<p>A grid control that allows for rich formatting but keeps the grid in an accessible form.  Features pagination, sorting. Unlike most grids, does not use DIVs for formatting / structure.</p>
+
+<p>Used for the main grid control in the app.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="dojo-toolkit">Dojo Toolkit</h2>
+<p>v 1.9.1</p>
+
+<p><a href="http://dojotoolkit.org/">http://dojotoolkit.org/</a></p>
+
+<p>Main framework used in RAMP.  Provides a module-based structure that helps javascript behave in a manner similar to object oriented languages.  This framework is also used by the ESRI javascript API, and is imported via that API.</p>
+
+<p>Used throughout the application.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="esri-javascript-api">ESRI Javascript API</h2>
+<p>v 3.8</p>
+
+<p><a href="https://developers.arcgis.com/javascript/">https://developers.arcgis.com/javascript/</a></p>
+
+<p>Main mapping API used in RAMP.  Handles all of the mapping and GIS related functions (e.g. drawing, querying spatial data).</p>
+
+<p>Used throughout the application.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="fontawesome">Fontawesome</h2>
+<p>v 4.2.0</p>
+
+<p><a href="http://fontawesome.io">http://fontawesome.io</a></p>
+
+<p>Library providing vector based fonts and sybmols.</p>
+
+<p>Used for Toolbar Icons.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="gsap---greensock-animation-platform">GSAP - GreenSock Animation Platform</h2>
+<p>v 1.14.2</p>
+
+<p><a href="http://www.greensock.com/gsap-js/">http://www.greensock.com/gsap-js/</a></p>
+
+<p>GSAP is a suite of tools for scripted, high-performance HTML5 animations that work in all major browsers.  Specific tools include TweenLite, TimelineLite, EasePack, and CSSPlugin.</p>
+
+<p>Used for the power transitional animation of the layout.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="hover-intent">Hover Intent</h2>
+<p>v 1.8.1</p>
+
+<p><a href="http://cherne.net/brian/resources/jquery.hoverIntent.html">http://cherne.net/brian/resources/jquery.hoverIntent.html</a></p>
+
+<p>A tool for determining user intent based on mouse movement.</p>
+
+<p>Used to highlight interactive elements of the site.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="i18next---i18n-for-javascript">i18next - i18n for JavaScript</h2>
+<p>v 1.7.4</p>
+
+<p><a href="http://i18next.com/">http://i18next.com/</a></p>
+
+<p>i18next is a full-featured i18n javascript library for translating your webapplication.</p>
+
+<p>Used for translation of the webmap.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="jquery">jQuery</h2>
+<p>v 2.1.1</p>
+
+<p><a href="http://jquery.com">http://jquery.com</a></p>
+
+<p>jQuery makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="jquery-ui">jQuery UI</h2>
+<p>v 1.10.4</p>
+
+<p><a href="http://jqueryui.com">http://jqueryui.com</a></p>
+
+<p>A jQuery library with effects, widgets, themes, and other UI-type items in it.</p>
+
+<p>It is used to generate the navigation widget. The widget is found in file jquery.ui.navigation.js</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="nestoria-sliders-jquery-plugin">Nestoria Sliders jQuery Plugin</h2>
+<p>v 1.0.5</p>
+
+<p><a href="https://github.com/lokku/jquery-nstslider">https://github.com/lokku/jquery-nstslider</a></p>
+
+<p>Fully customizable with CSS, Single/Double handles, Touch-enabled, IE 7+ Compatibility, Custom Digit Rounding, Non linear step increments!</p>
+
+<p>Powers the opacity slider control for the Filter Manager module.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="randomcolor">RandomColor</h2>
+<p>v 1</p>
+
+<p><a href="https://github.com/sterlingwes/RandomColor">https://github.com/sterlingwes/RandomColor</a></p>
+
+<p>Library that picks random colours that look nice.</p>
+
+<p>Used in the symbology generator when adding user-hosted files.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="scrollto">ScrollTo</h2>
+<p>v 1.4.13</p>
+
+<p><a href="https://github.com/flesler/jquery.scrollTo">https://github.com/flesler/jquery.scrollTo</a></p>
+
+<p>A library for implementing animated scrolling.</p>
+
+<p>Used to scroll the datagrid to the selected row (if row is not on the page).</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="shapefile-js">Shapefile JS</h2>
+<p>v 3.1.5</p>
+
+<p><a href="https://github.com/calvinmetcalf/shapefile-js">https://github.com/calvinmetcalf/shapefile-js</a></p>
+
+<p>A library to convert Shapefiles to GeoJSON format.</p>
+
+<p>Used for the Add Shapefile File function.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="shorten">Shorten</h2>
+<p>v 1.0.0</p>
+
+<p><a href="https://github.com/viralpatel/jquery.shorten">https://github.com/viralpatel/jquery.shorten</a></p>
+
+<p>A library that allows long text to be truncated, and provides a “show more” option to expand it.</p>
+
+<p>Used in the detail panel to trim long text items</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="snap">Snap</h2>
+<p>v 0.1.0</p>
+
+<p><a href="http://snapsvg.io">http://snapsvg.io</a></p>
+
+<p>A library for working with scalar vector graphics.</p>
+
+<p>Used for managing graphics layers and repositioning anchor maptips in the featureHighlighter module.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="terraformer">Terraformer</h2>
+<p>v 1.0.4</p>
+
+<p><a href="http://terraformer.io/core/">http://terraformer.io/core/</a>
+<a href="http://terraformer.io/arcgis-parser/">http://terraformer.io/arcgis-parser/</a></p>
+
+<p>A library for working with GeoJSON, and converting it to ESRI Geometry JSON.</p>
+
+<p>Used to convert user-hosted files into ESRI Feature Layers.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="terraformer-proj4js">Terraformer-proj4js</h2>
+<p>v 1</p>
+
+<p><a href="https://github.com/RAMP-PCAR/terraformer-proj4js">https://github.com/RAMP-PCAR/terraformer-proj4js</a>
+<a href="http://trac.osgeo.org/proj/">http://trac.osgeo.org/proj/</a></p>
+
+<p>An implementation of the proj.4 projection libary into the Terraformer library.</p>
+
+<p>Used to reproject user-hosted spatial data to the map’s spatial projection.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="tmplex">tmplEx</h2>
+<p>v 2.5.6</p>
+
+<p><a href="https://github.com/RAMP-PCAR/JavaScript-Templates">https://github.com/RAMP-PCAR/JavaScript-Templates</a>
+<a href="https://github.com/blueimp/JavaScript-Templates">https://github.com/blueimp/JavaScript-Templates</a></p>
+
+<p>A templating engine; applies templates to data and produces HTML.</p>
+
+<p>Used throughout the application to generate content.  E.g. maptip content, detail pane content, grid cell content, filter row content.  We use a modified version of the engine, the forked repo is available on our github site.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="tooltipster">Tooltipster</h2>
+<p>v 3.0.1-r</p>
+
+<p><a href="http://iamceege.github.io/tooltipster /">http://iamceege.github.io/tooltipster /</a></p>
+
+<p>A library that provides tooltips with CSS enhancements.</p>
+
+<p>Used for maptips, and also tooltips on the datagrid and filter manager rows</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="urlshortener">Urlshortener</h2>
+<p>v 1.0.1</p>
+
+<p><a href="http://hayageek.com/jquery-url-shortener /">http://hayageek.com/jquery-url-shortener /</a></p>
+
+<p>A library for shortening URLs.</p>
+
+<p>Used in the Get Link widget to allow user to have a shortened link.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="web-experience-toolkit">Web Experience Toolkit</h2>
+<p>v 4.0.5</p>
+
+<p><a href="https://github.com/wet-boew/wet-boew /">https://github.com/wet-boew/wet-boew /</a></p>
+
+<p>A front-end framework that focuses on accessibility, usability, and interoperability.  A standard for most Government of Canada websites.</p>
+
+<p>Used to construct the page that contains the RAMP application.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2015-05-22</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wet-customization-en.html">
+                        WET Template Customization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+				<li>
+                    <a class="list-group-item" href="feature-support-en.html">
+                        Feature Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="symbology-en.html">
+                        Symbology Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="layer-load-en.html">
+                        Layer Loading
+                    </a>
+                </li>				
+                <li><a class="list-group-item" href="user-added-data.html">User Added Data</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/index-en.html">
+                API Reference
+            </a>
+        </li>
+        <li>
+            <a class="list-group-item" href="/rcs/index-en.html">
+                RCS Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
+            $('.toc')
+                .addClass("mrgn-bttm-lg panel panel-default")
+                .toc({
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
+</body>
+</html>
