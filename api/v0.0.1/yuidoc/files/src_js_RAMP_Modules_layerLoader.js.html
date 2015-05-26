@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/js/RAMP/Modules/layerLoader.js - ramp-pcar</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../../../assets/images/bobcat_logo_sharp_smaller_s.png" title="ramp-pcar">undefined</h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 5.4.0-8</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdvancedToolbar.html">AdvancedToolbar</a></li>
+            
+                <li><a href="../classes/AreaTool.html">AreaTool</a></li>
+            
+                <li><a href="../classes/Array.html">Array</a></li>
+            
+                <li><a href="../classes/AttributeLoader.html">AttributeLoader</a></li>
+            
+                <li><a href="../classes/BaseMapSelector.html">BaseMapSelector</a></li>
+            
+                <li><a href="../classes/BaseTool.html">BaseTool</a></li>
+            
+                <li><a href="../classes/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../classes/Bootstrapper.html">Bootstrapper</a></li>
+            
+                <li><a href="../classes/Brick.html">Brick</a></li>
+            
+                <li><a href="../classes/Bricks.html">Bricks</a></li>
+            
+                <li><a href="../classes/BufferTool.html">BufferTool</a></li>
+            
+                <li><a href="../classes/ButtonBrick.html">ButtonBrick</a></li>
+            
+                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+            
+                <li><a href="../classes/CheckboxBrick.html">CheckboxBrick</a></li>
+            
+                <li><a href="../classes/CheckboxfsBrick.html">CheckboxfsBrick</a></li>
+            
+                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+            
+                <li><a href="../classes/ChoiceBrick.html">ChoiceBrick</a></li>
+            
+                <li><a href="../classes/ColorPickerBrick.html">ColorPickerBrick</a></li>
+            
+                <li><a href="../classes/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../classes/DatagridClickHandler.html">DatagridClickHandler</a></li>
+            
+                <li><a href="../classes/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../classes/DataLoaderGui.html">DataLoaderGui</a></li>
+            
+                <li><a href="../classes/Decorator.html">Decorator</a></li>
+            
+                <li><a href="../classes/Dictionary.html">Dictionary</a></li>
+            
+                <li><a href="../classes/DistanceTool.html">DistanceTool</a></li>
+            
+                <li><a href="../classes/DropDownBrick.html">DropDownBrick</a></li>
+            
+                <li><a href="../classes/EventManager.html">EventManager</a></li>
+            
+                <li><a href="../classes/FeatureClickHandler.html">FeatureClickHandler</a></li>
+            
+                <li><a href="../classes/FeatureHighlighter.html">FeatureHighlighter</a></li>
+            
+                <li><a href="../classes/FileInputBrick.html">FileInputBrick</a></li>
+            
+                <li><a href="../classes/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../classes/FunctionMangler.html">FunctionMangler</a></li>
+            
+                <li><a href="../classes/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../classes/GraphicExtension.html">GraphicExtension</a></li>
+            
+                <li><a href="../classes/GUI.html">GUI</a></li>
+            
+                <li><a href="../classes/ImageExport.html">ImageExport</a></li>
+            
+                <li><a href="../classes/LayerGroup.html">LayerGroup</a></li>
+            
+                <li><a href="../classes/LayerItem.html">LayerItem</a></li>
+            
+                <li><a href="../classes/LayerLoader.html">LayerLoader</a></li>
+            
+                <li><a href="../classes/LayoutController.html">LayoutController</a></li>
+            
+                <li><a href="../classes/Map.html">Map</a></li>
+            
+                <li><a href="../classes/MapClickHandler.html">MapClickHandler</a></li>
+            
+                <li><a href="../classes/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../classes/MultiBrick.html">MultiBrick</a></li>
+            
+                <li><a href="../classes/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../classes/OkCancelButtonBrick.html">OkCancelButtonBrick</a></li>
+            
+                <li><a href="../classes/PopulationTool.html">PopulationTool</a></li>
+            
+                <li><a href="../classes/Popup.html">Popup</a></li>
+            
+                <li><a href="../classes/PopupBase.html">PopupBase</a></li>
+            
+                <li><a href="../classes/PopupBaseSettings.html">PopupBaseSettings</a></li>
+            
+                <li><a href="../classes/PopupManager.html">PopupManager</a></li>
+            
+                <li><a href="../classes/Prototype.html">Prototype</a></li>
+            
+                <li><a href="../classes/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../classes/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../classes/RampMap.html">RampMap</a></li>
+            
+                <li><a href="../classes/RAMPStarter.html">RAMPStarter</a></li>
+            
+                <li><a href="../classes/SimpleInputBrick.html">SimpleInputBrick</a></li>
+            
+                <li><a href="../classes/StepItem.html">StepItem</a></li>
+            
+                <li><a href="../classes/SubPanel.html">SubPanel</a></li>
+            
+                <li><a href="../classes/SubPanelSettings.html">SubPanelSettings</a></li>
+            
+                <li><a href="../classes/Theme.html">Theme</a></li>
+            
+                <li><a href="../classes/TmplHelper.html">TmplHelper</a></li>
+            
+                <li><a href="../classes/TmplUtil.html">TmplUtil</a></li>
+            
+                <li><a href="../classes/ToggleBrick.html">ToggleBrick</a></li>
+            
+                <li><a href="../classes/Url.html">Url</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/AttributeLoader.html">AttributeLoader</a></li>
+            
+                <li><a href="../modules/BookmarkLink.html">BookmarkLink</a></li>
+            
+                <li><a href="../modules/Bricks.html">Bricks</a></li>
+            
+                <li><a href="../modules/Datagrid.html">Datagrid</a></li>
+            
+                <li><a href="../modules/DataLoader.html">DataLoader</a></li>
+            
+                <li><a href="../modules/FilterManager.html">FilterManager</a></li>
+            
+                <li><a href="../modules/GeoSearch.html">GeoSearch</a></li>
+            
+                <li><a href="../modules/GlobalStorage.html">GlobalStorage</a></li>
+            
+                <li><a href="../modules/Map.html">Map</a></li>
+            
+                <li><a href="../modules/Maptips.html">Maptips</a></li>
+            
+                <li><a href="../modules/Navigation.html">Navigation</a></li>
+            
+                <li><a href="../modules/QuickZoom.html">QuickZoom</a></li>
+            
+                <li><a href="../modules/RAMP.html">RAMP</a></li>
+            
+                <li><a href="../modules/Theme.html">Theme</a></li>
+            
+                <li><a href="../modules/Tools.html">Tools</a></li>
+            
+                <li><a href="../modules/UI.html">UI</a></li>
+            
+                <li><a href="../modules/Utils.html">Utils</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src/js/RAMP/Modules/layerLoader.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿/* global define, console, RAMP, $, i18n */
+
+/**
+*
+*
+* @module RAMP
+* @submodule Map
+*/
+
+/**
+* Layer Loader class.
+*
+* Handles the asynchronous loading of map layers (excluding basemaps)
+* This includes dealing with errors, and raising appropriate events when the layer loads
+*
+* ####Imports RAMP Modules:
+* {{#crossLink &quot;AttributeLoader&quot;}}{{/crossLink}}
+* {{#crossLink &quot;EventManager&quot;}}{{/crossLink}}
+* {{#crossLink &quot;FeatureClickHandler&quot;}}{{/crossLink}}
+* {{#crossLink &quot;FilterManager&quot;}}{{/crossLink}}
+* {{#crossLink &quot;GlobalStorage&quot;}}{{/crossLink}}
+* {{#crossLink &quot;GraphicExtension&quot;}}{{/crossLink}}
+* {{#crossLink &quot;LayerItem&quot;}}{{/crossLink}}
+* {{#crossLink &quot;Map&quot;}}{{/crossLink}}
+* {{#crossLink &quot;MapClickHandler&quot;}}{{/crossLink}}
+* {{#crossLink &quot;Util&quot;}}{{/crossLink}}
+*
+* @class LayerLoader
+* @static
+* @uses dojo/topic
+* @uses esri/geometry/Extent
+* @uses esri/layers/GraphicsLayer
+* @uses esri/tasks/GeometryService
+* @uses esri/tasks/ProjectParameters
+*/
+
+define([
+/* Dojo */
+&quot;dojo/topic&quot;,
+
+/* ESRI */
+&quot;esri/layers/GraphicsLayer&quot;, &quot;esri/tasks/GeometryService&quot;, &quot;esri/tasks/ProjectParameters&quot;, &quot;esri/geometry/Extent&quot;,
+
+/* RAMP */
+&quot;ramp/eventManager&quot;, &quot;ramp/map&quot;, &quot;ramp/globalStorage&quot;, &quot;ramp/featureClickHandler&quot;, &quot;ramp/mapClickHandler&quot;,
+&quot;ramp/filterManager&quot;, &quot;ramp/layerItem&quot;, &quot;ramp/attributeLoader&quot;, &quot;ramp/graphicExtension&quot;,
+
+/* Util */
+&quot;utils/util&quot;],
+
+    function (
+    /* Dojo */
+    topic,
+
+    /* ESRI */
+    GraphicsLayer, GeometryService, ProjectParameters, EsriExtent,
+
+    /* RAMP */
+    EventManager, RampMap, GlobalStorage, FeatureClickHandler, MapClickHandler,
+    FilterManager, LayerItem, AttributeLoader, GraphicExtension,
+
+     /* Util */
+    UtilMisc) {
+        &quot;use strict&quot;;
+
+        var idCounter = 0;
+
+        /**
+        * Get an auto-generated layer id.  This works because javascript is single threaded: if this gets called
+        * from a web-worker at some point it will need to be synchronized.
+        *
+        * @method  nextId
+        * @returns {String} an auto-generated layer id
+        */
+        function nextId() {
+            idCounter += 1;
+            return &#x27;rampAutoId_&#x27; + idCounter;
+        }
+
+        /**
+        * Get a layer config for a given layer ID.
+        *
+        * @method  getLayerConfig
+        * @param   {String} layerId a RAMP layer ID
+        * @returns {Object} a RAMP config object from the layer registry
+        */
+        function getLayerConfig(layerId) {
+            var layer = RAMP.layerRegistry[layerId];
+            return layer ? layer.ramp.config : null;
+        }
+
+        /**
+        * Will set a layerId&#x27;s layer selector state to a new state.
+        *
+        * @method updateLayerSelectorState
+        * @private
+        * @param  {String} layerId config id of the layer
+        * @param  {String} newState the state to set the layer to in the layer selector
+        * @param  {Boolean} abortIfError if true, don&#x27;t update state if current state is an error state
+        * @param  {Object} [options] additional options for layer item (mostly error messages in this case)
+        */
+        function updateLayerSelectorState(layerId, newState, abortIfError, options) {
+            if (abortIfError) {
+                var layerState;
+                layerState = FilterManager.getLayerState(layerId);
+
+                //check if this layer is in an error state.  if so, exit the function
+                if (layerState === LayerItem.state.ERROR) {
+                    return;
+                }
+            }
+
+            //set layer selector to new state
+            FilterManager.setLayerState(layerId, newState, options);
+        }
+
+        /**
+        * Determines if the layer has an active hilight for the highlight type (defined by the state).
+        *
+        * @method isValidHilight
+        * @private
+        * @param  {Object} layer map layer object
+        * @param  {Object} state the state of a highlight (defines if active and layer it applies to)
+        * @returns {Boolean} if layer has valid highlight
+        */
+        function isValidHilight(layer, state) {
+            var ret = false;
+            if (state.objId &gt;= 0) {
+                //there is an active highlight
+                if (layer.id === state.layerId) {
+                    //it belongs to this layer
+                    ret = true;
+                }
+            }
+            return ret;
+        }
+
+        /**
+        * Will remove a layer from the map, along with any related items (bounding box, feature data) and adjust counts.
+        *
+        * @method removeFromMap
+        * @private
+        * @param {String} layerId config id of the layer
+        */
+        function removeFromMap(layerId) {
+            var map = RampMap.getMap(),
+                bbLayer = RampMap.getBoundingBoxMapping()[layerId],
+                layer = map._layers[layerId];
+
+            if (layer) {
+                map.removeLayer(layer);
+            } else {
+                //layer was kicked out of the map.  grab it from the registry
+                layer = RAMP.layerRegistry[layerId];
+            }
+
+            //if bounding box exists, and is in the map, remove it too
+            if (bbLayer) {
+                if (map._layers[bbLayer.id]) {
+                    map.removeLayer(bbLayer);
+                    RAMP.layerCounts.bb -= 1;
+                }
+                delete RampMap.getBoundingBoxMapping()[layer.id];
+            }
+
+            //remove data, if it exists
+            if (RAMP.data[layerId]) {
+                delete RAMP.data[layerId];
+            }
+
+            //just incase its really weird and layer is not in the registry
+            if (layer) {
+                //adjust layer counts
+                switch (layer.ramp.type) {
+                    case GlobalStorage.layerType.wms:
+                        if (layer.ramp.load.inCount) {
+                            RAMP.layerCounts.wms -= 1;
+                            layer.ramp.load.inCount = false;
+                        }
+                        break;
+
+                    case GlobalStorage.layerType.feature:
+                    case GlobalStorage.layerType.Static:
+
+                        if (layer.ramp.load.inCount) {
+                            RAMP.layerCounts.feature -= 1;
+                            layer.ramp.load.inCount = false;
+                        }
+                        break;
+                }
+            }
+        }
+
+        /**
+        * This function initiates the loading of an ESRI layer object to the map.
+        * Will add it to the map in the appropriate spot, wire up event handlers, and generate any bounding box layers
+        * Note: a point of confusion.  The layer objects &quot;load&quot; event may have already finished by the time this function is called.
+        *       This means the object&#x27;s constructor has initialized itself with the layers data source.
+        * This functions is not event triggered to guarantee the order in which things are added.
+        *
+        * @method _loadLayer
+        * @private
+        * @param  {Object} layer an instantiated, unloaded ESRI layer object
+        * @param  {Integer} reloadIndex Optional.  If reloading a layer, supply the index it should reside at.  Do not set for new layers
+        */
+        function _loadLayer(layer, reloadIndex) {
+            var insertIdx,
+                layerSection,
+                map = RampMap.getMap(),
+                layerConfig = layer.ramp.config,
+                lsState,
+                options = {},
+                isNotReload = typeof reloadIndex === &#x27;undefined&#x27;;
+
+            if (!layer.ramp) {
+                console.log(&#x27;you failed to supply a ramp.type to the layer!&#x27;);
+            }
+
+            //derive section
+            switch (layer.ramp.type) {
+                case GlobalStorage.layerType.wms:
+                    layerSection = GlobalStorage.layerType.wms;
+                    if (isNotReload) {
+                        insertIdx = RAMP.layerCounts.base + RAMP.layerCounts.wms;
+
+                        // generate wms legend image url and store in the layer config
+                        if (layerConfig.legendMimeType) {
+                            layer.ramp.config.legend = {
+                                type: &quot;wms&quot;,
+                                imageUrl: String.format(&quot;{0}?SERVICE=WMS&amp;REQUEST=GetLegendGraphic&amp;TRANSPARENT=true&amp;VERSION=1.1.1&amp;FORMAT={2}&amp;LAYER={3}&quot;,
+                                    layerConfig.url,
+                                    layer.version,
+                                    layerConfig.legendMimeType,
+                                    layerConfig.layerName
+                                )
+                            };
+                        }
+                    } else {
+                        insertIdx = reloadIndex;
+                    }
+
+                    RAMP.layerCounts.wms += 1;
+                    layer.ramp.load.inCount = true;
+
+                    break;
+
+                case GlobalStorage.layerType.feature:
+                case GlobalStorage.layerType.Static:
+                    layerSection = GlobalStorage.layerType.feature;
+                    if (isNotReload) {
+                        //NOTE: these static layers behave like features, in that they can be in any position and be re-ordered.
+                        insertIdx = RAMP.layerCounts.feature;
+                    } else {
+                        insertIdx = reloadIndex;
+                    }
+                    RAMP.layerCounts.feature += 1;
+                    layer.ramp.load.inCount = true;
+
+                    break;
+            }
+
+            //add layer to map, triggering the loading process.  should add at correct position
+            //do this before creating layer selector item, as the layer selector inspects the map
+            //object to make state decisions
+            map.addLayer(layer, insertIdx);
+
+            //sometimes the ESRI api will kick a layer out of the map if it errors after the add process.
+            //store a pointer here so we can find it (and it&#x27;s information)
+            // TODO - this write to layer registry should be refactored into a call to state manager
+            RAMP.layerRegistry[layer.id] = layer;
+
+            //derive initial state
+            switch (layer.ramp.load.state) {
+                case &quot;loaded&quot;:
+                    lsState = LayerItem.state.LOADED;
+                    break;
+                case &quot;loading&quot;:
+                    //IE10 hack. since IE10 will not fire the loaded event, check the loaded flag of the layer object
+                    if (layer.loaded) {
+                        lsState = LayerItem.state.LOADED;
+                    } else {
+                        lsState = LayerItem.state.LOADING;
+                    }
+                    break;
+                case &quot;error&quot;:
+                    options.notices = {
+                        error: {
+                            message: i18n.t(&quot;filterManager.notices.error.connect&quot;)
+                        }
+                    };
+
+                    lsState = LayerItem.state.ERROR;
+                    break;
+            }
+
+            //add entry to layer selector
+            if (isNotReload) {
+                options.state = lsState; // pass initial state in the options object
+                FilterManager.addLayer(layerSection, layer.ramp, options);
+            } else {
+                updateLayerSelectorState(layerConfig.id, lsState, false, options);
+            }
+            layer.ramp.load.inLS = true;
+
+            //this will force a recreation of the highlighting graphic group.
+            //if not done, can cause mouse interactions to get messy if adding more than
+            //one layer at one time
+            topic.publish(EventManager.Map.REORDER_END);
+
+            //wire up event handlers to the layer
+            switch (layer.ramp.type) {
+                case GlobalStorage.layerType.wms:
+
+                    // WMS binding for getFeatureInfo calls
+                    if (layerConfig.featureInfo) {
+                        MapClickHandler.registerWMSClick(layer);
+                    }
+                    break;
+
+                case GlobalStorage.layerType.feature:
+
+                    //initiate the feature data download
+                    if (layer.url) {
+                        //service based. get feature data from the service
+                        AttributeLoader.loadAttributeData(layer.id, layer.url, layer.ramp.type);
+                    } else {
+                        //file based. scrape data from the layer
+                        AttributeLoader.extractAttributeData(layer);
+                    }
+
+                    //TODO consider the case where a layer was loaded by the user, and we want to disable things like maptips?
+                    //wire up click handler
+                    layer.on(&quot;click&quot;, function (evt) {
+                        evt.stopImmediatePropagation();
+                        FeatureClickHandler.onFeatureSelect(evt);
+                    });
+
+                    //wire up mouse over / mouse out handler
+                    layer.on(&quot;mouse-over&quot;, function (evt) {
+                        FeatureClickHandler.onFeatureMouseOver(evt);
+                    });
+
+                    layer.on(&quot;mouse-out&quot;, function (evt) {
+                        FeatureClickHandler.onFeatureMouseOut(evt);
+                    });
+
+                    //generate bounding box                        
+                    if (layerConfig.layerExtent) {
+                        var boundingBoxExtent,
+                            boundingBox = new GraphicsLayer({
+                                id: String.format(&quot;boundingBoxLayer_{0}&quot;, layer.id),
+                                visible: layerConfig.settings.boundingBoxVisible
+                            });
+                   
+                        boundingBoxExtent = new EsriExtent(layerConfig.layerExtent);
+                        boundingBox.ramp = { type: GlobalStorage.layerType.BoundingBox };
+
+                        //TODO test putting this IF before the layer creation, see what breaks.  ideally if there is no box, we should not make a layer
+
+                            if (UtilMisc.isSpatialRefEqual(boundingBoxExtent.spatialReference, map.spatialReference)) {
+                                //layer is in same projection as basemap.  can directly use the extent
+                                boundingBox.add(UtilMisc.createGraphic(boundingBoxExtent));
+                            } else {
+                                //layer is in different projection.  reproject to basemap
+
+                                var box = RampMap.localProjectExtent(boundingBoxExtent, map.spatialReference);
+                                boundingBox.add(UtilMisc.createGraphic(box));
+
+                                //Geometry Service Version.  Makes a more accurate bounding box, but requires an arcserver
+                                /*
+                                var params = new ProjectParameters(),
+                                    gsvc = new GeometryService(RAMP.config.geometryServiceUrl);
+                                params.geometries = [boundingBoxExtent];
+                                params.outSR = map.spatialReference;
+
+                                gsvc.project(params, function (projectedExtents) {
+                                    console.log(&#x27;esri says: &#x27; + JSON.stringify(projectedExtents[0]));
+                                    console.log(&#x27;proj4 says: &#x27; + JSON.stringify(box));
+                                });
+                                */
+                            }
+
+                        //add mapping to bounding box
+                        RampMap.getBoundingBoxMapping()[layer.id] = boundingBox;
+
+                        //bounding boxes are on top of feature layers
+                        insertIdx = RAMP.layerCounts.feature + RAMP.layerCounts.bb;
+                        RAMP.layerCounts.bb += 1;
+
+                        map.addLayer(boundingBox, insertIdx);
+
+                    break;
+                    }
+            }
+
+            // publish LAYER_ADDED event for every added layer
+            topic.publish(EventManager.LayerLoader.LAYER_ADDED, { layer: layer, layerCounts: RAMP.layerCounts });
+        }
+
+        return {
+            /**
+            * Initializes properties.  Set up event listeners
+            *
+            * @method init
+            */
+            init: function () {
+                topic.subscribe(EventManager.LayerLoader.LAYER_LOADED, this.onLayerLoaded);
+                topic.subscribe(EventManager.LayerLoader.LAYER_UPDATED, this.onLayerUpdateEnd);
+                topic.subscribe(EventManager.LayerLoader.LAYER_UPDATING, this.onLayerUpdateStart);
+                topic.subscribe(EventManager.LayerLoader.LAYER_ERROR, this.onLayerError);
+                topic.subscribe(EventManager.LayerLoader.REMOVE_LAYER, this.onLayerRemove);
+                topic.subscribe(EventManager.LayerLoader.RELOAD_LAYER, this.onLayerReload);
+            },
+
+            /**
+            * Deals with a layer that had an error when it tried to load.
+            *
+            * @method onLayerError
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that failed
+            * @param  {Object} evt.error the error object
+            */
+            onLayerError: function (evt) {
+                console.error(&quot;failed to load layer &quot; + evt.layer.url, evt.error);
+
+                evt.layer.ramp.load.state = &quot;error&quot;;
+
+                var layerId = evt.layer.id,
+                    // generic error notice
+                    errorMessage = i18n.t(&quot;filterManager.notices.error.load&quot;),
+                    options;
+
+                //get that failed layer outta here
+                removeFromMap(layerId);
+
+                // customize error notices based on the error type as much as possible
+                if (evt.error.code === 400) {
+                    errorMessage = i18n.t(&quot;filterManager.notices.error.draw&quot;);
+                }
+
+                options = {
+                    notices: {
+                        error: {
+                            message: errorMessage
+                        }
+                    }
+                };
+
+                //if layer is in layer selector, update the status
+                if (evt.layer.ramp.load.inLS) {
+                    updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.ERROR, false, options);
+                }
+            },
+
+            /**
+            * Reacts when a layer begins to update.  This happens when a feature layer starts to download its data.
+            * Data download doesn&#x27;t start until points are made visible.  It also happens when a WMS requests a new picture.
+            *
+            * @method onLayerUpdateStart
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that loaded
+            */
+            onLayerUpdateStart: function (evt) {
+                RampMap.updateDatagridUpdatingState(evt.layer, true);
+
+                //console.log(&quot;LAYER UPDATE START: &quot; + evt.layer.url);
+                updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.UPDATING, true);
+            },
+
+            /**
+            * Reacts when a layer has updated successfully.  This means the layer has pulled its data and displayed it.
+            *
+            * @method onLayerUpdateEnd
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that loaded
+            */
+            onLayerUpdateEnd: function (evt) {
+                var g;
+
+                //check if we have any active highlites for this layer
+                if (isValidHilight(evt.layer, RAMP.state.hilite.click)) {
+                    //re-request the click hilight
+                    g = GraphicExtension.findGraphic(RAMP.state.hilite.click.objId, evt.layer.id);
+                    if (g) {
+                        topic.publish(EventManager.FeatureHighlighter.HIGHLIGHT_SHOW, {
+                            graphic: g
+                        });
+                    } //else graphic is off-view and does not exist in layer. dont&#x27; change higlight
+                }
+
+                if (isValidHilight(evt.layer, RAMP.state.hilite.zoom)) {
+                    //re-request the zoom hilight
+                    g = GraphicExtension.findGraphic(RAMP.state.hilite.zoom.objId, evt.layer.id);
+                    if (g) {
+                        topic.publish(EventManager.FeatureHighlighter.ZOOMLIGHT_SHOW, {
+                            graphic: g
+                        });
+                    } //else graphic is off-view and does not exist in layer. dont&#x27; change higlight
+                }
+
+                //IE10 hack.  since IE10 doesn&#x27;t fire a loaded event, we need to also set the loaded flag on layer here.
+                //            don&#x27;t do it if it&#x27;s in error state.  once an error, always an error
+                if (evt.layer.ramp.load.state !== &quot;error&quot;) {
+                    evt.layer.ramp.load.state = &quot;loaded&quot;;
+                }
+
+                RampMap.updateDatagridUpdatingState(evt.layer);
+
+                updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.LOADED, true);
+            },
+
+            /**
+            * Reacts when a layer has loaded successfully.  This means the site has shaken hands with the layer and it seems ok.
+            * This does not mean data has been downloaded
+            *
+            * @method onLayerLoaded
+            * @param  {Object} evt
+            * @param  {Object} evt.layer the layer object that loaded
+            */
+            onLayerLoaded: function (evt) {
+                //set state to loaded
+                //if we have a row in layer selector, update it to loaded (unless already in error)
+
+                //set flags that we have loaded ok
+                evt.layer.ramp.load.state = &quot;loaded&quot;;
+
+                //if a row already exists in selector, set it to LOADED state. (unless already in error state)
+                if (evt.layer.ramp.load.inLS) {
+                    updateLayerSelectorState(evt.layer.ramp.config.id, LayerItem.state.LOADED, true);
+                }
+
+                console.log(&quot;layer loaded: &quot; + evt.layer.url);
+            },
+
+            /**
+            * Reacts to a request for a layer to be removed.  This removes the layer from the entire app.
+            *
+            * @method onLayerRemove
+            * @param  {Object} evt
+            * @param  {Object} evt.layerId the layer id to be removed
+            */
+            onLayerRemove: function (evt) {
+                var layer,
+                    configIdx,
+                    layerSection,
+                    configCollection;
+
+                    layer = RAMP.layerRegistry[evt.layerId];
+
+                //derive section layer is in and the config collection it is in
+                switch (layer.ramp.type) {
+                    case GlobalStorage.layerType.wms:
+                        layerSection = GlobalStorage.layerType.wms;
+                        configCollection = RAMP.config.layers.wms;
+                        break;
+
+                    case GlobalStorage.layerType.feature:
+                    case GlobalStorage.layerType.Static:
+                        layerSection = GlobalStorage.layerType.feature;
+                        configCollection = RAMP.config.layers.feature;
+                        break;
+                }
+
+                //remove item from layer selector
+                FilterManager.removeLayer(layerSection, evt.layerId);
+
+                removeFromMap(evt.layerId);
+
+                //remove node from config
+                configIdx = configCollection.indexOf(layer.ramp.config);
+                configCollection.splice(configIdx, 1);
+
+                delete RAMP.layerRegistry[evt.layerId];
+
+                // publish LAYER_REMOVED event for every removed layer
+                topic.publish(EventManager.LayerLoader.LAYER_REMOVED, { layer: layer, layerCounts: RAMP.layerCounts });
+            },
+
+            /**
+            * Reacts to a request for a layer to be reloaded.  Usually the case when a layer errors and user wants to try again
+            *
+            * @method onLayerReload
+            * @param  {Object} evt
+            * @param  {Object} evt.layerId the layer id to be reloaded
+            */
+            onLayerReload: function (evt) {
+                var curlayer,
+                    layerConfig,
+                    user,
+                    newLayer,
+                    layerIndex,
+                    layerList,
+                    idArray,
+                    cleanIdArray;
+
+                removeFromMap(evt.layerId);
+
+                    curlayer = RAMP.layerRegistry[evt.layerId];
+
+                layerConfig = curlayer.ramp.config;
+                user = curlayer.ramp.user;
+
+                //figure out index of layer
+                //since the layer may not be in the map, we have to use some trickery to derive where it is sitting
+
+                //get our list of layers
+                layerList = $(&quot;#&quot; + RAMP.config.divNames.filter).find(&quot;#layerList&quot;).find(&quot;&gt; li &gt; ul&quot;);
+
+                //make an array of the ids in order of the list on the page
+                idArray = layerList
+                            .map(function (i, elm) { return $(elm).find(&quot;&gt; li&quot;).toArray().reverse(); }) // for each layer list, find its items and reverse their order
+                            .map(function (i, elm) { return elm.id; });
+
+                cleanIdArray = idArray.toArray().filter(function (i, elm) {
+                    //check if layer is in error state.  error layers should not be part of the count.  exception being the layer we are reloading
+                    return ((FilterManager.getLayerState(elm) !== LayerItem.state.ERROR) || (elm === evt.layerId));
+                });
+
+                //find where our index is
+                layerIndex = cleanIdArray.indexOf(evt.layerId);
+
+                if (curlayer.ramp.type === GlobalStorage.layerType.wms) {
+                    //adjust for wms, as it&#x27;s in a different layer list on the map
+                    layerIndex = layerIndex + RAMP.layerCounts.base - RAMP.layerCounts.feature;
+                }
+
+                if (evt.mode) {
+                    layerConfig.mode = evt.mode;
+                }
+
+                //generate new layer
+                switch (curlayer.ramp.type) {
+                    case GlobalStorage.layerType.wms:
+                        newLayer = RampMap.makeWmsLayer(layerConfig, user);
+                        break;
+
+                    case GlobalStorage.layerType.feature:
+                        newLayer = RampMap.makeFeatureLayer(layerConfig, user);
+                        break;
+
+                    case GlobalStorage.layerType.Static:
+                        newLayer = RampMap.makeStaticLayer(layerConfig, user);
+                        break;
+                }
+
+                //load the layer at the previous index
+                console.log(&quot;Reloading Layer at index &quot; + layerIndex.toString());
+                _loadLayer(newLayer, layerIndex);
+            },
+
+            /**
+            * Public endpoint to initiate the loading of an ESRI layer object to the map.
+            *
+            * @method loadLayer
+            * @param  {Object} layer an instantiated, unloaded ESRI layer object
+            * @param  {Integer} reloadIndex Optional.  If reloading a layer, supply the index it should reside at.  Do not set for new layers
+            */
+            loadLayer: function (layer, reloadIndex) {
+                _loadLayer(layer, reloadIndex);
+            },
+
+            getLayerConfig: getLayerConfig,
+
+            nextId: nextId
+        };
+    });
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
