@@ -1,1 +1,0 @@
-{"feature_hover_maptip_template":"<div class='map-tip-content'><img class='map-tip-image pointIconDetails' src='{%=o.fn.getGraphicIcon(o.data, o.lyr)%}' alt='Feature icon'><span class='map-tip-label'>{%=o.data.attributes[o.lyr.nameField]%}</span></div>"}
