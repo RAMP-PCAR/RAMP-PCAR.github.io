@@ -143,11 +143,11 @@
 
 <h2 id="supported-static-layer-in-ramp">Supported static layer in RAMP</h2>
 
-<p>RAMP can display a layer as static (non interactive) layer.  It will display as an non-interactive layer on the map, and will appear in the layer selector.  Layer visibility and opacity can be adjusted.  Static layers can be re-ordered amongst themselves.  The static layer must support a projection that is compatible with the basemap being used.  </p>
+<p>RAMP can display a feature layer as a static (non interactive) layer.  It will display as an non-interactive layer on the map, and will appear in the layer selector.  Layer visibility and opacity can be adjusted.  Static layers can be re-ordered amongst any other feature layer.  The static layer must support a projection that is compatible with the basemap being used.  </p>
 
-<p>A legend can be displayed along with the static layer.  It will be displayed in the metadata panel.  If this feature is enabled, an image path can be specified.  This path can be the GetLegend request of the static layer.</p>
+<p>Clicking the static layer will not return any information, no maptip or anchored maptip will be displayed.  Features of a static layer do not appear in the data grid.</p>
 
-<p>Clicking the static layer will not return any information, no maptip or anchored maptip will be displayed.  MORE INFORMATION TO COME.</p>
+<p>Think of a static layer as an enhancement to the basemap tile.  It provides extra contextual information to the map, but is not considered to provide feature data.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
@@ -168,8 +168,7 @@ The following is an example of static layer config setting:</p>
 			<span class="p">}</span>
 		<span class="p">}</span>
 	<span class="p">},</span>
-	<span class="s2">&quot;isStatic&quot;</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
-	<span class="s2">&quot;layerType&quot;</span><span class="o">:</span><span class="s2">&quot;feature&quot;</span>
+	<span class="s2">&quot;isStatic&quot;</span><span class="o">:</span><span class="kc">true</span>
 <span class="p">}</span></code></pre></div>
 
 <p>Please note the above mentioned config settings are the required attributes for a static layer, any extra information is not used.</p>
@@ -177,7 +176,6 @@ The following is an example of static layer config setting:</p>
 <ul>
   <li>symbology This information is used to generate legend information with the imageUrl and legendText.</li>
   <li>isStatic The isStatic attribute is used by RAMP to identify the layer as static; which in turn unsubscribe to the event handlers for maptip display and datagrid generation.</li>
-  <li>layerType The layerType is used to generate appropriate static layer. They can be feature, tile or dynamic.</li>
 </ul>
 
 <p>Please refer to <a href="json-config-en.html">JSON Config Definition</a> for more information on RAMP config settings.</p>
@@ -187,7 +185,7 @@ The following is an example of static layer config setting:</p>
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-05-22</time>
+                        <time>2015-06-05</time>
                     </dd>
                 </dl>
             </main>

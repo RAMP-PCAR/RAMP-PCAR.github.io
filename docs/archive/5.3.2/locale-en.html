@@ -1,0 +1,522 @@
+
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8" />
+    <title>RAMP Localization Setup</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>-->
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        
+        <nav role="navigation" id="wb-bc" property="breadcrumb">
+            <h2>You are here:</h2>
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        
+                        
+                            
+                                <li><a href="/index-en.html">Home</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/index-en.html">Documentation</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/index-en.html">Archive</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/5.3.2/index-en.html">Documentation</a></li>
+                            
+                                                
+                        
+
+                        <li class="">RAMP Localization Setup</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                <p><a name="top"></a></p>
+
+<h1 id="wb-cont">RAMP Localization Setup</h1>
+
+<p>This document explains how RAMP handles the localization of text in different scenarios.</p>
+
+<div class="toc"></div>
+
+<h2 id="template-strings">Template Strings</h2>
+
+<h3 id="wet-strings">WET Strings</h3>
+
+<p>Read about how locale strings are loaded during the build in <a href="wet-customization-en.html#data">WET Customization</a>.</p>
+
+<p>Language-specific strings used in WET templates are stored in <strong>./lib/wet-boew/site/data/i18n</strong> - one flat file per language.</p>
+
+<p>To override, create a file name as the corresponding language and place in <strong>./site/data/i18</strong>. To augment, copy the original file from <strong>./lib/wet-boew/site/data/i18n</strong> to <strong>./site/data/i18</strong> and modify.</p>
+
+<p>To insert a string in the template, use assemble-contrib-i18n helper:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;wb-slc&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;wb-sl&quot;</span> <span class="na">href=</span><span class="s">&quot;#wb-cont&quot;</span><span class="nt">&gt;</span>{{{i18n &quot;tmpl-skip-cont&quot;}}}<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/li&gt;</span></code></pre></div>
+
+<h3 id="ramp-strings">RAMP Strings</h3>
+
+<p>Text displayed on the site and related to the content of the site is defined separately from WET strings. Specifically, the text lookups can be found in directory <strong>./src/locales</strong>. In this directory, there is a directory for each specific locale (e.g. en-CA or fr-CA for Canadian English and French), and in the specific folder there is a file called <strong>translation.json</strong> containing the strings. </p>
+
+<p>These files are used as resources for <a href="http://i18next.com/">i18next</a> localization library.</p>
+
+<p>To insert RAMP strings into Handlebars templates, use helper-i18n (deep lookup is possible):</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#implement&quot;</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+	<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;sm list-unstyled&quot;</span> <span class="na">id=</span><span class="s">&quot;implement&quot;</span> <span class="na">role=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>{{t &quot;page.menu.link1sub1Title&quot;}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>{{t &quot;page.menu.link1sub2Title&quot;}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>{{t &quot;page.menu.link1sub3Title&quot;}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>{{t &quot;page.menu.link1sub4Title&quot;}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/li&gt;</span></code></pre></div>
+
+<p>To insert a string using JS, use a global call:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">i18n</span><span class="p">.</span><span class="nx">t</span><span class="p">(</span><span class="s1">&#39;gui.actions.close&#39;</span><span class="p">);</span></code></pre></div>
+
+<h4 id="ramp-themes">RAMP Themes</h4>
+
+<p>RAMP Themes have their own localization files located in <strong>./src/locales</strong> same as RAMP Core. During build, both JSON files are merged (<strong>./src/locales/[locale]/translation.json</strong> and <strong>./lib/ramp-pcar/src/locales/[locale]/translation.json</strong>) to allow easy augmentation of defaults strings without duplication. </p>
+
+<p>Any entries in a theme repository will override an entry in the core RAMP repository.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h3 id="mega-menu-string-settings">Mega-menu String Settings</h3>
+
+<section class="alert alert-info">
+	<h3>Note</h3>
+	<p>Please, avoid modifying megamenu templates inside <strong>./lib</strong> folder. Use instructions below to properly override templates.</p>
+</section>
+
+<h4 id="ramp-core">RAMP Core</h4>
+
+<p>To configure text in the megamenu, edit the file <strong>fullmenu.hbs</strong> in folder <strong>./site/includes</strong>.</p>
+
+<p>If the file doesn’t exist, a copy may be found in folder <strong>./lib/wet-boew/site/includes/</strong>. Copy the files to <strong>./site/includes</strong> and feel free to modify the copy. Use use helper-i18n to insert strings as described above.</p>
+
+<h4 id="ramp-intranet-and-usability-themes">RAMP Intranet and Usability Themes</h4>
+
+<p>To configure text in the megamenu for RAMP Intranet and Usability these, edit the file <strong>fullmenu.hbs</strong> in folder <strong>./site/includes</strong>.</p>
+
+<p>If the file doesn’t exist, a copy may be found in folder <strong>./lib/theme-gc-intranet/site/includes/</strong> or <strong>./lib/theme-gcwu-fegc/site/includes/</strong>.  Copy the file to <strong>./site/includes</strong> and feel free to modify the copy.</p>
+
+<h4 id="ramp-canadaca-theme">RAMP Canada.ca Theme</h4>
+
+<p>To configure text in the megamenu for RAMP Intranet and Usability these, edit the files <strong>fullmenu-[locale].hbs</strong> in folder <strong>./site/includes</strong>.</p>
+
+<p>If the files don’t exist, a copy may be found in folder <strong>./lib/gcweb/site/includes/</strong>.  Copy the file to <strong>./site/includes</strong> and feel free to modify the copy.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="static-config-file-string">Static Config File String</h2>
+
+<p>To simplify maintenance of the app configuration, the RAMP source code has a single config file (config.json).  When the build process runs, two language-specific config files are generated and can be found in the build folder.  To allow these language-specific files to have the appropriate text, RAMP utilizes placeholders in the source config file that point to text elements in the locale translation files.</p>
+
+<p>Here is an example for defining the display name of a feature layer.</p>
+
+<p>In the feature object of <strong>src\config.json</strong>, we use the @@ notation followed by the JSON path of the element in the locale translation files.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;displayName&quot;</span><span class="o">:</span> <span class="s2">&quot;@@config.layers.feature.duckLayer.displayName&quot;</span>	    
+<span class="p">}</span></code></pre></div>
+
+<p>In the English locale file <strong>src\locales\en-CA\translation.json</strong></p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>        
+        <span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;feature&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;duckLayer&quot;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;displayName&quot;</span><span class="o">:</span> <span class="s2">&quot;Ducks&quot;</span>
+                <span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>In the French locale file <strong>src\locales\fr-CA\translation.json</strong></p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>        
+        <span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;feature&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;duckLayer&quot;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;displayName&quot;</span><span class="o">:</span> <span class="s2">&quot;Canards&quot;</span>
+                <span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>When the build process runs, the resultant files <strong>config.en.json</strong> and <strong>config.fr.json</strong> will have display name values “Ducks” and “Canards” respectively.</p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="advanced-tools-strings">Advanced Tools Strings</h2>
+
+<p>As the Advanced Toolbar tools act as plugins, any language displayed on tool interfaces and popups are stored in their own language file.  The convention for the file name and location is __./src/locales/<localename>/tools/<toolname>.json__.  In the tool javascript module, the language files are accessed using the [i18n library](external-libraries-en.html#i18next---i18n-for-javascript)</toolname></localename></p>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2015-06-05</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wet-customization-en.html">
+                        WET Template Customization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+				<li>
+                    <a class="list-group-item" href="feature-support-en.html">
+                        Feature Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="symbology-en.html">
+                        Symbology Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="layer-load-en.html">
+                        Layer Loading
+                    </a>
+                </li>				
+                <li><a class="list-group-item" href="user-added-data.html">User Added Data</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/index-en.html">
+                API Reference
+            </a>
+        </li>
+        <li>
+            <a class="list-group-item" href="/rcs/index-en.html">
+                RCS Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
+            $('.toc')
+                .addClass("mrgn-bttm-lg panel panel-default")
+                .toc({
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
+</body>
+</html>

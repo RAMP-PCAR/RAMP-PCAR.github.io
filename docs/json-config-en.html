@@ -628,7 +628,7 @@
     <tr>
       <td><a name="featurelayers_layerattributes"></a>layers.feature[].layerAttributes</td>
       <td>string</td>
-      <td>An array of strings which correspond to fields to include in the FeatureLayer.  If not specified, the feature layer will return the OBJECTID field and if applicable the start time field, end time field and type id field. You can specify [“*”] to fetch the values for all fields in the layer, this is useful when editing features. Associated with outfield options in ESRI FeatureLayer.</td>
+      <td>A string which correspond to attributes to be downloaded alongside the feature layer.  You can specify “<em>” to fetch all attributes in the layer.  Otherwise separate fields with commas, no spaces.  If not using default ensure you include the object id, as well as the fields required for symbology and title display.  Default value is “</em>”</td>
     </tr>
     <tr>
       <td><a name="featurelayers_templates"></a> layers.feature[].templates</td>
@@ -958,7 +958,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-05-22</time>
+                        <time>2015-06-05</time>
                     </dd>
                 </dl>
             </main>

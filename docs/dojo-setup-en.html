@@ -226,17 +226,15 @@
 
 <h3 id="map-creation">Map Creation</h3>
 
-<p>The map object is created, along with any initial map layers we want to show.  The map is initialized using the initial extent, and we load the first basemap immediately.  The following layers objects are created, an asterisk indicates it is loaded asynchronously.</p>
+<p>The map object is created, along with any initial map layers we want to show.  The map is initialized using the initial extent, and we load the first basemap immediately.  The following layers objects are created, an asterisk indicates it is loaded asynchronously (i.e. it is not added to the map at this point).</p>
 
 <ul>
+  <li>basemap layer</li>
   <li>interactive feature layers (*)</li>
   <li>static feature layers (*)</li>
   <li>WMS layers (*)</li>
-  <li>bounding box layers</li>
   <li>highlighting layers</li>
 </ul>
-
-<p>Bounding boxes are generated along with the layers to hold them, and if required the box geometry is reprojected to match the basemap.  </p>
 
 <p>See function <strong>init</strong> in module <strong>map.js</strong></p>
 
@@ -246,12 +244,12 @@
 
 <ul>
   <li>Construction and initialization of the Navigation widget</li>
-  <li>Event handlers for maptips and feature highlighting are wired up</li>
   <li>The basemap selector is initialized</li>
   <li>Construction and initialization of the Layer Selector</li>
   <li>Initialization of the Advanced Toolbar, if required</li>
   <li>Construction and initialization of the Datagrid</li>
   <li>Event handlers to update the Bookmark tool are wired up</li>
+  <li>Asynchronous layers are fed into the <a href="layer-load-en.html">layer loading process</a></li>
 </ul>
 
 <p>See function <strong>initializeMap</strong> in the bootstrapper</p>
@@ -262,7 +260,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-05-22</time>
+                        <time>2015-06-05</time>
                     </dd>
                 </dl>
             </main>

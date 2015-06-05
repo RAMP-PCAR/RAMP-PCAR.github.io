@@ -167,12 +167,17 @@
       <td style="text-align: left">AdvancedToolbar</td>
     </tr>
     <tr>
+      <td style="text-align: left">ramp/attributeLoader</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">AttributeLoader</td>
+    </tr>
+    <tr>
       <td style="text-align: left">ramp/basemapSelector</td>
       <td style="text-align: left">singleton object</td>
       <td style="text-align: left">BasemapSelector</td>
     </tr>
     <tr>
-      <td style="text-align: left">ramp/bookmarklink</td>
+      <td style="text-align: left">ramp/bookmarkLink</td>
       <td style="text-align: left">singleton object</td>
       <td style="text-align: left">BookmarkLink</td>
     </tr>
@@ -187,9 +192,14 @@
       <td style="text-align: left">DatagridClickHandler</td>
     </tr>
     <tr>
-      <td style="text-align: left">ramp/ecdmp</td>
+      <td style="text-align: left">ramp/dataLoader</td>
       <td style="text-align: left">singleton object</td>
-      <td style="text-align: left">Ecdmp</td>
+      <td style="text-align: left">DataLoader</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/dataLoaderGui</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">DataLoaderGui</td>
     </tr>
     <tr>
       <td style="text-align: left">ramp/eventManager</td>
@@ -212,6 +222,11 @@
       <td style="text-align: left">FilterManager</td>
     </tr>
     <tr>
+      <td style="text-align: left">ramp/geoSearch</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">GeoSearch</td>
+    </tr>
+    <tr>
       <td style="text-align: left">ramp/globalStorage</td>
       <td style="text-align: left">singleton object</td>
       <td style="text-align: left">GlobalStorage</td>
@@ -220,6 +235,31 @@
       <td style="text-align: left">ramp/graphicExtension</td>
       <td style="text-align: left">singleton object</td>
       <td style="text-align: left">GraphicExtension</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/gui</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">Gui</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/imageExport</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">ImageExport</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/layerGroup</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">LayerGroup</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/layerItem</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">LayerItem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/layerLoader</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">LayerLoader</td>
     </tr>
     <tr>
       <td style="text-align: left">ramp/map</td>
@@ -242,9 +282,14 @@
       <td style="text-align: left">Quickzoom</td>
     </tr>
     <tr>
-      <td style="text-align: left">ramp/ramp</td>
+      <td style="text-align: left">ramp/stepItem</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">StepItem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/theme</td>
       <td style="text-align: left">singleton object</td>
-      <td style="text-align: left">Ramp</td>
+      <td style="text-align: left">Theme</td>
     </tr>
     <tr>
       <td style="text-align: left">tools/baseTool</td>
@@ -255,6 +300,21 @@
       <td style="text-align: left">utils/array</td>
       <td style="text-align: left">utilities</td>
       <td style="text-align: left">UtilArray</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/bricks</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">Bricks</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/checkbox</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">Checkbox</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/checkboxGroup</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">CheckboxGroup</td>
     </tr>
     <tr>
       <td style="text-align: left">utils/decorator</td>
@@ -282,6 +342,16 @@
       <td style="text-align: left">UtilPrototype</td>
     </tr>
     <tr>
+      <td style="text-align: left">utils/tmplHelper</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">TmplHelper</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/tmplUtil</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">TmplUtil</td>
+    </tr>
+    <tr>
       <td style="text-align: left">utils/url</td>
       <td style="text-align: left">class</td>
       <td style="text-align: left">UtilUrl</td>
@@ -297,11 +367,11 @@
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
 <h2 id="module-architecture">Module Architecture</h2>
-<p>Why everything is singleton in RAMP:</p>
+<p>Why many modules are singleton in RAMP:</p>
 
 <ul>
   <li>There is only one map, one navigation widget, one datagrid, etc. There is no point of having an option to create two datagrids or two maps. Even if the datagrid needs a tabbing option, there may be multiple “tab” objects, but there is still only one datagrid.</li>
-  <li>Keeps code simpler. We no longer need to use “this.” everywhere. Using “this” caused a lot of problems with scope when we’re using anonymous functions (e.g. in publish/subscribe, arrayUtil.forEach, deferred.after). We need to “hitch” (using dojo/lang’s hitch function) the scope onto the function, and sometimes when there is an anonymous function nested in another anonymous function, the scoping gets tricky. Numerous times, a variable or function is unexpectedly undefined due to scoping issues. When everything is singleton, we no longer use “this”, instead we declare all the variables at the top of the file, and due to closure, the variables are always in scope.</li>
+  <li>Keeps code simpler. We no longer need to use “this.” everywhere. Using “this” caused a lot of problems with scope when we’re using anonymous functions (e.g. in publish/subscribe, arrayUtil.forEach, deferred.after). We need to “hitch” (using dojo/lang’s hitch function) the scope onto the function, and sometimes when there is an anonymous function nested in another anonymous function, the scoping gets tricky. Numerous times, a variable or function is unexpectedly undefined due to scoping issues. When something is singleton, we no longer use “this”, instead we declare all the variables at the top of the file, and due to closure, the variables are always in scope.</li>
   <li>Each Utility class only needs one instance of itself, there’s no point of having two instance of the same Utility class.</li>
   <li>Each Resource class only needs one instance of itself for the same reason.</li>
 </ul>
@@ -371,7 +441,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-05-22</time>
+                        <time>2015-06-05</time>
                     </dd>
                 </dl>
             </main>

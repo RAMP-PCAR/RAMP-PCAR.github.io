@@ -158,6 +158,16 @@
 <dl>
   <dt>ESRI Public Tiles</dt>
   <dd>ESRI provides a number of <a href="http://services.arcgisonline.com/ArcGIS/rest/services">worldwide tile sets</a> in <a href="http://spatialreference.org/ref/sr-org/esri102100/">Web Mercator Auxilliary Sphere</a> projection.  Sets include topographic, satellite imagery, street map, shaded relief, physcial, ocean, and terrain.</dd>
+</dl>
+
+<p>Note that these tiles use a special projection, in which documentation is very sparse in the ESRI Javascript API.  Tiles must use the following spatial reference definition to avoid issues (in particular, printing issues with WMS layers).</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="nx">wkid</span><span class="o">:</span> <span class="mi">102100</span><span class="p">,</span>
+    <span class="nx">latestWkid</span><span class="o">:</span> <span class="mi">3857</span>	
+<span class="p">}</span></code></pre></div>
+
+<dl>
   <dt>Natural Resources Canada Public Tiles</dt>
   <dd>NrCan provides <a href="http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps">Canadian tile sets</a> in both <a href="http://spatialreference.org/ref/sr-org/esri102100/">Web Mercator Auxilliary Sphere</a> and <a href="http://spatialreference.org/ref/sr-org/7254/">Canada Atlas Lambert</a> projections.  Tiles are provided in both English and French versions.  Sets include topographic, road network, text labels, water bodies, and provinces.</dd>
 </dl>
@@ -167,7 +177,7 @@
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-05-22</time>
+                        <time>2015-06-05</time>
                     </dd>
                 </dl>
             </main>

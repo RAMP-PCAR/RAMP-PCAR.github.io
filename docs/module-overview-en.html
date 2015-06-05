@@ -164,6 +164,21 @@
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
+<h2 id="attributeLoader">ramp/attributeLoader</h2>
+
+<p>Manages the downloading, transformation, and storage of attribute data for map features.  Allows for attribute data to be downloaded independently of the map layers, making it easier to support both snapshot and on-demand feature layers.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/AttributeLoader.html">AttributeLoader</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="basemapselector">ramp/basemapSelector</h2>
 
 <p>Manages the widget that allows the user to change the basemap. Utilizes the <a href="https://developers.arcgis.com/javascript/jsapi/basemap-amd.html">esri.dijit.Basemap</a> dijit.  Populates the widget with basemaps from the config.  If user changes to a basemap in a different projection or tile scheme, the site will reload to allow the map to re-initialize to the new scheme.</p>
@@ -310,6 +325,36 @@ of the default behaviour.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
+<h2 id="dataLoader">ramp/dataLoader</h2>
+
+<p>Methods for supporting user added layers. Includes importing logic for various file types (GeoJSON, Shapefile, CSV) and support for user supplied services, such as symbology generators.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/DataLoader.html">DataLoader</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="dataLoaderGui">ramp/dataLoaderGui</h2>
+
+<p>Controls the interface for the add layer choice-tree. Includes the allowable choice flows and input presentation &amp; validation.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/DataLoaderGui.html">DataLoaderGui</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="eventmanager">ramp/eventManager</h2>
 
 <p>The module defines event names as constants to avoid typing errors.</p>
@@ -399,7 +444,7 @@ of the default behaviour.</p>
 
 <p>The module implements the generation of the filter control, and implements the filtering.</p>
 
-<p>There is only layer-level filtering in the Arctic Fox version of RAMP. I.e. a layer can be on or off.  Future versions plan to include more granular filtering, such as by-attribute filters.</p>
+<p>There is currently only layer-level filtering in RAMP. I.e. a layer can be on or off.  Future versions plan to include more granular filtering, such as by-attribute filters.</p>
 
 <p>The following actions are performed by the module</p>
 
@@ -412,7 +457,7 @@ of the default behaviour.</p>
       <li>When opacity is set to 0.0, the layer is toggled invisible</li>
       <li>When opacity is set to 0.1 - 0.99, the layer is toggled visible (if it was invisible before)</li>
       <li>When a layer is toggled invisible, the opacity slider control is “greyed out”</li>
-      <li>WHen a layer is toggled visible, the opacity slider control is restored to normal appearance</li>
+      <li>When a layer is toggled visible, the opacity slider control is restored to normal appearance</li>
       <li>When a layer is toggled visible, the opacity slider control is set to 1.0 (only if it was set to 0.0)</li>
     </ul>
   </li>
@@ -458,6 +503,44 @@ of the default behaviour.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
+<h2 id="geoSearch">ramp/geoSearch</h2>
+
+<p>The module provides functions to use the <a href="http://www.nrcan.gc.ca/earth-sciences/geography/place-names/tools-applications/9249">GeoNames</a> and <a href="http://geogratis.gc.ca/site/eng/geoloc">GeoLocations</a> services available from <a href="http://geogratis.cgdi.gc.ca/">GeoGratis</a>. It takes a search string (including a fragment as the string is typed) along with optional search parameters and returns matches and suggestions, along with map co-ordinates for those suggestions. The module also pre-downloads domain-of-values lists for <a href="http://geogratis.gc.ca/services/geoname/en/codes/province/">Province</a> and <a href="http://geogratis.gc.ca/services/geoname/en/codes/concise/">Concise</a> codes.</p>
+
+<p>The module supports </p>
+
+<ul>
+  <li>Name search
+    <ul>
+      <li>Filter by Province</li>
+      <li>Filter by Concise Code</li>
+      <li>Fitler by Map Extent</li>
+      <li>Suggestions for Spelling Mistakes</li>
+    </ul>
+  </li>
+  <li>Forward Sorting Area search
+    <ul>
+      <li>Filter by Radius</li>
+    </ul>
+  </li>
+  <li>Lat Long search
+    <ul>
+      <li>Filter by Radius</li>
+    </ul>
+  </li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/GeoSearch.html">GeoSearch</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="globalstorage">ramp/globalStorage</h2>
 
 <p>The module defines global items to make things easier to share across modules.  We place location specific string here (e.g. a configuration server URL), so this servers as the spot to tweak when moving the application to a different environment.  Implementers can also add items to this module on the fly.</p>
@@ -475,7 +558,7 @@ of the default behaviour.</p>
 
 <h2 id="graphicextension">ramp/graphicExtension</h2>
 
-<p>The module contains helper functions for <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html">graphic</a> objects.  E.g. get objectId, get layer, get detail text</p>
+<p>The module contains helper functions for <a href="https://developers.arcgis.com/javascript/jsapi/graphic-amd.html">graphic</a> objects and Feature Data objects.  E.g. get objectId, get layer, get detail text</p>
 
 <table>
   <tbody>
@@ -521,11 +604,77 @@ of the default behaviour.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
+<h2 id="imageExport">ramp/imageExport</h2>
+
+<p>The module contains logic to generate an image file based on the current map view using an ESRI ArcGIS Server <a href="http://resources.arcgis.com/en/help/rest/apiref/index.html?exportwebmap_spec.html">Export Web Map Task</a></p>
+
+<p>There image export currently does not support imagery that is not hosted on a public map server (e.g. file-based layers,  bounding box graphics).</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/ImageExport.html">ImageExport</a></td>
+    </tr>
+    <tr>
+      <td><strong>Relevant Configuration Nodes</strong></td>
+      <td><a href="json-config-en.html#featurelayers_templates_detail">featureLayers[].templates.detail</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="layerGroup">ramp/layerGroup</h2>
+
+<p>A class for managing groups of layers in the layer selector.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/LayerGroup.html">LayerGroup</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="layerItem">ramp/layerItem</h2>
+
+<p>A class for managing a layer in the layer selector. Controls the look and available controls for a layer based on its current state.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/LayerItem.html">LayerItem</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="layerLoader">ramp/layerLoader</h2>
+
+<p>Handles the loading and state changes of layers. This includes the insertion of layers into the map, and reacting to update and error events. Also contains logic to remove and reload layers.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/LayerLoader.html">LayerLoader</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
 <h2 id="map">ramp/map</h2>
 
-<p>The map module generates the map control and adds layers to the map, as defined in the configuration.</p>
+<p>The map module generates the map control and layer objects, and initiates the adding of layers to the map. It also generates and hosts the scale bar.</p>
 
-<p>It also generates and hosts the scale bar.</p>
+<p>Other map related functions can be found in this module, including layer re-ordering, client-side extent projection, layer visiblility management, zooming and re-centering, boundary checks, as well as applying numerous event listeners and re-publishers.</p>
 
 <p><strong>Relevant Sequence Diagrams</strong></p>
 
@@ -543,7 +692,22 @@ of the default behaviour.</p>
     </tr>
     <tr>
       <td><strong>Relevant Configuration Nodes</strong></td>
-      <td><a href="json-config-en.html#basemaps_showoninit">basemaps[].showOnInit</a> <br /> <a href="json-config-en.html#basemaps_url">basemaps[].url</a> <br /> <a href="json-config-en.html#extents">extents</a> <br /> <a href="json-config-en.html#featurelayers_url">featureLayers[].url</a> <br /> <a href="json-config-en.html#featurelayers_layerattributes">featureLayers[].layerAttributes</a> <br /> <code>featureLayers[].staticLayers</code> <br /> <a href="json-config-en.html#levelofdetails_minlevel">levelOfDetails.minLevel</a> <br /> <a href="json-config-en.html#levelofdetails_maxlevel">levelOfDetails.maxLevel</a> <br /> <a href="json-config-en.html#spatialreference">spatialReference</a></td>
+      <td><a href="json-config-en.html#basemaps_showoninit">basemaps[].showOnInit</a> <br /> <a href="json-config-en.html#basemaps_url">basemaps[].url</a> <br /> <a href="json-config-en.html#extents">extents</a> <br /> <a href="json-config-en.html#featurelayers_url">featureLayers[].url</a> <br /> <a href="json-config-en.html#featurelayers_layerattributes">featureLayers[].layerAttributes</a> <br /> <a href="json-config-en.html#levelofdetails_minlevel">levelOfDetails.minLevel</a> <br /> <a href="json-config-en.html#levelofdetails_maxlevel">levelOfDetails.maxLevel</a> <br /> <a href="json-config-en.html#spatialreference">spatialReference</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="mapClickHandler">ramp/mapClickHandler</h2>
+
+<p>The module reacts to clicks on the map, which represents clicks on a WMS layer. It triggers the calling and results presentation of WMS feature info requests.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/MapClickHandler.html">MapClickHandler</a></td>
     </tr>
   </tbody>
 </table>
@@ -614,7 +778,7 @@ of the default behaviour.</p>
 
 <p>Quick zoom widget is populated with target items, will zoom the map when an item is selected</p>
 
-<p>THIS ITEM IS UNDER CONSIDERATION FOR COMPLETE OVERHAUL</p>
+<p>THIS ITEM IS UNDER CONSIDERATION FOR COMPLETE OVERHAUL OR REMOVAL</p>
 
 <p>NOTE: Depends on one of our quickzoom services.  These will be on public production after 10.1 migration.</p>
 
@@ -635,15 +799,30 @@ of the default behaviour.</p>
 
 <p class="text-right"><a href="#top">Back To Top</a></p>
 
-<h2 id="ramp">ramp/ramp</h2>
+<h2 id="stepItem">ramp/stepItem</h2>
 
-<p>The map module contains shared functions used by RAMP.  In particular, it houses functions that depend on the configuration object.</p>
+<p>A class to support a choice-tree step in the data loader workflow.</p>
 
 <table>
   <tbody>
     <tr>
       <td><strong>API Page</strong></td>
-      <td><a href="../api/yuidoc/classes/RAMP.html">RAMP</a></td>
+      <td><a href="../api/yuidoc/classes/StepItem.html">StepItem</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="theme">ramp/theme</h2>
+
+<p>Contains logic targeted at specific WET Themes, such as the full-screen animation sequences.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>API Page</strong></td>
+      <td><a href="../api/yuidoc/classes/Theme.html">Theme</a></td>
     </tr>
   </tbody>
 </table>
@@ -653,7 +832,7 @@ of the default behaviour.</p>
                 <dl id="wb-dtmd" property="dateModified">
                     <dt>Date modified:&#32;</dt>
                     <dd>
-                        <time>2015-05-22</time>
+                        <time>2015-06-05</time>
                     </dd>
                 </dl>
             </main>
