@@ -1,4 +1,4 @@
-/*! ramp-theme-usability 10-06-2015 17:29:32 : v. 5.4.0-ckan 
+/*! ramp-theme-usability 10-06-2015 18:11:10 : v. 5.4.0-ckan 
  * 
  * RAMP GIS viewer - Groundhog; Sample of an implementation of RAMP with Usability Theme 
  **/
