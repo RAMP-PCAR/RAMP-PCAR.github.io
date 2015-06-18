@@ -1,4 +1,4 @@
-/*! ramp-theme-canada 10-06-2015 17:57:45 : v. 5.4.0-ckan 
+/*! ramp-theme-canada 18-06-2015 17:47:11 : v. 5.4.0-ckan 
  * 
  * RAMP GIS viewer - Groundhog; Sample of an implementation of RAMP with Canada.ca Theme 
  **/
