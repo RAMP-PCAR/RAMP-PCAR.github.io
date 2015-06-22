@@ -1,0 +1,700 @@
+
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8" />
+    <title>Naming Conventions</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+    <meta name="author" content="Environment Canada">
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="/assets/themes/gc/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/wet-boew.min.css" />
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/assets/themes/gc/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/extra.css" />
+    <link rel="stylesheet" href="/assets/themes/gc/css/pygments.css" />
+    <!--[if lt IE 9]><link href="./assets/favicon.ico" rel="shortcut icon" /> <link rel="stylesheet" href="./css/ie8-wet-boew.min.css" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="./js/ie8-wet-boew.min.js"></script><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="/assets/themes/gc/css/noscript.min.css" />
+    </noscript>
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <ul id="wb-tphp">
+        <li class="wb-slc">
+            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+        </li>
+        <li class="wb-slc visible-md visible-lg">
+            <a class="wb-sl" href="#wb-info">Skip to site information</a>
+        </li>
+    </ul>
+    <header role="banner">
+        <div id="wb-bnr">
+            <div id="wb-bar">
+                <div class="container">
+                    <div class="row">
+                        <!--<section id="wb-lng" class="visible-md visible-lg">
+                            <h2>Language selection</h2>
+                            <ul class="text-right">
+                                <li>
+                                    <a lang="fr" hreflang="fr" href="index-fr.html">Français</a>
+                                </li>
+                                <li class="curr">
+                                    English&#32;<span>(current)</span>
+                                </li>
+                            </ul>
+                        </section>-->
+                        <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+                            <h2>Menu</h2>
+                            <ul class="pnl-btn list-inline text-right">
+                                <li>
+                                    <a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk btn btn-xs btn-default" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a>
+                                </li>
+                            </ul>
+                            <div id="mb-pnl"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div id="wb-sttl" class="col-md-8">
+                        <a href="/index-en.html">
+                            <img src="/assets/themes/gc/assets/bobcat_logo_sharp_smaller_s_white.png" alt="RAMP logo" /> <span>
+                                Reusable Accessible Mapping Platform<span class="wb-inv">, </span><small>An open source project led by an award winning team of web mapping developers</small>
+                            </span>
+                        </a>
+                    </div>
+                    <section id="wb-srch" class="col-md-4 visible-md visible-lg">
+                        <h2>Search</h2>
+                        <form action="https://google.ca/search" method="get" role="search" class="form-inline">
+                            <div class="form-group">
+                                <label for="wb-srch-q">Search website</label>
+                                <input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+                                <input type="hidden" name="q" value="site:/ OR site:github.com/RAMP-PCAR/" />
+                            </div>
+                            <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <nav role="navigation" id="wb-sm" data-ajax-fetch="/assets/themes/gc/ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <div class="container nvbar">
+                <h2>Site menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/index-en.html" class=" item">RAMP Project</a></li>
+                        <li><a href="/demos/index-en.html" class="item">Using RAMP</a></li>
+                        <li><a href="/docs/index-en.html" class="item">RAMP Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        
+        <nav role="navigation" id="wb-bc" property="breadcrumb">
+            <h2>You are here:</h2>
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        
+                        
+                            
+                                <li><a href="/index-en.html">Home</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/index-en.html">Documentation</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/index-en.html">Archive</a></li>
+                            
+                                                
+                        
+                        
+                            
+                                <li><a href="/docs/archive/5.4.0/index-en.html">Documentation</a></li>
+                            
+                                                
+                        
+
+                        <li class="">Naming Conventions</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="row">
+
+            <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+                
+<p><a name="top"></a></p>
+
+<h1 id="wb-cont">RAMP Naming Conventions</h1>
+
+<section class="alert alert-info">
+    <h2 class="h3">Work in progress</h2>
+    <p>This page is a work in progress and requires review. Please <a href="https://github.com/ramp-pcar/RAMP-PCAR.github.io/issues/new" target="_blank">file an issue</a> if information or coding is missing, incorrect or out of sync with the main repository <a href="https://github.com/ramp-pcar/ramp-pcar" target="_blank">(ramp-pcar/ramp-pcar)</a>.</p>
+</section>
+
+<div class="toc"></div>
+
+<dl>
+  <dt>Resource dictionary</dt>
+  <dd>a singleton object that only contain read-only fields (in C# or Java, these would be classes that cannot be instantiated and only contain public static fields)</dd>
+  <dt>Utilities</dt>
+  <dd>a singleton object that contain useful functions but does not contain any fields (in C# or Java, these would be classes that cannot be instantiated and only contain public static functions)</dd>
+  <dt>Singleton object</dt>
+  <dd>a singleton object that contains both fields and functions (in C# or Java, these would be classes that cannot be instantiated, have static fields, and static functions). These are the only objects can have states that change over time (e.g. Map can have different extents, Datagrid can have different points, whereas the Resource dictionary never changes, neither do the Utility classes).</dd>
+  <dt>Baseclass</dt>
+  <dd>a module that is inherited (via mixin) by other modules, providing common functions to the inheritors.</dd>
+</dl>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Module Path</th>
+      <th style="text-align: left">Return Type</th>
+      <th style="text-align: left">Preferred Arg Alias</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ramp/advancedToolbar</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">AdvancedToolbar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/attributeLoader</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">AttributeLoader</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/basemapSelector</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">BasemapSelector</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/bookmarkLink</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">BookmarkLink</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/datagrid</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">Datagrid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/datagridClickHandler</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">DatagridClickHandler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/dataLoader</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">DataLoader</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/dataLoaderGui</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">DataLoaderGui</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/eventManager</td>
+      <td style="text-align: left">resource dictionary</td>
+      <td style="text-align: left">EventManager</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/featureClickHandler</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">FeatureClickHandler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/featureHighlighter</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">FeatureHighlighter</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/filterManager</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">FilterManager</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/geoSearch</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">GeoSearch</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/globalStorage</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">GlobalStorage</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/graphicExtension</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">GraphicExtension</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/gui</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">Gui</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/imageExport</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">ImageExport</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/layerGroup</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">LayerGroup</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/layerItem</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">LayerItem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/layerLoader</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">LayerLoader</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/map</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">Map</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/maptips</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">Maptips</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/navigation</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">Navigation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/quickzoom</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">Quickzoom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/stepItem</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">StepItem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ramp/theme</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">Theme</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tools/baseTool</td>
+      <td style="text-align: left">baseclass</td>
+      <td style="text-align: left">BaseTool</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/array</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">UtilArray</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/bricks</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">Bricks</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/checkbox</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">Checkbox</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/checkboxGroup</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">CheckboxGroup</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/decorator</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">Decorator</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/dictionary</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">UtilDict</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/functionMangler</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">FunctionMangler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/popupManager</td>
+      <td style="text-align: left">? (singleton or utilities)</td>
+      <td style="text-align: left">PopupManager</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/prototype</td>
+      <td style="text-align: left">singleton object</td>
+      <td style="text-align: left">UtilPrototype</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/tmplHelper</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">TmplHelper</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/tmplUtil</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">TmplUtil</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/url</td>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">UtilUrl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utils/util</td>
+      <td style="text-align: left">utilities</td>
+      <td style="text-align: left">UtilMisc</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="module-architecture">Module Architecture</h2>
+<p>Why many modules are singleton in RAMP:</p>
+
+<ul>
+  <li>There is only one map, one navigation widget, one datagrid, etc. There is no point of having an option to create two datagrids or two maps. Even if the datagrid needs a tabbing option, there may be multiple “tab” objects, but there is still only one datagrid.</li>
+  <li>Keeps code simpler. We no longer need to use “this.” everywhere. Using “this” caused a lot of problems with scope when we’re using anonymous functions (e.g. in publish/subscribe, arrayUtil.forEach, deferred.after). We need to “hitch” (using dojo/lang’s hitch function) the scope onto the function, and sometimes when there is an anonymous function nested in another anonymous function, the scoping gets tricky. Numerous times, a variable or function is unexpectedly undefined due to scoping issues. When something is singleton, we no longer use “this”, instead we declare all the variables at the top of the file, and due to closure, the variables are always in scope.</li>
+  <li>Each Utility class only needs one instance of itself, there’s no point of having two instance of the same Utility class.</li>
+  <li>Each Resource class only needs one instance of itself for the same reason.</li>
+</ul>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+<h2 id="additional-coding-conventions">Additional Coding Conventions</h2>
+
+<p>We recommend using <a href="http://www.codemaid.net/">CodeMaid</a> to clean up javascript files.  This will ensure they have consistant spacing, indenting, etc.  It is also available as a <a href="http://visualstudiogallery.msdn.microsoft.com/76293c4d-8c16-4f4a-aee6-21f83a571496">Visual Studio Plugin</a></p>
+
+<p>All javascript should conform to <a href="http://www.jshint.com/docs/options/">JSHint</a> rules, with the following configuration options enabled</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Enforce</span>
+
+<span class="nx">bitwise</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">camelcase</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">curly</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">eqeqeq</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">es3</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">forin</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">freeze</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">immed</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">indent</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">latedef</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">newcap</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">noarg</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">noempty</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">nonew</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">plusplus</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">quotmark</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">undef</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">unused</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">strict</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">trailing</span><span class="o">:</span> <span class="kc">true</span>
+
+<span class="c1">// Relax</span>
+
+<span class="nx">asi</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">boss</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">debug</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">eqnull</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">esnext</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">evil</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">funcscope</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">gcl</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">globalstrict</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">iterator</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">lastsemic</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">laxbreak</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">laxcomma</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">loopfunc</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">maxerr</span><span class="o">:</span> <span class="mi">50</span>
+<span class="nx">moz</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">multistr</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">notypeof</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">proto</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">scripturl</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">smarttabs</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">shadow</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">sub</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">supernew</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">validthis</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">noyield</span><span class="o">:</span> <span class="kc">false</span></code></pre></div>
+
+<p class="text-right"><a href="#top">Back To Top</a></p>
+
+                <dl id="wb-dtmd" property="dateModified">
+                    <dt>Date modified:&#32;</dt>
+                    <dd>
+                        <time>2015-06-22</time>
+                    </dd>
+                </dl>
+            </main>
+
+            ﻿<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+
+    <h2>
+        RAMP Documentation - Table of Contents
+    </h2>
+
+    <ul class="list-group menu list-unstyled">
+
+        <li>
+
+            <h3 class="wb-navcurr">
+                Table of Contents
+            </h3>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="started-en.html">
+                Getting Started
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="quick-start-en.html">
+                        Quick Start Guide
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item item" href="ramp-customization-intro-en.html">
+                Customization Introduction
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="json-config-en.html">
+                        JSON Config Definition
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-guide-en.html">
+                        Templating Guide
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-example-en.html">
+                        Template Example
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="template-summary-en.html">
+                        Template Summary
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="proxy.html">
+                        Proxy Configuration
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="add-new-module.html">
+                        Add New Module
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wet-customization-en.html">
+                        WET Template Customization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="locale-en.html">
+                        Localization
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="architecture-overview-en.html">
+                Architecture Overview
+            </a>
+
+            <ul class="list-group list-unstyled">
+
+                <li>
+                    <a class="list-group-item" href="dojo-setup-en.html">
+                        Initialization
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="namingconventions-en.html">
+                        Naming Conventions
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="module-overview-en.html">
+                        Module Overview
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="external-libraries-en.html">
+                        External Library Implementations
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="build-tool-en.html">
+                        Build Tool
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="configuration-flow-en.html">
+                        Configuration Workflow
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="basemap-support-en.html">
+                        Basemap Support
+                    </a>
+                </li>
+				<li>
+                    <a class="list-group-item" href="feature-support-en.html">
+                        Feature Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="wms-support-en.html">
+                        WMS Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="advanced-toolbar-en.html">
+                        Advanced Toolbar
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="static-layer-support-en.html">
+                        Static Layer Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="symbology-en.html">
+                        Symbology Support
+                    </a>
+                </li>
+                <li>
+                    <a class="list-group-item" href="layer-load-en.html">
+                        Layer Loading
+                    </a>
+                </li>				
+                <li><a class="list-group-item" href="user-added-data.html">User Added Data</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="/api/index-en.html">
+                API Reference
+            </a>
+        </li>
+        <li>
+            <a class="list-group-item" href="/rcs/index-en.html">
+                RCS Reference
+            </a>
+        </li>
+
+        <li>
+            <a class="list-group-item" href="known-issues-en.html">
+                Known Issues
+            </a>
+        </li>
+    </ul>
+</nav>
+
+        </div>
+    </div>
+
+    <footer role="contentinfo" id="wb-info" class="container visible-sm visible-md visible-lg wb-navcurr">
+        <nav role="navigation" class="row">
+            <h2>Site information</h2>
+            <section class="col-sm-4">
+                <h3>About</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/index-en.html">About RAMP</a>
+                    </li>
+                    <li>
+                        <a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>Contact us</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/issues/new">Questions or comments?</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="col-sm-4">
+                <h3>News</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/pulse">Recent project activity</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RAMP-PCAR/RAMP-PCAR/graphs">Project statistics</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </footer>
+    
+    <!--[if gte IE 9 | !IE ]><!-->
+
+    <script src="/assets/themes/gc/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]><script src="./js/ie8-wet-boew2.min.js"></script><![endif]-->
+
+    <script src="/assets/themes/gc/js/extra.js"></script>
+    <script src="/assets/themes/gc/js/toc.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (location.pathname.indexOf("/ramp-pcar-docs/") !== -1) {
+                $("body").append('<img src="/assets/images/ramp_docs_edge.png" class="ribbon">');
+            }
+
+            $('.toc')
+                .addClass("mrgn-bttm-lg panel panel-default")
+                .toc({
+                    title: '<header class="panel-heading"><h2 class="panel-title">Table of contents</h2></header>',
+                    listType: 'ul',
+                    selector: 'h2, h3, h4, h5, h6, .include_toc',
+                    showSpeed: 0
+                });
+        });
+    </script>
+</body>
+</html>
