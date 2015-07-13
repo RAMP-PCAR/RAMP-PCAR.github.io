@@ -51,7 +51,8 @@ git clone -b $targetBranch $targetRepo ../ramp-docs-dist
 
 cwd=$(pwd)
 cd ../ramp-docs-dist
-git rm -r .
+# remove files and suppress output
+git rm -r -q . 
 git checkout $targetBranch ./demos
 git checkout $targetBranch ./api
 
